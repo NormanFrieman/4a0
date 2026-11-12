@@ -1,0 +1,120 @@
+# Benchmarks — Fase 0
+
+Máquina de desenvolvimento: Windows 11, 12 núcleos lógicos, Node 22.17, onnxruntime-node 1.31.1, maia3-js 0.2.0.
+
+## Servidor (Node) — `pnpm engine:bench`
+
+Partidas Maia×Maia a 1500, temperatura 1. Latência = uma chamada `chooseMove` (inclui reconstrução do histórico pelo maia3-js e o nosso sorteio). O tempo de carga do 23M/79M inclui o download inicial do Hugging Face.
+
+| Variante | Carga | p50/lance | p95/lance | RSS após carga |
+| --- | --- | --- | --- | --- |
+| 5M (embutida) | 0,5 s | 20 ms | 27 ms | +60 MB |
+| 5M, 1 thread ORT | 0,5 s | 23 ms | 27 ms | +59 MB |
+| 23M | 4,9 s* | 31 ms | 39 ms | +133 MB |
+| 79M | 21 s* | 62 ms | 70 ms | +329 MB |
+
+\* inclui download. Os modelos baixados ficam em cache em `models/` na raiz do repositório (ignorado pelo git; configurável com `MAIA3_MODEL_DIR`).
+
+Vazão com paralelismo de partidas (10 workers, 1 thread ORT cada, 5M): ~0,7 s por partida completa → ~5 000 partidas/hora numa máquina de 12 núcleos.
+
+Conclusões:
+
+- O 5M é rápido o suficiente para o MVP com folga: uma partida inteira de IA (≈80 meios-lances) custa ~2 s de CPU, contra ~10 min de relógio simulado.
+- Escalar por partidas paralelas (1 thread por worker) rende mais que dar várias threads a uma partida.
+
+## Navegador — página `/spike`
+
+`pnpm --filter @chesscity/web dev` e abrir `http://localhost:5173/spike`. Os números abaixo devem ser preenchidos em notebook e celular médios ("Copiar métricas").
+
+| Dispositivo | Variante | Download | Init sessão | 1º lance | p50/lance | p95/lance | Heap JS |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Desktop dev (12 núcleos, Chrome 157, isolado†) | 5M (22 MB) | 4,4 s | 3,0 s | 231 ms | 55 ms | 72 ms | 54 MB |
+| Notebook médio | 5M | _a medir_ | | | | | |
+| Celular médio | 5M | _a medir_ | | | | | |
+| Desktop dev | 23M | _a medir_ | | | | | |
+
+† Medido **enquanto a validação rodava em 10 workers** no mesmo PC: a latência provavelmente está inflada. Repetir com a máquina ociosa. A partida (134 meios-lances) levou 8,6 s.
+
+Leitura inicial: no navegador, o 5M é ~2,7× mais lento por lance que no Node, mas ainda bem abaixo do necessário para replay, análise e treino livre (GDD §10.6). O custo real está na primeira carga (~7 s entre download e inicialização). Nas visitas seguintes, o download sai do Cache Storage.
+
+## Validação de força (GDD §12.1) — `pnpm engine:validate`
+
+Maia-3 5M, 200 partidas por célula, cores alternadas, sementes `validate/<célula>/t<T>/<n>`. Margem de ~±6 p.p. por célula. Dados brutos em `bench-results/`.
+
+### Rating vs força (temperatura 1, top-p 1)
+
+| Faixa | +0 | +100 (esp. 64%) | +200 (esp. 76%) | +400 (esp. 91%) | Δ efetivo do +400 | Empates |
+| --- | --- | --- | --- | --- | --- | --- |
+| 900 | 45,3% | 54,5% | 68,3% | 82,8% | ~270 | ~11% |
+| 1500 | 52,0% | 53,8% | 64,3% | 73,5% | ~180 | ~10% |
+| 2100 | 53,5% | 54,0% | 58,5% | 69,3% | ~140 | ~11% |
+
+Nenhuma partida chegou à adjudicação (média de 64 a 99 meios-lances).
+
+**Conclusão:** o rating é monotônico (mais rating = mais pontos), mas a escala sai **comprimida**: só ~35–70% da diferença nominal aparece no resultado, e a compressão piora nas faixas altas. **Não atende** ao critério de saída da Fase 0 com T=1.
+
+### Estilo: sólido (T=0,6) vs criativo (T=1,1), mesmo rating
+
+| Faixa | Pontuação do sólido | Δ efetivo |
+| --- | --- | --- |
+| 900 | 80,5% | ~+250 |
+| 1500 | 83,8% | ~+285 |
+| 2100 | 78,0% | ~+220 |
+
+**Conclusão:** a temperatura pesa mais que o próprio rating. Entre dois enxadristas de mesmo rating, a diferença de temperatura (0,6 vs 1,1) vale ~250 pontos, mais do que 400 pontos de rating nominal em 2100. Duas consequências:
+
+1. **A compressão vem, pelo menos em boa parte, do sorteio com T=1.** O ruído dos lances improváveis nivela os jogadores. Hipótese a testar: com temperatura menor, a escala de rating se abre.
+2. **O atributo Estilo, como está em `balance.ts`, quebra o balanceamento.** Um enxadrista "sólido" seria muito mais forte que um "criativo" do mesmo rating. A faixa de temperaturas precisa ser bem mais estreita, ou o Estilo precisa compensar no `selfElo`.
+
+### Hipóteses testadas: temperatura e tamanho do modelo
+
+Faixas 1500 e 2100, 150 partidas por célula (±7 p.p.). Pontuação do mais forte:
+
+| Configuração | 1500 +200 | 1500 +400 | 2100 +200 | 2100 +400 |
+| --- | --- | --- | --- | --- |
+| Esperado (Elo) | 76% | 91% | 76% | 91% |
+| 5M, T=1,0 | 64% | 74% | 59% | 69% |
+| 5M, T=0,8 | 60% | 73% | 60% | 70% |
+| 5M, T=0,6 | 53% | 73% | 54% | 64% |
+| 23M, T=1,0 | 62% | 72% | 57% | 72% |
+
+**Conclusão:** nem baixar a temperatura nem usar o modelo 23M abre a escala. A compressão é uma característica do condicionamento por rating do Maia-3. A temperatura desloca a força absoluta, mas não amplia as diferenças de rating. **Decisão: manter o 5M** (mais rápido e menor) e calibrar uma curva rating do jogo → parâmetros da engine (`pnpm engine:ladder`).
+
+### Escada de calibração (5M) — força real por `selfElo` e temperatura
+
+25 pares × 200 partidas (5 000 partidas). Ratings ajustados por máxima verossimilhança (`calibration/fitElo.ts`). A escala é relativa; aqui ancorada para que o Maia 1500 a T=1 valha **1500 real**.
+
+| `selfElo` | T | Força real | Δ para o nível anterior |
+| --- | --- | --- | --- |
+| 600 | 1,3 | ~770 | — |
+| 600 | 1,0 | ~965 | +195 |
+| 800 | 1,0 | ~1125 | +158 |
+| 1000 | 1,0 | ~1255 | +133 |
+| 1200 | 1,0 | ~1370 | +116 |
+| 1400 | 1,0 | ~1465 | +95 |
+| 1600 | 1,0 | ~1535 | +67 |
+| 1800 | 1,0 | ~1630 | +97 |
+| 2000 | 1,0 | ~1710 | +78 |
+| 2200 | 1,0 | ~1780 | +71 |
+| 2400 | 1,0 | ~1850 | +71 |
+| 2600 | 1,0 | ~1870 | +21 |
+| 2600 | 0,8 | ~1995 | +124 |
+| 2600 | 0,6 | ~2065 | +71 |
+
+Leitura:
+
+- No T=1, os 2 000 pontos nominais (600–2600) valem só **~900 pontos reais**. A compressão é suave embaixo (~80% abaixo de 1200) e forte em cima (~35% acima de 1600), com saturação entre 2400 e 2600.
+- A temperatura estende a faixa: **+~200 no topo** (2600 a T=0,6) e **−~195 na base** (600 a T=1,3). A faixa total alcançável fica em **~770–2065, cerca de 1 300 pontos reais**.
+- Não existe mapeamento que faça a faixa nominal de 2 000 pontos se comportar como Elo: falta alcance. **Decisão:** o rating do jogo passa a ser a força real (escala 800–2050), convertida em parâmetros da engine pela tabela `engineCalibration` (GDD §4).
+
+### Verificação da escala calibrada — `pnpm engine:validate --game`
+
+Ratings do jogo convertidos via `engineCalibration`, com sementes novas (independentes da escada), 200 partidas por célula:
+
+| Faixa | +0 (esp. 50%) | +200 (esp. 76%) | +400 (esp. 91%) |
+| --- | --- | --- | --- |
+| 1000 | 54,0% | 73,5% | 90,5% |
+| 1400 | 47,0% | 74,5% | 87,8% |
+| 1800 | 49,0% | 76,0% | 88,0% |
+
+**Todas as células estão dentro da margem de erro (±4–7 p.p.) da curva Elo.** O critério de saída da Fase 0 (GDD §12.1) é atendido com a escala calibrada.
