@@ -1,0 +1,63 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #1d1d1f;
+  background: #f5f4f0;
+}
+body {
+  margin: 0;
+}
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+.spike {
+  display: grid;
+  grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .spike {
+    grid-template-columns: 1fr;
+  }
+}
+.board {
+  width: 100%;
+  aspect-ratio: 1;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+.controls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  gap: 2px;
+}
+.controls input,
+.controls select {
+  width: 90px;
+  padding: 4px;
+}
+button {
+  padding: 6px 14px;
+  cursor: pointer;
+}
+table.metrics {
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+table.metrics td {
+  padding: 3px 10px 3px 0;
+  border-bottom: 1px solid #ddd;
+}
+.status {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #555;
+}
