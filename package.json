@@ -1,0 +1,29 @@
+{
+  "name": "chesscity",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "engine:play": "pnpm --filter @chesscity/engine play",
+    "engine:validate": "pnpm --filter @chesscity/engine validate",
+    "engine:bench": "pnpm --filter @chesscity/engine bench",
+    "engine:ladder": "pnpm --filter @chesscity/engine ladder"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.0.0",
+    "eslint": "^10.14.0",
+    "prettier": "^3.10.1",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.72.2",
+    "vitest": "^5.1.0"
+  }
+}

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+*.log
+.env
+.env.*
+!.env.example
+
+# Model weights (downloaded/cached, never committed)
+*.onnx
+models/
+
+# Benchmark / validation outputs
+bench-results/
+
+.DS_Store
+Thumbs.db
