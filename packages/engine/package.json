@@ -1,0 +1,29 @@
+{
+  "name": "@chesscity/engine",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./node": "./src/node.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "play": "tsx src/cli/play.ts",
+    "validate": "tsx src/cli/validate.ts",
+    "bench": "tsx src/cli/bench.ts",
+    "ladder": "tsx src/cli/ladder.ts"
+  },
+  "dependencies": {
+    "@chesscity/shared": "workspace:*",
+    "chess.js": "^1.4.0",
+    "maia3-js": "0.2.0"
+  },
+  "optionalDependencies": {
+    "onnxruntime-node": "^1.31.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15"
+  }
+}
