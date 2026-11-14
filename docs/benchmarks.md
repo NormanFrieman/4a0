@@ -24,7 +24,7 @@ Conclusões:
 
 ## Navegador — página `/spike`
 
-`pnpm --filter @chesscity/web dev` e abrir `http://localhost:5173/spike`. Os números abaixo devem ser preenchidos em notebook e celular médios ("Copiar métricas").
+`pnpm dev` e abrir `http://localhost:5173/spike`. Os números abaixo devem ser preenchidos em notebook e celular médios ("Copiar métricas").
 
 | Dispositivo | Variante | Download | Init sessão | 1º lance | p50/lance | p95/lance | Heap JS |
 | --- | --- | --- | --- | --- | --- | --- | --- |

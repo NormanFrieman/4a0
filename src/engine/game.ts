@@ -1,7 +1,6 @@
 import { Chess } from "chess.js";
 import { balance } from "../config/balance.ts";
-import { deriveRng } from "../rng/rng.ts";
-import { thinkTimeMs } from "./thinkTime.ts";
+import { deriveRng, type Rng } from "../rng/rng.ts";
 import type { ChessAI } from "./types.ts";
 
 export type Color = "white" | "black";
@@ -12,21 +11,35 @@ export type Termination =
   | "threefoldRepetition"
   | "fiftyMoves"
   | "insufficientMaterial"
-  | "timeout"
+  | "agreement"
+  | "resignation"
   | "adjudication";
+
+/** Weighted candidate moves (UCI → weight) for a position (GDD §7.1). */
+export type BookEntry = ReadonlyArray<readonly [uci: string, weight: number]>;
+
+/** Opening repertoire of one side. Returns null when the position is out of book. */
+export interface OpeningBook {
+  probe(fen: string): BookEntry | null;
+}
 
 export interface SideConfig {
   ai: ChessAI;
   name?: string;
-  /** Effective rating used as selfElo for this game. */
+  /** Maia-3 selfElo for this side (already converted, GDD §6.2). */
   elo: number;
   temperature: number;
   topP: number;
+  book?: OpeningBook;
 }
 
-export interface TimeControl {
-  baseSeconds: number;
-  incrementSeconds: number;
+/** Draw-by-agreement and resignation rules (GDD §8.2). */
+export interface EndRules {
+  drawOfferFromMove: number;
+  drawBand: number;
+  drawStableMoves: number;
+  resignProb: number;
+  resignStableMoves: number;
 }
 
 export interface PlayedMove {
@@ -35,24 +48,24 @@ export interface PlayedMove {
   uci: string;
   san: string;
   fenAfter: string;
-  /** Simulated think time. */
-  thinkMs: number;
-  /** Clocks after the move (increment included). */
-  clocksMs: { white: number; black: number };
-  /** Raw policy probability of the chosen move. */
-  moveProb: number;
-  /** Mover's WDL for the position before the move. */
-  wdl: [number, number, number];
+  source: "book" | "engine";
+  /** Raw policy probability of the chosen move (engine moves only). */
+  moveProb?: number;
+  /** Mover's WDL for the position before the move (engine moves only). */
+  wdl?: [number, number, number];
 }
 
 export interface PlayGameOptions {
   white: SideConfig;
   black: SideConfig;
   seed: string | number;
-  timeControl?: TimeControl;
   maxPlies?: number;
   adjudicateWinProb?: number;
-  /** Called after each move, e.g. to stream it to clients. */
+  /** Override draw/resign rules; `false` disables both (pure play, e.g. calibration). */
+  endRules?: Partial<EndRules> | false;
+  /** Extra PGN headers (Event, Round, Board…). */
+  headers?: Record<string, string>;
+  /** Called after each move. */
   onMove?: (move: PlayedMove) => void | Promise<void>;
 }
 
@@ -66,20 +79,23 @@ export interface GameRecord {
   adjudicationWdl?: [number, number, number];
 }
 
+export function defaultEndRules(): EndRules {
+  const g = balance.game;
+  return {
+    drawOfferFromMove: g.drawOfferFromMove,
+    drawBand: g.drawBand,
+    drawStableMoves: g.drawStableMoves,
+    resignProb: g.resignProb,
+    resignStableMoves: g.resignStableMoves,
+  };
+}
+
 function parseUci(uci: string): { from: string; to: string; promotion?: string } {
   return {
     from: uci.slice(0, 2),
     to: uci.slice(2, 4),
     ...(uci.length > 4 ? { promotion: uci[4] } : {}),
   };
-}
-
-function formatClock(ms: number): string {
-  const total = Math.max(0, Math.round(ms / 1000));
-  const h = Math.floor(total / 3600);
-  const m = Math.floor((total % 3600) / 60);
-  const s = total % 60;
-  return `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 }
 
 function naturalEnd(chess: Chess): { result: GameResult; termination: Termination } | null {
@@ -97,19 +113,34 @@ function naturalEnd(chess: Chess): { result: GameResult; termination: Terminatio
   return null;
 }
 
+/** Sample a book move by weight. Returns null for an empty/invalid entry. */
+function sampleBook(entry: BookEntry, rng: Rng): string | null {
+  const total = entry.reduce((s, [, w]) => s + Math.max(0, w), 0);
+  if (!(total > 0)) return null;
+  let r = rng() * total;
+  for (const [uci, w] of entry) {
+    r -= Math.max(0, w);
+    if (r < 0) return uci;
+  }
+  return entry[entry.length - 1]![0];
+}
+
+/** Mover's expected score from a WDL triple. */
+const expected = ([win, draw]: [number, number, number]) => win + draw / 2;
+
 /**
- * Play a full AI-vs-AI game with simulated clocks (GDD §6.4). Deterministic
- * for a given seed and deterministic `ChessAI`s.
+ * Play a full AI-vs-AI game (GDD §8). Book moves first, then the engine;
+ * ends by chess rules, agreement, resignation or adjudication at maxPlies.
+ * Deterministic for a given seed and deterministic `ChessAI`s.
  */
 export async function playGame(opts: PlayGameOptions): Promise<GameRecord> {
-  const tc = opts.timeControl ?? balance.timeControl;
-  const maxPlies = opts.maxPlies ?? balance.maxPlies;
-  const adjudicateWinProb = opts.adjudicateWinProb ?? balance.adjudicateWinProb;
+  const maxPlies = opts.maxPlies ?? balance.game.maxPlies;
+  const adjudicateWinProb = opts.adjudicateWinProb ?? balance.game.adjudicateWinProb;
+  const rules = opts.endRules === false ? null : { ...defaultEndRules(), ...opts.endRules };
 
   const rngs = {
     white: deriveRng(opts.seed, "white"),
     black: deriveRng(opts.seed, "black"),
-    clock: deriveRng(opts.seed, "clock"),
     adjudication: deriveRng(opts.seed, "adjudication"),
   };
 
@@ -117,18 +148,19 @@ export async function playGame(opts: PlayGameOptions): Promise<GameRecord> {
   const fens: string[] = [chess.fen()];
   const ucis: string[] = [];
   const moves: PlayedMove[] = [];
-  const clocks = { white: tc.baseSeconds * 1000, black: tc.baseSeconds * 1000 };
+  /** Still following each side's book (once out, never back in). */
+  const inBook = { white: !!opts.white.book, black: !!opts.black.book };
+  let drawStreak = 0;
+  const resignStreak = { white: 0, black: 0 };
 
   const finish = (
     result: GameResult,
     termination: Termination,
     adjudicationWdl?: [number, number, number],
   ): GameRecord => {
+    for (const [k, v] of Object.entries(opts.headers ?? {})) chess.setHeader(k, v);
     chess.setHeader("White", opts.white.name ?? `AI ${opts.white.elo}`);
     chess.setHeader("Black", opts.black.name ?? `AI ${opts.black.elo}`);
-    chess.setHeader("WhiteElo", String(Math.round(opts.white.elo)));
-    chess.setHeader("BlackElo", String(Math.round(opts.black.elo)));
-    chess.setHeader("TimeControl", `${tc.baseSeconds}+${tc.incrementSeconds}`);
     chess.setHeader("Result", result);
     chess.setHeader("Termination", termination);
     return {
@@ -151,27 +183,7 @@ export async function playGame(opts: PlayGameOptions): Promise<GameRecord> {
     const other = color === "white" ? opts.black : opts.white;
     const window = ucis.slice(-8);
     const baseFen = fens[fens.length - 1 - window.length]!;
-
-    if (ply >= maxPlies) {
-      // Adjudication by Maia's WDL, from the side to move's point of view.
-      const evalRes = await side.ai.chooseMove({
-        fen: chess.fen(),
-        priorMoves: window,
-        baseFen,
-        selfElo: side.elo,
-        oppoElo: other.elo,
-        temperature: side.temperature,
-        topP: side.topP,
-        rng: rngs.adjudication,
-      });
-      const [win, , loss] = evalRes.wdl;
-      let result: GameResult = "1/2-1/2";
-      if (win > adjudicateWinProb) result = color === "white" ? "1-0" : "0-1";
-      else if (loss > adjudicateWinProb) result = color === "white" ? "0-1" : "1-0";
-      return finish(result, "adjudication", evalRes.wdl);
-    }
-
-    const res = await side.ai.chooseMove({
+    const request = {
       fen: chess.fen(),
       priorMoves: window,
       baseFen,
@@ -179,33 +191,69 @@ export async function playGame(opts: PlayGameOptions): Promise<GameRecord> {
       oppoElo: other.elo,
       temperature: side.temperature,
       topP: side.topP,
-      rng: rngs[color],
-    });
-
-    const topMoveProb = Math.max(...Object.values(res.policy));
-    const thinkMs = thinkTimeMs({ ply, topMoveProb, remainingMs: clocks[color], rng: rngs.clock });
-    if (thinkMs >= clocks[color]) {
-      clocks[color] = 0;
-      return finish(color === "white" ? "0-1" : "1-0", "timeout");
-    }
-    clocks[color] = clocks[color] - thinkMs + tc.incrementSeconds * 1000;
-
-    const played = chess.move(parseUci(res.move));
-    chess.setComment(`[%clk ${formatClock(clocks[color])}]`);
-    ucis.push(res.move);
-    fens.push(chess.fen());
-
-    const record: PlayedMove = {
-      ply,
-      color,
-      uci: res.move,
-      san: played.san,
-      fenAfter: chess.fen(),
-      thinkMs,
-      clocksMs: { ...clocks },
-      moveProb: res.policy[res.move] ?? 0,
-      wdl: res.wdl,
     };
+
+    if (ply >= maxPlies) {
+      // Adjudication by Maia's WDL, from the side to move's point of view.
+      const evalRes = await side.ai.chooseMove({ ...request, rng: rngs.adjudication });
+      const [win, , loss] = evalRes.wdl;
+      let result: GameResult = "1/2-1/2";
+      if (win > adjudicateWinProb) result = color === "white" ? "1-0" : "0-1";
+      else if (loss > adjudicateWinProb) result = color === "white" ? "0-1" : "1-0";
+      return finish(result, "adjudication", evalRes.wdl);
+    }
+
+    // 1. Opening book (GDD §8.1 step 1).
+    let record: PlayedMove | null = null;
+    if (inBook[color]) {
+      const entry = side.book!.probe(chess.fen());
+      const uci = entry ? sampleBook(entry, rngs[color]) : null;
+      let played: ReturnType<Chess["move"]> | null = null;
+      if (uci) {
+        try {
+          played = chess.move(parseUci(uci));
+        } catch {
+          played = null; // Illegal book move (e.g. hash collision): leave the book.
+        }
+      }
+      if (played && uci) {
+        record = { ply, color, uci, san: played.san, fenAfter: chess.fen(), source: "book" };
+      } else {
+        inBook[color] = false;
+      }
+    }
+
+    // 2. Engine move, plus agreement/resignation checks on its WDL (GDD §8.2).
+    if (!record) {
+      const res = await side.ai.chooseMove({ ...request, rng: rngs[color] });
+
+      if (rules) {
+        const score = expected(res.wdl);
+        resignStreak[color] = score < rules.resignProb ? resignStreak[color] + 1 : 0;
+        if (resignStreak[color] >= rules.resignStableMoves) {
+          return finish(color === "white" ? "0-1" : "1-0", "resignation");
+        }
+        const drawable =
+          chess.moveNumber() >= rules.drawOfferFromMove && Math.abs(score - 0.5) <= rules.drawBand;
+        drawStreak = drawable ? drawStreak + 1 : 0;
+        if (drawStreak >= rules.drawStableMoves) return finish("1/2-1/2", "agreement");
+      }
+
+      const played = chess.move(parseUci(res.move));
+      record = {
+        ply,
+        color,
+        uci: res.move,
+        san: played.san,
+        fenAfter: chess.fen(),
+        source: "engine",
+        moveProb: res.policy[res.move] ?? 0,
+        wdl: res.wdl,
+      };
+    }
+
+    ucis.push(record.uci);
+    fens.push(chess.fen());
     moves.push(record);
     await opts.onMove?.(record);
   }

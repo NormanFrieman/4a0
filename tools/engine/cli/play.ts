@@ -9,9 +9,11 @@ const { values } = parseArgs({
     black: { type: "string", default: "1500" },
     seed: { type: "string", default: String(Date.now()) },
     temp: { type: "string", default: "1" },
-    "top-p": { type: "string", default: String(balance.topPDefault) },
+    "top-p": { type: "string", default: String(balance.game.topP) },
     variant: { type: "string", default: "5m" },
     verbose: { type: "boolean", default: false },
+    /** Disable draw by agreement and resignation. */
+    pure: { type: "boolean", default: false },
   },
 });
 
@@ -28,10 +30,11 @@ const game = await playGame({
   white: side(Number(values.white)),
   black: side(Number(values.black)),
   seed: values.seed,
+  ...(values.pure ? { endRules: false as const } : {}),
   onMove: values.verbose
     ? (m) =>
         console.log(
-          `${String(m.ply + 1).padStart(3)} ${m.color.padEnd(5)} ${m.san.padEnd(7)} p=${m.moveProb.toFixed(2)} think=${(m.thinkMs / 1000).toFixed(1)}s`,
+          `${String(m.ply + 1).padStart(3)} ${m.color.padEnd(5)} ${m.san.padEnd(7)} ${m.source === "book" ? "book" : `p=${m.moveProb!.toFixed(2)} E=${(m.wdl![0] + m.wdl![1] / 2).toFixed(2)}`}`,
         )
     : undefined,
 });

@@ -8,6 +8,8 @@ export interface ValidateJob {
   white: { elo: number; temperature: number };
   black: { elo: number; temperature: number };
   topP: number;
+  /** Disable draw by agreement and resignation (GDD §8.2). */
+  pure?: boolean;
 }
 
 export interface ValidateJobResult {
@@ -28,6 +30,7 @@ parentPort!.on("message", async (job: ValidateJob) => {
     white: { ai: engine, ...job.white, topP: job.topP },
     black: { ai: engine, ...job.black, topP: job.topP },
     seed: job.seed,
+    ...(job.pure ? { endRules: false as const } : {}),
   });
   const out: ValidateJobResult = {
     id: job.id,

@@ -51,6 +51,7 @@ for (const variant of values.variants.split(",") as Maia3Variant[]) {
       white: { ai: timed, elo: 1500, temperature: 1, topP: 1 },
       black: { ai: timed, elo: 1500, temperature: 1, topP: 1 },
       seed: `bench/${g}`,
+      endRules: false,
     });
     plies += res.moves.length;
   }

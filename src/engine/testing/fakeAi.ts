@@ -2,16 +2,22 @@ import { Chess } from "chess.js";
 import { sampleMove } from "../sampling.ts";
 import type { ChessAI, MoveRequest, MoveResult } from "../types.ts";
 
-/** Uniform policy over legal moves; WDL fixed. Deterministic given the rng. */
+type Wdl = [number, number, number];
+
+/**
+ * Uniform policy over legal moves. WDL is fixed, or computed per request
+ * (e.g. to script evaluations by side or move number). Deterministic given the rng.
+ */
 export class UniformAI implements ChessAI {
-  constructor(private readonly wdl: [number, number, number] = [0.33, 0.34, 0.33]) {}
+  constructor(private readonly wdl: Wdl | ((req: MoveRequest) => Wdl) = [0.33, 0.34, 0.33]) {}
 
   async chooseMove(req: MoveRequest): Promise<MoveResult> {
     const legal = new Chess(req.fen).moves({ verbose: true });
     const policy: Record<string, number> = {};
     for (const m of legal) policy[m.from + m.to + (m.promotion ?? "")] = 1 / legal.length;
     const move = sampleMove(policy, req);
-    return { move, policy, wdl: this.wdl };
+    const wdl = typeof this.wdl === "function" ? this.wdl(req) : this.wdl;
+    return { move, policy, wdl };
   }
 }
 

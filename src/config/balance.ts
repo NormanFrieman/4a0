@@ -3,16 +3,9 @@
  * object, never hardcode values. Initial values come from the GDD tables.
  */
 
-export interface SchoolTier {
-  level: number;
-  startRatingMin: number;
-  startRatingMax: number;
-  potentialMax: number;
-}
-
 /** One point of the game-rating → engine-parameters curve. */
 export interface EngineCalibrationPoint {
-  /** Game rating (real strength, Elo-like scale). */
+  /** Game rating (calibrated real-strength scale). */
   rating: number;
   /** Maia-3 selfElo input (600–2600). */
   selfElo: number;
@@ -20,66 +13,99 @@ export interface EngineCalibrationPoint {
   temperature: number;
 }
 
+/** One point of the card strength (FIDE-like) → game rating curve (GDD §6.2). */
+export interface StrengthScalePoint {
+  strength: number;
+  rating: number;
+}
+
 export const balance = {
-  // GDD §4.4 — chess players. Game ratings are on the calibrated real-strength
-  // scale (Maia 1500 @ T=1 = 1500), see docs/benchmarks.md.
+  // GDD §4.5 — draft
+  draft: {
+    /** 4 boards + 1 reserve. */
+    slots: 5,
+    rerollsPerDraft: 3,
+    rollWeightTop10: 3,
+    allowFinalReorder: true,
+  },
+
+  // GDD §5.5 — tournament
+  tournament: {
+    rounds: 7,
+    /** Historical teams besides the user's. */
+    fieldSize: 23,
+    fieldTiers: { elite: 6, middle: 9, weak: 8 },
+    fieldMinChampions: 3,
+    fieldMaxPerCountry: 2,
+    matchPoints: { win: 2, draw: 1, loss: 0 },
+  },
+
+  // GDD §6.1 — card strength
+  strength: {
+    performanceWeight: 0.25,
+    unratedCap: 2200,
+  },
+
+  /**
+   * GDD §6.2 step 1 — card strength → game rating (calibrated real-strength
+   * scale). Piecewise-linear, clamped at the ends.
+   */
+  strengthScale: [
+    { strength: 1400, rating: 800 },
+    { strength: 2850, rating: 2050 },
+  ] satisfies StrengthScalePoint[],
+
+  /** Range of the calibrated game-rating scale (docs/benchmarks.md). */
   ratingMin: 800,
   ratingMax: 2050,
-  /** "Não sei" answer in the human calibration (GDD §5.1). */
-  calibrationDefaultRating: 1200,
-  fatigueMax: 100,
-  fatigueMaxPenalty: 100,
-  fatiguePerGame: 15,
-  fatigueRecoveryPerHour: 10,
-  /**
-   * Style (GDD §4.2) — PENDING REBALANCE: temperature now encodes strength
-   * (engineCalibration), and 0.6 vs 1.1 was worth ~250 rating points. Not
-   * applied anywhere until the Style design is decided.
-   */
-  temperatureSolid: 0.6,
-  temperatureCreative: 1.1,
-  /** top-p used by the move sampler. Not in the GDD tables yet; 1.0 = disabled. */
-  topPDefault: 1.0,
 
-  // GDD §6.6 — attack and defense
-  matchmakingWindow: 100,
-  sameTargetCooldownHours: 24,
-  lootRate: 0.2,
-  lootWinBonus: 0.25,
-  timeControl: { baseSeconds: 300, incrementSeconds: 3 },
-  maxPlies: 300,
-  adjudicateWinProb: 0.9,
-  disconnectGraceSeconds: 60,
-  shieldHoursOnLoss: 12,
+  // GDD §6.3 — quick simulation (field matches)
+  quickSim: {
+    whiteAdvantage: 35,
+    drawBase: 0.3,
+    drawSlope: 0.03,
+    drawMin: 0.1,
+    drawMax: 0.6,
+  },
 
-  // GDD §7.3 — capture
-  captureChance: 0.25,
-  captiveHours: 72,
-  ransomCoinsPerRating: 10,
-  captureShieldHours: 72,
-  minRosterSize: 4,
+  // GDD §7.4 — personality
+  style: {
+    bookMaxPlies: 16,
+    bookMinGames: 20,
+    /** Solid players (many draws). */
+    temperatureMin: 0.7,
+    /** Combative players. */
+    temperatureMax: 1.1,
+  },
 
-  // GDD §8.4 — recruitment ranges by Chess School level
-  schoolTiers: [
-    { level: 1, startRatingMin: 800, startRatingMax: 1000, potentialMax: 1250 },
-    { level: 2, startRatingMin: 925, startRatingMax: 1100, potentialMax: 1425 },
-    { level: 3, startRatingMin: 1050, startRatingMax: 1250, potentialMax: 1600 },
-    { level: 4, startRatingMin: 1175, startRatingMax: 1375, potentialMax: 1800 },
-    { level: 5, startRatingMin: 1300, startRatingMax: 1500, potentialMax: 2050 },
-  ] satisfies SchoolTier[],
-
-  // GDD §8.4 — starting city
-  startingCity: {
-    rosterSize: 4,
-    rosterRatingMin: 850,
-    rosterRatingMax: 1000,
+  // GDD §8.5 — game simulation
+  game: {
+    /**
+     * NOTE: engineCalibration was measured with top-p 1.0. Re-measure with
+     * `pnpm engine:ladder` after changing this (migration step 6).
+     */
+    topP: 0.95,
+    /** Full move number from which a draw by agreement is possible. */
+    drawOfferFromMove: 30,
+    /** Draw when the mover's expected score (win + draw/2) stays within 0.5 ± drawBand… */
+    drawBand: 0.08,
+    /** …for this many consecutive engine evaluations (plies). */
+    drawStableMoves: 10,
+    /** A side resigns when its expected score stays below resignProb… */
+    resignProb: 0.05,
+    /** …for this many of its own consecutive moves. */
+    resignStableMoves: 6,
+    maxPlies: 250,
+    /** At maxPlies, a side wins if its win probability is above this; otherwise draw. */
+    adjudicateWinProb: 0.85,
+    maiaModelVariant: "5m",
   },
 
   /**
    * Game rating → Maia-3 parameters, measured by the 5M calibration ladder
-   * (pnpm engine:ladder, 5000 games, 2026-11-12). Piecewise-linear between
-   * points. Below selfElo 600 and above 2600 strength comes from temperature.
-   * Re-measure if the model or sampling changes.
+   * (pnpm engine:ladder, 5000 games, top-p 1.0, 2026-11-12). Piecewise-linear
+   * between points. Below selfElo 600 and above 2600 strength comes from
+   * temperature. Re-measure if the model or sampling changes.
    */
   engineCalibration: [
     { rating: 770, selfElo: 600, temperature: 1.3 },
@@ -97,25 +123,6 @@ export const balance = {
     { rating: 1995, selfElo: 2600, temperature: 0.8 },
     { rating: 2065, selfElo: 2600, temperature: 0.6 },
   ] satisfies EngineCalibrationPoint[],
-
-  // Simulated think time (GDD §6.4). Engine-side tuning, not in GDD tables.
-  thinkTime: {
-    /** Plies treated as "opening" (faster moves). */
-    openingPlies: 16,
-    openingSeconds: 1.5,
-    baseSeconds: 4,
-    /** Extra seconds when the top move probability is low (scattered policy). */
-    uncertaintyExtraSeconds: 10,
-    /** Never spend more than this fraction of the remaining clock on one move. */
-    maxClockFraction: 0.1,
-    /** Relative random jitter (± fraction). */
-    jitter: 0.35,
-    minSeconds: 0.3,
-  },
-
-  features: {
-    capture: false,
-  },
 } as const;
 
 export type Balance = typeof balance;

@@ -32,6 +32,9 @@ const { values } = parseArgs({
     /** Temperatures explored at the bottom of the ladder (weaker than T=1). */
     "bottom-temps": { type: "string", default: "1.3" },
     variant: { type: "string", default: "5m" },
+    "top-p": { type: "string", default: String(balance.game.topP) },
+    /** Disable draw by agreement and resignation. */
+    pure: { type: "boolean", default: false },
     workers: { type: "string", default: String(defaultWorkers()) },
     out: { type: "string", default: join(repoRoot, "bench-results") },
   },
@@ -89,7 +92,8 @@ for (const [a, b] of pairs) {
       seed: `ladder/${a.id}/${b.id}/${g}`,
       white: side(aIsWhite ? a : b),
       black: side(aIsWhite ? b : a),
-      topP: 1,
+      topP: Number(values["top-p"]),
+      pure: values.pure,
     });
     jobPair.set(id, { a, aIsWhite });
     pairOf.set(id, `${a.id}|${b.id}`);

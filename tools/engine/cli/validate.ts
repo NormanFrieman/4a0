@@ -27,8 +27,10 @@ const { values } = parseArgs({
     diffs: { type: "string", default: "0,100,200,400" },
     games: { type: "string", default: "200" },
     temp: { type: "string", default: "1" },
-    "top-p": { type: "string", default: String(balance.topPDefault) },
+    "top-p": { type: "string", default: String(balance.game.topP) },
     style: { type: "boolean", default: false },
+    /** Disable draw by agreement and resignation. */
+    pure: { type: "boolean", default: false },
     /** Interpret ratings as game ratings and convert with engineCalibration. */
     game: { type: "boolean", default: false },
     workers: { type: "string", default: String(defaultWorkers()) },
@@ -69,8 +71,8 @@ for (const band of bands) {
       key: `style@${band}`,
       band,
       diff: 0,
-      a: { elo: band, temperature: balance.temperatureSolid },
-      b: { elo: band, temperature: balance.temperatureCreative },
+      a: { elo: band, temperature: balance.style.temperatureMin },
+      b: { elo: band, temperature: balance.style.temperatureMax },
       ra: band,
       rb: band,
     });
@@ -105,6 +107,7 @@ for (const cell of cells) {
       white: aIsWhite ? cell.a : cell.b,
       black: aIsWhite ? cell.b : cell.a,
       topP,
+      pure: values.pure,
     });
     meta.set(id, { cell, aIsWhite });
   }
@@ -161,7 +164,7 @@ const rows: Row[] = cells.map((cell) => {
 const pct = (x: number) => `${(x * 100).toFixed(1)}%`;
 console.log(
   values.style
-    ? `\nStyle: solid (T=${balance.temperatureSolid}) vs creative (T=${balance.temperatureCreative}), same rating. Score = solid.\n`
+    ? `\nStyle: solid (T=${balance.style.temperatureMin}) vs combative (T=${balance.style.temperatureMax}), same rating. Score = solid.\n`
     : values.game
       ? `\nGame ratings via engineCalibration (top-p ${topP}). Score of the stronger side vs Elo expectation.\n`
       : `\nScore of the stronger side vs Elo expectation (temperature ${temp}, top-p ${topP}).\n`,
