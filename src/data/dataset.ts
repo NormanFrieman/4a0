@@ -9,6 +9,8 @@ import type {
 
 /** A loaded dataset with lookups by id. */
 export interface Dataset {
+  /** URL of the dataset folder (ends with "/"); relative files like `bookFile` resolve against it. */
+  root: string;
   index: DatasetIndex;
   teams: NationalTeam[];
   team(id: string): NationalTeam;
@@ -30,6 +32,7 @@ export function assembleDataset(
   index: DatasetIndex,
   persons: Person[],
   files: OlympiadFile[],
+  root = "",
 ): Dataset {
   const cards = new Map(files.flatMap((f) => f.cards).map((c) => [c.id, c] as const));
   const personMap = new Map(persons.map((p) => [p.id, p] as const));
@@ -44,6 +47,7 @@ export function assembleDataset(
     }
   }
   return {
+    root,
     index,
     teams: index.teams,
     team: lookup(new Map(index.teams.map((t) => [t.id, t] as const)), "team"),
@@ -66,5 +70,5 @@ export async function loadDataset(name: string, base = import.meta.env.BASE_URL)
     get<Person[]>("persons.json"),
     Promise.all(index.olympiads.map((o) => get<OlympiadFile>(`olympiads/${o.year}.json`))),
   ]);
-  return assembleDataset(index, persons, files);
+  return assembleDataset(index, persons, files, root);
 }

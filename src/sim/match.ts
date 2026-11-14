@@ -4,6 +4,7 @@
  * caller passes the jobs to a `GameSimulator`.
  */
 import { balance } from "../config/balance.ts";
+import type { BookSet } from "../data/books.ts";
 import type { Dataset } from "../data/dataset.ts";
 import type { GameResult } from "../engine/game.ts";
 import { toEngineParams } from "../engine/strength.ts";
@@ -92,23 +93,38 @@ export function quickMatch(
   return matchFromBoards(round, pairing, firstLineup, boards);
 }
 
-function sideFor(ds: Dataset, cardId: string): GameSide {
+function sideFor(ds: Dataset, cardId: string, books?: BookSet): GameSide {
   const card = ds.card(cardId);
   const person = ds.person(card.personId);
   const p = toEngineParams(card.strength, person.decisiveness);
+  let book: Uint8Array | undefined;
+  if (books) {
+    book = books.get(card.bookFile);
+    if (!book) throw new Error(`Opening book not loaded: ${card.bookFile} (card ${cardId})`);
+  }
   return {
     name: person.name,
     selfElo: p.selfElo,
     temperature: p.temperature,
     topP: balance.game.topP,
+    ...(book ? { book } : {}),
   };
 }
 
-/** Engine job for one of the user's games (GDD §8). */
-export function gameJobFor(ds: Dataset, seed: string, round: number, game: BoardGame): GameJob {
+/**
+ * Engine job for one of the user's games (GDD §8). With `books`, each side
+ * opens from its card's book (GDD §7.1); without, the engine plays from move 1.
+ */
+export function gameJobFor(
+  ds: Dataset,
+  seed: string,
+  round: number,
+  game: BoardGame,
+  books?: BookSet,
+): GameJob {
   return {
-    white: sideFor(ds, game.whiteCardId),
-    black: sideFor(ds, game.blackCardId),
+    white: sideFor(ds, game.whiteCardId, books),
+    black: sideFor(ds, game.blackCardId, books),
     seed: gameSeed(seed, round, game.board),
     headers: { Event: "4 a 0", Round: String(round), Board: String(game.board) },
   };

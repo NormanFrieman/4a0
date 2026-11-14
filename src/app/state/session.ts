@@ -7,6 +7,7 @@
  */
 import { create } from "zustand";
 import { balance } from "../../config/balance.ts";
+import { loadBooks, type BookSet } from "../../data/books.ts";
 import { loadDataset, type Dataset } from "../../data/dataset.ts";
 import { createDraft, isDraftComplete, pick, reroll, type DraftState } from "../../draft/draft.ts";
 import type { PlayedMove } from "../../engine/game.ts";
@@ -112,6 +113,9 @@ function writeUrl(seed: string, fast: boolean) {
 /** Bumped on every new round/session so late worker callbacks are ignored. */
 let generation = 0;
 
+/** Opening books of the cards in the current tournament, loading since `confirmTeam`. */
+let books: Promise<BookSet> | null = null;
+
 export const useSession = create<SessionState>()((set, get) => ({
   phase: "loading",
   error: null,
@@ -175,6 +179,14 @@ export const useSession = create<SessionState>()((set, get) => ({
       balance.sampleTournament.fieldSize,
       balance.tournament.rounds,
     );
+    // Books are only needed for engine games (GDD §9.3: before the tournament).
+    if (!get().fastMode) {
+      books = loadBooks(
+        dataset,
+        tournament.entrants.flatMap((e) => e.cardIds),
+      );
+      books.catch(() => {}); // reported when a round awaits it
+    }
     set({ tournament, phase: "field" });
   },
 
@@ -256,16 +268,20 @@ export const useSession = create<SessionState>()((set, get) => ({
       });
     };
 
-    games.forEach((g, i) => {
-      pool
-        .playGame(gameJobFor(dataset, seed, round, g), (mv) =>
-          update(i, (b) => ({ ...b, moves: [...b.moves, mv] })),
-        )
-        .then((rec) => update(i, (b) => ({ ...b, result: { ...g, score: scoreOf(rec.result) } })))
-        .catch((err: unknown) =>
-          set({ phase: "error", error: err instanceof Error ? err.message : String(err) }),
-        );
-    });
+    const fail = (err: unknown) =>
+      set({ phase: "error", error: err instanceof Error ? err.message : String(err) });
+    if (!books) return fail(new Error("Opening books were not loaded"));
+    books.then((bookSet) => {
+      if (gen !== generation) return;
+      games.forEach((g, i) => {
+        pool
+          .playGame(gameJobFor(dataset, seed, round, g, bookSet), (mv) =>
+            update(i, (b) => ({ ...b, moves: [...b.moves, mv] })),
+          )
+          .then((rec) => update(i, (b) => ({ ...b, result: { ...g, score: scoreOf(rec.result) } })))
+          .catch(fail);
+      });
+    }, fail);
   },
 
   setSpeed(speed) {

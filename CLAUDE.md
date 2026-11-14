@@ -22,7 +22,7 @@ Jogo de navegador: o usuário monta uma equipe de 5 enxadristas históricos e di
 
 ## Estado atual
 
-Fatia jogável da Fase 1 em `/`: draft → confirmação → campo → 7 rodadas (Maia nos 4 tabuleiros do usuário, simulação rápida no resto) → resultado, com o conjunto de **dados de teste** (`public/data/sample`, 10 seleções, números aproximados; 8 equipes no torneio). `?seed=` reproduz a sessão; `?rapido=1` simula as partidas do usuário sem o Maia. Fora desta fatia: Replay/PGN, retomar sessão, Desafio diário, livros de abertura, modo Almanaque, compartilhamento, campo por faixas de força (§5.1).
+Fatia jogável da Fase 1 em `/`: draft → confirmação → campo → 7 rodadas (Maia nos 4 tabuleiros do usuário, simulação rápida no resto) → resultado, com o conjunto de **dados de teste** (`public/data/sample`, 10 seleções, números aproximados; 8 equipes no torneio). Cada carta abre com seu livro de aberturas (GDD §7.1: carreira até o ano da carta, ou livro da década), em `public/data/sample/books/`. `?seed=` reproduz a sessão; `?rapido=1` simula as partidas do usuário sem o Maia. Fora desta fatia: Replay/PGN, retomar sessão, Desafio diário, modo Almanaque, compartilhamento, campo por faixas de força (§5.1).
 
 ## Comandos
 
@@ -31,7 +31,9 @@ Fatia jogável da Fase 1 em `/`: draft → confirmação → campo → 7 rodadas
 - `pnpm typecheck` / `pnpm lint`
 - `pnpm dev` — app (Vite); `/spike` é a página de teste da engine no navegador; `/dev/ui` é o catálogo do design system (as duas só existem no `dev`)
 - `pnpm build` — gera `dist/` para o Cloudflare Pages (cabeçalhos em `public/_headers`; o `.wasm` do ORT vem do jsDelivr e fica fora do build)
-- `pnpm data:sample` — gera `public/data/sample` a partir de `tools/data/sample/source.ts`
+- `pnpm data:pgn` — baixa as coleções PGN de `tools/data/sample/pgnSources.ts` (PGN Mentor, só para desenvolvimento) para `tools/data/sample/pgn/`, fora do git
+- `pnpm data:sample` — gera `public/data/sample` a partir de `tools/data/sample/source.ts`, com os livros de abertura (precisa do `data:pgn` antes)
+- `pnpm engine:play ... --white-book <arquivo.bin>` — partida com livro Polyglot
 - `pnpm engine:play --white 1500 --black 1600 --seed 42`
 - `pnpm engine:validate --game --bands 1000,1400,1800` — valida a escala calibrada
 - `pnpm engine:ladder` — mede a curva de força do Maia (gera `engineCalibration`)
