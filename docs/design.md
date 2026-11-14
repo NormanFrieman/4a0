@@ -1,0 +1,69 @@
+# Design system — Almanaque histórico
+
+Direção visual **DECIDIDA** em GDD §10.1: o jogo tem cara de almanaque esportivo ou enciclopédia antiga. Este documento é a referência para construir as telas da Fase 1.
+
+- **Catálogo vivo:** `pnpm dev` → `/dev/ui` (todos os componentes e estados, com o modo Almanaque).
+- **Tokens:** `src/app/styles.css` (`@theme`). **Componentes:** `src/app/ui/`.
+- **Protótipo das 5 direções** (descartado): branch `prototype/design-system`.
+
+## Princípios
+
+1. **Tipografia antes de ornamento.** Hierarquia vem de peso, itálico, versaletes e filetes, não de caixas, sombras ou ícones.
+2. **Papel, não tela.** Fundo de papel envelhecido, tinta marrom-escura, um único acento (vermelho-tijolo). Nada de gradientes vivos nem cantos arredondados.
+3. **Números são protagonistas.** Força, placares e pontuações usam `tabular-nums` e o peso display. Meio ponto sempre com `½` (`formatPoints`).
+4. **Não confundir com o modo Almanaque** (força oculta, GDD §4.2). A direção visual vale para todos os modos; no modo Almanaque, componentes que mostram força recebem `null` e exibem `?` (ou omitem).
+
+## Tokens
+
+Use as utilidades do Tailwind geradas pelos tokens (`bg-paper`, `text-ink`, `border-line`, `font-display`, `text-win`…). Nunca cores literais em componentes.
+
+| Token                                | Valor                             | Uso                                              | Contraste em `paper` |
+| ------------------------------------ | --------------------------------- | ------------------------------------------------ | -------------------- |
+| `paper`                              | `#f3ead7`                         | Fundo da página                                  | —                    |
+| `surface`                            | `#fbf6ea`                         | Vagas preenchidas, moldura do tabuleiro, caixas  | —                    |
+| `ink`                                | `#2b2118`                         | Texto principal, filetes fortes, botão ativo     | 13,2                 |
+| `muted`                              | `#6e5d49`                         | Legendas, kickers, texto secundário              | 5,3                  |
+| `accent`                             | `#7a2e1f`                         | Seleção, botão primário, destaques (um por tela) | 7,9                  |
+| `accent-ink`                         | `#fbf6ea`                         | Texto sobre `accent`                             | 8,7                  |
+| `line`                               | `#cdbb9b`                         | Filetes, pontilhados, bordas (decorativo)        | —                    |
+| `win` / `draw` / `loss`              | `#3f6b3a` / `#735a26` / `#8e2b22` | Resultado do ponto de vista do usuário           | 5,2 / 5,5 / 7,0      |
+| `medal-gold` / `-silver` / `-bronze` | `#7d6216` / `#5f6366` / `#87512a` | Medalhas (texto)                                 | 4,8 / 5,1 / 5,4      |
+| `board-light` / `board-dark`         | `#efe3c8` / `#b49a6e`             | Casas do tabuleiro (sépia)                       | —                    |
+
+Todos os textos atendem WCAG AA (≥ 4,5) sobre `paper` e `surface`.
+
+**Fonte:** Fraunces (servida localmente via `@fontsource/fraunces`, pesos 400, 400 itálico, 700, 700 itálico, 900). `font-display` = títulos e números; o corpo usa a mesma família.
+
+| Papel                   | Estilo                                                                 |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Título do jogo / placar | 900, `text-4xl`–`text-6xl`                                             |
+| Título de seção         | 700 itálico, `text-xl`–`text-2xl`                                      |
+| Texto                   | 400, `text-base`                                                       |
+| Legenda                 | 400 itálico, `text-muted`                                              |
+| Kicker (mesa, rótulos)  | `text-[11px]`, versaletes (`uppercase tracking-[0.2em]`), `text-muted` |
+
+## Componentes (`src/app/ui/`)
+
+Todo texto de interface entra por props (vem do i18n quando o i18next entrar na Fase 1). Componentes não têm strings fixas.
+
+| Componente                   | Uso                                                                                                                                                                                                                         |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Masthead`, `Rule`, `Kicker` | Cabeçalho de página (kicker, título, linha de seção com filetes), filete horizontal, rótulo em versaletes                                                                                                                   |
+| `Button`                     | `primary` (uma por tela), `secondary`, `link` (baixa ênfase), `toggle` (escolhas segmentadas, com `aria-pressed`)                                                                                                           |
+| `Flag`                       | Bandeira 3:2 por código ISO minúsculo. `flag-icons` para países atuais; URSS (`su`), Iugoslávia (`yu`), Tchecoslováquia (`cs`) e Alemanha Oriental (`dd`) são desenhadas no componente. Código desconhecido mostra o código |
+| `StyleTrait`                 | Traço Sólido / Equilibrado / Combativo (GDD §7.2)                                                                                                                                                                           |
+| `LineupRow`                  | Uma carta na escalação do sorteio (Draft), selecionável. `strength: null` no modo Almanaque                                                                                                                                 |
+| `TeamSlot`                   | Uma das 5 vagas; tracejada quando vazia, realçada (`awaiting`) quando há carta selecionada                                                                                                                                  |
+| `MatchScore`                 | Placar-manchete do match                                                                                                                                                                                                    |
+| `BoardFrame`                 | Tabuleiro chessground só leitura, tema sépia, moldura de papel                                                                                                                                                              |
+| `BoardCard`                  | Uma partida da Rodada: mesa, status colorido, tabuleiro e jogadores (o de cima do tabuleiro primeiro; o usuário em negrito, o adversário em itálico)                                                                        |
+| `ResultBadge`                | Texto colorido por resultado (`win`/`draw`/`loss`/`null` = ao vivo)                                                                                                                                                         |
+| `formatPoints`, `outcomeOf`  | `1.5 → "1½"`; parcela do usuário → resultado                                                                                                                                                                                |
+
+## Regras por tela
+
+- **Draft:** escalação como lista tipográfica com pontilhados (`divide-dotted divide-line`) e `LineupRow`; vagas numa coluna lateral com `TeamSlot` (abaixo da lista no celular). Re-sorteio como `Button variant="link"`.
+- **Rodada:** `MatchScore` no topo; **os 4 tabuleiros têm o mesmo tamanho** (`grid grid-cols-2 lg:grid-cols-4` de `BoardCard`): 4 em linha no desktop, 2 × 2 no celular. Não há mesa ampliada. Velocidade com `Button variant="toggle"`; outros resultados como lista de texto abaixo.
+- **Resultado:** medalha em formato de certificado (borda dupla `accent`), campanha em tabela pontilhada, destaques por mesa com pontilhado entre nome e pontos.
+- **Celular:** Draft e Resultado precisam funcionar em 375 px sem rolagem horizontal (GDD §10). Gutter de 16 px (`px-4`).
+- **Sem fotos** de jogadores reais (GDD §10). Identidade visual de jogador = nome, bandeira, ano.

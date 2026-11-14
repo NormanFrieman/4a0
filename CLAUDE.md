@@ -3,6 +3,7 @@
 Jogo de navegador: o usuário monta uma equipe de 5 enxadristas históricos e disputa uma Olimpíada de Xadrez simulada pelo Maia-3. A fonte de verdade é [docs/GDD.md](docs/GDD.md). Leia a seção relevante antes de implementar.
 
 - Medições de desempenho e calibração da engine: [docs/benchmarks.md](docs/benchmarks.md).
+- Design system (direção "Almanaque histórico", tokens e componentes em `src/app/ui/`): [docs/design.md](docs/design.md). Use os tokens do Tailwind, nunca cores literais.
 - O projeto antigo (cidade estilo Clash of Clans, "Xadrez de Cidades") foi descartado. Não reintroduzir cidade, recursos, servidor, relógios ou captura.
 
 ## Regras (GDD §0)
@@ -27,7 +28,7 @@ Migração do projeto antigo para o 4 a 0 (plano em 7 etapas: docs → estrutura
 - `pnpm install`
 - `pnpm test` — Vitest
 - `pnpm typecheck` / `pnpm lint`
-- `pnpm dev` — app (Vite); `/spike` é a página de teste da engine no navegador
+- `pnpm dev` — app (Vite); `/spike` é a página de teste da engine no navegador; `/dev/ui` é o catálogo do design system
 - `pnpm engine:play --white 1500 --black 1600 --seed 42`
 - `pnpm engine:validate --game --bands 1000,1400,1800` — valida a escala calibrada
 - `pnpm engine:ladder` — mede a curva de força do Maia (gera `engineCalibration`)

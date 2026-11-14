@@ -320,12 +320,20 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 | Início | Nome do jogo, modos, histórico local de campanhas | Jogar (Clássico ou Almanaque), Desafio diário, Como jogar |
 | Draft | Cartão do sorteio (bandeira, ano, sede, colocação), escalação com as cartas, as 5 vagas, contador de re-sorteios | Escolher carta, escolher vaga, re-sortear |
 | Confirmação | As 5 cartas na ordem, força média, traços de estilo | Reordenar (uma vez), confirmar |
-| Rodada | Adversário e suas cartas, escolha de quem descansa, depois 4 tabuleiros (um ampliado), placar parcial, outros resultados | Escolher descanso, mudar velocidade, ampliar mesa, pular |
+| Rodada | Adversário e suas cartas, escolha de quem descansa, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Escolher descanso, mudar velocidade, pular |
 | Classificação | Tabela após cada rodada, com pontos de match, de partida e desempate | Próxima rodada |
 | Resultado final | Colocação, medalha, campanha rodada a rodada, destaque individual por mesa | Compartilhar imagem, copiar texto, jogar de novo |
 | Replay | Tabuleiro com navegação pelos lances, nomes, resultado | Baixar PGN, voltar |
 
 O tabuleiro usa chessground. As cartas mostram nome, país, ano, título, força (exceto no Almanaque), traço de estilo e campanha real. Não usar fotos de jogadores reais.
+
+### 10.1 Direção visual (DECIDIDO)
+
+**Almanaque histórico:** o jogo tem cara de almanaque esportivo ou enciclopédia antiga. Papel envelhecido, tipografia serifada (Fraunces), filetes e linhas pontilhadas, escalações como listas tipográficas, Rodada com legenda de jornal, Resultado como certificado. Tokens, componentes e regras ficam em [docs/design.md](design.md).
+
+- Não confundir com o **modo Almanaque** (força oculta, §4.2): a direção visual vale para todos os modos.
+- **Rodada:** os 4 tabuleiros têm o mesmo tamanho, para o usuário acompanhar todos os resultados ao mesmo tempo (4 em linha no desktop, 2 × 2 no celular). Não há mesa ampliada.
+- Escolhida entre 5 direções comparadas num protótipo (Almanaque, Transmissão esportiva, Draft viral, Construtivismo soviético, Pixel art), guardado no branch `prototype/design-system`.
 
 ## 11. Desafio diário e compartilhamento
 

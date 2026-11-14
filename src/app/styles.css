@@ -1,63 +1,147 @@
-:root {
-  font-family: system-ui, sans-serif;
-  color: #1d1d1f;
-  background: #f5f4f0;
+@import "tailwindcss";
+
+/*
+ * Design system — "Almanaque histórico" (GDD §10.1, docs/design.md).
+ * Tokens become Tailwind utilities: bg-paper, text-ink, border-line,
+ * font-display, text-win, etc. Never hardcode colours in components.
+ */
+/* `static`: emit every token as a CSS variable, even if no utility uses it. */
+@theme static {
+  --color-paper: #f3ead7;
+  --color-surface: #fbf6ea;
+  --color-ink: #2b2118;
+  --color-muted: #6e5d49;
+  --color-accent: #7a2e1f;
+  --color-accent-ink: #fbf6ea;
+  --color-line: #cdbb9b;
+
+  --color-win: #3f6b3a;
+  --color-draw: #735a26;
+  --color-loss: #8e2b22;
+
+  --color-medal-gold: #7d6216;
+  --color-medal-silver: #5f6366;
+  --color-medal-bronze: #87512a;
+
+  --color-board-light: #efe3c8;
+  --color-board-dark: #b49a6e;
+  --color-board-highlight: rgb(155 175 60 / 0.45);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Fraunces", Georgia, serif;
 }
-body {
-  margin: 0;
-}
-.page {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 24px 16px;
-}
-.spike {
-  display: grid;
-  grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
-  gap: 24px;
-  align-items: start;
-}
-@media (max-width: 760px) {
-  .spike {
-    grid-template-columns: 1fr;
+
+@layer base {
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-paper);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgb(255 255 255 / 0.5), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgb(122 46 31 / 0.06), transparent 50%);
+    background-attachment: fixed;
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-variant-numeric: lining-nums;
+  }
+  .page h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0.67em 0;
+  }
+  .page a {
+    text-decoration: underline;
+  }
+  .page p {
+    margin: 1em 0;
+  }
+  .page textarea {
+    border: 1px solid var(--color-line);
+    font-family: monospace;
   }
 }
-.board {
-  width: 100%;
-  aspect-ratio: 1;
+
+/* Chessground board in the Almanaque theme (used by <BoardFrame>). */
+@layer components {
+  .board-almanaque cg-board {
+    background-color: var(--color-board-light);
+    background-image: url("./ui/board-almanaque.svg");
+  }
+  .board-almanaque cg-board square.last-move {
+    background-color: var(--color-board-highlight);
+  }
+  .board-almanaque piece {
+    filter: sepia(0.35);
+  }
 }
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 12px;
-  align-items: end;
-  margin-bottom: 16px;
-}
-.controls label {
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  gap: 2px;
-}
-.controls input,
-.controls select {
-  width: 90px;
-  padding: 4px;
-}
-button {
-  padding: 6px 14px;
-  cursor: pointer;
-}
-table.metrics {
-  border-collapse: collapse;
-  font-variant-numeric: tabular-nums;
-}
-table.metrics td {
-  padding: 3px 10px 3px 0;
-  border-bottom: 1px solid #ddd;
-}
-.status {
-  margin: 8px 0;
-  font-size: 14px;
-  color: #555;
+
+/* Engine dev page (/spike). */
+@layer components {
+  .page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .spike {
+    display: grid;
+    grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .spike {
+      grid-template-columns: 1fr;
+    }
+  }
+  .board {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    align-items: end;
+    margin-bottom: 16px;
+  }
+  .controls label {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    gap: 2px;
+  }
+  .controls input,
+  .controls select {
+    width: 90px;
+    padding: 4px;
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+    background: var(--color-surface);
+  }
+  .controls input[type="checkbox"] {
+    width: auto;
+  }
+  .page button {
+    padding: 6px 14px;
+    cursor: pointer;
+    border: 1px solid var(--color-ink);
+    background: var(--color-surface);
+  }
+  .page button:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+  table.metrics {
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+  }
+  table.metrics td {
+    padding: 3px 10px 3px 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .status {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--color-muted);
+  }
 }

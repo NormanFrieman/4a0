@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 // Cross-origin isolation enables multi-threaded WASM in onnxruntime-web.
 // "credentialless" still lets us fetch the model (Hugging Face) and the
@@ -10,7 +11,7 @@ const isolation = {
 };
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   server: { headers: isolation },
   preview: { headers: isolation },
   optimizeDeps: { exclude: ["onnxruntime-web"] },

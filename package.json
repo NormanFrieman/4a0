@@ -21,8 +21,10 @@
     "engine:ladder": "tsx tools/engine/cli/ladder.ts"
   },
   "dependencies": {
+    "@fontsource/fraunces": "^5.3.0",
     "chess.js": "^1.4.0",
     "chessground": "^9.2.1",
+    "flag-icons": "^7.6.0",
     "maia3-js": "0.2.0",
     "onnxruntime-web": "1.31.1",
     "react": "^19.3.1",
@@ -33,12 +35,14 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@tailwindcss/vite": "^4.3.5",
     "@types/node": "^22.0.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.3.0",
     "eslint": "^10.14.0",
     "prettier": "^3.10.1",
+    "tailwindcss": "^4.3.5",
     "tsx": "^4.23.15",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.72.2",
