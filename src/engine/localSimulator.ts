@@ -1,3 +1,4 @@
+import { PolyglotBook } from "./book/polyglotBook.ts";
 import { playGame, type SideConfig } from "./game.ts";
 import type { ChessAI, GameJob, GameSide, GameSimulator } from "./types.ts";
 
@@ -12,6 +13,7 @@ export class LocalGameSimulator implements GameSimulator {
       temperature: s.temperature,
       topP: s.topP,
       ...(s.name ? { name: s.name } : {}),
+      ...(s.book ? { book: new PolyglotBook(s.book) } : {}),
     });
     return playGame({
       white: side(job.white),

@@ -1,5 +1,7 @@
+import { readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
 import { balance } from "../../../src/config/balance.ts";
+import { PolyglotBook } from "../../../src/engine/book/polyglotBook.ts";
 import { playGame } from "../../../src/engine/game.ts";
 import { createNodeMaia3Engine, type Maia3Variant } from "../node.ts";
 
@@ -12,6 +14,9 @@ const { values } = parseArgs({
     "top-p": { type: "string", default: String(balance.game.topP) },
     variant: { type: "string", default: "5m" },
     verbose: { type: "boolean", default: false },
+    /** Polyglot opening books (.bin), e.g. public/data/sample/books/su-1980-1.bin. */
+    "white-book": { type: "string" },
+    "black-book": { type: "string" },
     /** Disable draw by agreement and resignation. */
     pure: { type: "boolean", default: false },
   },
@@ -23,12 +28,20 @@ const loadMs = performance.now() - t0;
 
 const temperature = Number(values.temp);
 const topP = Number(values["top-p"]);
-const side = (elo: number) => ({ ai: engine, elo, temperature, topP });
+const book = (path?: string) =>
+  path ? { book: new PolyglotBook(new Uint8Array(readFileSync(path))) } : {};
+const side = (elo: number, bookPath?: string) => ({
+  ai: engine,
+  elo,
+  temperature,
+  topP,
+  ...book(bookPath),
+});
 
 const t1 = performance.now();
 const game = await playGame({
-  white: side(Number(values.white)),
-  black: side(Number(values.black)),
+  white: side(Number(values.white), values["white-book"]),
+  black: side(Number(values.black), values["black-book"]),
   seed: values.seed,
   ...(values.pure ? { endRules: false as const } : {}),
   onMove: values.verbose

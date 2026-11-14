@@ -6,3 +6,7 @@ export * from "./game.ts";
 export * from "./engineParams.ts";
 export * from "./strength.ts";
 export * from "./localSimulator.ts";
+export * from "./book/polyglotBook.ts";
+export * from "./book/polyglotKey.ts";
+export * from "./book/polyglotMove.ts";
+export * from "./book/polyglotWriter.ts";

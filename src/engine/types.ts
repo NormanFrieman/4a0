@@ -43,6 +43,11 @@ export interface GameSide {
   selfElo: number;
   temperature: number;
   topP: number;
+  /**
+   * Opening book as raw Polyglot bytes (GDD §7.1). Plain bytes so the job
+   * crosses `postMessage` to the worker unchanged.
+   */
+  book?: Uint8Array;
 }
 
 export interface GameJob {
