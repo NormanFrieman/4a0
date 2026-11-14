@@ -58,8 +58,8 @@ Este documento é a fonte de verdade do projeto para o Claude Code. Exporte como
 Uma sessão vai do primeiro sorteio à medalha, sem interrupção, em cerca de 15 minutos.
 
 1. **Início:** o usuário escolhe o modo (Clássico ou Desafio diário). O jogo gera a semente da sessão.
-2. **Draft (5 sorteios):** a cada sorteio aparece uma seleção histórica; o usuário escolhe um jogador e o coloca numa vaga livre.
-3. **Confirmação:** revisão da ordem das mesas e confirmação da equipe.
+2. **Draft (5 sorteios):** a cada sorteio aparece uma seleção histórica; o usuário escolhe um jogador, que vai para a vaga da mesa em que jogou na edição real.
+3. **Confirmação:** revisão das mesas e confirmação da equipe.
 4. **Sorteio do campo:** o jogo monta as seleções adversárias e mostra a lista de participantes.
 5. **Rodadas (7 no MVP):** em cada uma, o usuário vê o adversário, escolhe quem descansa e assiste ao match. Os outros matches são simulados em segundo plano.
 6. **Classificação:** atualizada após cada rodada.
@@ -85,9 +85,9 @@ O usuário monta uma equipe de 5 cartas em 5 sorteios: 4 titulares (mesas 1 a 4)
 
 ### 4.3 Escolha e vagas
 
-- O usuário escolhe **um** jogador do sorteio e o coloca numa vaga livre (1, 2, 3, 4 ou Reserva).
+- O usuário escolhe **um** jogador do sorteio. **Cada jogador só ocupa a vaga da mesa em que jogou na edição real:** quem foi mesa 1 só entra na vaga 1, e assim por diante; reservas reais (5º ou 6º tabuleiro) só entram na vaga Reserva.
+- Jogadores cuja vaga já está ocupada não podem ser escolhidos. O sorteio só oferece seleções com pelo menos um jogador escolhível.
 - A mesma pessoa não pode entrar duas vezes, mesmo de edições diferentes.
-- Antes do torneio, a tela de confirmação permite reordenar as vagas uma vez (`allowFinalReorder`).
 - **Ordem fixa durante o torneio (regra real da Olimpíada):** a ordem das 5 cartas é definida antes da 1ª rodada. Em cada rodada jogam 4 delas, na mesma ordem relativa. Ex.: ordem A, B, C, D, R; se B descansa, as mesas ficam A, C, D, R.
 
 ### 4.4 Re-sorteios
@@ -102,7 +102,6 @@ O usuário monta uma equipe de 5 cartas em 5 sorteios: 4 titulares (mesas 1 a 4)
 | `draftSlots` | 5 (4 mesas + 1 reserva) |
 | `rerollsPerDraft` | 3 |
 | `rollWeightTop10` | 3 |
-| `allowFinalReorder` | true |
 
 ## 5. Torneio
 
@@ -319,7 +318,7 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 | --- | --- | --- |
 | Início | Nome do jogo, modos, histórico local de campanhas | Jogar (Clássico ou Almanaque), Desafio diário, Como jogar |
 | Draft | Cartão do sorteio (bandeira, ano, sede, colocação), escalação com as cartas, as 5 vagas, contador de re-sorteios | Escolher carta, escolher vaga, re-sortear |
-| Confirmação | As 5 cartas na ordem, força média, traços de estilo | Reordenar (uma vez), confirmar |
+| Confirmação | As 5 cartas na ordem, força média, traços de estilo | Confirmar |
 | Rodada | Adversário e suas cartas, escolha de quem descansa, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Escolher descanso, mudar velocidade, pular |
 | Classificação | Tabela após cada rodada, com pontos de match, de partida e desempate | Próxima rodada |
 | Resultado final | Colocação, medalha, campanha rodada a rodada, destaque individual por mesa | Compartilhar imagem, copiar texto, jogar de novo |
