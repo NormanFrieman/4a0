@@ -154,7 +154,11 @@ describe("playGame", () => {
       probe(fen) {
         const start = new Chess().fen();
         if (fen === start) return [["e2e4", 1]];
-        if (fen.startsWith("rnbqkbnr/pppppppp/8/8/4P3/")) return [["e7e5", 3], ["c7c5", 1]];
+        if (fen.startsWith("rnbqkbnr/pppppppp/8/8/4P3/"))
+          return [
+            ["e7e5", 3],
+            ["c7c5", 1],
+          ];
         return null;
       },
     };

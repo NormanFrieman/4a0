@@ -11,8 +11,7 @@ export type Maia3Variant = "5m" | "23m" | "79m";
  * survives reinstalls. Gitignored. Override with MAIA3_MODEL_DIR.
  */
 export const MODEL_DIR =
-  process.env.MAIA3_MODEL_DIR ??
-  resolve(dirname(fileURLToPath(import.meta.url)), "../../models");
+  process.env.MAIA3_MODEL_DIR ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../models");
 
 /**
  * Resolve the ONNX path for a variant, downloading it once if needed. The

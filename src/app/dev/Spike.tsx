@@ -209,7 +209,9 @@ export function Spike() {
                 </tbody>
               </table>
               <p>
-                <button onClick={() => navigator.clipboard.writeText(JSON.stringify(metrics, null, 2))}>
+                <button
+                  onClick={() => navigator.clipboard.writeText(JSON.stringify(metrics, null, 2))}
+                >
                   Copiar métricas (JSON)
                 </button>
               </p>

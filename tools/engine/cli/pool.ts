@@ -45,7 +45,9 @@ await import(${JSON.stringify(workerUrl.href)});`;
           if (done % 20 === 0 || done === jobs.length) {
             const elapsed = (performance.now() - t0) / 1000;
             const eta = (elapsed / done) * (jobs.length - done);
-            console.error(`  ${done}/${jobs.length} · ${elapsed.toFixed(0)}s · eta ${eta.toFixed(0)}s`);
+            console.error(
+              `  ${done}/${jobs.length} · ${elapsed.toFixed(0)}s · eta ${eta.toFixed(0)}s`,
+            );
           }
           if (done === jobs.length) {
             for (const x of workers) void x.terminate();

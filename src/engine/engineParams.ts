@@ -27,7 +27,8 @@ export function engineParamsForRating(
       const f = (rating - lo.rating) / (hi.rating - lo.rating);
       return {
         selfElo: Math.round(lo.selfElo + f * (hi.selfElo - lo.selfElo)),
-        temperature: Math.round((lo.temperature + f * (hi.temperature - lo.temperature)) * 1000) / 1000,
+        temperature:
+          Math.round((lo.temperature + f * (hi.temperature - lo.temperature)) * 1000) / 1000,
       };
     }
   }

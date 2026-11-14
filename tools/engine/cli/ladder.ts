@@ -134,7 +134,13 @@ const allNodes = [...new Map(pairs.flat().map((n) => [n.id, n])).values()].sort(
   (a, b) => fit[a.id]! - fit[b.id]!,
 );
 console.log(`\nReal strength per (selfElo, temperature), anchored to mean ${anchorMean} on T=1.\n`);
-console.log("node".padEnd(14) + "selfElo".padStart(8) + "T".padStart(6) + "real".padStart(8) + "Δ prev".padStart(9));
+console.log(
+  "node".padEnd(14) +
+    "selfElo".padStart(8) +
+    "T".padStart(6) +
+    "real".padStart(8) +
+    "Δ prev".padStart(9),
+);
 let prev: number | null = null;
 for (const n of allNodes) {
   const r = fit[n.id]!;
@@ -150,7 +156,9 @@ for (const n of allNodes) {
 console.log(
   `\nT=1 ladder: real range ${Math.min(...ys).toFixed(0)}–${Math.max(...ys).toFixed(0)} (nominal ${min}–${max}), slope ${slope.toFixed(2)}`,
 );
-console.log(`Overall real range: ${fit[allNodes[0]!.id]!.toFixed(0)}–${fit[allNodes[allNodes.length - 1]!.id]!.toFixed(0)}`);
+console.log(
+  `Overall real range: ${fit[allNodes[0]!.id]!.toFixed(0)}–${fit[allNodes[allNodes.length - 1]!.id]!.toFixed(0)}`,
+);
 console.log(`${results.length} games in ${((performance.now() - t0) / 1000).toFixed(0)}s`);
 
 mkdirSync(values.out, { recursive: true });

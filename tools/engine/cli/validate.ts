@@ -118,7 +118,10 @@ console.error(
 );
 
 const t0 = performance.now();
-const results = await runGames(jobs, { variant: values.variant as Maia3Variant, workers: nWorkers });
+const results = await runGames(jobs, {
+  variant: values.variant as Maia3Variant,
+  workers: nWorkers,
+});
 
 // ---- Aggregate -------------------------------------------------------------
 
@@ -201,7 +204,15 @@ const stamp = new Date().toISOString().replace(/[:.]/g, "-");
 const base = join(values.out, `validate${values.style ? "-style" : ""}-${stamp}`);
 writeFileSync(
   `${base}.json`,
-  JSON.stringify({ args: values, rows, games: results.map((r) => ({ ...r, ...meta.get(r.id), cell: meta.get(r.id)!.cell.key })) }, null, 2),
+  JSON.stringify(
+    {
+      args: values,
+      rows,
+      games: results.map((r) => ({ ...r, ...meta.get(r.id), cell: meta.get(r.id)!.cell.key })),
+    },
+    null,
+    2,
+  ),
 );
 writeFileSync(
   `${base}.csv`,

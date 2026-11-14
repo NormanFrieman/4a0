@@ -26,7 +26,10 @@ export function shapePolicy(
   // Work in log space to avoid underflow at low temperatures.
   const invT = 1 / temperature;
   const maxLog = Math.log(entries[0]![1]);
-  let weighted = entries.map(([m, p]): [string, number] => [m, Math.exp((Math.log(p) - maxLog) * invT)]);
+  let weighted = entries.map(([m, p]): [string, number] => [
+    m,
+    Math.exp((Math.log(p) - maxLog) * invT),
+  ]);
   let total = weighted.reduce((s, [, w]) => s + w, 0);
   weighted = weighted.map(([m, w]) => [m, w / total]);
 
