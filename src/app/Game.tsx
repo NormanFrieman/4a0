@@ -24,8 +24,10 @@ export function Game() {
   }, [phase]);
 
   return (
-    <>
-      <main className="min-h-[calc(100vh-3rem)]">
+    // Desktop (≥ lg): the app is exactly one viewport tall and never scrolls
+    // (docs/design.md); screens lay themselves out with <ScreenLayout>.
+    <div className="lg:flex lg:h-dvh lg:flex-col lg:overflow-hidden">
+      <main className="min-h-[calc(100vh-3rem)] lg:flex lg:min-h-0 lg:flex-1 lg:flex-col">
         {phase === "loading" && (
           <p className="p-8 text-center text-muted italic">{t("app.loading")}</p>
         )}
@@ -41,10 +43,10 @@ export function Game() {
         {phase === "standings" && <Standings />}
         {phase === "final" && <Final />}
       </main>
-      <footer className="py-3 text-center text-xs text-muted">
+      <footer className="py-3 text-center text-xs text-muted lg:shrink-0 lg:py-1.5">
         {seed && t("app.seed", { seed })}
         {fastMode && ` · ${t("app.fastMode")}`}
       </footer>
-    </>
+    </div>
   );
 }

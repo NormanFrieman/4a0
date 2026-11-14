@@ -6,14 +6,18 @@ export function MatchScore({
   away,
   homePoints,
   awayPoints,
+  className = "",
 }: {
   home: string;
   away: string;
   homePoints: number;
   awayPoints: number;
+  className?: string;
 }) {
   return (
-    <h2 className="text-center font-display text-3xl leading-tight font-black sm:text-5xl">
+    <h2
+      className={`text-center font-display text-3xl leading-tight font-black sm:text-5xl ${className}`}
+    >
       {home}{" "}
       <span className="whitespace-nowrap tabular-nums">
         {formatPoints(homePoints)} × {formatPoints(awayPoints)}

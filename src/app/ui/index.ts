@@ -8,5 +8,6 @@ export { LineupRow } from "./LineupRow.tsx";
 export { Kicker, Masthead, Rule } from "./Masthead.tsx";
 export { MatchScore } from "./MatchScore.tsx";
 export { ResultBadge } from "./ResultBadge.tsx";
+export { ScreenLayout } from "./ScreenLayout.tsx";
 export { StyleTrait, type Trait } from "./StyleTrait.tsx";
 export { TeamSlot } from "./TeamSlot.tsx";

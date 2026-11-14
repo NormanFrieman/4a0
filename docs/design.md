@@ -48,7 +48,8 @@ Todo texto de interface entra por props (vem do i18n quando o i18next entrar na 
 
 | Componente                   | Uso                                                                                                                                                                                                                         |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Masthead`, `Rule`, `Kicker` | Cabeçalho de página (kicker, título, linha de seção com filetes), filete horizontal, rótulo em versaletes                                                                                                                   |
+| `Masthead`, `Rule`, `Kicker` | Cabeçalho de página (kicker, título, linha de seção com filetes), filete horizontal, rótulo em versaletes. `compact`: no desktop vira uma faixa de uma linha (todas as telas menos o Início)                                |
+| `ScreenLayout`               | Esqueleto de tela: `header` e `footer` fixos, conteúdo ocupa o resto da altura no desktop (painéis rolam por dentro com `lg:overflow-y-auto`)                                                                               |
 | `Button`                     | `primary` (uma por tela), `secondary`, `link` (baixa ênfase), `toggle` (escolhas segmentadas, com `aria-pressed`)                                                                                                           |
 | `Flag`                       | Bandeira 3:2 por código ISO minúsculo. `flag-icons` para países atuais; URSS (`su`), Iugoslávia (`yu`), Tchecoslováquia (`cs`) e Alemanha Oriental (`dd`) são desenhadas no componente. Código desconhecido mostra o código |
 | `StyleTrait`                 | Traço Sólido / Equilibrado / Combativo (GDD §7.2)                                                                                                                                                                           |
@@ -63,7 +64,8 @@ Todo texto de interface entra por props (vem do i18n quando o i18next entrar na 
 ## Regras por tela
 
 - **Draft:** escalação como lista tipográfica com pontilhados (`divide-dotted divide-line`) e `LineupRow`; vagas numa coluna lateral com `TeamSlot` (abaixo da lista no celular). Re-sorteio como `Button variant="link"`.
-- **Rodada:** `MatchScore` no topo; **os 4 tabuleiros têm o mesmo tamanho** (`grid grid-cols-2 lg:grid-cols-4` de `BoardCard`): 4 em linha no desktop, 2 × 2 no celular. Não há mesa ampliada. Velocidade com `Button variant="toggle"`; outros resultados como lista de texto abaixo.
+- **Rodada:** `MatchScore` no topo; **os 4 tabuleiros têm o mesmo tamanho** (`grid grid-cols-2 lg:grid-cols-4` de `BoardCard`): 4 em linha no desktop, 2 × 2 no celular. Não há mesa ampliada. No desktop, a grade é um contêiner de tamanho e cada tabuleiro é limitado pela altura disponível (`w-[min(100%,calc(100cqh-5rem))]`), então os 4 encolhem juntos com a janela. Velocidade com `Button variant="toggle"`; outros resultados como lista de texto abaixo.
 - **Resultado:** medalha em formato de certificado (borda dupla `accent`), campanha em tabela pontilhada, destaques por mesa com pontilhado entre nome e pontos.
+- **Desktop (≥ `lg`): nenhuma tela rola a página.** Alvo mínimo 1366×768. O app ocupa exatamente a altura da janela (`Game.tsx`) e cada tela usa `ScreenLayout`: cabeçalho e ação principal ficam sempre visíveis; se uma lista não couber, rola só aquele painel. Masthead `compact` em todas as telas menos o Início. Abaixo de `lg` vale o fluxo normal, com rolagem.
 - **Celular:** Draft e Resultado precisam funcionar em 375 px sem rolagem horizontal (GDD §10). Gutter de 16 px (`px-4`).
 - **Sem fotos** de jogadores reais (GDD §10). Identidade visual de jogador = nome, bandeira, ano.

@@ -139,6 +139,10 @@ export function UiCatalog() {
         </p>
       </Section>
 
+      <Section title="Masthead compacto (telas internas, desktop)">
+        <Masthead compact title="4 a 0" kicker="Design system" section="Rodada 3 de 7" />
+      </Section>
+
       <Section title="Botões">
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="primary">Confirmar equipe</Button>

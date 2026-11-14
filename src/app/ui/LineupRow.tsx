@@ -34,7 +34,7 @@ export function LineupRow({
       disabled={disabled}
       aria-pressed={selected}
       onClick={onSelect}
-      className={`grid w-full cursor-pointer grid-cols-[2.25rem_1fr_auto] items-baseline gap-x-3 px-2 py-2.5 text-left transition disabled:cursor-default disabled:opacity-40 ${selected ? "bg-accent text-accent-ink" : "hover:bg-surface"}`}
+      className={`grid w-full cursor-pointer grid-cols-[2.25rem_1fr_auto] items-baseline gap-x-3 px-2 py-2.5 lg:py-1.5 text-left transition disabled:cursor-default disabled:opacity-40 ${selected ? "bg-accent text-accent-ink" : "hover:bg-surface"}`}
     >
       <span className="text-sm tabular-nums opacity-70">{boardLabel}</span>
       <span className="min-w-0">

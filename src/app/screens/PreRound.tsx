@@ -8,7 +8,7 @@ import {
   opponentOf,
   userPairing,
 } from "../../tournament/tournament.ts";
-import { Button, Flag, Kicker, Masthead, Rule, StyleTrait } from "../ui/index.ts";
+import { Button, Flag, Kicker, Masthead, Rule, ScreenLayout, StyleTrait } from "../ui/index.ts";
 import { useSession } from "../state/session.ts";
 import { cardView } from "./helpers.ts";
 
@@ -23,21 +23,38 @@ export function PreRound() {
   const user = entrant(tournament, USER_ID);
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-6">
-      <Masthead
-        title={t("app.title")}
-        kicker={t("app.kicker")}
-        section={t("round.section", { n: round, total: balance.tournament.rounds })}
-      />
-      <h2 className="mt-6 flex flex-wrap items-center justify-center gap-x-3 text-center font-display text-3xl font-black sm:text-5xl">
-        {t("round.you")} <span className="text-muted">×</span>
-        <span className="inline-flex items-center gap-3 whitespace-nowrap">
-          <Flag code={opp.countryCode} label={opp.countryName} className="w-12" />
-          {opp.countryName} {opp.year}
-        </span>
-      </h2>
-      <Rule />
-      <div className="grid gap-8 md:grid-cols-2">
+    <ScreenLayout
+      width="max-w-5xl"
+      header={
+        <>
+          <Masthead
+            compact
+            title={t("app.title")}
+            kicker={t("app.kicker")}
+            section={t("round.section", { n: round, total: balance.tournament.rounds })}
+          />
+          <h2 className="mt-6 flex flex-wrap items-center justify-center gap-x-3 text-center font-display text-3xl font-black sm:text-5xl lg:mt-4 lg:text-4xl">
+            {t("round.you")} <span className="text-muted">×</span>
+            <span className="inline-flex items-center gap-3 whitespace-nowrap">
+              <Flag code={opp.countryCode} label={opp.countryName} className="w-12 lg:w-10" />
+              {opp.countryName} {opp.year}
+            </span>
+          </h2>
+          <Rule className="my-4 lg:my-3" />
+        </>
+      }
+      footer={
+        <>
+          <Rule className="my-4 lg:my-3" />
+          <div className="text-center">
+            <Button variant="primary" className="px-8 py-3" onClick={playRound}>
+              {t("round.play")}
+            </Button>
+          </div>
+        </>
+      }
+    >
+      <div className="grid gap-8 md:grid-cols-2 lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
         <section>
           <h3 className="font-display text-xl font-bold italic">{t("round.resting")}</h3>
           <p className="mb-2 text-sm text-muted">{t("round.restingHint")}</p>
@@ -97,12 +114,6 @@ export function PreRound() {
           </ul>
         </section>
       </div>
-      <Rule />
-      <div className="text-center">
-        <Button variant="primary" className="px-8 py-3" onClick={playRound}>
-          {t("round.play")}
-        </Button>
-      </div>
-    </div>
+    </ScreenLayout>
   );
 }

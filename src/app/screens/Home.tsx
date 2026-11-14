@@ -7,7 +7,7 @@ export function Home() {
   const { t } = useTranslation();
   const { dataset, fastMode, startDraft } = useSession();
   return (
-    <div className="mx-auto max-w-2xl px-4 py-10 text-center">
+    <div className="mx-auto w-full max-w-2xl px-4 py-10 text-center lg:flex lg:flex-1 lg:flex-col lg:justify-center">
       <Masthead title={t("app.title")} kicker={t("app.kicker")} section={t("home.section")} />
       <p className="mt-8 text-lg">{t("home.pitch", { rounds: balance.tournament.rounds })}</p>
       {dataset?.index.note && (

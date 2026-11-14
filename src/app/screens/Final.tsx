@@ -6,6 +6,7 @@ import {
   Kicker,
   Masthead,
   ResultBadge,
+  ScreenLayout,
   formatPoints,
   outcomeOf,
 } from "../ui/index.ts";
@@ -37,10 +38,28 @@ export function Final() {
     .sort((a, b) => b[1].points / b[1].games - a[1].points / a[1].games)[0]?.[0];
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-6">
-      <Masthead title={t("app.title")} kicker={t("app.kicker")} section={t("final.section")} />
+    <ScreenLayout
+      width="max-w-4xl"
+      // Desktop: certificate on the left, campaign and boards on the right.
+      className="lg:mt-4 lg:grid lg:grid-cols-2 lg:gap-8"
+      header={
+        <Masthead
+          compact
+          title={t("app.title")}
+          kicker={t("app.kicker")}
+          section={t("final.section")}
+        />
+      }
+      footer={
+        <div className="mt-6 text-center lg:mt-3">
+          <Button variant="primary" onClick={playAgain}>
+            {t("final.playAgain")}
+          </Button>
+        </div>
+      }
+    >
       <section
-        className={`mx-auto mt-6 max-w-xl border-4 border-double bg-surface px-6 py-8 text-center ${row.medal ? "border-accent" : "border-line"}`}
+        className={`mx-auto mt-6 w-full max-w-xl border-4 border-double bg-surface px-6 py-8 text-center lg:mt-0 lg:self-center ${row.medal ? "border-accent" : "border-line"}`}
       >
         <div className="text-xs tracking-[0.3em] text-muted uppercase">{t("final.certifies")}</div>
         <div className="mt-2 font-display text-lg italic">
@@ -60,7 +79,7 @@ export function Final() {
         </div>
       </section>
 
-      <div className="mt-8 grid gap-8 md:grid-cols-2">
+      <div className="mt-8 grid gap-8 md:grid-cols-2 lg:mt-0 lg:min-h-0 lg:grid-cols-1 lg:content-start lg:gap-5 lg:overflow-y-auto">
         <section>
           <h3 className="font-display text-xl font-bold italic">{t("final.campaign")}</h3>
           <table className="mt-2 w-full text-sm">
@@ -114,13 +133,8 @@ export function Final() {
               );
             })}
           </ul>
-          <div className="mt-6">
-            <Button variant="primary" onClick={playAgain}>
-              {t("final.playAgain")}
-            </Button>
-          </div>
         </section>
       </div>
-    </div>
+    </ScreenLayout>
   );
 }

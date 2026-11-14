@@ -23,6 +23,7 @@ export function BoardCard({
   lastMove,
   white,
   black,
+  className = "",
 }: {
   boardLabel: string;
   /** "lance 23…" while live, "½-½ · empate" when finished. */
@@ -33,6 +34,8 @@ export function BoardCard({
   lastMove?: readonly [string, string];
   white: BoardCardPlayer;
   black: BoardCardPlayer;
+  /** Extra classes, e.g. a width cap so the board fits the viewport height. */
+  className?: string;
 }) {
   const userIsBlack = black.isUser;
   const line = (p: BoardCardPlayer, color: "white" | "black") => (
@@ -46,7 +49,7 @@ export function BoardCard({
     </div>
   );
   return (
-    <figure className="min-w-0">
+    <figure className={`min-w-0 ${className}`}>
       <div className="mb-1 flex items-baseline justify-between gap-2">
         <Kicker>{boardLabel}</Kicker>
         <ResultBadge outcome={outcome} className="truncate text-sm">

@@ -9,6 +9,7 @@ import {
   Masthead,
   MatchScore,
   Rule,
+  ScreenLayout,
   formatPoints,
   outcomeOf,
 } from "../ui/index.ts";
@@ -46,57 +47,9 @@ export function Round() {
   const liveCount = scores.filter((s) => s === null).length;
   const done = roundDone(live);
 
-  return (
-    <div className="mx-auto max-w-6xl px-4 py-6">
-      <Masthead
-        title={t("app.title")}
-        kicker={t("app.kicker")}
-        section={t("round.section", { n: live.round, total: balance.tournament.rounds })}
-      />
-      <div className="mt-6">
-        <MatchScore home={t("round.you")} away={opp.name} homePoints={mine} awayPoints={theirs} />
-      </div>
-      <p className="mt-1 text-center text-muted italic">
-        {done ? t("round.done") : t("round.live", { count: liveCount })}
-      </p>
-      <Rule />
-      <div className="grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-4">
-        {live.boards.map((b, i) => {
-          const s = scores[i]!;
-          const shownMove = b.moves[b.shown - 1];
-          const white = cardView(ds, b.game.whiteCardId);
-          const black = cardView(ds, b.game.blackCardId);
-          const status =
-            s !== null
-              ? `${b.result!.score === 1 ? "1-0" : b.result!.score === 0 ? "0-1" : "½-½"} · ${t(`round.outcome_${outcomeOf(s)}`)}${b.simulated ? ` · ${t("round.simulated")}` : ""}`
-              : b.moves.length === 0
-                ? t("round.computing")
-                : t("round.moveStatus", { n: Math.max(1, Math.ceil(b.shown / 2)) });
-          return (
-            <BoardCard
-              key={b.game.board}
-              boardLabel={t("slots.board", { n: b.game.board })}
-              status={status}
-              outcome={s === null ? null : outcomeOf(s)}
-              fen={shownMove?.fenAfter ?? START_FEN}
-              lastMove={
-                shownMove ? [shownMove.uci.slice(0, 2), shownMove.uci.slice(2, 4)] : undefined
-              }
-              white={{
-                name: white.name,
-                strength: white.card.strength,
-                isUser: userCards.has(b.game.whiteCardId),
-              }}
-              black={{
-                name: black.name,
-                strength: black.card.strength,
-                isUser: userCards.has(b.game.blackCardId),
-              }}
-            />
-          );
-        })}
-      </div>
-      <Rule />
+  const footer = (
+    <>
+      <Rule className="my-4 lg:my-3" />
       <div className="grid gap-6 md:grid-cols-2">
         <div className="flex flex-wrap items-start gap-2 text-sm">
           {done ? (
@@ -130,7 +83,7 @@ export function Round() {
         {done && (
           <div>
             <h3 className="font-display font-bold italic">{t("round.others")}</h3>
-            <ul className="mt-1 space-y-1 text-sm">
+            <ul className="mt-1 space-y-1 text-sm lg:max-h-24 lg:overflow-y-auto">
               {live.field.map((m) => {
                 const a = teamLabel(ds, m.first, t("round.you"));
                 const b = teamLabel(ds, m.second, t("round.you"));
@@ -150,6 +103,77 @@ export function Round() {
           </div>
         )}
       </div>
-    </div>
+    </>
+  );
+
+  return (
+    <ScreenLayout
+      width="max-w-6xl"
+      header={
+        <>
+          <Masthead
+            compact
+            title={t("app.title")}
+            kicker={t("app.kicker")}
+            section={t("round.section", { n: live.round, total: balance.tournament.rounds })}
+          />
+          <div className="mt-6 lg:mt-3">
+            <MatchScore
+              home={t("round.you")}
+              away={opp.name}
+              homePoints={mine}
+              awayPoints={theirs}
+              className="lg:text-4xl"
+            />
+          </div>
+          <p className="mt-1 text-center text-muted italic">
+            {done ? t("round.done") : t("round.live", { count: liveCount })}
+          </p>
+          <Rule className="my-4 lg:my-3" />
+        </>
+      }
+      footer={footer}
+    >
+      {/* On desktop the grid is a size container: each board is capped by the
+          available height (minus its label and caption) so all four keep the
+          same size and the screen never scrolls. */}
+      <div className="grid grid-cols-2 gap-x-4 gap-y-6 lg:min-h-0 lg:flex-1 lg:grid-cols-4 lg:[container-type:size]">
+        {live.boards.map((b, i) => {
+          const s = scores[i]!;
+          const shownMove = b.moves[b.shown - 1];
+          const white = cardView(ds, b.game.whiteCardId);
+          const black = cardView(ds, b.game.blackCardId);
+          const status =
+            s !== null
+              ? `${b.result!.score === 1 ? "1-0" : b.result!.score === 0 ? "0-1" : "½-½"} · ${t(`round.outcome_${outcomeOf(s)}`)}${b.simulated ? ` · ${t("round.simulated")}` : ""}`
+              : b.moves.length === 0
+                ? t("round.computing")
+                : t("round.moveStatus", { n: Math.max(1, Math.ceil(b.shown / 2)) });
+          return (
+            <BoardCard
+              key={b.game.board}
+              boardLabel={t("slots.board", { n: b.game.board })}
+              status={status}
+              outcome={s === null ? null : outcomeOf(s)}
+              fen={shownMove?.fenAfter ?? START_FEN}
+              lastMove={
+                shownMove ? [shownMove.uci.slice(0, 2), shownMove.uci.slice(2, 4)] : undefined
+              }
+              white={{
+                name: white.name,
+                strength: white.card.strength,
+                isUser: userCards.has(b.game.whiteCardId),
+              }}
+              black={{
+                name: black.name,
+                strength: black.card.strength,
+                isUser: userCards.has(b.game.blackCardId),
+              }}
+              className="lg:mx-auto lg:w-[min(100%,calc(100cqh-5rem))]"
+            />
+          );
+        })}
+      </div>
+    </ScreenLayout>
   );
 }

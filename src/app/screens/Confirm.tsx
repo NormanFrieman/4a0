@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { avgStrength } from "../../data/cardStrength.ts";
-import { Button, Flag, Kicker, Masthead, Rule, StyleTrait } from "../ui/index.ts";
+import { Button, Flag, Kicker, Masthead, Rule, ScreenLayout, StyleTrait } from "../ui/index.ts";
 import { useSession } from "../state/session.ts";
 import { cardView } from "./helpers.ts";
 
@@ -11,13 +11,36 @@ export function Confirm() {
   const order = draft.slots.filter((id): id is string => id !== null);
   const avg = avgStrength(order.map((id) => ds.card(id).strength));
   return (
-    <div className="mx-auto max-w-3xl px-4 py-6">
-      <Masthead title={t("app.title")} kicker={t("app.kicker")} section={t("confirm.section")} />
-      <h2 className="mt-6 text-center font-display text-3xl font-black">{t("confirm.title")}</h2>
-      <p className="text-center text-muted italic">{t("confirm.avg", { avg })}</p>
-      <Rule />
-      <p className="mb-3 text-sm text-muted">{t("confirm.boardsHint")}</p>
-      <ol className="divide-y divide-dotted divide-line">
+    <ScreenLayout
+      width="max-w-3xl"
+      header={
+        <>
+          <Masthead
+            compact
+            title={t("app.title")}
+            kicker={t("app.kicker")}
+            section={t("confirm.section")}
+          />
+          <h2 className="mt-6 text-center font-display text-3xl font-black lg:mt-4">
+            {t("confirm.title")}
+          </h2>
+          <p className="text-center text-muted italic">{t("confirm.avg", { avg })}</p>
+          <Rule className="my-4 lg:my-3" />
+          <p className="mb-3 text-sm text-muted">{t("confirm.boardsHint")}</p>
+        </>
+      }
+      footer={
+        <>
+          <Rule className="my-4 lg:my-3" />
+          <div className="text-center">
+            <Button variant="primary" className="px-8 py-3" onClick={confirmTeam}>
+              {t("confirm.confirm")}
+            </Button>
+          </div>
+        </>
+      }
+    >
+      <ol className="divide-y divide-dotted divide-line lg:min-h-0 lg:overflow-y-auto">
         {order.map((id, i) => {
           const v = cardView(ds, id);
           return (
@@ -38,12 +61,6 @@ export function Confirm() {
           );
         })}
       </ol>
-      <Rule />
-      <div className="text-center">
-        <Button variant="primary" className="px-8 py-3" onClick={confirmTeam}>
-          {t("confirm.confirm")}
-        </Button>
-      </div>
-    </div>
+    </ScreenLayout>
   );
 }
