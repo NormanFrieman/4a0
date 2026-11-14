@@ -1,0 +1,10 @@
+# Cloudflare Pages response headers.
+# Cross-origin isolation enables multi-threaded WASM in onnxruntime-web
+# (same policy as vite.config.ts uses for dev/preview).
+/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+
+# Hashed build output never changes.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

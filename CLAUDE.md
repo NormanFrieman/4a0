@@ -29,7 +29,8 @@ Fatia jogável da Fase 1 em `/`: draft → confirmação → campo → 7 rodadas
 - `pnpm install`
 - `pnpm test` — Vitest
 - `pnpm typecheck` / `pnpm lint`
-- `pnpm dev` — app (Vite); `/spike` é a página de teste da engine no navegador; `/dev/ui` é o catálogo do design system
+- `pnpm dev` — app (Vite); `/spike` é a página de teste da engine no navegador; `/dev/ui` é o catálogo do design system (as duas só existem no `dev`)
+- `pnpm build` — gera `dist/` para o Cloudflare Pages (cabeçalhos em `public/_headers`; o `.wasm` do ORT vem do jsDelivr e fica fora do build)
 - `pnpm data:sample` — gera `public/data/sample` a partir de `tools/data/sample/source.ts`
 - `pnpm engine:play --white 1500 --black 1600 --seed 42`
 - `pnpm engine:validate --game --bands 1000,1400,1800` — valida a escala calibrada
