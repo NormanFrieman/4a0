@@ -7,6 +7,7 @@
  *
  *   pnpm engine:ladder                    # 600..2600 step 200, 200 games/pair
  *   pnpm engine:ladder --games 50 --step 400
+ *   pnpm engine:ladder --style-temps 0.7,0.9,1.1   # style grid (GDD §7.2)
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -23,14 +24,21 @@ const repoRoot = resolve(here, "../../..");
 
 const { values } = parseArgs({
   options: {
-    min: { type: "string", default: String(balance.ratingMin) },
-    max: { type: "string", default: String(balance.ratingMax) },
+    /** Maia-3 selfElo input range. */
+    min: { type: "string", default: "600" },
+    max: { type: "string", default: "2600" },
     step: { type: "string", default: "200" },
     games: { type: "string", default: "200" },
     /** Temperatures explored at the top of the ladder (stronger than T=1). */
     "top-temps": { type: "string", default: "0.8,0.6" },
     /** Temperatures explored at the bottom of the ladder (weaker than T=1). */
     "bottom-temps": { type: "string", default: "1.3" },
+    /**
+     * Full parallel ladders at these temperatures, for the style grid
+     * (selfElo × temperature, GDD §7.2). Each node also plays the T=1 node
+     * of the same selfElo.
+     */
+    "style-temps": { type: "string", default: "" },
     variant: { type: "string", default: "5m" },
     "top-p": { type: "string", default: String(balance.game.topP) },
     /** Disable draw by agreement and resignation. */
@@ -78,6 +86,19 @@ const topTemps = values["top-temps"] ? values["top-temps"].split(",").map(Number
 const bottomTemps = values["bottom-temps"] ? values["bottom-temps"].split(",").map(Number) : [];
 chain([base[base.length - 1]!, base[base.length - 2]!], topTemps, max);
 chain([base[0]!, base[1]!], bottomTemps, min);
+const styleTemps = values["style-temps"]
+  ? values["style-temps"]
+      .split(",")
+      .map(Number)
+      .filter((t) => t !== 1)
+  : [];
+for (const t of styleTemps) {
+  const ladder = base.map((b) => node(b.elo, t));
+  for (let i = 0; i < ladder.length; i++) {
+    pairs.push([ladder[i]!, base[i]!]);
+    if (ladder[i + 1]) pairs.push([ladder[i]!, ladder[i + 1]!]);
+  }
+}
 
 const jobs: ValidateJob[] = [];
 const jobPair = new Map<number, { a: Node; aIsWhite: boolean }>();
@@ -159,6 +180,36 @@ console.log(
 console.log(
   `Overall real range: ${fit[allNodes[0]!.id]!.toFixed(0)}–${fit[allNodes[allNodes.length - 1]!.id]!.toFixed(0)}`,
 );
+
+// Draw rate and how games ended, per selfElo (both sides at that level ±1 step).
+const byElo = new Map<
+  number,
+  { n: number; draws: number; agreement: number; resignation: number }
+>();
+for (const r of results) {
+  const [aId, bId] = pairOf.get(r.id)!.split("|") as [string, string];
+  const elo = Math.round((Number(aId.split("@")[0]) + Number(bId.split("@")[0])) / 2 / step) * step;
+  const s = byElo.get(elo) ?? { n: 0, draws: 0, agreement: 0, resignation: 0 };
+  s.n++;
+  if (r.result === "1/2-1/2") s.draws++;
+  if (r.termination === "agreement") s.agreement++;
+  if (r.termination === "resignation") s.resignation++;
+  byElo.set(elo, s);
+}
+const pct = (x: number, n: number) => `${((100 * x) / n).toFixed(0)}%`.padStart(8);
+console.log(`
+${"selfElo".padEnd(9)}${"games".padStart(7)}${"draws".padStart(8)}${"agreed".padStart(8)}${"resign".padStart(8)}`);
+for (const [elo, s] of [...byElo.entries()].sort((a, b) => a[0] - b[0])) {
+  console.log(
+    String(elo).padEnd(9) +
+      String(s.n).padStart(7) +
+      pct(s.draws, s.n) +
+      pct(s.agreement, s.n) +
+      pct(s.resignation, s.n),
+  );
+}
+const avgPlies = results.reduce((a, r) => a + r.plies, 0) / results.length;
+console.log(`Average length: ${avgPlies.toFixed(0)} plies`);
 console.log(`${results.length} games in ${((performance.now() - t0) / 1000).toFixed(0)}s`);
 
 mkdirSync(values.out, { recursive: true });
