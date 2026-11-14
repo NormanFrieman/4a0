@@ -175,3 +175,19 @@ Pontuação do lado mais forte. "Sólido" = T 0,7 e "combativo" = T 1,1, ambos c
 
 - **Até ~1850 a escala e a compensação de estilo funcionam:** quase todas as células estão dentro da margem, e sólido × combativo de mesmo rating fica perto de 50%. Os desvios isolados (1400+0 sem estilo; 1000+0 e 1400+200 combativo) estão perto do limite da margem e não seguem um padrão.
 - **Acima de ~1885 (`selfElo` 2600, força vinda de T < 1) a força é superestimada:** quem está nessa região vence demais (97–99% com +400; 87% com +200 quando o combativo passa do seu teto). Essa parte da grade tem poucos nós medidos. **Pendente:** medir mais pontos de T entre 0,6 e 1,0 em `selfElo` 2600, ou comprimir a `strengthScale` para que menos cartas caiam nessa região.
+
+## Benchmarks futuros (ideias anotadas)
+
+Medições a fazer, em ordem aproximada de prioridade. Ao concluir uma, registre os resultados numa seção própria acima e remova o item daqui.
+
+1. **Topo da escala (`selfElo` 2600, T < 1).** A validação mostrou força superestimada acima de ~1885 (lendas vencem demais). Medir temperaturas de 1,0 a 0,6 em passos de 0,05 em `selfElo` 2600, cada nó contra os vizinhos e contra o topo da curva T=1 (2200 e 2400). São ~20 pares × 200 partidas (~35 min nesta máquina). Depois, repetir `engine:validate --game --bands 1800,1900,2000` com e sem `--styles`.
+2. **Taxa de empates e empate por acordo.** Depende de definir a taxa alvo por nível (de preferência a partir de dados reais de Olimpíadas). Varrer `drawOfferFromMove`, `drawBand` e `drawStableMoves` e medir empates, acordos e duração. Depois, refazer a escada se a força mudar (acordo frequente comprime a escala).
+3. **Abandono.** Conferir se `resignProb` 0,05 e `resignStableMoves` 6 deixam as partidas com duração plausível, e se o abandono não muda a força medida (comparar `--pure` com regras ligadas na mesma célula).
+4. **Simulação rápida coerente com o Maia.** Com as taxas de empate do item 2, ajustar `drawBase`, `drawSlope`, `drawMin` e `drawMax` (`balance.quickSim`) até que a simulação por Elo reproduza a distribuição vitória/empate/derrota das partidas Maia × Maia do mesmo nível.
+5. **Rodada no navegador < 10 s (GDD §8.3).** Repetir a rodada de 4 partidas depois dos itens 2 e 3 (partidas mais curtas). Medir num notebook médio e num celular médio (tabela "Navegador" acima), e no desktop sem carga paralela.
+6. **Configuração do grupo de workers.** Comparar 1 × 4 threads, 2 × 2, 4 × 1 e 4 × 2 em máquinas com 4, 8 e 12+ núcleos, medindo tempo de rodada e memória (4 sessões ONNX). Definir `defaultPoolSize` e `defaultThreadsPerWorker` a partir disso.
+7. **Determinismo entre navegadores e dispositivos (GDD §8.4).** Mesma semente em Chrome, Firefox e Safari, desktop e celular, e com contagens de threads diferentes: os PGNs devem ser idênticos no modo só WASM. Medir também o quanto a WebGPU diverge.
+8. **Modelo 23M (`maiaModelVariant`, "testar 23m").** Repetir escada e validação com o 23M para ver se a compressão no topo diminui, e medir o custo no navegador (download, latência, rodada).
+9. **Estilo com temperaturas intermediárias.** A grade tem T 0,7, 0,9, 1,0 e 1,1; T 0,8 e 1,0 são interpolados. Validar sólido × combativo com estilos intermediários (ex.: `--styles 0.8,1.0`) e, se necessário, medir T 0,8 em toda a escada.
+10. **Livros de aberturas.** Quando houver livros (etapa 7), medir se partidas com livro mudam a força ou a taxa de empates em relação às sem livro, na mesma célula.
+11. **Repetir células suspeitas.** 1400+0 sem estilo (39,3%) e 1000+0 combativo (58,3%) ficaram perto do limite da margem. Repetir com sementes novas para confirmar que foi flutuação estatística.
