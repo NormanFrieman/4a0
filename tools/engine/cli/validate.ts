@@ -13,6 +13,7 @@ import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { balance } from "../../../src/config/balance.ts";
 import { engineParamsForRating } from "../../../src/engine/engineParams.ts";
+import { engineParamsForStyle } from "../../../src/engine/strength.ts";
 import { expectedScore } from "../../../src/sim/elo.ts";
 import type { Maia3Variant } from "../node.ts";
 import { defaultWorkers, runGames } from "./pool.ts";
@@ -33,6 +34,11 @@ const { values } = parseArgs({
     pure: { type: "boolean", default: false },
     /** Interpret ratings as game ratings and convert with engineCalibration. */
     game: { type: "boolean", default: false },
+    /**
+     * With --game: style temperatures "a,b" for the stronger (A) and weaker
+     * (B) side, compensated via engineParamsForStyle (GDD §7.2).
+     */
+    styles: { type: "string", default: "" },
     workers: { type: "string", default: String(defaultWorkers()) },
     variant: { type: "string", default: "5m" },
     out: { type: "string", default: join(repoRoot, "bench-results") },
@@ -58,9 +64,12 @@ interface Cell {
   rb: number;
 }
 
-const sideFor = (rating: number) => {
+const styleTemps = values.styles ? values.styles.split(",").map(Number) : null;
+const sideFor = (rating: number, which: 0 | 1) => {
   if (!values.game) return { elo: rating, temperature: temp };
-  const p = engineParamsForRating(rating);
+  const p = styleTemps
+    ? engineParamsForStyle(rating, styleTemps[which]!)
+    : engineParamsForRating(rating);
   return { elo: p.selfElo, temperature: p.temperature };
 };
 
@@ -82,8 +91,8 @@ for (const band of bands) {
         key: `${band}+${diff}`,
         band,
         diff,
-        a: sideFor(band + diff / 2),
-        b: sideFor(band - diff / 2),
+        a: sideFor(band + diff / 2, 0),
+        b: sideFor(band - diff / 2, 1),
         ra: band + diff / 2,
         rb: band - diff / 2,
       });
@@ -103,7 +112,7 @@ for (const cell of cells) {
     const id = jobs.length;
     jobs.push({
       id,
-      seed: `validate/${values.game ? "game/" : ""}${cell.key}/t${temp}/${g}`,
+      seed: `validate/${values.game ? "game/" : ""}${styleTemps ? `s${values.styles}/` : ""}${cell.key}/t${temp}/${g}`,
       white: aIsWhite ? cell.a : cell.b,
       black: aIsWhite ? cell.b : cell.a,
       topP,

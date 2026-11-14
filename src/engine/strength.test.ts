@@ -68,10 +68,19 @@ describe("engineParamsForStyle", () => {
     expect(engineParamsForStyle(1580, 1.2, grid)).toEqual(engineParamsForRating(1580, grid));
   });
 
-  it("with the current single-curve calibration, matches engineParamsForRating in range", () => {
-    for (const r of [1000, 1300, 1500, 1800]) {
-      expect(engineParamsForStyle(r, 0.7)).toEqual(engineParamsForRating(r));
-      expect(engineParamsForStyle(r, 1.1)).toEqual(engineParamsForRating(r));
+  it("with the measured grid, solid players get a lower selfElo for the same rating", () => {
+    for (const r of [1300, 1500, 1700]) {
+      const solid = engineParamsForStyle(r, 0.7);
+      const combative = engineParamsForStyle(r, 1.1);
+      expect(solid.temperature).toBe(0.7);
+      expect(combative.temperature).toBe(1.1);
+      expect(combative.selfElo - solid.selfElo).toBeGreaterThan(200);
+    }
+  });
+
+  it("T=1 matches the strength path inside the T=1 range", () => {
+    for (const r of [1000, 1300, 1600, 1850]) {
+      expect(engineParamsForStyle(r, 1)).toEqual(engineParamsForRating(r));
     }
   });
 

@@ -135,3 +135,43 @@ Ratings do jogo convertidos via `engineCalibration`, com sementes novas (indepen
 | 1800 | 49,0% | 76,0% | 88,0% |
 
 **Todas as células estão dentro da margem de erro (±4–7 p.p.) da curva Elo.** O critério de saída da Fase 0 (GDD §12.1) é atendido com a escala calibrada.
+
+## Recalibração com grade de estilo (migração 4 a 0, 2026-11-14)
+
+`pnpm engine:ladder --style-temps 0.7,0.9,1.1`: 88 pares × 200 partidas = 17 600 partidas (2h17 em 6 workers, i7-1165G7), top-p 0,95, empate por acordo e abandono ligados (valores iniciais do GDD §8.5). Âncora mantida: Maia 1500 a T=1 = 1500 (deslocamento de −95 sobre a âncora pela média). Dados brutos: `bench-results/ladder-5m-2026-11-14T17-20-23-826Z.json`. A grade está em `balance.engineCalibration`.
+
+### Força real por `selfElo` e temperatura
+
+| `selfElo` | T 0,7 | T 0,9 | T 1,0 | T 1,1 |
+| --- | --- | --- | --- | --- |
+| 600 | 1070 | 980 | 940 | 885 |
+| 1000 | 1375 | 1310 | 1250 | 1200 |
+| 1400 | 1595 | 1495 | 1445 | 1405 |
+| 1800 | 1760 | 1670 | 1645 | 1585 |
+| 2200 | 1885 | 1855 | 1790 | 1745 |
+| 2600 | 2005 | 1930 | 1885 | 1840 |
+
+Extremos: 600 a T 1,3 = 735; 2600 a T 0,8 = 1980; 2600 a T 0,6 = 2065.
+
+- **Estilo:** no mesmo `selfElo`, T 0,7 vale ~140–200 pontos a mais que T 1,1. A compensação (`engineParamsForStyle`) dá ao combativo 200 ou mais pontos de `selfElo` acima do sólido de mesmo rating.
+- **Alcance por estilo:** T 1,1 chega no máximo a ~1840 (força de carta ~2650 pela `strengthScale`); T 0,7 começa em ~1070. Fora disso, a temperatura cede à força (GDD §7.2).
+- **Fim das partidas por nível (`selfElo` 600 → 2600):** empates de 10% a 18%, acordo de 1% a 3%, abandono de 0% a 22%. Média de 84 meios-lances. **O empate por acordo quase não acontece com os valores iniciais**, e a taxa de empates fica bem abaixo da de xadrez de alto nível. Ajuste pendente: falta definir a taxa alvo.
+
+### Validação — `pnpm engine:validate --game` (200 partidas por célula, ±4–7 p.p.)
+
+Pontuação do lado mais forte. "Sólido" = T 0,7 e "combativo" = T 1,1, ambos com `selfElo` compensado.
+
+| Célula | Esperado | Sem estilo | Sólido mais forte | Combativo mais forte |
+| --- | --- | --- | --- | --- |
+| 1000 +0 | 50% | 48,0% | 48,8% | 58,3% |
+| 1000 +200 | 76% | 78,5% | 76,8% | 76,0% |
+| 1000 +400 | 91% | 89,8% | 90,3% | 89,3% |
+| 1400 +0 | 50% | 39,3% | 50,5% | 49,8% |
+| 1400 +200 | 76% | 73,3% | 78,0% | 68,0% |
+| 1400 +400 | 91% | 87,3% | 90,8% | 89,5% |
+| 1800 +0 | 50% | 47,3% | 51,2% | 45,0% |
+| 1800 +200 | 76% | 82,5% | 78,8% | **86,8%** |
+| 1800 +400 | 91% | **98,8%** | **96,8%** | **94,8%** |
+
+- **Até ~1850 a escala e a compensação de estilo funcionam:** quase todas as células estão dentro da margem, e sólido × combativo de mesmo rating fica perto de 50%. Os desvios isolados (1400+0 sem estilo; 1000+0 e 1400+200 combativo) estão perto do limite da margem e não seguem um padrão.
+- **Acima de ~1885 (`selfElo` 2600, força vinda de T < 1) a força é superestimada:** quem está nessa região vence demais (97–99% com +400; 87% com +200 quando o combativo passa do seu teto). Essa parte da grade tem poucos nós medidos. **Pendente:** medir mais pontos de T entre 0,6 e 1,0 em `selfElo` 2600, ou comprimir a `strengthScale` para que menos cartas caiam nessa região.

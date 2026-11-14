@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { balance } from "../config/balance.ts";
-import { engineParamsForRating } from "./engineParams.ts";
+import { engineParamsForRating, strengthPath } from "./engineParams.ts";
+
+const path = strengthPath(balance.engineCalibration);
 
 describe("engineParamsForRating", () => {
-  it("hits calibration points exactly", () => {
-    for (const p of balance.engineCalibration) {
+  it("hits strength-path points exactly", () => {
+    for (const p of path) {
       expect(engineParamsForRating(p.rating)).toEqual({
         selfElo: p.selfElo,
         temperature: p.temperature,
@@ -38,9 +40,17 @@ describe("engineParamsForRating", () => {
   });
 
   it("covers the whole game rating range", () => {
-    const first = balance.engineCalibration[0]!.rating;
-    const last = balance.engineCalibration[balance.engineCalibration.length - 1]!.rating;
+    const first = path[0]!.rating;
+    const last = path[path.length - 1]!.rating;
     expect(first).toBeLessThanOrEqual(balance.ratingMin);
     expect(last).toBeGreaterThanOrEqual(balance.ratingMax);
+  });
+
+  it("builds the path from the grid: T>1 at the bottom, T=1, then T<1 at the top", () => {
+    expect(path[0]).toMatchObject({ selfElo: 600, temperature: 1.3 });
+    expect(path[path.length - 1]).toMatchObject({ selfElo: 2600, temperature: 0.6 });
+    for (let i = 1; i < path.length; i++) {
+      expect(path[i]!.rating).toBeGreaterThan(path[i - 1]!.rating);
+    }
   });
 });

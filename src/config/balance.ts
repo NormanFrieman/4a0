@@ -80,10 +80,7 @@ export const balance = {
 
   // GDD §8.5 — game simulation
   game: {
-    /**
-     * NOTE: engineCalibration was measured with top-p 1.0. Re-measure with
-     * `pnpm engine:ladder` after changing this (migration step 6).
-     */
+    /** engineCalibration was measured with this value: re-measure if it changes. */
     topP: 0.95,
     /** Full move number from which a draw by agreement is possible. */
     drawOfferFromMove: 30,
@@ -102,25 +99,60 @@ export const balance = {
   },
 
   /**
-   * Game rating → Maia-3 parameters, measured by the 5M calibration ladder
-   * (pnpm engine:ladder, 5000 games, top-p 1.0, 2026-11-12). Piecewise-linear
-   * between points. Below selfElo 600 and above 2600 strength comes from
-   * temperature. Re-measure if the model or sampling changes.
+   * Calibration grid: real strength (game rating) of Maia-3 5M per
+   * (selfElo, temperature), measured by `pnpm engine:ladder --style-temps
+   * 0.7,0.9,1.1` (17 600 games, top-p 0.95, draw/resign rules on,
+   * 2026-11-14). Anchored so Maia 1500 at T=1 = 1500. Used by
+   * engineParamsForRating (strength path) and engineParamsForStyle (style
+   * compensation, GDD §7.2). Re-measure if the model or sampling changes.
    */
   engineCalibration: [
-    { rating: 770, selfElo: 600, temperature: 1.3 },
-    { rating: 965, selfElo: 600, temperature: 1.0 },
-    { rating: 1125, selfElo: 800, temperature: 1.0 },
-    { rating: 1255, selfElo: 1000, temperature: 1.0 },
-    { rating: 1370, selfElo: 1200, temperature: 1.0 },
-    { rating: 1465, selfElo: 1400, temperature: 1.0 },
-    { rating: 1535, selfElo: 1600, temperature: 1.0 },
-    { rating: 1630, selfElo: 1800, temperature: 1.0 },
-    { rating: 1710, selfElo: 2000, temperature: 1.0 },
-    { rating: 1780, selfElo: 2200, temperature: 1.0 },
-    { rating: 1850, selfElo: 2400, temperature: 1.0 },
-    { rating: 1870, selfElo: 2600, temperature: 1.0 },
-    { rating: 1995, selfElo: 2600, temperature: 0.8 },
+    { rating: 735, selfElo: 600, temperature: 1.3 },
+    { rating: 885, selfElo: 600, temperature: 1.1 },
+    { rating: 1075, selfElo: 800, temperature: 1.1 },
+    { rating: 1200, selfElo: 1000, temperature: 1.1 },
+    { rating: 1285, selfElo: 1200, temperature: 1.1 },
+    { rating: 1405, selfElo: 1400, temperature: 1.1 },
+    { rating: 1510, selfElo: 1600, temperature: 1.1 },
+    { rating: 1585, selfElo: 1800, temperature: 1.1 },
+    { rating: 1690, selfElo: 2000, temperature: 1.1 },
+    { rating: 1745, selfElo: 2200, temperature: 1.1 },
+    { rating: 1800, selfElo: 2400, temperature: 1.1 },
+    { rating: 1840, selfElo: 2600, temperature: 1.1 },
+    { rating: 940, selfElo: 600, temperature: 1 },
+    { rating: 1125, selfElo: 800, temperature: 1 },
+    { rating: 1250, selfElo: 1000, temperature: 1 },
+    { rating: 1355, selfElo: 1200, temperature: 1 },
+    { rating: 1445, selfElo: 1400, temperature: 1 },
+    { rating: 1555, selfElo: 1600, temperature: 1 },
+    { rating: 1645, selfElo: 1800, temperature: 1 },
+    { rating: 1725, selfElo: 2000, temperature: 1 },
+    { rating: 1790, selfElo: 2200, temperature: 1 },
+    { rating: 1840, selfElo: 2400, temperature: 1 },
+    { rating: 1885, selfElo: 2600, temperature: 1 },
+    { rating: 980, selfElo: 600, temperature: 0.9 },
+    { rating: 1155, selfElo: 800, temperature: 0.9 },
+    { rating: 1310, selfElo: 1000, temperature: 0.9 },
+    { rating: 1390, selfElo: 1200, temperature: 0.9 },
+    { rating: 1495, selfElo: 1400, temperature: 0.9 },
+    { rating: 1620, selfElo: 1600, temperature: 0.9 },
+    { rating: 1670, selfElo: 1800, temperature: 0.9 },
+    { rating: 1780, selfElo: 2000, temperature: 0.9 },
+    { rating: 1855, selfElo: 2200, temperature: 0.9 },
+    { rating: 1890, selfElo: 2400, temperature: 0.9 },
+    { rating: 1930, selfElo: 2600, temperature: 0.9 },
+    { rating: 1980, selfElo: 2600, temperature: 0.8 },
+    { rating: 1070, selfElo: 600, temperature: 0.7 },
+    { rating: 1265, selfElo: 800, temperature: 0.7 },
+    { rating: 1375, selfElo: 1000, temperature: 0.7 },
+    { rating: 1480, selfElo: 1200, temperature: 0.7 },
+    { rating: 1595, selfElo: 1400, temperature: 0.7 },
+    { rating: 1695, selfElo: 1600, temperature: 0.7 },
+    { rating: 1760, selfElo: 1800, temperature: 0.7 },
+    { rating: 1870, selfElo: 2000, temperature: 0.7 },
+    { rating: 1885, selfElo: 2200, temperature: 0.7 },
+    { rating: 1945, selfElo: 2400, temperature: 0.7 },
+    { rating: 2005, selfElo: 2600, temperature: 0.7 },
     { rating: 2065, selfElo: 2600, temperature: 0.6 },
   ] satisfies EngineCalibrationPoint[],
 } as const;
