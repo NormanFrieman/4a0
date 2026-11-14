@@ -201,11 +201,12 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 
 ### 7.1 Repertório de aberturas (MVP)
 
-- Para cada `Person`, o pipeline monta um livro a partir de todas as partidas dela no conjunto de dados, separado por cor.
-- Profundidade máxima: `bookMaxPlies` meios-lances. Cada lance tem peso proporcional à frequência com que a pessoa o jogou.
-- Na partida, enquanto a posição estiver no livro, o lance é sorteado do livro (com a semente). Ao sair do livro, o Maia assume.
-- Pessoas com menos de `bookMinGames` partidas usam um livro genérico da sua década, montado com todas as partidas das edições daquela década.
-- Formato: arquivo binário compacto por pessoa (chave = hash Zobrist da posição, compatível com Polyglot), carregado sob demanda.
+- **Um livro por carta**, montado com as partidas da carreira da pessoa até o ano da carta, inclusive. O Karpov de 1974 abre como o Karpov de 1974.
+- Profundidade máxima: `bookMaxPlies` meios-lances da partida. Só os lances da própria pessoa entram, com peso proporcional à frequência com que ela os jogou na posição. Um mesmo arquivo serve às duas cores, porque a chave inclui o lado que joga.
+- Na partida, enquanto a posição estiver no livro, o lance é sorteado do livro (com a semente). Ao sair do livro, o Maia assume e não volta ao livro.
+- Cartas com menos de `bookMinGames` partidas nesse recorte usam um livro genérico da década da edição. Enquanto não houver os PGNs das Olimpíadas (9.1), o livro da década é montado com todas as partidas coletadas daquela década, com os lances dos dois lados.
+- Formato: arquivo binário Polyglot por carta (chave = hash Zobrist da posição), carregado antes do torneio.
+- **Fonte provisória:** coleções PGN públicas por jogador (PGN Mentor), só para desenvolvimento. Ver 14.1.
 
 ### 7.2 Estilo (MVP)
 
@@ -287,7 +288,7 @@ Os dados históricos são processados offline por scripts e publicados como arqu
 1. **Importar:** ler as fontes brutas (tabelas e PGNs) para um formato intermediário.
 2. **Normalizar:** unificar pessoas entre edições (um `personId` estável), países históricos (URSS, Iugoslávia, Tchecoslováquia, Alemanha Ocidental e Oriental) e títulos.
 3. **Calcular:** performance por edição, força de jogo (seção 6.1), decisividade (7.2), colocação das seleções.
-4. **Livros:** gerar o livro de aberturas por pessoa e por década (7.1).
+4. **Livros:** gerar o livro de aberturas por carta e por década (7.1).
 5. **Validar:** relatório de dados faltantes; excluir seleções que não atendem aos requisitos mínimos (4.1).
 6. **Publicar:** escrever os arquivos em `public/data/v{N}/`, com versão.
 
@@ -298,8 +299,8 @@ Os dados históricos são processados offline por scripts e publicados como arqu
 | `index.json` | Lista de edições, países, seleções com força média e peso de sorteio | No início |
 | `olympiads/{ano}.json` | Escalações, cartas e resultados reais de uma edição | Sob demanda |
 | `persons.json` | Nome, país, título máximo, decisividade de cada pessoa | No início |
-| `books/{personId}.bin` | Livro de aberturas da pessoa | Antes do torneio, só para as cartas em jogo |
-| `books/decade-{década}.bin` | Livro genérico por década | Sob demanda |
+| `books/{cardId}.bin` | Livro de aberturas da carta | Antes do torneio, só para as cartas em jogo |
+| `books/decade-{década}.bin` | Livro genérico por década | Antes do torneio, se alguma carta em jogo usa |
 
 ### 9.4 Esquema das entidades
 
@@ -307,8 +308,8 @@ Os dados históricos são processados offline por scripts e publicados como arqu
 | --- | --- |
 | `Olympiad` | year, city, country, rounds, boards, teamsCount |
 | `NationalTeam` | id, year, countryCode, countryName, finalRank, avgStrength, rollWeight, cardIds (na ordem real) |
-| `Person` | id, name, countryCodes, maxTitle, decisiveness, hasBook |
-| `PlayerCard` | id, personId, year, teamId, board, title, fideRating, performance, strength, score, games, medals |
+| `Person` | id, name, countryCodes, maxTitle, decisiveness |
+| `PlayerCard` | id, personId, year, teamId, board, title, fideRating, performance, strength, score, games, medals, bookFile |
 
 ## 10. Telas
 
@@ -459,6 +460,7 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 | chessground | GPL-3.0 | O código do frontend distribuído fica sujeito à GPL |
 | chess.js | BSD-2 | Permissiva |
 | Dados do OlimpBase | Projeto independente mantido por voluntários | Pedir permissão expressa antes de usar |
+| PGNs do PGN Mentor | Coleções gratuitas por jogador; licença não declarada | Só para desenvolvimento dos livros (7.1); confirmar ou trocar a fonte antes do lançamento |
 | Nomes de jogadores reais | Pessoas reais, muitas vivas | Avaliar uso de nome em jogo, sobretudo se comercial; não usar fotos |
 
 Com AGPL e GPL na base, publicar o jogo como código aberto é o caminho mais simples. Antes de qualquer uso comercial, é necessária uma análise jurídica. Este documento não é aconselhamento jurídico.
@@ -467,6 +469,7 @@ Com AGPL e GPL na base, publicar o jogo como código aberto é o caminho mais si
 
 - [ ] **Nome definitivo.** "4 a 0" é provisório; verificar se já existe jogo ou marca com esse nome.
 - [ ] **Permissão de dados:** contatar o OlimpBase ou definir outra fonte.
+- [ ] **Fonte dos PGNs dos livros:** confirmar a licença do PGN Mentor ou definir outra fonte.
 - [ ] **Edições anteriores a 1970:** qual estimativa de força usar.
 - [ ] **Normalização entre épocas:** compensar a inflação de rating ao longo das décadas, ou usar o rating da época como está?
 - [ ] **Formato do torneio:** manter suíço puro ou testar grupos + mata-mata como alternativa.
