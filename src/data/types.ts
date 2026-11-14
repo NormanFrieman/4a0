@@ -34,7 +34,6 @@ export interface Person {
   maxTitle: string;
   /** 1 − draw rate (GDD §7.2). */
   decisiveness: number;
-  hasBook: boolean;
 }
 
 export interface PlayerCard {
@@ -53,6 +52,11 @@ export interface PlayerCard {
   score: number;
   games: number;
   medals: Medal[];
+  /**
+   * Opening book (GDD §7.1), relative to the dataset root: the card's own
+   * book (`books/{cardId}.bin`) or its decade's (`books/decade-1970.bin`).
+   */
+  bookFile: string;
 }
 
 /** `index.json` */

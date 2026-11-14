@@ -20,7 +20,8 @@
       "strength": 2624,
       "score": 7,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/gb-eng-1984-1.bin"
     },
     {
       "id": "gb-eng-1984-2",
@@ -36,7 +37,8 @@
       "games": 11,
       "medals": [
         "gold"
-      ]
+      ],
+      "bookFile": "books/gb-eng-1984-2.bin"
     },
     {
       "id": "gb-eng-1984-3",
@@ -50,7 +52,8 @@
       "strength": 2588,
       "score": 6,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/gb-eng-1984-3.bin"
     },
     {
       "id": "gb-eng-1984-4",
@@ -64,7 +67,8 @@
       "strength": 2584,
       "score": 7,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "gb-eng-1984-5",
@@ -78,7 +82,8 @@
       "strength": 2576,
       "score": 6.5,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "gb-eng-1984-6",
@@ -92,7 +97,8 @@
       "strength": 2580,
       "score": 7,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/gb-eng-1984-6.bin"
     }
   ]
 }

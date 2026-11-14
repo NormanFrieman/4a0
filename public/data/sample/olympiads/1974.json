@@ -20,7 +20,8 @@
       "strength": 2600,
       "score": 9,
       "games": 14,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/yu-1974-1.bin"
     },
     {
       "id": "yu-1974-2",
@@ -36,7 +37,8 @@
       "games": 14,
       "medals": [
         "silver"
-      ]
+      ],
+      "bookFile": "books/yu-1974-2.bin"
     },
     {
       "id": "yu-1974-3",
@@ -50,7 +52,8 @@
       "strength": 2547,
       "score": 6.5,
       "games": 12,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/yu-1974-3.bin"
     },
     {
       "id": "yu-1974-4",
@@ -64,7 +67,8 @@
       "strength": 2549,
       "score": 8,
       "games": 12,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "yu-1974-5",
@@ -78,7 +82,8 @@
       "strength": 2559,
       "score": 6.5,
       "games": 9,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "yu-1974-6",
@@ -92,7 +97,8 @@
       "strength": 2533,
       "score": 5,
       "games": 7,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     }
   ]
 }

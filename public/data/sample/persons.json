@@ -6,8 +6,7 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "lev-polugaevsky",
@@ -16,8 +15,7 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.35,
-    "hasBook": false
+    "decisiveness": 0.35
   },
   {
     "id": "mikhail-tal",
@@ -26,8 +24,7 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.75,
-    "hasBook": false
+    "decisiveness": 0.75
   },
   {
     "id": "yuri-balashov",
@@ -36,8 +33,7 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "efim-geller",
@@ -46,8 +42,7 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "garry-kasparov",
@@ -56,8 +51,7 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7,
-    "hasBook": false
+    "decisiveness": 0.7
   },
   {
     "id": "lajos-portisch",
@@ -66,8 +60,7 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "zoltan-ribli",
@@ -76,8 +69,7 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "gyula-sax",
@@ -86,8 +78,7 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.65,
-    "hasBook": false
+    "decisiveness": 0.65
   },
   {
     "id": "andras-adorjan",
@@ -96,8 +87,7 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "istvan-csom",
@@ -106,8 +96,7 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "laszlo-vadasz",
@@ -116,8 +105,7 @@
       "hu"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6,
-    "hasBook": false
+    "decisiveness": 0.6
   },
   {
     "id": "robert-byrne",
@@ -126,8 +114,7 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "lubomir-kavalek",
@@ -136,8 +123,7 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "larry-evans",
@@ -146,8 +132,7 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "james-tarjan",
@@ -156,8 +141,7 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "william-lombardy",
@@ -166,8 +150,7 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.45,
-    "hasBook": false
+    "decisiveness": 0.45
   },
   {
     "id": "kim-commons",
@@ -176,8 +159,7 @@
       "us"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6,
-    "hasBook": false
+    "decisiveness": 0.6
   },
   {
     "id": "svetozar-gligoric",
@@ -186,8 +168,7 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "ljubomir-ljubojevic",
@@ -196,8 +177,7 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7,
-    "hasBook": false
+    "decisiveness": 0.7
   },
   {
     "id": "borislav-ivkov",
@@ -206,8 +186,7 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.45,
-    "hasBook": false
+    "decisiveness": 0.45
   },
   {
     "id": "albin-planinc",
@@ -216,8 +195,7 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.75,
-    "hasBook": false
+    "decisiveness": 0.75
   },
   {
     "id": "dragoljub-velimirovic",
@@ -226,8 +204,7 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.8,
-    "hasBook": false
+    "decisiveness": 0.8
   },
   {
     "id": "aleksandar-matanovic",
@@ -236,8 +213,7 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.35,
-    "hasBook": false
+    "decisiveness": 0.35
   },
   {
     "id": "vlastimil-hort",
@@ -246,8 +222,7 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.35,
-    "hasBook": false
+    "decisiveness": 0.35
   },
   {
     "id": "jan-smejkal",
@@ -256,8 +231,7 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.45,
-    "hasBook": false
+    "decisiveness": 0.45
   },
   {
     "id": "lubomir-ftacnik",
@@ -266,8 +240,7 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6,
-    "hasBook": false
+    "decisiveness": 0.6
   },
   {
     "id": "vlastimil-jansa",
@@ -276,8 +249,7 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "jan-plachetka",
@@ -286,8 +258,7 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "karel-mokry",
@@ -296,8 +267,7 @@
       "cs"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "tony-miles",
@@ -306,8 +276,7 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6,
-    "hasBook": false
+    "decisiveness": 0.6
   },
   {
     "id": "john-nunn",
@@ -316,8 +285,7 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7,
-    "hasBook": false
+    "decisiveness": 0.7
   },
   {
     "id": "jonathan-speelman",
@@ -326,8 +294,7 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "murray-chandler",
@@ -336,8 +303,7 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "jonathan-mestel",
@@ -346,8 +312,7 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6,
-    "hasBook": false
+    "decisiveness": 0.6
   },
   {
     "id": "nigel-short",
@@ -356,8 +321,7 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "jan-timman",
@@ -366,8 +330,7 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "gennadi-sosonko",
@@ -376,8 +339,7 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.45,
-    "hasBook": false
+    "decisiveness": 0.45
   },
   {
     "id": "jan-hein-donner",
@@ -386,8 +348,7 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.35,
-    "hasBook": false
+    "decisiveness": 0.35
   },
   {
     "id": "hans-ree",
@@ -396,8 +357,7 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "franciscus-kuijpers",
@@ -406,8 +366,7 @@
       "nl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "hans-bohm",
@@ -416,8 +375,7 @@
       "nl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "robert-hubner",
@@ -426,8 +384,7 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "wolfgang-unzicker",
@@ -436,8 +393,7 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.35,
-    "hasBook": false
+    "decisiveness": 0.35
   },
   {
     "id": "helmut-pfleger",
@@ -446,8 +402,7 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "hans-joachim-hecht",
@@ -456,8 +411,7 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "klaus-darga",
@@ -466,8 +420,7 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.45,
-    "hasBook": false
+    "decisiveness": 0.45
   },
   {
     "id": "stefan-kindermann",
@@ -476,8 +429,7 @@
       "de"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6,
-    "hasBook": false
+    "decisiveness": 0.6
   },
   {
     "id": "miguel-quinteros",
@@ -486,8 +438,7 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6,
-    "hasBook": false
+    "decisiveness": 0.6
   },
   {
     "id": "oscar-panno",
@@ -496,8 +447,7 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.35,
-    "hasBook": false
+    "decisiveness": 0.35
   },
   {
     "id": "jorge-rubinetti",
@@ -506,8 +456,7 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "jaime-emma",
@@ -516,8 +465,7 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "juan-hase",
@@ -526,8 +474,7 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "milko-bobotsov",
@@ -536,8 +483,7 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4,
-    "hasBook": false
+    "decisiveness": 0.4
   },
   {
     "id": "georgi-tringov",
@@ -546,8 +492,7 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   },
   {
     "id": "ivan-radulov",
@@ -556,8 +501,7 @@
       "bg"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6,
-    "hasBook": false
+    "decisiveness": 0.6
   },
   {
     "id": "nikola-padevsky",
@@ -566,8 +510,7 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.45,
-    "hasBook": false
+    "decisiveness": 0.45
   },
   {
     "id": "atanas-kolarov",
@@ -576,8 +519,7 @@
       "bg"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.5,
-    "hasBook": false
+    "decisiveness": 0.5
   },
   {
     "id": "ivan-popov",
@@ -586,7 +528,6 @@
       "bg"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.55,
-    "hasBook": false
+    "decisiveness": 0.55
   }
 ]

@@ -20,7 +20,8 @@
       "strength": 2622,
       "score": 7.5,
       "games": 12,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/cs-1982-1.bin"
     },
     {
       "id": "cs-1982-2",
@@ -34,7 +35,8 @@
       "strength": 2569,
       "score": 7,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "cs-1982-3",
@@ -48,7 +50,8 @@
       "strength": 2585,
       "score": 8,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "cs-1982-4",
@@ -62,7 +65,8 @@
       "strength": 2530,
       "score": 5.5,
       "games": 9,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "cs-1982-5",
@@ -76,7 +80,8 @@
       "strength": 2502,
       "score": 5,
       "games": 8,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "cs-1982-6",
@@ -90,7 +95,8 @@
       "strength": 2489,
       "score": 6.5,
       "games": 9,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     }
   ]
 }

@@ -20,7 +20,8 @@
       "strength": 2576,
       "score": 6.5,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/us-1976-1.bin"
     },
     {
       "id": "us-1976-2",
@@ -34,7 +35,8 @@
       "strength": 2581,
       "score": 6.5,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/us-1976-2.bin"
     },
     {
       "id": "us-1976-3",
@@ -48,7 +50,8 @@
       "strength": 2515,
       "score": 7,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/us-1976-3.bin"
     },
     {
       "id": "us-1976-4",
@@ -62,7 +65,8 @@
       "strength": 2560,
       "score": 7,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "us-1976-5",
@@ -78,7 +82,8 @@
       "games": 10,
       "medals": [
         "silver"
-      ]
+      ],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "us-1976-6",
@@ -92,7 +97,8 @@
       "strength": 2499,
       "score": 6,
       "games": 8,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "nl-1976-1",
@@ -106,7 +112,8 @@
       "strength": 2609,
       "score": 7,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/nl-1976-1.bin"
     },
     {
       "id": "nl-1976-2",
@@ -120,7 +127,8 @@
       "strength": 2594,
       "score": 7,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "nl-1976-3",
@@ -134,7 +142,8 @@
       "strength": 2498,
       "score": 6,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "nl-1976-4",
@@ -148,7 +157,8 @@
       "strength": 2491,
       "score": 6.5,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "nl-1976-5",
@@ -162,7 +172,8 @@
       "strength": 2479,
       "score": 6,
       "games": 9,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "nl-1976-6",
@@ -176,7 +187,8 @@
       "strength": 2457,
       "score": 5,
       "games": 8,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     }
   ]
 }

@@ -20,7 +20,8 @@
       "strength": 2764,
       "score": 6.5,
       "games": 9,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/su-1980-1.bin"
     },
     {
       "id": "su-1980-2",
@@ -34,7 +35,8 @@
       "strength": 2643,
       "score": 6,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/su-1980-2.bin"
     },
     {
       "id": "su-1980-3",
@@ -50,7 +52,8 @@
       "games": 11,
       "medals": [
         "silver"
-      ]
+      ],
+      "bookFile": "books/su-1980-3.bin"
     },
     {
       "id": "su-1980-4",
@@ -64,7 +67,8 @@
       "strength": 2626,
       "score": 6.5,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "su-1980-5",
@@ -78,7 +82,8 @@
       "strength": 2613,
       "score": 5.5,
       "games": 8,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/su-1980-5.bin"
     },
     {
       "id": "su-1980-6",
@@ -94,7 +99,8 @@
       "games": 12,
       "medals": [
         "gold"
-      ]
+      ],
+      "bookFile": "books/su-1980-6.bin"
     },
     {
       "id": "de-1980-1",
@@ -108,7 +114,8 @@
       "strength": 2619,
       "score": 7,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/de-1980-1.bin"
     },
     {
       "id": "de-1980-2",
@@ -122,7 +129,8 @@
       "strength": 2528,
       "score": 6,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/de-1980-2.bin"
     },
     {
       "id": "de-1980-3",
@@ -136,7 +144,8 @@
       "strength": 2551,
       "score": 6.5,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "de-1980-4",
@@ -150,7 +159,8 @@
       "strength": 2495,
       "score": 5.5,
       "games": 9,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "de-1980-5",
@@ -164,7 +174,8 @@
       "strength": 2487,
       "score": 5,
       "games": 8,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     },
     {
       "id": "de-1980-6",
@@ -178,7 +189,8 @@
       "strength": 2457,
       "score": 5,
       "games": 8,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1980.bin"
     }
   ]
 }

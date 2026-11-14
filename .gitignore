@@ -10,6 +10,9 @@ coverage/
 *.onnx
 models/
 
+# Downloaded PGN collections (pnpm data:pgn)
+tools/data/sample/pgn/
+
 # Benchmark / validation outputs
 bench-results/
 

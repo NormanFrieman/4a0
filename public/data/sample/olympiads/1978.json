@@ -22,7 +22,8 @@
       "games": 11,
       "medals": [
         "bronze"
-      ]
+      ],
+      "bookFile": "books/hu-1978-1.bin"
     },
     {
       "id": "hu-1978-2",
@@ -36,7 +37,8 @@
       "strength": 2619,
       "score": 7,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/hu-1978-2.bin"
     },
     {
       "id": "hu-1978-3",
@@ -50,7 +52,8 @@
       "strength": 2582,
       "score": 7.5,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "hu-1978-4",
@@ -64,7 +67,8 @@
       "strength": 2564,
       "score": 6,
       "games": 9,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "hu-1978-5",
@@ -80,7 +84,8 @@
       "games": 8,
       "medals": [
         "gold"
-      ]
+      ],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "hu-1978-6",
@@ -94,7 +99,8 @@
       "strength": 2490,
       "score": 4.5,
       "games": 7,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "ar-1978-1",
@@ -108,7 +114,8 @@
       "strength": 2548,
       "score": 6,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/ar-1978-1.bin"
     },
     {
       "id": "ar-1978-2",
@@ -122,7 +129,8 @@
       "strength": 2531,
       "score": 6.5,
       "games": 11,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/ar-1978-2.bin"
     },
     {
       "id": "ar-1978-3",
@@ -136,7 +144,8 @@
       "strength": 2468,
       "score": 6,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "ar-1978-4",
@@ -150,7 +159,8 @@
       "strength": 2430,
       "score": 5,
       "games": 9,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "ar-1978-5",
@@ -164,7 +174,8 @@
       "strength": 2425,
       "score": 4.5,
       "games": 7,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     }
   ]
 }

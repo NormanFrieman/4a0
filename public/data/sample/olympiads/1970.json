@@ -20,7 +20,8 @@
       "strength": 2507,
       "score": 7,
       "games": 13,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "bg-1970-2",
@@ -34,7 +35,8 @@
       "strength": 2489,
       "score": 7.5,
       "games": 13,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "bg-1970-3",
@@ -48,7 +50,8 @@
       "strength": 2485,
       "score": 8,
       "games": 13,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "bg-1970-4",
@@ -62,7 +65,8 @@
       "strength": 2457,
       "score": 6.5,
       "games": 12,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "bg-1970-5",
@@ -76,7 +80,8 @@
       "strength": 2448,
       "score": 6,
       "games": 10,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     },
     {
       "id": "bg-1970-6",
@@ -90,7 +95,8 @@
       "strength": 2440,
       "score": 5.5,
       "games": 9,
-      "medals": []
+      "medals": [],
+      "bookFile": "books/decade-1970.bin"
     }
   ]
 }
