@@ -25,7 +25,9 @@ export const balance = {
     /** 4 boards + 1 reserve. */
     slots: 5,
     rerollsPerDraft: 3,
+    /** Roll weight of teams that finished within `rollTopRank` of their edition. */
     rollWeightTop10: 3,
+    rollTopRank: 10,
     allowFinalReorder: true,
   },
 
@@ -38,6 +40,16 @@ export const balance = {
     fieldMinChampions: 3,
     fieldMaxPerCountry: 2,
     matchPoints: { win: 2, draw: 1, loss: 0 },
+    /** Teams in a final standings that get a medal (gold, silver, bronze). */
+    medalPlaces: 3,
+  },
+
+  /**
+   * Tournament with the hand-written sample dataset (public/data/sample):
+   * 7 field teams + the user = 8 teams; 7 rounds = everyone meets once.
+   */
+  sampleTournament: {
+    fieldSize: 7,
   },
 
   // GDD §6.1 — card strength
@@ -76,6 +88,10 @@ export const balance = {
     temperatureMin: 0.7,
     /** Combative players. */
     temperatureMax: 1.1,
+    /** Trait shown on the card (GDD §7.2): decisiveness below → Sólido… */
+    traitSolidBelow: 0.45,
+    /** …at or above → Combativo; in between → Equilibrado. */
+    traitCombativeFrom: 0.6,
   },
 
   // GDD §8.5 — game simulation
@@ -96,6 +112,14 @@ export const balance = {
     /** At maxPlies, a side wins if its win probability is above this; otherwise draw. */
     adjudicateWinProb: 0.85,
     maiaModelVariant: "5m",
+  },
+
+  /** GDD §8.3 — replay pace of the user's games in the Round screen. */
+  playback: {
+    /** Milliseconds per half-move at 1× and 4×; "instant" shows everything computed. */
+    msPerPly: { normal: 700, fast: 175 },
+    /** "Instant": how often to catch up with the moves computed by the worker. */
+    instantPollMs: 50,
   },
 
   /**

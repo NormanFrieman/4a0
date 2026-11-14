@@ -1,0 +1,98 @@
+{
+  "olympiad": {
+    "year": 1984,
+    "city": "Salônica",
+    "country": "Grécia",
+    "rounds": 14,
+    "teamsCount": 88,
+    "boards": 4
+  },
+  "cards": [
+    {
+      "id": "gb-eng-1984-1",
+      "personId": "tony-miles",
+      "year": 1984,
+      "teamId": "gb-eng-1984",
+      "board": 1,
+      "title": "GM",
+      "fideRating": 2600,
+      "performance": 2695,
+      "strength": 2624,
+      "score": 7,
+      "games": 11,
+      "medals": []
+    },
+    {
+      "id": "gb-eng-1984-2",
+      "personId": "john-nunn",
+      "year": 1984,
+      "teamId": "gb-eng-1984",
+      "board": 2,
+      "title": "GM",
+      "fideRating": 2615,
+      "performance": 2901,
+      "strength": 2687,
+      "score": 10,
+      "games": 11,
+      "medals": [
+        "gold"
+      ]
+    },
+    {
+      "id": "gb-eng-1984-3",
+      "personId": "jonathan-speelman",
+      "year": 1984,
+      "teamId": "gb-eng-1984",
+      "board": 3,
+      "title": "GM",
+      "fideRating": 2570,
+      "performance": 2640,
+      "strength": 2588,
+      "score": 6,
+      "games": 10,
+      "medals": []
+    },
+    {
+      "id": "gb-eng-1984-4",
+      "personId": "murray-chandler",
+      "year": 1984,
+      "teamId": "gb-eng-1984",
+      "board": 4,
+      "title": "GM",
+      "fideRating": 2560,
+      "performance": 2655,
+      "strength": 2584,
+      "score": 7,
+      "games": 11,
+      "medals": []
+    },
+    {
+      "id": "gb-eng-1984-5",
+      "personId": "jonathan-mestel",
+      "year": 1984,
+      "teamId": "gb-eng-1984",
+      "board": 5,
+      "title": "GM",
+      "fideRating": 2550,
+      "performance": 2655,
+      "strength": 2576,
+      "score": 6.5,
+      "games": 10,
+      "medals": []
+    },
+    {
+      "id": "gb-eng-1984-6",
+      "personId": "nigel-short",
+      "year": 1984,
+      "teamId": "gb-eng-1984",
+      "board": 6,
+      "title": "GM",
+      "fideRating": 2545,
+      "performance": 2685,
+      "strength": 2580,
+      "score": 7,
+      "games": 10,
+      "medals": []
+    }
+  ]
+}

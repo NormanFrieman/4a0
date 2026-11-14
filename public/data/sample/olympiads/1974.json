@@ -1,0 +1,98 @@
+{
+  "olympiad": {
+    "year": 1974,
+    "city": "Nice",
+    "country": "França",
+    "rounds": 17,
+    "teamsCount": 74,
+    "boards": 4
+  },
+  "cards": [
+    {
+      "id": "yu-1974-1",
+      "personId": "svetozar-gligoric",
+      "year": 1974,
+      "teamId": "yu-1974",
+      "board": 1,
+      "title": "GM",
+      "fideRating": 2575,
+      "performance": 2675,
+      "strength": 2600,
+      "score": 9,
+      "games": 14,
+      "medals": []
+    },
+    {
+      "id": "yu-1974-2",
+      "personId": "ljubomir-ljubojevic",
+      "year": 1974,
+      "teamId": "yu-1974",
+      "board": 2,
+      "title": "GM",
+      "fideRating": 2620,
+      "performance": 2770,
+      "strength": 2658,
+      "score": 10,
+      "games": 14,
+      "medals": [
+        "silver"
+      ]
+    },
+    {
+      "id": "yu-1974-3",
+      "personId": "borislav-ivkov",
+      "year": 1974,
+      "teamId": "yu-1974",
+      "board": 3,
+      "title": "GM",
+      "fideRating": 2540,
+      "performance": 2569,
+      "strength": 2547,
+      "score": 6.5,
+      "games": 12,
+      "medals": []
+    },
+    {
+      "id": "yu-1974-4",
+      "personId": "albin-planinc",
+      "year": 1974,
+      "teamId": "yu-1974",
+      "board": 4,
+      "title": "GM",
+      "fideRating": 2520,
+      "performance": 2637,
+      "strength": 2549,
+      "score": 8,
+      "games": 12,
+      "medals": []
+    },
+    {
+      "id": "yu-1974-5",
+      "personId": "dragoljub-velimirovic",
+      "year": 1974,
+      "teamId": "yu-1974",
+      "board": 5,
+      "title": "GM",
+      "fideRating": 2520,
+      "performance": 2676,
+      "strength": 2559,
+      "score": 6.5,
+      "games": 9,
+      "medals": []
+    },
+    {
+      "id": "yu-1974-6",
+      "personId": "aleksandar-matanovic",
+      "year": 1974,
+      "teamId": "yu-1974",
+      "board": 6,
+      "title": "GM",
+      "fideRating": 2495,
+      "performance": 2645,
+      "strength": 2533,
+      "score": 5,
+      "games": 7,
+      "medals": []
+    }
+  ]
+}

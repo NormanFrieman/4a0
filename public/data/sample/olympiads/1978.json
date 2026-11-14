@@ -1,0 +1,170 @@
+{
+  "olympiad": {
+    "year": 1978,
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "rounds": 14,
+    "teamsCount": 65,
+    "boards": 4
+  },
+  "cards": [
+    {
+      "id": "hu-1978-1",
+      "personId": "lajos-portisch",
+      "year": 1978,
+      "teamId": "hu-1978",
+      "board": 1,
+      "title": "GM",
+      "fideRating": 2630,
+      "performance": 2789,
+      "strength": 2670,
+      "score": 8,
+      "games": 11,
+      "medals": [
+        "bronze"
+      ]
+    },
+    {
+      "id": "hu-1978-2",
+      "personId": "zoltan-ribli",
+      "year": 1978,
+      "teamId": "hu-1978",
+      "board": 2,
+      "title": "GM",
+      "fideRating": 2595,
+      "performance": 2690,
+      "strength": 2619,
+      "score": 7,
+      "games": 11,
+      "medals": []
+    },
+    {
+      "id": "hu-1978-3",
+      "personId": "gyula-sax",
+      "year": 1978,
+      "teamId": "hu-1978",
+      "board": 3,
+      "title": "GM",
+      "fideRating": 2550,
+      "performance": 2677,
+      "strength": 2582,
+      "score": 7.5,
+      "games": 11,
+      "medals": []
+    },
+    {
+      "id": "hu-1978-4",
+      "personId": "andras-adorjan",
+      "year": 1978,
+      "teamId": "hu-1978",
+      "board": 4,
+      "title": "GM",
+      "fideRating": 2535,
+      "performance": 2652,
+      "strength": 2564,
+      "score": 6,
+      "games": 9,
+      "medals": []
+    },
+    {
+      "id": "hu-1978-5",
+      "personId": "istvan-csom",
+      "year": 1978,
+      "teamId": "hu-1978",
+      "board": 5,
+      "title": "GM",
+      "fideRating": 2500,
+      "performance": 2719,
+      "strength": 2555,
+      "score": 6.5,
+      "games": 8,
+      "medals": [
+        "gold"
+      ]
+    },
+    {
+      "id": "hu-1978-6",
+      "personId": "laszlo-vadasz",
+      "year": 1978,
+      "teamId": "hu-1978",
+      "board": 6,
+      "title": "IM",
+      "fideRating": 2465,
+      "performance": 2565,
+      "strength": 2490,
+      "score": 4.5,
+      "games": 7,
+      "medals": []
+    },
+    {
+      "id": "ar-1978-1",
+      "personId": "miguel-quinteros",
+      "year": 1978,
+      "teamId": "ar-1978",
+      "board": 1,
+      "title": "GM",
+      "fideRating": 2530,
+      "performance": 2600,
+      "strength": 2548,
+      "score": 6,
+      "games": 10,
+      "medals": []
+    },
+    {
+      "id": "ar-1978-2",
+      "personId": "oscar-panno",
+      "year": 1978,
+      "teamId": "ar-1978",
+      "board": 2,
+      "title": "GM",
+      "fideRating": 2515,
+      "performance": 2579,
+      "strength": 2531,
+      "score": 6.5,
+      "games": 11,
+      "medals": []
+    },
+    {
+      "id": "ar-1978-3",
+      "personId": "jorge-rubinetti",
+      "year": 1978,
+      "teamId": "ar-1978",
+      "board": 3,
+      "title": "IM",
+      "fideRating": 2450,
+      "performance": 2520,
+      "strength": 2468,
+      "score": 6,
+      "games": 10,
+      "medals": []
+    },
+    {
+      "id": "ar-1978-4",
+      "personId": "jaime-emma",
+      "year": 1978,
+      "teamId": "ar-1978",
+      "board": 4,
+      "title": "IM",
+      "fideRating": 2420,
+      "performance": 2459,
+      "strength": 2430,
+      "score": 5,
+      "games": 9,
+      "medals": []
+    },
+    {
+      "id": "ar-1978-5",
+      "personId": "juan-hase",
+      "year": 1978,
+      "teamId": "ar-1978",
+      "board": 5,
+      "title": "IM",
+      "fideRating": 2400,
+      "performance": 2500,
+      "strength": 2425,
+      "score": 4.5,
+      "games": 7,
+      "medals": []
+    }
+  ]
+}

@@ -1,0 +1,592 @@
+[
+  {
+    "id": "anatoly-karpov",
+    "name": "Anatoly Karpov",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "lev-polugaevsky",
+    "name": "Lev Polugaevsky",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.35,
+    "hasBook": false
+  },
+  {
+    "id": "mikhail-tal",
+    "name": "Mikhail Tal",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.75,
+    "hasBook": false
+  },
+  {
+    "id": "yuri-balashov",
+    "name": "Yuri Balashov",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "efim-geller",
+    "name": "Efim Geller",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "garry-kasparov",
+    "name": "Garry Kasparov",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7,
+    "hasBook": false
+  },
+  {
+    "id": "lajos-portisch",
+    "name": "Lajos Portisch",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "zoltan-ribli",
+    "name": "Zoltán Ribli",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "gyula-sax",
+    "name": "Gyula Sax",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.65,
+    "hasBook": false
+  },
+  {
+    "id": "andras-adorjan",
+    "name": "András Adorján",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "istvan-csom",
+    "name": "István Csom",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "laszlo-vadasz",
+    "name": "László Vadász",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6,
+    "hasBook": false
+  },
+  {
+    "id": "robert-byrne",
+    "name": "Robert Byrne",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "lubomir-kavalek",
+    "name": "Lubomir Kavalek",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "larry-evans",
+    "name": "Larry Evans",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "james-tarjan",
+    "name": "James Tarjan",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "william-lombardy",
+    "name": "William Lombardy",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.45,
+    "hasBook": false
+  },
+  {
+    "id": "kim-commons",
+    "name": "Kim Commons",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6,
+    "hasBook": false
+  },
+  {
+    "id": "svetozar-gligoric",
+    "name": "Svetozar Gligorić",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "ljubomir-ljubojevic",
+    "name": "Ljubomir Ljubojević",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7,
+    "hasBook": false
+  },
+  {
+    "id": "borislav-ivkov",
+    "name": "Borislav Ivkov",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.45,
+    "hasBook": false
+  },
+  {
+    "id": "albin-planinc",
+    "name": "Albin Planinc",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.75,
+    "hasBook": false
+  },
+  {
+    "id": "dragoljub-velimirovic",
+    "name": "Dragoljub Velimirović",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.8,
+    "hasBook": false
+  },
+  {
+    "id": "aleksandar-matanovic",
+    "name": "Aleksandar Matanović",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.35,
+    "hasBook": false
+  },
+  {
+    "id": "vlastimil-hort",
+    "name": "Vlastimil Hort",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.35,
+    "hasBook": false
+  },
+  {
+    "id": "jan-smejkal",
+    "name": "Jan Smejkal",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.45,
+    "hasBook": false
+  },
+  {
+    "id": "lubomir-ftacnik",
+    "name": "Lubomír Ftáčnik",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6,
+    "hasBook": false
+  },
+  {
+    "id": "vlastimil-jansa",
+    "name": "Vlastimil Jansa",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "jan-plachetka",
+    "name": "Ján Plachetka",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "karel-mokry",
+    "name": "Karel Mokrý",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "tony-miles",
+    "name": "Tony Miles",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6,
+    "hasBook": false
+  },
+  {
+    "id": "john-nunn",
+    "name": "John Nunn",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7,
+    "hasBook": false
+  },
+  {
+    "id": "jonathan-speelman",
+    "name": "Jonathan Speelman",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "murray-chandler",
+    "name": "Murray Chandler",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "jonathan-mestel",
+    "name": "Jonathan Mestel",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6,
+    "hasBook": false
+  },
+  {
+    "id": "nigel-short",
+    "name": "Nigel Short",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "jan-timman",
+    "name": "Jan Timman",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "gennadi-sosonko",
+    "name": "Gennadi Sosonko",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.45,
+    "hasBook": false
+  },
+  {
+    "id": "jan-hein-donner",
+    "name": "Jan Hein Donner",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.35,
+    "hasBook": false
+  },
+  {
+    "id": "hans-ree",
+    "name": "Hans Ree",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "franciscus-kuijpers",
+    "name": "Franciscus Kuijpers",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "hans-bohm",
+    "name": "Hans Böhm",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "robert-hubner",
+    "name": "Robert Hübner",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "wolfgang-unzicker",
+    "name": "Wolfgang Unzicker",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.35,
+    "hasBook": false
+  },
+  {
+    "id": "helmut-pfleger",
+    "name": "Helmut Pfleger",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "hans-joachim-hecht",
+    "name": "Hans-Joachim Hecht",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "klaus-darga",
+    "name": "Klaus Darga",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.45,
+    "hasBook": false
+  },
+  {
+    "id": "stefan-kindermann",
+    "name": "Stefan Kindermann",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6,
+    "hasBook": false
+  },
+  {
+    "id": "miguel-quinteros",
+    "name": "Miguel Quinteros",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6,
+    "hasBook": false
+  },
+  {
+    "id": "oscar-panno",
+    "name": "Oscar Panno",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.35,
+    "hasBook": false
+  },
+  {
+    "id": "jorge-rubinetti",
+    "name": "Jorge Rubinetti",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "jaime-emma",
+    "name": "Jaime Emma",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "juan-hase",
+    "name": "Juan Hase",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "milko-bobotsov",
+    "name": "Milko Bobotsov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4,
+    "hasBook": false
+  },
+  {
+    "id": "georgi-tringov",
+    "name": "Georgi Tringov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  },
+  {
+    "id": "ivan-radulov",
+    "name": "Ivan Radulov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6,
+    "hasBook": false
+  },
+  {
+    "id": "nikola-padevsky",
+    "name": "Nikola Padevsky",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.45,
+    "hasBook": false
+  },
+  {
+    "id": "atanas-kolarov",
+    "name": "Atanas Kolarov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.5,
+    "hasBook": false
+  },
+  {
+    "id": "ivan-popov",
+    "name": "Ivan Popov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.55,
+    "hasBook": false
+  }
+]

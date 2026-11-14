@@ -1,0 +1,96 @@
+{
+  "olympiad": {
+    "year": 1970,
+    "city": "Siegen",
+    "country": "Alemanha Ocidental",
+    "rounds": 15,
+    "teamsCount": 60,
+    "boards": 4
+  },
+  "cards": [
+    {
+      "id": "bg-1970-1",
+      "personId": "milko-bobotsov",
+      "year": 1970,
+      "teamId": "bg-1970",
+      "board": 1,
+      "title": "GM",
+      "fideRating": 2500,
+      "performance": 2527,
+      "strength": 2507,
+      "score": 7,
+      "games": 13,
+      "medals": []
+    },
+    {
+      "id": "bg-1970-2",
+      "personId": "georgi-tringov",
+      "year": 1970,
+      "teamId": "bg-1970",
+      "board": 2,
+      "title": "GM",
+      "fideRating": 2475,
+      "performance": 2529,
+      "strength": 2489,
+      "score": 7.5,
+      "games": 13,
+      "medals": []
+    },
+    {
+      "id": "bg-1970-3",
+      "personId": "ivan-radulov",
+      "year": 1970,
+      "teamId": "bg-1970",
+      "board": 3,
+      "title": "IM",
+      "fideRating": 2465,
+      "performance": 2546,
+      "strength": 2485,
+      "score": 8,
+      "games": 13,
+      "medals": []
+    },
+    {
+      "id": "bg-1970-4",
+      "personId": "nikola-padevsky",
+      "year": 1970,
+      "teamId": "bg-1970",
+      "board": 4,
+      "title": "GM",
+      "fideRating": 2450,
+      "performance": 2479,
+      "strength": 2457,
+      "score": 6.5,
+      "games": 12,
+      "medals": []
+    },
+    {
+      "id": "bg-1970-5",
+      "personId": "atanas-kolarov",
+      "year": 1970,
+      "teamId": "bg-1970",
+      "board": 5,
+      "title": "IM",
+      "fideRating": 2430,
+      "performance": 2500,
+      "strength": 2448,
+      "score": 6,
+      "games": 10,
+      "medals": []
+    },
+    {
+      "id": "bg-1970-6",
+      "personId": "ivan-popov",
+      "year": 1970,
+      "teamId": "bg-1970",
+      "board": 6,
+      "title": "IM",
+      "fideRating": 2420,
+      "performance": 2498,
+      "strength": 2440,
+      "score": 5.5,
+      "games": 9,
+      "medals": []
+    }
+  ]
+}

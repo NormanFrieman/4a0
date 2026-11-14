@@ -1,0 +1,96 @@
+{
+  "olympiad": {
+    "year": 1982,
+    "city": "Lucerna",
+    "country": "Suíça",
+    "rounds": 14,
+    "teamsCount": 92,
+    "boards": 4
+  },
+  "cards": [
+    {
+      "id": "cs-1982-1",
+      "personId": "vlastimil-hort",
+      "year": 1982,
+      "teamId": "cs-1982",
+      "board": 1,
+      "title": "GM",
+      "fideRating": 2600,
+      "performance": 2688,
+      "strength": 2622,
+      "score": 7.5,
+      "games": 12,
+      "medals": []
+    },
+    {
+      "id": "cs-1982-2",
+      "personId": "jan-smejkal",
+      "year": 1982,
+      "teamId": "cs-1982",
+      "board": 2,
+      "title": "GM",
+      "fideRating": 2545,
+      "performance": 2640,
+      "strength": 2569,
+      "score": 7,
+      "games": 11,
+      "medals": []
+    },
+    {
+      "id": "cs-1982-3",
+      "personId": "lubomir-ftacnik",
+      "year": 1982,
+      "teamId": "cs-1982",
+      "board": 3,
+      "title": "GM",
+      "fideRating": 2545,
+      "performance": 2704,
+      "strength": 2585,
+      "score": 8,
+      "games": 11,
+      "medals": []
+    },
+    {
+      "id": "cs-1982-4",
+      "personId": "vlastimil-jansa",
+      "year": 1982,
+      "teamId": "cs-1982",
+      "board": 4,
+      "title": "GM",
+      "fideRating": 2510,
+      "performance": 2588,
+      "strength": 2530,
+      "score": 5.5,
+      "games": 9,
+      "medals": []
+    },
+    {
+      "id": "cs-1982-5",
+      "personId": "jan-plachetka",
+      "year": 1982,
+      "teamId": "cs-1982",
+      "board": 5,
+      "title": "GM",
+      "fideRating": 2480,
+      "performance": 2568,
+      "strength": 2502,
+      "score": 5,
+      "games": 8,
+      "medals": []
+    },
+    {
+      "id": "cs-1982-6",
+      "personId": "karel-mokry",
+      "year": 1982,
+      "teamId": "cs-1982",
+      "board": 6,
+      "title": "IM",
+      "fideRating": 2450,
+      "performance": 2606,
+      "strength": 2489,
+      "score": 6.5,
+      "games": 9,
+      "medals": []
+    }
+  ]
+}
