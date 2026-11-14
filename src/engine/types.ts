@@ -1,5 +1,7 @@
+import type { GameRecord, PlayedMove } from "./game.ts";
+
 /**
- * Engine interface (GDD §10.3). All game code depends on `ChessAI`, never on
+ * Engine interface (GDD §12.3). All game code depends on `ChessAI`, never on
  * Maia directly, so the model can be swapped or run in the browser.
  */
 
@@ -33,4 +35,30 @@ export interface MoveResult {
 
 export interface ChessAI {
   chooseMove(req: MoveRequest): Promise<MoveResult>;
+}
+
+/** One side of a game, with engine parameters already converted (GDD §6.2). */
+export interface GameSide {
+  name?: string;
+  selfElo: number;
+  temperature: number;
+  topP: number;
+}
+
+export interface GameJob {
+  white: GameSide;
+  black: GameSide;
+  seed: string | number;
+  maxPlies?: number;
+  /** Extra PGN headers (Event, Round, Board…). */
+  headers?: Record<string, string>;
+}
+
+/**
+ * Plays full games (GDD §12.3). Tournament code depends on this, never on
+ * Maia: the browser uses the Maia worker, tests use a fake `ChessAI`.
+ * Card → `GameSide` conversion lives with the cards (Phase 1).
+ */
+export interface GameSimulator {
+  playGame(job: GameJob, onMove?: (move: PlayedMove) => void): Promise<GameRecord>;
 }

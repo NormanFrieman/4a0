@@ -37,6 +37,23 @@ Conclusões:
 
 Leitura inicial: no navegador, o 5M é ~2,7× mais lento por lance que no Node, mas ainda bem abaixo do necessário para replay, análise e treino livre (GDD §10.6). O custo real está na primeira carga (~7 s entre download e inicialização). Nas visitas seguintes, o download sai do Cache Storage.
 
+## Navegador — workers, rodada de 4 partidas (GDD §8.3)
+
+Página `/spike`, botão "Jogar rodada (4)": 4 partidas com sementes `<semente>/r1/b<mesa>`, ratings do jogo 1700×1650 descendo 50 por mesa, top-p 0,95, regras de acordo/abandono com os valores iniciais. Medido em 2026-11-14 com Chromium 156 headless (Linux), só WASM, isolado.
+
+Máquina: notebook i7-1165G7 (4 núcleos / 8 threads), 32 GB.
+
+| Configuração | Rodada (386 meios-lances) | p50/lance (partida isolada) | Init da sessão |
+| --- | --- | --- | --- |
+| 1 worker, threads padrão (4) | 12,1–14,5 s | 33 ms | 2,5 s |
+| 4 workers × 1 thread | 12,7–14,1 s | 78 ms | 2,6 s |
+| 4 workers × 2 threads (padrão atual do pool) | 12,4–14,5 s | 47 ms | 2,6 s |
+
+- **Determinismo:** as 3 configurações produziram exatamente os mesmos 4 PGNs (mesmo hash), inclusive com contagens de threads diferentes.
+- **Meta de < 10 s não atingida** nesta máquina. O custo é limitado pela CPU total (soma dos lances), não pelo paralelismo: paralelizar por partida não ganhou nada em 4 núcleos físicos. A rodada medida tem partidas longas (média de ~97 meios-lances); o ajuste do empate por acordo e do abandono (etapa 6) deve encurtá-las.
+- Como a interface reproduz os lances num ritmo bem mais lento que o cálculo (§8.3), a espera só aparece em "instantâneo" e "Pular".
+- Download do modelo: ~3 s (22 MB, primeira visita); depois vem do Cache Storage.
+
 ## Validação de força (GDD §12.1) — `pnpm engine:validate`
 
 Maia-3 5M, 200 partidas por célula, cores alternadas, sementes `validate/<célula>/t<T>/<n>`. Margem de ~±6 p.p. por célula. Dados brutos em `bench-results/`.

@@ -1,40 +1,26 @@
 /**
- * Spike (GDD §10.6): play a full AI-vs-AI game with Maia-3 in the browser
- * and record download time, latency per move and memory.
- * Not a game mode — nothing here affects resources or rating.
+ * Dev page: Maia-3 in a Web Worker (GDD §8). Plays one game with a live
+ * board, or a full round (4 games) to check the performance target
+ * (< 10 s per round, GDD §8.3) and determinism (same seed → same PGNs).
+ * Not part of the game.
  */
 import { useEffect, useRef, useState } from "react";
 import { Chessground } from "chessground";
 import type { Api } from "chessground/api";
 import type { Key } from "chessground/types";
-import { ensureModelWeb, Maia3 } from "maia3-js/web";
-import { Maia3Engine, playGame, type ChessAI, type GameRecord } from "../../engine/index.ts";
+import { MaiaWorkerPool } from "../../engine/workerPool.ts";
+import type { GameJob, GameSide } from "../../engine/types.ts";
+import type { MaiaVariant } from "../../engine/workerProtocol.ts";
+import { engineParamsForRating } from "../../engine/engineParams.ts";
+import { balance } from "../../config/balance.ts";
+import { hashSeed } from "../../rng/rng.ts";
 import "chessground/assets/chessground.base.css";
 import "chessground/assets/chessground.brown.css";
 import "chessground/assets/chessground.cburnett.css";
 
 const ORT_WASM_CDN = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.1/dist/";
 
-type Variant = "5m" | "23m";
-
-interface Metrics {
-  variant: Variant;
-  crossOriginIsolated: boolean;
-  hardwareConcurrency: number;
-  userAgent: string;
-  downloadMs?: number;
-  modelBytes?: number;
-  sessionInitMs?: number;
-  firstMoveMs?: number;
-  p50Ms?: number;
-  p95Ms?: number;
-  maxMs?: number;
-  plies?: number;
-  gameMs?: number;
-  heapMB?: number;
-  result?: string;
-  termination?: string;
-}
+type Metrics = Record<string, string | number | boolean>;
 
 const percentile = (xs: number[], p: number) => {
   const s = [...xs].sort((a, b) => a - b);
@@ -46,148 +32,204 @@ function heapMB(): number | undefined {
   return mem ? Math.round(mem.usedJSHeapSize / 1024 / 1024) : undefined;
 }
 
-const LABELS: Record<string, string> = {
-  variant: "Variante",
-  crossOriginIsolated: "Isolamento cross-origin (threads)",
-  hardwareConcurrency: "Núcleos lógicos",
-  downloadMs: "Download do modelo (ms)",
-  modelBytes: "Tamanho do modelo (MB)",
-  sessionInitMs: "Inicialização da sessão (ms)",
-  firstMoveMs: "Primeiro lance (ms)",
-  p50Ms: "Latência p50 (ms)",
-  p95Ms: "Latência p95 (ms)",
-  maxMs: "Latência máx. (ms)",
-  plies: "Meios-lances",
-  gameMs: "Duração da partida (ms)",
-  heapMB: "Heap JS (MB, só Chrome)",
-  result: "Resultado",
-  termination: "Fim por",
+/** Game rating (calibrated scale) → worker side. */
+const sideFor = (rating: number): GameSide => {
+  const p = engineParamsForRating(rating);
+  return {
+    name: `Jogo ${rating}`,
+    selfElo: p.selfElo,
+    temperature: p.temperature,
+    topP: balance.game.topP,
+  };
 };
 
 export function Spike() {
   const boardEl = useRef<HTMLDivElement>(null);
   const ground = useRef<Api | null>(null);
-  const [variant, setVariant] = useState<Variant>("5m");
-  const [whiteElo, setWhiteElo] = useState(1500);
-  const [blackElo, setBlackElo] = useState(1500);
+  const client = useRef<MaiaWorkerPool | null>(null);
+  const [variant, setVariant] = useState<MaiaVariant>("5m");
+  const [forceWasm, setForceWasm] = useState(true);
+  const [whiteRating, setWhiteRating] = useState(1700);
+  const [blackRating, setBlackRating] = useState(1650);
   const [seed, setSeed] = useState("spike-1");
   const [status, setStatus] = useState("Pronto.");
   const [running, setRunning] = useState(false);
   const [metrics, setMetrics] = useState<Metrics | null>(null);
   const [pgn, setPgn] = useState("");
+  const lastRoundHash = useRef<Record<string, number>>({});
 
   useEffect(() => {
     if (!boardEl.current) return;
     ground.current = Chessground(boardEl.current, { viewOnly: true, coordinates: true });
-    return () => ground.current?.destroy();
+    return () => {
+      ground.current?.destroy();
+      client.current?.dispose();
+    };
   }, []);
 
-  async function run() {
-    setRunning(true);
-    setPgn("");
-    ground.current?.set({ fen: "start", lastMove: undefined });
-    const m: Metrics = {
-      variant,
-      crossOriginIsolated: self.crossOriginIsolated,
-      hardwareConcurrency: navigator.hardwareConcurrency,
-      userAgent: navigator.userAgent,
+  async function ensureClient(m: Metrics) {
+    if (!client.current) client.current = new MaiaWorkerPool();
+    setStatus("Carregando modelo no worker…");
+    const info = await client.current.init(
+      { variant, forceWasm, wasmPaths: ORT_WASM_CDN },
+      (l, t) => setStatus(`Baixando modelo… ${t ? Math.round((l / t) * 100) : "?"}%`),
+    );
+    Object.assign(m, {
+      "Download (ms)": info.downloadMs,
+      "Init da sessão (ms)": info.initMs,
+      "Modelo (MB)": Math.round(info.modelBytes / 1024 / 1024),
+      "Isolamento cross-origin": info.crossOriginIsolated,
+      Workers: client.current.size,
+      "Threads por worker": client.current.threads,
+    });
+  }
+
+  function baseMetrics(): Metrics {
+    return {
+      Variante: variant,
+      "Só WASM": forceWasm,
+      "Núcleos lógicos": navigator.hardwareConcurrency,
     };
-    setMetrics({ ...m });
-    let maia: Maia3 | null = null;
+  }
+
+  async function guard(fn: () => Promise<void>) {
+    setRunning(true);
     try {
-      setStatus("Baixando modelo…");
-      const t0 = performance.now();
-      const bytes = await ensureModelWeb({
-        variant,
-        onProgress: (loaded, total) =>
-          setStatus(`Baixando modelo… ${total ? Math.round((loaded / total) * 100) : "?"}%`),
-      });
-      m.downloadMs = Math.round(performance.now() - t0);
-      m.modelBytes = Math.round(bytes.byteLength / 1024 / 1024);
-
-      setStatus("Inicializando sessão ONNX…");
-      const t1 = performance.now();
-      maia = new Maia3({ variant, modelBytes: bytes, wasmPaths: ORT_WASM_CDN });
-      await maia.load();
-      m.sessionInitMs = Math.round(performance.now() - t1);
-      setMetrics({ ...m });
-
-      const engine = new Maia3Engine(maia);
-      const latencies: number[] = [];
-      const timed: ChessAI = {
-        async chooseMove(req) {
-          const t = performance.now();
-          const r = await engine.chooseMove(req);
-          latencies.push(performance.now() - t);
-          return r;
-        },
-      };
-
-      setStatus("Jogando…");
-      const tg = performance.now();
-      const game: GameRecord = await playGame({
-        white: { ai: timed, elo: whiteElo, temperature: 1, topP: 1, name: `Maia ${whiteElo}` },
-        black: { ai: timed, elo: blackElo, temperature: 1, topP: 1, name: `Maia ${blackElo}` },
-        seed,
-        onMove: async (mv) => {
-          ground.current?.set({
-            fen: mv.fenAfter,
-            lastMove: [mv.uci.slice(0, 2) as Key, mv.uci.slice(2, 4) as Key],
-          });
-          setStatus(`Jogando… lance ${mv.ply + 1} (${mv.san})`);
-          // Yield so the board repaints between moves.
-          await new Promise((r) => requestAnimationFrame(() => r(null)));
-        },
-      });
-      const warm = latencies.slice(1);
-      Object.assign(m, {
-        gameMs: Math.round(performance.now() - tg),
-        plies: game.moves.length,
-        firstMoveMs: Math.round(latencies[0] ?? 0),
-        p50Ms: Math.round(percentile(warm, 50) * 10) / 10,
-        p95Ms: Math.round(percentile(warm, 95) * 10) / 10,
-        maxMs: Math.round(Math.max(...warm) * 10) / 10,
-        heapMB: heapMB(),
-        result: game.result,
-        termination: game.termination,
-      });
-      setMetrics({ ...m });
-      setPgn(game.pgn);
-      setStatus("Partida concluída.");
+      await fn();
     } catch (err) {
       console.error(err);
       setStatus(`Erro: ${err instanceof Error ? err.message : String(err)}`);
     } finally {
-      await maia?.close();
       setRunning(false);
     }
   }
 
+  const playOne = () =>
+    guard(async () => {
+      setPgn("");
+      ground.current?.set({ fen: "start", lastMove: undefined });
+      const m = baseMetrics();
+      await ensureClient(m);
+      setMetrics({ ...m });
+      setStatus("Jogando…");
+      const t0 = performance.now();
+      const job: GameJob = { white: sideFor(whiteRating), black: sideFor(blackRating), seed };
+      const { record, latenciesMs } = await client.current!.playGameWithStats(job, (mv) => {
+        ground.current?.set({
+          fen: mv.fenAfter,
+          lastMove: [mv.uci.slice(0, 2) as Key, mv.uci.slice(2, 4) as Key],
+        });
+        setStatus(`Jogando… lance ${mv.ply + 1} (${mv.san})`);
+      });
+      const warm = latenciesMs.slice(1);
+      Object.assign(m, {
+        "Partida (ms)": Math.round(performance.now() - t0),
+        "Meios-lances": record.moves.length,
+        "Lances de livro": record.moves.filter((x) => x.source === "book").length,
+        "Latência p50 (ms)": Math.round(percentile(warm, 50) * 10) / 10,
+        "Latência p95 (ms)": Math.round(percentile(warm, 95) * 10) / 10,
+        Resultado: `${record.result} (${record.termination})`,
+      });
+      const heap = heapMB();
+      if (heap !== undefined) m["Heap JS da página (MB)"] = heap;
+      setMetrics({ ...m });
+      setPgn(record.pgn);
+      setStatus("Partida concluída.");
+    });
+
+  const playRound = () =>
+    guard(async () => {
+      setPgn("");
+      const m = baseMetrics();
+      await ensureClient(m);
+      setMetrics({ ...m });
+      setStatus("Calculando rodada (4 partidas)…");
+      const t0 = performance.now();
+      const jobs: GameJob[] = [0, 1, 2, 3].map((board) => {
+        const userWhite = board % 2 === 0; // Boards 1 and 3: first team has white (GDD §5.2).
+        const a = sideFor(whiteRating - board * 50);
+        const b = sideFor(blackRating - board * 50);
+        return {
+          white: userWhite ? a : b,
+          black: userWhite ? b : a,
+          seed: `${seed}/r1/b${board + 1}`,
+          headers: { Round: "1", Board: String(board + 1) },
+        };
+      });
+      const results = await Promise.all(jobs.map((j) => client.current!.playGameWithStats(j)));
+      const roundMs = Math.round(performance.now() - t0);
+      const pgns = results.map((r) => r.record.pgn).join("\n\n");
+      const hash = hashSeed(pgns);
+      const key = `${seed}/${whiteRating}/${blackRating}/${variant}/${forceWasm}`;
+      const prev = lastRoundHash.current[key];
+      lastRoundHash.current[key] = hash;
+      Object.assign(m, {
+        "Rodada (ms)": roundMs,
+        "Meta < 10 s": roundMs < 10_000 ? "ok" : "acima",
+        "Meios-lances (total)": results.reduce((s, r) => s + r.record.moves.length, 0),
+        Resultados: results.map((r) => `${r.record.result} ${r.record.termination}`).join(" · "),
+        "Hash dos PGNs": hash.toString(16),
+        Determinismo:
+          prev === undefined
+            ? "rode de novo para comparar"
+            : prev === hash
+              ? "idêntico"
+              : "DIFERENTE",
+      });
+      setMetrics({ ...m });
+      setPgn(pgns);
+      setStatus("Rodada concluída.");
+    });
+
   return (
     <main className="page">
-      <h1>Spike: Maia-3 no navegador</h1>
+      <h1>Spike: Maia-3 em workers</h1>
       <div className="controls">
         <label>
           Variante
-          <select value={variant} onChange={(e) => setVariant(e.target.value as Variant)}>
+          <select
+            value={variant}
+            onChange={(e) => setVariant(e.target.value as MaiaVariant)}
+            disabled={!!client.current}
+          >
             <option value="5m">5M</option>
             <option value="23m">23M</option>
           </select>
         </label>
         <label>
-          Brancas (rating)
-          <input type="number" value={whiteElo} onChange={(e) => setWhiteElo(+e.target.value)} />
+          <input
+            type="checkbox"
+            checked={forceWasm}
+            onChange={(e) => setForceWasm(e.target.checked)}
+            disabled={!!client.current}
+          />
+          Só WASM
         </label>
         <label>
-          Pretas (rating)
-          <input type="number" value={blackElo} onChange={(e) => setBlackElo(+e.target.value)} />
+          Brancas (rating do jogo)
+          <input
+            type="number"
+            value={whiteRating}
+            onChange={(e) => setWhiteRating(+e.target.value)}
+          />
+        </label>
+        <label>
+          Pretas (rating do jogo)
+          <input
+            type="number"
+            value={blackRating}
+            onChange={(e) => setBlackRating(+e.target.value)}
+          />
         </label>
         <label>
           Semente
           <input value={seed} onChange={(e) => setSeed(e.target.value)} />
         </label>
-        <button onClick={run} disabled={running}>
-          {running ? "Jogando…" : "Jogar partida"}
+        <button onClick={playOne} disabled={running}>
+          Jogar partida
+        </button>
+        <button onClick={playRound} disabled={running}>
+          Jogar rodada (4)
         </button>
       </div>
       <p className="status">{status}</p>
@@ -198,14 +240,12 @@ export function Spike() {
             <>
               <table className="metrics">
                 <tbody>
-                  {Object.entries(LABELS).map(([k, label]) =>
-                    metrics[k as keyof Metrics] !== undefined ? (
-                      <tr key={k}>
-                        <td>{label}</td>
-                        <td>{String(metrics[k as keyof Metrics])}</td>
-                      </tr>
-                    ) : null,
-                  )}
+                  {Object.entries(metrics).map(([k, v]) => (
+                    <tr key={k}>
+                      <td>{k}</td>
+                      <td>{String(v)}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
               <p>

@@ -5,3 +5,4 @@ export * from "./maia3.ts";
 export * from "./game.ts";
 export * from "./engineParams.ts";
 export * from "./strength.ts";
+export * from "./localSimulator.ts";

@@ -1,0 +1,38 @@
+import type { GameRecord, PlayedMove } from "./game.ts";
+import type { GameJob } from "./types.ts";
+
+export type MaiaVariant = "5m" | "23m";
+
+export interface InitOptions {
+  variant: MaiaVariant;
+  /**
+   * WASM only, no WebGPU: small numeric differences between backends can
+   * change a move, so the Daily Challenge forces WASM (GDD §8.4).
+   */
+  forceWasm: boolean;
+  /**
+   * ORT WASM threads in this worker (default: maia3-js picks). The pool
+   * splits the cores between its workers and parallelizes across games.
+   */
+  numThreads?: number;
+  /** Where onnxruntime-web loads its .wasm files from. */
+  wasmPaths?: string;
+}
+
+export interface ReadyInfo {
+  downloadMs: number;
+  initMs: number;
+  modelBytes: number;
+  crossOriginIsolated: boolean;
+}
+
+export type WorkerRequest =
+  | { type: "init"; options: InitOptions }
+  | { type: "play"; id: number; job: GameJob; streamMoves: boolean };
+
+export type WorkerResponse =
+  | { type: "progress"; loaded: number; total: number }
+  | { type: "ready"; info: ReadyInfo }
+  | { type: "move"; id: number; move: PlayedMove }
+  | { type: "done"; id: number; record: GameRecord; latenciesMs: number[] }
+  | { type: "error"; id?: number; message: string };
