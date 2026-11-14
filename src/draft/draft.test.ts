@@ -1,15 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { balance } from "../config/balance.ts";
 import { sampleDataset } from "../data/testing.ts";
-import { createDraft, isDraftComplete, pick, pickableCards, reorder, reroll } from "./draft.ts";
+import { createDraft, isDraftComplete, pick, pickableCards, reroll, slotForCard } from "./draft.ts";
 
 const ds = sampleDataset();
 
 function autoDraft(seed: string) {
   let s = createDraft(ds, seed);
   while (!isDraftComplete(s)) {
-    const slot = s.slots.indexOf(null);
-    s = pick(ds, s, pickableCards(ds, s)[0]!, slot);
+    const card = pickableCards(ds, s)[0]!;
+    s = pick(ds, s, card, slotForCard(ds, card));
   }
   return s;
 }
@@ -41,9 +41,39 @@ describe("draft", () => {
   it("rejects cards outside the roll and occupied slots", () => {
     const s = createDraft(ds, "p");
     const card = pickableCards(ds, s)[0]!;
-    const s2 = pick(ds, s, card, 0);
-    expect(() => pick(ds, s2, card, 1)).toThrow();
-    expect(() => pick(ds, s2, pickableCards(ds, s2)[0]!, 0)).toThrow();
+    const s2 = pick(ds, s, card, slotForCard(ds, card));
+    expect(() => pick(ds, s2, card, slotForCard(ds, card))).toThrow();
+  });
+
+  it("puts each card only in the slot of its real board (reserves in the reserve slot)", () => {
+    for (let i = 0; i < 50; i++) {
+      const s = autoDraft(`board-${i}`);
+      s.slots.forEach((c, slot) => {
+        const board = ds.card(c!).board;
+        expect(slot).toBe(Math.min(board, balance.draft.slots) - 1);
+      });
+    }
+  });
+
+  it("rejects a pick into another slot", () => {
+    const s = createDraft(ds, "wrong");
+    const card = pickableCards(ds, s)[0]!;
+    const other = (slotForCard(ds, card) + 1) % balance.draft.slots;
+    expect(() => pick(ds, s, card, other)).toThrow();
+  });
+
+  it("disables cards whose slot is taken and always offers a pickable card", () => {
+    for (let i = 0; i < 50; i++) {
+      let s = createDraft(ds, `free-${i}`);
+      while (!isDraftComplete(s)) {
+        const pickable = pickableCards(ds, s);
+        expect(pickable.length).toBeGreaterThan(0);
+        for (const id of ds.team(s.currentTeamId!).cardIds)
+          if (s.slots[slotForCard(ds, id)] !== null) expect(pickable).not.toContain(id);
+        const card = pickable[pickable.length - 1]!;
+        s = pick(ds, s, card, slotForCard(ds, card));
+      }
+    }
   });
 
   it("favours top teams by roll weight", () => {
@@ -55,12 +85,5 @@ describe("draft", () => {
     const heavy = ds.teams.find((t) => t.rollWeight > 1)!;
     expect(counts.get(heavy.id)).toBeGreaterThan(0);
     expect(counts.size).toBe(ds.teams.length);
-  });
-
-  it("allows one final reorder", () => {
-    const s = autoDraft("ord");
-    const r = reorder(s, [4, 3, 2, 1, 0]);
-    expect(r.slots).toEqual([...s.slots].reverse());
-    expect(() => reorder(r, [0, 1, 2, 3, 4])).toThrow();
   });
 });

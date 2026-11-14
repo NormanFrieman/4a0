@@ -28,7 +28,6 @@ export const balance = {
     /** Roll weight of teams that finished within `rollTopRank` of their edition. */
     rollWeightTop10: 3,
     rollTopRank: 10,
-    allowFinalReorder: true,
   },
 
   // GDD §5.5 — tournament

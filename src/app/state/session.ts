@@ -8,14 +8,7 @@
 import { create } from "zustand";
 import { balance } from "../../config/balance.ts";
 import { loadDataset, type Dataset } from "../../data/dataset.ts";
-import {
-  createDraft,
-  isDraftComplete,
-  pick,
-  reorder,
-  reroll,
-  type DraftState,
-} from "../../draft/draft.ts";
+import { createDraft, isDraftComplete, pick, reroll, type DraftState } from "../../draft/draft.ts";
 import type { PlayedMove } from "../../engine/game.ts";
 import {
   boardsFor,
@@ -84,8 +77,6 @@ interface SessionState {
   engine: EngineStatus;
   draft: DraftState | null;
   selectedCardId: string | null;
-  /** Working team order on the confirmation screen. */
-  order: string[];
   tournament: TournamentState | null;
   resting: string | null;
   live: LiveRound | null;
@@ -96,7 +87,6 @@ interface SessionState {
   selectCard(id: string): void;
   placeCard(slot: number): void;
   rerollDraft(): void;
-  moveInOrder(index: number, delta: -1 | 1): void;
   confirmTeam(): void;
   startRound(): void;
   setResting(cardId: string): void;
@@ -131,7 +121,6 @@ export const useSession = create<SessionState>()((set, get) => ({
   engine: { state: "idle" },
   draft: null,
   selectedCardId: null,
-  order: [],
   tournament: null,
   resting: null,
   live: null,
@@ -166,8 +155,7 @@ export const useSession = create<SessionState>()((set, get) => ({
     const { dataset, draft, selectedCardId } = get();
     if (!dataset || !draft || !selectedCardId) return;
     const next = pick(dataset, draft, selectedCardId, slot);
-    if (isDraftComplete(next))
-      set({ draft: next, selectedCardId: null, order: next.slots as string[], phase: "confirm" });
+    if (isDraftComplete(next)) set({ draft: next, selectedCardId: null, phase: "confirm" });
     else set({ draft: next, selectedCardId: null });
   },
 
@@ -177,35 +165,17 @@ export const useSession = create<SessionState>()((set, get) => ({
     set({ draft: reroll(dataset, draft), selectedCardId: null });
   },
 
-  moveInOrder(index, delta) {
-    const { order, draft } = get();
-    if (!draft || draft.reorderUsed || !balance.draft.allowFinalReorder) return;
-    const j = index + delta;
-    if (j < 0 || j >= order.length) return;
-    const next = [...order];
-    [next[index], next[j]] = [next[j]!, next[index]!];
-    set({ order: next });
-  },
-
   confirmTeam() {
-    const { dataset, draft, order, seed } = get();
+    const { dataset, draft, seed } = get();
     if (!dataset || !draft) return;
-    const slots = draft.slots as string[];
-    const changed = order.some((id, i) => id !== slots[i]);
-    const final = changed
-      ? reorder(
-          draft,
-          order.map((id) => slots.indexOf(id)),
-        )
-      : draft;
     const tournament = startTournament(
       dataset,
       seed,
-      final.slots as string[],
+      draft.slots as string[],
       balance.sampleTournament.fieldSize,
       balance.tournament.rounds,
     );
-    set({ draft: final, tournament, phase: "field" });
+    set({ tournament, phase: "field" });
   },
 
   startRound() {
@@ -334,7 +304,7 @@ export const useSession = create<SessionState>()((set, get) => ({
     generation++;
     const seed = newSeed();
     writeUrl(seed, get().fastMode);
-    set({ seed, tournament: null, live: null, draft: null, order: [], resting: null });
+    set({ seed, tournament: null, live: null, draft: null, resting: null });
     get().startDraft();
   },
 }));

@@ -18,7 +18,8 @@ export const ptBR = {
   draft: {
     section: "Sorteio {{n}} de {{total}}",
     edition: "Olimpíada de {{city}}, terminou em {{rank}}º lugar.",
-    instructions: "Escolha um jogador da escalação e coloque-o numa vaga livre.",
+    instructions:
+      "Escolha um jogador da escalação. Ele só pode ocupar a vaga da mesa em que jogou; reservas vão para a Reserva.",
     reroll: "Re-sortear · restam {{left}} de {{total}}",
     yourTeam: "Sua escalação",
     emptySlot: "vaga em aberto",
@@ -42,10 +43,8 @@ export const ptBR = {
     section: "Confirmação",
     title: "Sua seleção",
     avg: "Força média das mesas 1 a 4: {{avg}}",
-    reorderHint: "Você pode reordenar as vagas uma única vez. A ordem vale para todo o torneio.",
-    reorderUsed: "A ordem já foi definida.",
-    up: "Subir",
-    down: "Descer",
+    boardsHint:
+      "Cada jogador joga na mesa em que atuou na edição real. A ordem vale para todo o torneio.",
     confirm: "Confirmar equipe",
   },
   field: {

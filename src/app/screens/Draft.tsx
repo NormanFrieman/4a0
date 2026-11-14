@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { balance } from "../../config/balance.ts";
-import { pickableCards } from "../../draft/draft.ts";
+import { pickableCards, slotForCard } from "../../draft/draft.ts";
 import { Button, Flag, LineupRow, Masthead, Rule, TeamSlot, formatPoints } from "../ui/index.ts";
 import { useSession } from "../state/session.ts";
 import { cardView } from "./helpers.ts";
@@ -13,6 +13,7 @@ export function Draft() {
   const olympiad = ds.olympiad(team.year);
   const pickable = new Set(pickableCards(ds, draft));
   const filled = draft.slots.filter(Boolean).length;
+  const targetSlot = selectedCardId ? slotForCard(ds, selectedCardId) : null;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-6">
@@ -85,8 +86,8 @@ export function Draft() {
                 <TeamSlot
                   key={i}
                   label={i < 4 ? t("slots.board", { n: i + 1 }) : t("slots.reserve")}
-                  emptyText={selectedCardId ? t("draft.placeHere") : t("draft.emptySlot")}
-                  awaiting={!!selectedCardId}
+                  emptyText={targetSlot === i ? t("draft.placeHere") : t("draft.emptySlot")}
+                  awaiting={targetSlot === i}
                   onPlace={() => placeCard(i)}
                   card={
                     v && {

@@ -1,7 +1,7 @@
 /**
- * Draft (GDD §4): 5 weighted rolls, one card per roll into a free slot,
- * limited rerolls and one final reorder. Pure and deterministic: roll n uses
- * deriveRng(seed, "draft/roll/n").
+ * Draft (GDD §4): 5 weighted rolls, one card per roll into the slot of the
+ * board it played in the real edition, limited rerolls. Pure and
+ * deterministic: roll n uses deriveRng(seed, "draft/roll/n").
  */
 import { balance } from "../config/balance.ts";
 import type { Dataset } from "../data/dataset.ts";
@@ -18,7 +18,6 @@ export interface DraftState {
   rerollsLeft: number;
   /** Card id per slot (boards 1–4, then reserve). */
   slots: (string | null)[];
-  reorderUsed: boolean;
 }
 
 export interface DraftOptions {
@@ -38,18 +37,29 @@ function pickWeighted<T>(items: readonly T[], weight: (t: T) => number, rng: Rng
 const takenPersons = (ds: Dataset, s: DraftState) =>
   new Set(s.slots.filter((c): c is string => c !== null).map((c) => ds.card(c).personId));
 
-/** Cards of the current roll that can still be picked (person not on the team). */
+/**
+ * The only slot a card can take (GDD §4.3): the board it played in the real
+ * edition; real reserves (board 5+) go to the reserve slot.
+ */
+export const slotForCard = (ds: Dataset, cardId: string): number =>
+  Math.min(ds.card(cardId).board, balance.draft.slots) - 1;
+
+/** Person not on the team yet and the card's slot still free. */
+function canPick(ds: Dataset, s: DraftState, taken: Set<string>, cardId: string): boolean {
+  return !taken.has(ds.card(cardId).personId) && s.slots[slotForCard(ds, cardId)] === null;
+}
+
+/** Cards of the current roll that can still be picked. */
 export function pickableCards(ds: Dataset, s: DraftState): string[] {
   if (!s.currentTeamId) return [];
   const taken = takenPersons(ds, s);
-  return ds.team(s.currentTeamId).cardIds.filter((id) => !taken.has(ds.card(id).personId));
+  return ds.team(s.currentTeamId).cardIds.filter((id) => canPick(ds, s, taken, id));
 }
 
 function drawRoll(ds: Dataset, s: DraftState): DraftState {
   const taken = takenPersons(ds, s);
   const candidates = ds.teams.filter(
-    (t) =>
-      !s.seenTeamIds.includes(t.id) && t.cardIds.some((id) => !taken.has(ds.card(id).personId)),
+    (t) => !s.seenTeamIds.includes(t.id) && t.cardIds.some((id) => canPick(ds, s, taken, id)),
   );
   if (candidates.length === 0) throw new Error("Draft: no teams left to roll");
   const team = pickWeighted(
@@ -73,17 +83,15 @@ export function createDraft(ds: Dataset, seed: string, opts: DraftOptions = {}):
     currentTeamId: null,
     rerollsLeft: opts.rerolls ?? balance.draft.rerollsPerDraft,
     slots: Array.from({ length: balance.draft.slots }, () => null),
-    reorderUsed: false,
   });
 }
 
 export const isDraftComplete = (s: DraftState) => s.slots.every((c) => c !== null);
 
-/** Puts a card of the current roll into a free slot, then rolls again. */
+/** Puts a card of the current roll into its slot, then rolls again. */
 export function pick(ds: Dataset, s: DraftState, cardId: string, slot: number): DraftState {
   if (!pickableCards(ds, s).includes(cardId)) throw new Error("Draft: card not pickable");
-  if (slot < 0 || slot >= s.slots.length || s.slots[slot] !== null)
-    throw new Error("Draft: slot not free");
+  if (slot !== slotForCard(ds, cardId)) throw new Error("Draft: card belongs to another slot");
   const next = { ...s, slots: s.slots.map((c, i) => (i === slot ? cardId : c)) };
   return isDraftComplete(next) ? { ...next, currentTeamId: null } : drawRoll(ds, next);
 }
@@ -91,18 +99,4 @@ export function pick(ds: Dataset, s: DraftState, cardId: string, slot: number): 
 export function reroll(ds: Dataset, s: DraftState): DraftState {
   if (s.rerollsLeft <= 0 || !s.currentTeamId) throw new Error("Draft: no rerolls left");
   return drawRoll(ds, { ...s, rerollsLeft: s.rerollsLeft - 1 });
-}
-
-/**
- * Final reorder before the tournament (GDD §4.3), allowed once. `order` lists
- * the current slot indices in their new order.
- */
-export function reorder(s: DraftState, order: number[]): DraftState {
-  if (!balance.draft.allowFinalReorder || s.reorderUsed)
-    throw new Error("Draft: reorder not allowed");
-  if (!isDraftComplete(s)) throw new Error("Draft: incomplete");
-  const sorted = [...order].sort((a, b) => a - b);
-  if (sorted.length !== s.slots.length || sorted.some((v, i) => v !== i))
-    throw new Error("Draft: order must be a permutation of the slots");
-  return { ...s, slots: order.map((i) => s.slots[i]!), reorderUsed: true };
 }
