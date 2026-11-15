@@ -15,7 +15,7 @@ import { balance } from "../../../src/config/balance.ts";
 import { engineParamsForRating } from "../../../src/engine/engineParams.ts";
 import { engineParamsForStyle } from "../../../src/engine/strength.ts";
 import { expectedScore } from "../../../src/sim/elo.ts";
-import type { Maia3Variant } from "../node.ts";
+import { type Maia3Variant, blunderCheckFromArgs, blunderCheckOptions } from "../node.ts";
 import { defaultWorkers, runGames } from "./pool.ts";
 import type { ValidateJob, ValidateJobResult } from "./validateWorker.ts";
 
@@ -32,6 +32,7 @@ const { values } = parseArgs({
     style: { type: "boolean", default: false },
     /** Disable draw by agreement and resignation. */
     pure: { type: "boolean", default: false },
+    ...blunderCheckOptions,
     /** Interpret ratings as game ratings and convert with engineCalibration. */
     game: { type: "boolean", default: false },
     /**
@@ -44,6 +45,8 @@ const { values } = parseArgs({
     out: { type: "string", default: join(repoRoot, "bench-results") },
   },
 });
+
+const check = blunderCheckFromArgs(values);
 
 const bands = values.bands.split(",").map(Number);
 const diffs = values.diffs.split(",").map(Number);
@@ -117,6 +120,7 @@ for (const cell of cells) {
       black: aIsWhite ? cell.b : cell.a,
       topP,
       pure: values.pure,
+      check,
     });
     meta.set(id, { cell, aIsWhite });
   }

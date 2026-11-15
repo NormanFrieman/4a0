@@ -19,6 +19,7 @@
     "engine:validate": "tsx tools/engine/cli/validate.ts",
     "engine:bench": "tsx tools/engine/cli/bench.ts",
     "engine:ladder": "tsx tools/engine/cli/ladder.ts",
+    "engine:quality": "tsx tools/engine/cli/quality.ts",
     "data:sample": "tsx tools/data/buildSample.ts",
     "data:pgn": "tsx tools/data/fetchPgn.ts"
   },
@@ -33,6 +34,7 @@
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-i18next": "^18.0.1",
+    "stockfish": "18.0.8",
     "zustand": "^5.1.0"
   },
   "optionalDependencies": {

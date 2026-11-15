@@ -3,7 +3,12 @@ import { parseArgs } from "node:util";
 import { balance } from "../../../src/config/balance.ts";
 import { PolyglotBook } from "../../../src/engine/book/polyglotBook.ts";
 import { playGame } from "../../../src/engine/game.ts";
-import { createNodeMaia3Engine, type Maia3Variant } from "../node.ts";
+import {
+  createNodeMaia3Engine,
+  type Maia3Variant,
+  blunderCheckFromArgs,
+  blunderCheckOptions,
+} from "../node.ts";
 
 const { values } = parseArgs({
   options: {
@@ -19,11 +24,15 @@ const { values } = parseArgs({
     "black-book": { type: "string" },
     /** Disable draw by agreement and resignation. */
     pure: { type: "boolean", default: false },
+    ...blunderCheckOptions,
   },
 });
 
 const t0 = performance.now();
-const { engine, close } = await createNodeMaia3Engine({ variant: values.variant as Maia3Variant });
+const { engine, close } = await createNodeMaia3Engine({
+  variant: values.variant as Maia3Variant,
+  blunderCheck: blunderCheckFromArgs(values),
+});
 const loadMs = performance.now() - t0;
 
 const temperature = Number(values.temp);

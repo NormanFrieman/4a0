@@ -5,8 +5,10 @@
  * order received, on a single ONNX session.
  */
 import { ensureModelWeb, Maia3 } from "maia3-js/web";
+import { BlunderCheckedAI } from "./blunderCheck.ts";
 import { LocalGameSimulator } from "./localSimulator.ts";
 import { Maia3Engine } from "./maia3.ts";
+import { UciEvaluator } from "./stockfish.ts";
 import type { ChessAI } from "./types.ts";
 import type { InitOptions, WorkerRequest, WorkerResponse } from "./workerProtocol.ts";
 
@@ -35,7 +37,10 @@ async function init(options: InitOptions) {
     ...(options.wasmPaths ? { wasmPaths: options.wasmPaths } : {}),
   });
   await maia.load();
-  const engine = new Maia3Engine(maia);
+  const maiaEngine = new Maia3Engine(maia);
+  const engine: ChessAI = options.stockfishUrl
+    ? new BlunderCheckedAI(maiaEngine, await startStockfish(options.stockfishUrl))
+    : maiaEngine;
   const timed: ChessAI = {
     async chooseMove(req) {
       const t = performance.now();
@@ -54,6 +59,26 @@ async function init(options: InitOptions) {
       crossOriginIsolated: self.crossOriginIsolated,
     },
   });
+}
+
+/** Stockfish in a nested classic Worker, speaking UCI over postMessage. */
+function startStockfish(url: string): Promise<UciEvaluator> {
+  const sf = new Worker(url);
+  const failed = new Promise<never>((_, reject) => {
+    sf.onerror = (ev) => {
+      ev.preventDefault();
+      reject(new Error(`Stockfish worker failed (${url}): ${ev.message || "load error"}`));
+    };
+  });
+  return Promise.race([
+    UciEvaluator.create({
+      send: (cmd) => sf.postMessage(cmd),
+      onLine: (listener) => {
+        sf.onmessage = (ev: MessageEvent<string>) => listener(ev.data);
+      },
+    }),
+    failed,
+  ]);
 }
 
 self.addEventListener("message", (ev: MessageEvent<WorkerRequest>) => {

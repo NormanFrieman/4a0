@@ -37,6 +37,24 @@ export interface ChessAI {
   chooseMove(req: MoveRequest): Promise<MoveResult>;
 }
 
+/** Engine score from the side to move's point of view: centipawns or mate in N moves. */
+export type Score = { cp: number } | { mate: number };
+
+export interface Analysis {
+  score: Score;
+  /** UCI, or null when the engine had no move to give. */
+  bestMove: string | null;
+}
+
+/**
+ * Tactical evaluator for the blunder check (GDD §8.1), backed by Stockfish.
+ * Must be deterministic: same position and options, same answer.
+ */
+export interface PositionEvaluator {
+  /** Search `fen` with a node budget; with `onlyMove`, search only that move. */
+  analyse(fen: string, opts: { nodes: number; onlyMove?: string }): Promise<Analysis>;
+}
+
 /** One side of a game, with engine parameters already converted (GDD §6.2). */
 export interface GameSide {
   name?: string;

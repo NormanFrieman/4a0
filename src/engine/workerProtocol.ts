@@ -17,6 +17,11 @@ export interface InitOptions {
   numThreads?: number;
   /** Where onnxruntime-web loads its .wasm files from. */
   wasmPaths?: string;
+  /**
+   * Stockfish worker script for the blunder check (GDD §8.1); its .wasm
+   * must sit next to it. Absent = no check.
+   */
+  stockfishUrl?: string;
 }
 
 export interface ReadyInfo {

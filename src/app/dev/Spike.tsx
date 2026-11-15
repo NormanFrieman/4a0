@@ -14,6 +14,7 @@ import type { MaiaVariant } from "../../engine/workerProtocol.ts";
 import { engineParamsForRating } from "../../engine/engineParams.ts";
 import { balance } from "../../config/balance.ts";
 import { hashSeed } from "../../rng/rng.ts";
+import { stockfishUrl } from "../state/stockfishUrl.ts";
 import "chessground/assets/chessground.base.css";
 import "chessground/assets/chessground.brown.css";
 import "chessground/assets/chessground.cburnett.css";
@@ -49,6 +50,7 @@ export function Spike() {
   const client = useRef<MaiaWorkerPool | null>(null);
   const [variant, setVariant] = useState<MaiaVariant>("5m");
   const [forceWasm, setForceWasm] = useState(true);
+  const [blunderCheck, setBlunderCheck] = useState(true);
   const [whiteRating, setWhiteRating] = useState(1700);
   const [blackRating, setBlackRating] = useState(1650);
   const [seed, setSeed] = useState("spike-1");
@@ -71,7 +73,12 @@ export function Spike() {
     if (!client.current) client.current = new MaiaWorkerPool();
     setStatus("Carregando modelo no worker…");
     const info = await client.current.init(
-      { variant, forceWasm, wasmPaths: ORT_WASM_CDN },
+      {
+        variant,
+        forceWasm,
+        wasmPaths: ORT_WASM_CDN,
+        ...(blunderCheck ? { stockfishUrl: stockfishUrl() } : {}),
+      },
       (l, t) => setStatus(`Baixando modelo… ${t ? Math.round((l / t) * 100) : "?"}%`),
     );
     Object.assign(m, {
@@ -88,6 +95,7 @@ export function Spike() {
     return {
       Variante: variant,
       "Só WASM": forceWasm,
+      "Filtro Stockfish": blunderCheck,
       "Núcleos lógicos": navigator.hardwareConcurrency,
     };
   }
@@ -160,7 +168,7 @@ export function Spike() {
       const roundMs = Math.round(performance.now() - t0);
       const pgns = results.map((r) => r.record.pgn).join("\n\n");
       const hash = hashSeed(pgns);
-      const key = `${seed}/${whiteRating}/${blackRating}/${variant}/${forceWasm}`;
+      const key = `${seed}/${whiteRating}/${blackRating}/${variant}/${forceWasm}/${blunderCheck}`;
       const prev = lastRoundHash.current[key];
       lastRoundHash.current[key] = hash;
       Object.assign(m, {
@@ -204,6 +212,15 @@ export function Spike() {
             disabled={!!client.current}
           />
           Só WASM
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={blunderCheck}
+            onChange={(e) => setBlunderCheck(e.target.checked)}
+            disabled={!!client.current}
+          />
+          Filtro Stockfish
         </label>
         <label>
           Brancas (rating do jogo)

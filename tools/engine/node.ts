@@ -2,7 +2,11 @@ import { existsSync, mkdirSync, renameSync, rmSync } from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ensureModelNode, getVariant, Maia3 } from "maia3-js";
+import { balance } from "../../src/config/balance.ts";
+import { BlunderCheckedAI, type BlunderCheckConfig } from "../../src/engine/blunderCheck.ts";
 import { Maia3Engine } from "../../src/engine/maia3.ts";
+import type { ChessAI } from "../../src/engine/types.ts";
+import { createNodeStockfish } from "./stockfish.node.ts";
 
 export type Maia3Variant = "5m" | "23m" | "79m";
 
@@ -41,6 +45,8 @@ export interface NodeEngineOptions {
   /** Pre-resolved model path (e.g. from `ensureModel` in the parent process). */
   modelPath?: string;
   intraOpNumThreads?: number;
+  /** Stockfish blunder check (GDD §8.1); default `balance.blunderCheck`, `false` = off. */
+  blunderCheck?: BlunderCheckConfig | false;
 }
 
 /** Load Maia-3 with onnxruntime-node and wrap it as a `ChessAI`. */
@@ -51,5 +57,47 @@ export async function createNodeMaia3Engine(opts: NodeEngineOptions = {}) {
     ...(opts.intraOpNumThreads ? { intraOpNumThreads: opts.intraOpNumThreads } : {}),
   });
   await maia.load();
-  return { engine: new Maia3Engine(maia), close: () => maia.close() };
+  const maiaEngine = new Maia3Engine(maia);
+  const check = opts.blunderCheck ?? balance.blunderCheck;
+  const stockfish = check ? await createNodeStockfish() : null;
+  const engine: ChessAI =
+    check && stockfish ? new BlunderCheckedAI(maiaEngine, stockfish.evaluator, check) : maiaEngine;
+  return {
+    engine,
+    maiaEngine,
+    close: async () => {
+      stockfish?.close();
+      await maia.close();
+    },
+  };
 }
+
+/**
+ * Blunder-check override for the CLIs: `--no-check` turns it off; the
+ * `--check-*` flags replace single values (a flat tolerance for every selfElo).
+ */
+export function blunderCheckFromArgs(args: {
+  "no-check"?: boolean;
+  "check-nodes"?: string;
+  "check-drop"?: string;
+  "check-tries"?: string;
+}): BlunderCheckConfig | false {
+  if (args["no-check"]) return false;
+  const base = balance.blunderCheck;
+  return {
+    ...base,
+    ...(args["check-nodes"] ? { nodes: Number(args["check-nodes"]) } : {}),
+    ...(args["check-tries"] ? { maxTries: Number(args["check-tries"]) } : {}),
+    ...(args["check-drop"]
+      ? { tolerance: [{ selfElo: 600, maxDrop: Number(args["check-drop"]) }] }
+      : {}),
+  };
+}
+
+/** parseArgs options matching `blunderCheckFromArgs`. */
+export const blunderCheckOptions = {
+  "no-check": { type: "boolean", default: false },
+  "check-nodes": { type: "string" },
+  "check-drop": { type: "string" },
+  "check-tries": { type: "string" },
+} as const;

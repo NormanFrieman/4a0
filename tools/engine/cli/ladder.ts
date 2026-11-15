@@ -15,7 +15,7 @@ import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { balance } from "../../../src/config/balance.ts";
 import { fitElo, type PairResult } from "../calibration/fitElo.ts";
-import type { Maia3Variant } from "../node.ts";
+import { type Maia3Variant, blunderCheckFromArgs, blunderCheckOptions } from "../node.ts";
 import { defaultWorkers, runGames } from "./pool.ts";
 import type { ValidateJob } from "./validateWorker.ts";
 
@@ -43,10 +43,13 @@ const { values } = parseArgs({
     "top-p": { type: "string", default: String(balance.game.topP) },
     /** Disable draw by agreement and resignation. */
     pure: { type: "boolean", default: false },
+    ...blunderCheckOptions,
     workers: { type: "string", default: String(defaultWorkers()) },
     out: { type: "string", default: join(repoRoot, "bench-results") },
   },
 });
+
+const check = blunderCheckFromArgs(values);
 
 interface Node {
   id: string;
@@ -115,6 +118,7 @@ for (const [a, b] of pairs) {
       black: side(aIsWhite ? b : a),
       topP: Number(values["top-p"]),
       pure: values.pure,
+      check,
     });
     jobPair.set(id, { a, aIsWhite });
     pairOf.set(id, `${a.id}|${b.id}`);

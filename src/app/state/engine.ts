@@ -6,6 +6,7 @@
 import { balance } from "../../config/balance.ts";
 import { MaiaWorkerPool } from "../../engine/workerPool.ts";
 import type { MaiaVariant } from "../../engine/workerProtocol.ts";
+import { stockfishUrl } from "./stockfishUrl.ts";
 
 const ORT_WASM_CDN = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.1/dist/";
 
@@ -29,6 +30,7 @@ export function loadEngine(onStatus: (s: EngineStatus) => void): Promise<MaiaWor
         variant: balance.game.maiaModelVariant as MaiaVariant,
         forceWasm: true,
         wasmPaths: ORT_WASM_CDN,
+        stockfishUrl: stockfishUrl(),
       },
       (loaded, total) => onStatus({ state: "loading", progress: total ? loaded / total : null }),
     )

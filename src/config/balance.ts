@@ -19,6 +19,13 @@ export interface StrengthScalePoint {
   rating: number;
 }
 
+/** One point of the selfElo → blunder tolerance curve (GDD §8.1). */
+export interface BlunderTolerancePoint {
+  selfElo: number;
+  /** Largest allowed drop in winning chances (scale −1…1); 2 or more = no check. */
+  maxDrop: number;
+}
+
 export const balance = {
   // GDD §4.5 — draft
   draft: {
@@ -113,6 +120,34 @@ export const balance = {
     maiaModelVariant: "5m",
   },
 
+  /**
+   * GDD §8.1 — blunder check: Stockfish vetoes a sampled Maia move that
+   * loses more winning chances than the tolerance for the mover's selfElo,
+   * and the move is sampled again. Changes strength: re-measure
+   * engineCalibration if any value changes.
+   */
+  blunderCheck: {
+    /** Stockfish nodes per search (deterministic, one thread). */
+    nodes: 5000,
+    /** Samples checked before falling back to Stockfish's best move. */
+    maxTries: 4,
+    /**
+     * Winning chances from centipawns, as on Lichess: 2 / (1 + e^(−k·cp)) − 1.
+     * Lichess calls a drop of 0.1 an inaccuracy, 0.2 a mistake and 0.3 a blunder.
+     */
+    winChanceK: 0.00368208,
+    /**
+     * Tolerance by selfElo, piecewise-linear, clamped at the ends. Measured
+     * with `engine:quality --analyse-nodes 100000` (docs/benchmarks.md):
+     * 0.2 → ~0.5 blunders per player-game, ACPL ~28; 0.1 → ~0.4, ACPL ~22.
+     */
+    tolerance: [
+      { selfElo: 600, maxDrop: 2 },
+      { selfElo: 1800, maxDrop: 0.2 },
+      { selfElo: 2600, maxDrop: 0.1 },
+    ] satisfies BlunderTolerancePoint[],
+  },
+
   /** GDD §8.3 — replay pace of the user's games in the Round screen. */
   playback: {
     /** Milliseconds per half-move at 1× and 4×; "instant" shows everything computed. */
@@ -128,6 +163,10 @@ export const balance = {
    * 2026-11-14). Anchored so Maia 1500 at T=1 = 1500. Used by
    * engineParamsForRating (strength path) and engineParamsForStyle (style
    * compensation, GDD §7.2). Re-measure if the model or sampling changes.
+   *
+   * OUTDATED: measured without the Stockfish blunder check (blunderCheck
+   * above), which makes the engine stronger. Re-run the ladder on a faster
+   * machine (docs/benchmarks.md, "Benchmarks futuros", item 0).
    */
   engineCalibration: [
     { rating: 735, selfElo: 600, temperature: 1.3 },
