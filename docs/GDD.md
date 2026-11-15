@@ -238,7 +238,15 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 1. Se a posição está no livro do jogador (seção 7.1), sortear o lance do livro.
 2. Senão, chamar o Maia-3 com a posição, até 8 lances anteriores, `selfElo` e `oppoElo` (seção 6.2).
 3. Sortear o lance a partir da distribuição `moves` devolvida, com a temperatura do jogador e top-p = `topP`, usando o gerador com semente da partida. Não usar o sorteio interno do maia3-js: ele usa `Math.random()` sem semente.
-4. Validar e aplicar o lance com chess.js.
+4. **Filtro de blunders (Stockfish).** O Stockfish avalia a posição e o lance sorteado com uma busca curta (número fixo de nós). Se o lance perde mais chances de vitória que a tolerância do jogador, ele sai da distribuição e outro é sorteado com o mesmo gerador. Depois de `maxTries` lances recusados, joga-se o melhor lance do Stockfish.
+5. Validar e aplicar o lance com chess.js.
+
+**DECIDIDO (nov/2026): o Maia escolhe, o Stockfish veta.** O Maia imita jogadores de blitz e entrega peças até no `selfElo` 2600: na medição de `docs/benchmarks.md`, ~30% das partidas tinham peça a mais antes do lance 30. Um filtro com a avaliação do próprio Maia não resolveu, porque ele não calcula variantes. O Stockfish só recusa lances, nunca escolhe, então o estilo humano do Maia se mantém.
+
+- **Chances de vitória:** fórmula do Lichess, 2 / (1 + e^(−k·cp)) − 1, entre −1 e 1. Pela classificação do Lichess, uma queda de 0,1 é imprecisão, 0,2 é erro e 0,3 é blunder.
+- **Tolerância:** curva por `selfElo` em `balance.blunderCheck.tolerance`, menor para os mais fortes. Como depende só do `selfElo`, a grade de calibração (§6.2) continua valendo, medida com o filtro ligado.
+- **Determinismo:** uma thread, hash limpo antes de cada busca e limite por nós, não por tempo.
+- **Navegador:** build lite single-thread do stockfish.js (~7 MB), num Worker aberto pelo worker do Maia e servido pelo próprio site.
 
 ### 8.2 Fim de partida
 
@@ -359,6 +367,7 @@ O Desafio diário dá a todos os usuários os mesmos sorteios e o mesmo campo no
 | Tabuleiro | chessground | Tabuleiro do Lichess, pronto |
 | Regras | chess.js | Lances, FEN, PGN, fim de partida |
 | IA | maia3-js + onnxruntime-web, num Web Worker | Maia-3 no navegador sem travar a interface |
+| Filtro de blunders | stockfish.js 18 (lite, single-thread, WASM) | Veta lances que perdem material (§8.1) |
 | Aleatoriedade | Gerador com semente (biblioteca pronta, ex.: pure-rand) | Determinismo |
 | Imagem | html-to-image | Imagem de resultado |
 | i18n | i18next | pt-BR primeiro, outros idiomas depois |
@@ -378,7 +387,7 @@ src/
   engine/         # interface ChessAI, adaptador Maia-3, livros, worker
   share/          # texto e imagem de compartilhamento
   rng/            # gerador com semente e derivação de sementes
-tools/engine/     # CLIs Node: play, bench, validate, ladder (calibração)
+tools/engine/     # CLIs Node: play, bench, validate, ladder (calibração), quality (qualidade dos lances)
 tools/data/       # pipeline offline
 public/data/      # dados publicados, por versão
 docs/GDD.md       # este documento
@@ -459,6 +468,7 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 | maia3-js | MIT | Permissiva |
 | chessground | GPL-3.0 | O código do frontend distribuído fica sujeito à GPL |
 | chess.js | BSD-2 | Permissiva |
+| stockfish.js | GPL-3.0 | Distribuído ao navegador (filtro de blunders, §8.1); compatível com a GPL/AGPL já presentes |
 | Dados do OlimpBase | Projeto independente mantido por voluntários | Pedir permissão expressa antes de usar |
 | PGNs do PGN Mentor | Coleções gratuitas por jogador; licença não declarada | Só para desenvolvimento dos livros (7.1); confirmar ou trocar a fonte antes do lançamento |
 | Nomes de jogadores reais | Pessoas reais, muitas vivas | Avaliar uso de nome em jogo, sobretudo se comercial; não usar fotos |

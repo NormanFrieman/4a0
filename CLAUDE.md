@@ -3,7 +3,9 @@
 Jogo de navegador: o usuário monta uma equipe de 5 enxadristas históricos e disputa uma Olimpíada de Xadrez simulada pelo Maia-3. A fonte de verdade é [docs/GDD.md](docs/GDD.md). Leia a seção relevante antes de implementar.
 
 - Medições de desempenho e calibração da engine: [docs/benchmarks.md](docs/benchmarks.md).
+- **Calibração pendente:** `engineCalibration` foi medido sem o filtro do Stockfish e está desatualizado. A escada será refeita num computador com mais capacidade (item 0 de "Benchmarks futuros" em [docs/benchmarks.md](docs/benchmarks.md)).
 - Próximo trabalho planejado: calibração das regras de fim de partida, em [docs/calibracao-fim-de-partida.md](docs/calibracao-fim-de-partida.md).
+- `pnpm engine:quality` mede a qualidade dos lances (`--analyse-nodes 100000` faz a análise no padrão do Lichess).
 - Design system (direção "Almanaque histórico", tokens e componentes em `src/app/ui/`): [docs/design.md](docs/design.md). Use os tokens do Tailwind, nunca cores literais.
 - O projeto antigo (cidade estilo Clash of Clans, "Xadrez de Cidades") foi descartado. Não reintroduzir cidade, recursos, servidor, relógios ou captura.
 
