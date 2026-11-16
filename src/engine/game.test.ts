@@ -140,12 +140,39 @@ describe("playGame", () => {
         white: side(ai),
         black: side(ai),
         seed: 9,
-        endRules: { resignProb: 0.05, resignStableMoves: 3, drawOfferFromMove: 999 },
+        endRules: {
+          resignProb: 0.05,
+          resignStableMoves: 3,
+          resignFromMove: 1,
+          drawOfferFromMove: 999,
+        },
       });
       expect(g.termination).toBe("resignation");
       expect(g.result).toBe("1-0");
       // Black's own moves 3 and 4 count, the third evaluation (move 5) resigns before moving.
       expect(g.moves.length).toBe(9);
+    });
+
+    it("waits for resignFromMove, keeping the streak meanwhile", async () => {
+      const ai = new UniformAI((req) => {
+        if (moveNumber(req) < 3) return [0.33, 0.34, 0.33];
+        return whiteToMove(req) ? [0.97, 0.02, 0.01] : [0.01, 0.02, 0.97];
+      });
+      const g = await playGame({
+        white: side(ai),
+        black: side(ai),
+        seed: 9,
+        endRules: {
+          resignProb: 0.05,
+          resignStableMoves: 3,
+          resignFromMove: 8,
+          drawOfferFromMove: 999,
+        },
+      });
+      expect(g.termination).toBe("resignation");
+      expect(g.result).toBe("1-0");
+      // The streak is complete at move 5, but black only resigns on move 8 (ply 15), before moving.
+      expect(g.moves.length).toBe(15);
     });
   });
 

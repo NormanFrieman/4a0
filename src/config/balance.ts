@@ -20,6 +20,13 @@ export interface StrengthScalePoint {
 }
 
 /** One point of the selfElo → blunder tolerance curve (GDD §8.1). */
+export interface DrawTargetPoint {
+  /** Card strength (GDD §6). */
+  strength: number;
+  /** Share of drawn games. */
+  rate: number;
+}
+
 export interface BlunderTolerancePoint {
   selfElo: number;
   /** Largest allowed drop in winning chances (scale −1…1); 2 or more = no check. */
@@ -100,7 +107,8 @@ export const balance = {
     traitCombativeFrom: 0.6,
   },
 
-  // GDD §8.5 — game simulation
+  // GDD §8.5 — game simulation. End rules chosen by `pnpm engine:endrules`
+  // (docs/benchmarks.md, 2026-11-15): change them → re-measure engineCalibration.
   game: {
     /** engineCalibration was measured with this value: re-measure if it changes. */
     topP: 0.95,
@@ -111,9 +119,21 @@ export const balance = {
     /** …for this many consecutive engine evaluations (plies). */
     drawStableMoves: 10,
     /** A side resigns when its expected score stays below resignProb… */
-    resignProb: 0.05,
+    resignProb: 0.1,
     /** …for this many of its own consecutive moves. */
     resignStableMoves: 6,
+    /** Full move number before which nobody resigns (GDD §8.2); the streak still counts. */
+    resignFromMove: 30,
+    /**
+     * Target draw rate between players of equal strength, by card strength,
+     * piecewise-linear (GDD §8.5). ESTIMATE (user, 2026-11-14), to refine with
+     * real Olympiad data in Phase 2. Used by `pnpm engine:endrules`.
+     */
+    drawTarget: [
+      { strength: 2400, rate: 0.3 },
+      { strength: 2550, rate: 0.4 },
+      { strength: 2700, rate: 0.5 },
+    ] satisfies DrawTargetPoint[],
     maxPlies: 250,
     /** At maxPlies, a side wins if its win probability is above this; otherwise draw. */
     adjudicateWinProb: 0.85,
@@ -166,7 +186,7 @@ export const balance = {
    *
    * OUTDATED: measured without the Stockfish blunder check (blunderCheck
    * above), which makes the engine stronger. Re-run the ladder on a faster
-   * machine (docs/benchmarks.md, "Benchmarks futuros", item 0).
+   * machine, once, after the end-of-game rules (docs/plano-calibracao.md, Fase B).
    */
   engineCalibration: [
     { rating: 735, selfElo: 600, temperature: 1.3 },

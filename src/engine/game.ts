@@ -1,9 +1,11 @@
 import { Chess } from "chess.js";
 import { balance } from "../config/balance.ts";
 import { deriveRng, type Rng } from "../rng/rng.ts";
+import { type Color, type EndRules, EndRuleTracker, defaultEndRules } from "./endRules.ts";
 import type { ChessAI } from "./types.ts";
 
-export type Color = "white" | "black";
+export type { Color, EndRules } from "./endRules.ts";
+export { defaultEndRules } from "./endRules.ts";
 export type GameResult = "1-0" | "0-1" | "1/2-1/2";
 export type Termination =
   | "checkmate"
@@ -31,15 +33,6 @@ export interface SideConfig {
   temperature: number;
   topP: number;
   book?: OpeningBook;
-}
-
-/** Draw-by-agreement and resignation rules (GDD §8.2). */
-export interface EndRules {
-  drawOfferFromMove: number;
-  drawBand: number;
-  drawStableMoves: number;
-  resignProb: number;
-  resignStableMoves: number;
 }
 
 export interface PlayedMove {
@@ -79,17 +72,6 @@ export interface GameRecord {
   adjudicationWdl?: [number, number, number];
 }
 
-export function defaultEndRules(): EndRules {
-  const g = balance.game;
-  return {
-    drawOfferFromMove: g.drawOfferFromMove,
-    drawBand: g.drawBand,
-    drawStableMoves: g.drawStableMoves,
-    resignProb: g.resignProb,
-    resignStableMoves: g.resignStableMoves,
-  };
-}
-
 function parseUci(uci: string): { from: string; to: string; promotion?: string } {
   return {
     from: uci.slice(0, 2),
@@ -125,9 +107,6 @@ function sampleBook(entry: BookEntry, rng: Rng): string | null {
   return entry[entry.length - 1]![0];
 }
 
-/** Mover's expected score from a WDL triple. */
-const expected = ([win, draw]: [number, number, number]) => win + draw / 2;
-
 /**
  * Play a full AI-vs-AI game (GDD §8). Book moves first, then the engine;
  * ends by chess rules, agreement, resignation or adjudication at maxPlies.
@@ -150,8 +129,7 @@ export async function playGame(opts: PlayGameOptions): Promise<GameRecord> {
   const moves: PlayedMove[] = [];
   /** Still following each side's book (once out, never back in). */
   const inBook = { white: !!opts.white.book, black: !!opts.black.book };
-  let drawStreak = 0;
-  const resignStreak = { white: 0, black: 0 };
+  const tracker = rules ? new EndRuleTracker(rules) : null;
 
   const finish = (
     result: GameResult,
@@ -227,17 +205,11 @@ export async function playGame(opts: PlayGameOptions): Promise<GameRecord> {
     if (!record) {
       const res = await side.ai.chooseMove({ ...request, rng: rngs[color] });
 
-      if (rules) {
-        const score = expected(res.wdl);
-        resignStreak[color] = score < rules.resignProb ? resignStreak[color] + 1 : 0;
-        if (resignStreak[color] >= rules.resignStableMoves) {
-          return finish(color === "white" ? "0-1" : "1-0", "resignation");
-        }
-        const drawable =
-          chess.moveNumber() >= rules.drawOfferFromMove && Math.abs(score - 0.5) <= rules.drawBand;
-        drawStreak = drawable ? drawStreak + 1 : 0;
-        if (drawStreak >= rules.drawStableMoves) return finish("1/2-1/2", "agreement");
+      const ended = tracker?.onEngineEval(color, chess.moveNumber(), res.wdl);
+      if (ended?.termination === "resignation") {
+        return finish(ended.loser === "white" ? "0-1" : "1-0", "resignation");
       }
+      if (ended?.termination === "agreement") return finish("1/2-1/2", "agreement");
 
       const played = chess.move(parseUci(res.move));
       record = {
