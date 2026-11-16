@@ -3,8 +3,8 @@
 Jogo de navegador: o usuário monta uma equipe de 5 enxadristas históricos e disputa uma Olimpíada de Xadrez simulada pelo Maia-3. A fonte de verdade é [docs/GDD.md](docs/GDD.md). Leia a seção relevante antes de implementar.
 
 - Medições de desempenho e calibração da engine: [docs/benchmarks.md](docs/benchmarks.md).
-- **Calibração pendente:** `engineCalibration` foi medido sem o filtro do Stockfish e está desatualizado. A escada será refeita num computador com mais capacidade (item 0 de "Benchmarks futuros" em [docs/benchmarks.md](docs/benchmarks.md)).
-- Próximo trabalho planejado: calibração das regras de fim de partida, em [docs/calibracao-fim-de-partida.md](docs/calibracao-fim-de-partida.md).
+- **Calibração pendente:** `engineCalibration` foi medido sem o filtro do Stockfish e está desatualizado. A escada será refeita uma vez só, num computador com mais capacidade, depois de fixar as regras de fim de partida.
+- Próximo trabalho planejado: [docs/plano-calibracao.md](docs/plano-calibracao.md) (Fase A: regras de fim de partida; Fase B: escada única; Fase C: escala, `quickSim` e validação).
 - `pnpm engine:quality` mede a qualidade dos lances (`--analyse-nodes 100000` faz a análise no padrão do Lichess).
 - Design system (direção "Almanaque histórico", tokens e componentes em `src/app/ui/`): [docs/design.md](docs/design.md). Use os tokens do Tailwind, nunca cores literais.
 - O projeto antigo (cidade estilo Clash of Clans, "Xadrez de Cidades") foi descartado. Não reintroduzir cidade, recursos, servidor, relógios ou captura.
@@ -39,4 +39,5 @@ Fatia jogável da Fase 1 em `/`: draft → confirmação → campo → 7 rodadas
 - `pnpm engine:play --white 1500 --black 1600 --seed 42`
 - `pnpm engine:validate --game --bands 1000,1400,1800` — valida a escala calibrada
 - `pnpm engine:ladder` — mede a curva de força do Maia (gera `engineCalibration`)
+- `pnpm engine:endrules` — joga as células sem regras de fim de partida e varre abandono/acordo offline (`--from <json>` reaproveita as partidas)
 - `pnpm engine:bench`

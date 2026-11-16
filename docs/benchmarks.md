@@ -174,7 +174,7 @@ Pontuação do lado mais forte. "Sólido" = T 0,7 e "combativo" = T 1,1, ambos c
 | 1800 +400 | 91% | **98,8%** | **96,8%** | **94,8%** |
 
 - **Até ~1850 a escala e a compensação de estilo funcionam:** quase todas as células estão dentro da margem, e sólido × combativo de mesmo rating fica perto de 50%. Os desvios isolados (1400+0 sem estilo; 1000+0 e 1400+200 combativo) estão perto do limite da margem e não seguem um padrão.
-- **Acima de ~1885 (`selfElo` 2600, força vinda de T < 1) a força é superestimada:** quem está nessa região vence demais (97–99% com +400; 87% com +200 quando o combativo passa do seu teto). Essa parte da grade tem poucos nós medidos. **Pendente:** medir mais pontos de T entre 0,6 e 1,0 em `selfElo` 2600, ou comprimir a `strengthScale` para que menos cartas caiam nessa região.
+- **Acima de ~1885 (`selfElo` 2600, força vinda de T < 1) a força é superestimada:** quem está nessa região vence demais (97–99% com +400; 87% com +200 quando o combativo passa do seu teto). Essa parte da grade tem poucos nós medidos. **Pendente:** Fases B e C de [plano-calibracao.md](plano-calibracao.md) (mais nós de T entre 0,6 e 1,0 em `selfElo` 2600 e compressão da `strengthScale`).
 
 ## Qualidade dos lances (2026-11-14) — `pnpm engine:quality`
 
@@ -228,7 +228,7 @@ Cada partida é analisada depois com o Stockfish a 100 mil nós por posição. O
 - **A tolerância 0,1 deixa a perda média em ~22 e os blunders em ~0,3–0,5 por partida.**
 - **3k nós não compensa:** a qualidade piora um pouco e quase não poupa tempo, porque o custo fixo de cada busca domina.
 - **Escolha:** 5k nós e uma curva de tolerância por `selfElo`: 0,2 em 1800, 0,1 em 2600 e sem filtro em 600 (`balance.blunderCheck.tolerance`).
-- **Pendente:** com o filtro, as partidas ficam mais longas e 90–100% das decisivas terminam em mate. O abandono (item 3 abaixo) ficou para depois, por decisão do usuário.
+- **Pendente:** com o filtro, as partidas ficam mais longas e 90–100% das decisivas terminam em mate. O abandono ficou para a Fase A de [plano-calibracao.md](plano-calibracao.md).
 
 ### Custo no navegador (`/spike`, rodada de 4 partidas, i7-1165G7 ocioso, só WASM)
 
@@ -240,20 +240,50 @@ Cada partida é analisada depois com o Stockfish a 100 mil nós por posição. O
 
 Determinismo conferido: o mesmo hash dos PGNs em duas execuções, com o filtro ligado e desligado.
 
+## Regras de fim de partida (2026-11-15) — `pnpm engine:endrules`
+
+Fase A de [plano-calibracao.md](plano-calibracao.md). Cada célula foi jogada uma vez **sem** regras de fim de partida, com o filtro do Stockfish ligado, e as regras foram aplicadas depois sobre as avaliações gravadas (`tools/engine/endRules.ts`). As regras não sorteiam nada, então o resultado é exatamente o que `playGame` daria, e a comparação de força entre conjuntos de regras é pareada (mesmas partidas).
+
+12 células × 300 partidas = 3 600 partidas (68 min, 10 workers, Ryzen 5 PRO 4650G). Células em parâmetros de engine (`selfElo`@T, não cartas), com diferenças 0, +200 e +400. "Δ força" = mudança da pontuação do lado mais forte contra as regras anteriores, pior célula. "Jogado até o fim" = mate, afogamento ou adjudicação com o perdedor abaixo de 0,1 de expectativa nos seus últimos 8 lances. Dados brutos: `bench-results/endrules-games-2026-11-15T22-36-22-922Z.json`.
+
+| Regras | Abandono | Antes do lance 25 | Mate | Jogado até o fim | Meios-lances | Δ força |
+| --- | --- | --- | --- | --- | --- | --- |
+| Sem regras | 0% | — | 72% | 38% | 122 | — |
+| Anteriores (`resignProb` 0,05, 6 lances, sem lance mínimo) | 24% | 2,8% (mín. lance 9) | 47% | 15% | 114 | 0 |
+| **Escolhida:** `resignFromMove` 30, `resignProb` 0,10, 6 lances | 45% | 0% | 26% | 1,6% | 107 | 1,5 p.p. |
+| `resignFromMove` 25, `resignProb` 0,10, 6 lances | 47% | 0% | 25% | 0,7% | 106 | 2,7 p.p. |
+| `resignFromMove` 20, `resignProb` 0,10, 6 lances | 48% | 7,6% | 24% | 0,2% | 105 | 4,5 p.p. |
+| `resignProb` 0,15, 3 lances (sem mínimo) | 71% | 31% | 5% | 0% | 79 | 20,7 p.p. |
+
+- **Abandono mais cedo custa força:** quem abandona cedo demais perde partidas que salvaria. O lance mínimo 30 corta esse efeito e ainda elimina os finais perdidos jogados até o fim.
+- **Empates com as regras escolhidas** (acordo inalterado: lance 30, faixa 0,08, 10 lances):
+
+| Célula | Pontuação do mais forte | Empates | Acordo | Repetição | Abandono | Mate | Meios-lances |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1800 × 1800 | 45,7% | 38,0% | 9,0% | 19,7% | 27,0% | 34,7% | 117 |
+| 1800 × 1600 | 94,7% | 6,0% | 0% | 5,0% | 50,7% | 43,3% | 80 |
+| 1800 × 1400 | 99,2% | 1,7% | 0% | 1,3% | 57,7% | 40,7% | 65 |
+| 2200 × 2200 | 52,2% | 37,0% | 8,3% | 18,0% | 27,7% | 34,7% | 124 |
+| 2200 × 2000 | 66,5% | 31,0% | 2,0% | 20,3% | 39,3% | 29,7% | 116 |
+| 2200 × 1800 | 84,3% | 16,7% | 1,3% | 11,3% | 67,0% | 16,3% | 95 |
+| 2600 × 2600 | 52,2% | 45,0% | 7,3% | 26,3% | 32,3% | 22,7% | 126 |
+| 2600 × 2400 | 66,5% | 32,3% | 4,0% | 20,0% | 49,0% | 18,3% | 117 |
+| 2600 × 2200 | 80,8% | 23,7% | 0,7% | 15,3% | 66,3% | 10,0% | 90 |
+| 2600@0,8 × 2600@0,8 | 48,0% | 41,3% | 7,3% | 25,7% | 33,0% | 25,3% | 120 |
+| 2600@0,8 × 2600 | 51,8% | 41,7% | 5,3% | 28,7% | 37,3% | 20,3% | 122 |
+| 2600@0,8 × 2400 | 67,3% | 28,7% | 1,3% | 21,3% | 50,3% | 20,7% | 117 |
+
+- **Acordo mantido (decisão do usuário, 2026-11-15):** o alvo `drawTarget` vale para jogadores de mesma força. Entre iguais, o acordo atual dá 38% / 37% / 45% / 41% de empates (alvo ~30% / 40% / 50% / 50%). Um acordo mais frouxo (lance 30, faixa 0,16) levaria os empates entre iguais a ~50–54%, e um mais forte (lance 20, faixa 0,12) a ~57–66%, ambos com Δ força ≤ 2,3 p.p. As regras de acordo não dependem da força, então o gradiente entre níveis vem do próprio Maia.
+- **Livro de abertura** (`decade-1980.bin` nos dois lados, 6 células × 200, `bench-results/endrules-games-2026-11-15T23-44-49-323Z.json`): +2 a +4 p.p. de empates e pontuação dos +200 em 95,0% / 64,3% / 64,3%, contra 94,7% / 66,7% / 66,2% sem livro. Diferença dentro da margem (±7 p.p.): **a escada pode rodar sem livro.**
+- **Achado para a escada (Fase B):** com o filtro, a força fica muito íngreme entre 1400 e 1800 (1800 vence 1600 por 94,7% e 1400 por 99,2%). A tolerância cai de 0,8 em 1400 para 0,2 em 1800, e o filtro mais rígido vale centenas de pontos. Pares com 95–99% medem mal o Elo, então a escada precisa de passo menor (100) nessa faixa.
+
 ## Benchmarks futuros (ideias anotadas)
 
 Medições a fazer, em ordem aproximada de prioridade. Ao concluir uma, registre os resultados numa seção própria acima e remova o item daqui.
 
-0. **Recalibrar a escada com o filtro do Stockfish (pendente, prioridade máxima).** O `engineCalibration` atual foi medido sem o filtro de blunders (GDD §8.1), que deixa o Maia mais forte. Por isso, a escala de força está desatualizada. Rodar `pnpm engine:ladder --style-temps 0.7,0.9,1.1` (17 600 partidas, estimativa de 2–3 h em 6 workers) num computador com mais capacidade e atualizar `engineCalibration`. Depois, comprimir a escala (`strengthScale`, GDD §6, já aprovado), fazer a `quickSim` usar o rating do jogo e validar com `engine:validate --game`. Também falta medir no navegador o tempo da rodada com a tolerância final.
-
-1. **Topo da escala (`selfElo` 2600, T < 1).** A validação mostrou força superestimada acima de ~1885 (lendas vencem demais). Medir temperaturas de 1,0 a 0,6 em passos de 0,05 em `selfElo` 2600, cada nó contra os vizinhos e contra o topo da curva T=1 (2200 e 2400). São ~20 pares × 200 partidas (~35 min nesta máquina). Depois, repetir `engine:validate --game --bands 1800,1900,2000` com e sem `--styles`.
-2. **Taxa de empates e empate por acordo.** Plano detalhado (itens 2 a 4), com as decisões já tomadas: [calibracao-fim-de-partida.md](calibracao-fim-de-partida.md). Depende de definir a taxa alvo por nível (de preferência a partir de dados reais de Olimpíadas). Varrer `drawOfferFromMove`, `drawBand` e `drawStableMoves` e medir empates, acordos e duração. Depois, refazer a escada se a força mudar (acordo frequente comprime a escala).
-3. **Abandono.** Conferir se `resignProb` 0,05 e `resignStableMoves` 6 deixam as partidas com duração plausível, e se o abandono não muda a força medida (comparar `--pure` com regras ligadas na mesma célula).
-4. **Simulação rápida coerente com o Maia.** Com as taxas de empate do item 2, ajustar `drawBase`, `drawSlope`, `drawMin` e `drawMax` (`balance.quickSim`) até que a simulação por Elo reproduza a distribuição vitória/empate/derrota das partidas Maia × Maia do mesmo nível.
-5. **Rodada no navegador < 10 s (GDD §8.3).** Repetir a rodada de 4 partidas depois dos itens 2 e 3 (partidas mais curtas). Medir num notebook médio e num celular médio (tabela "Navegador" acima), e no desktop sem carga paralela.
-6. **Configuração do grupo de workers.** Comparar 1 × 4 threads, 2 × 2, 4 × 1 e 4 × 2 em máquinas com 4, 8 e 12+ núcleos, medindo tempo de rodada e memória (4 sessões ONNX). Definir `defaultPoolSize` e `defaultThreadsPerWorker` a partir disso.
-7. **Determinismo entre navegadores e dispositivos (GDD §8.4).** Mesma semente em Chrome, Firefox e Safari, desktop e celular, e com contagens de threads diferentes: os PGNs devem ser idênticos no modo só WASM. Medir também o quanto a WebGPU diverge.
-8. **Modelo 23M (`maiaModelVariant`, "testar 23m").** Repetir escada e validação com o 23M para ver se a compressão no topo diminui, e medir o custo no navegador (download, latência, rodada).
-9. **Estilo com temperaturas intermediárias.** A grade tem T 0,7, 0,9, 1,0 e 1,1; T 0,8 e 1,0 são interpolados. Validar sólido × combativo com estilos intermediários (ex.: `--styles 0.8,1.0`) e, se necessário, medir T 0,8 em toda a escada.
-10. **Livros de aberturas.** Quando houver livros (etapa 7), medir se partidas com livro mudam a força ou a taxa de empates em relação às sem livro, na mesma célula.
-11. **Repetir células suspeitas.** 1400+0 sem estilo (39,3%) e 1000+0 combativo (58,3%) ficaram perto do limite da margem. Repetir com sementes novas para confirmar que foi flutuação estatística.
+1. **Calibração pós-filtro (prioridade máxima).** Plano em fases: [plano-calibracao.md](plano-calibracao.md). Junta os antigos itens de escada com o filtro do Stockfish, topo da escala (`selfElo` 2600, T < 1), empate por acordo, abandono, simulação rápida coerente com o Maia e livros de abertura. A ordem garante que a escada (a etapa mais cara, ~6–7 h nesta máquina com o filtro) rode uma vez só, depois das regras de fim de partida.
+2. **Rodada no navegador < 10 s (GDD §8.3).** Repetir a rodada de 4 partidas depois da Fase A do plano de calibração (partidas mais curtas). Medir num notebook médio e num celular médio (tabela "Navegador" acima), e no desktop sem carga paralela.
+3. **Configuração do grupo de workers.** Comparar 1 × 4 threads, 2 × 2, 4 × 1 e 4 × 2 em máquinas com 4, 8 e 12+ núcleos, medindo tempo de rodada e memória (4 sessões ONNX). Definir `defaultPoolSize` e `defaultThreadsPerWorker` a partir disso.
+4. **Determinismo entre navegadores e dispositivos (GDD §8.4).** Mesma semente em Chrome, Firefox e Safari, desktop e celular, e com contagens de threads diferentes: os PGNs devem ser idênticos no modo só WASM. Medir também o quanto a WebGPU diverge.
+5. **Modelo 23M (`maiaModelVariant`, "testar 23m").** Repetir escada e validação com o 23M para ver se a compressão no topo diminui, e medir o custo no navegador (download, latência, rodada).
+6. **Estilo com temperaturas intermediárias.** A grade tem T 0,7, 0,9, 1,0 e 1,1; T 0,8 e 1,0 são interpolados. Validar sólido × combativo com estilos intermediários (ex.: `--styles 0.8,1.0`) e, se necessário, medir T 0,8 em toda a escada.

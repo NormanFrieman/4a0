@@ -253,6 +253,7 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 - Regras do chess.js: xeque-mate, afogamento, tripla repetição, 50 lances, material insuficiente.
 - **Empate por acordo:** a partir do lance `drawOfferFromMove`, se a avaliação WDL do Maia ficar com probabilidade de vitória entre 0,5 ± `drawBand` por `drawStableMoves` lances seguidos, a partida termina empatada. Esse é o principal ajuste para aproximar a taxa de empates da realidade.
 - **Abandono:** se a probabilidade de vitória de um lado ficar abaixo de `resignProb` por `resignStableMoves` lances seguidos, ele abandona.
+- **DECIDIDO (nov/2026):** ninguém abandona antes do lance `resignFromMove`. A sequência de lances perdidos continua contando antes dele. Evita abandonos na abertura quando a diferença de força é grande.
 - **Limite:** ao atingir `maxPlies`, decide-se pela avaliação WDL (vitória acima de 0,85; senão, empate).
 - Sem relógio no MVP. Relógios simulados são pós-MVP.
 
@@ -276,7 +277,9 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 | `topP` | 0,95 |
 | `drawOfferFromMove` | 30 |
 | `drawBand` / `drawStableMoves` | 0,08 / 10 |
-| `resignProb` / `resignStableMoves` | 0,05 / 6 |
+| `resignProb` / `resignStableMoves` | 0,10 / 6 (varredura de nov/2026) |
+| `resignFromMove` | 30 (varredura de nov/2026) |
+| `drawTarget` (empates entre jogadores de mesma força, estimativa) | ~30% em 2400, ~40% em 2550, ~50% a partir de 2700 (força de carta) |
 | `maxPlies` | 250 |
 | `maiaModelVariant` | 5m (testar 23m) |
 
