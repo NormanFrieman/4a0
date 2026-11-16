@@ -1,3 +1,4 @@
+import { balance } from "../config/balance.ts";
 import type {
   DatasetIndex,
   NationalTeam,
@@ -27,7 +28,7 @@ function lookup<T>(map: Map<string | number, T>, kind: string) {
   };
 }
 
-/** Builds lookups and checks references (GDD §4.1: teams need ≥ 4 cards). */
+/** Builds lookups and checks references (GDD §4.1: one card per board, boards 1–4). */
 export function assembleDataset(
   index: DatasetIndex,
   persons: Person[],
@@ -38,7 +39,8 @@ export function assembleDataset(
   const personMap = new Map(persons.map((p) => [p.id, p] as const));
   const olympiads = new Map(index.olympiads.map((o) => [o.year, o] as const));
   for (const t of index.teams) {
-    if (t.cardIds.length < 4) throw new Error(`Dataset: team ${t.id} has fewer than 4 cards`);
+    if (t.cardIds.length !== balance.draft.slots)
+      throw new Error(`Dataset: team ${t.id} needs ${balance.draft.slots} cards`);
     if (!olympiads.has(t.year)) throw new Error(`Dataset: team ${t.id} has no olympiad`);
     for (const id of t.cardIds) {
       const c = cards.get(id);

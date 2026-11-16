@@ -69,36 +69,6 @@
       "games": 12,
       "medals": [],
       "bookFile": "books/decade-1970.bin"
-    },
-    {
-      "id": "yu-1974-5",
-      "personId": "dragoljub-velimirovic",
-      "year": 1974,
-      "teamId": "yu-1974",
-      "board": 5,
-      "title": "GM",
-      "fideRating": 2520,
-      "performance": 2676,
-      "strength": 2559,
-      "score": 6.5,
-      "games": 9,
-      "medals": [],
-      "bookFile": "books/decade-1970.bin"
-    },
-    {
-      "id": "yu-1974-6",
-      "personId": "aleksandar-matanovic",
-      "year": 1974,
-      "teamId": "yu-1974",
-      "board": 6,
-      "title": "GM",
-      "fideRating": 2495,
-      "performance": 2645,
-      "strength": 2533,
-      "score": 5,
-      "games": 7,
-      "medals": [],
-      "bookFile": "books/decade-1970.bin"
     }
   ]
 }

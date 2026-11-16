@@ -6,7 +6,6 @@ import { UniformAI } from "../engine/testing/fakeAi.ts";
 import { LocalGameSimulator } from "../engine/localSimulator.ts";
 import { boardsFor, gameJobFor, matchFromBoards, quickMatch, scoreOf } from "../sim/match.ts";
 import { buildField } from "./field.ts";
-import { defaultResting, lineupFor } from "./lineup.ts";
 import { pairRound, playedKey } from "./pairing.ts";
 import { matchPointsFor, standings } from "./standings.ts";
 import {
@@ -40,7 +39,7 @@ function playAll(seed: string): TournamentState {
   while (!isFinished(t)) {
     t = pairNextRound(t);
     const p = userPairing(t);
-    const l = lineups(t, p, defaultResting(t.entrants[0]!.cardIds));
+    const l = lineups(t, p);
     const user = quickMatch(ds, seed, currentRound(t)!.round, p, l.first, l.second);
     t = recordRound(t, [user, ...fieldResults(ds, t)]);
   }
@@ -49,7 +48,7 @@ function playAll(seed: string): TournamentState {
 
 describe("field", () => {
   it("has the configured size, distinct teams, max per country", () => {
-    const f = buildField(ds, "f", userTeam("f"), fieldSize);
+    const f = buildField(ds, "f", fieldSize);
     expect(f).toHaveLength(fieldSize);
     expect(new Set(f.map((e) => e.id)).size).toBe(fieldSize);
     const per = new Map<string, number>();
@@ -60,22 +59,27 @@ describe("field", () => {
     expect(Math.max(...per.values())).toBeLessThanOrEqual(balance.tournament.fieldMaxPerCountry);
   });
 
-  it("replaces a person picked by the user with the team's reserve", () => {
-    const team = ds.teams.find((t) => t.cardIds.length >= 5)!;
-    const picked = [team.cardIds[0]!];
-    const f = buildField(ds, "x", picked, ds.teams.length);
-    const e = f.find((x) => x.id === team.id)!;
-    expect(e.cardIds).not.toContain(team.cardIds[0]);
-    expect(lineupFor(e.cardIds)).toEqual(team.cardIds.slice(1, 5));
+  it("keeps a person picked by the user in their real team (GDD §5.1)", () => {
+    const user = userTeam("dup");
+    const t = startTournament(ds, "dup", user, ds.teams.length, rounds);
+    for (const e of t.entrants.slice(1)) expect(e.cardIds).toEqual(ds.team(e.id).cardIds);
+    const fieldCards = new Set(t.entrants.slice(1).flatMap((e) => e.cardIds));
+    expect(user.some((id) => fieldCards.has(id))).toBe(true);
   });
 });
 
-describe("lineup", () => {
-  it("keeps relative order when a card rests (GDD §4.3)", () => {
-    expect(lineupFor(["A", "B", "C", "D", "R"], "B")).toEqual(["A", "C", "D", "R"]);
-    expect(lineupFor(["A", "B", "C", "D", "R"], defaultResting(["A", "B", "C", "D", "R"]))).toEqual(
-      ["A", "B", "C", "D"],
-    );
+describe("match", () => {
+  it("scores by board, even when the same card plays for both teams", () => {
+    const p = { first: USER_ID, second: "x" };
+    const lineup = ["A", "B", "C", "D"];
+    // White on board 2 is the second team: it wins there; the rest are draws.
+    const boards = boardsFor(lineup, lineup).map((g) => ({
+      ...g,
+      score: g.board === 2 ? (1 as const) : (0.5 as const),
+    }));
+    const m = matchFromBoards(1, p, boards);
+    expect(m.firstPoints).toBe(1.5);
+    expect(m.secondPoints).toBe(2.5);
   });
 });
 
@@ -152,7 +156,7 @@ describe("full tournament", () => {
     let t = startTournament(ds, "engine", userTeam("engine"), fieldSize, rounds);
     t = pairNextRound(t);
     const p = userPairing(t);
-    const l = lineups(t, p, null);
+    const l = lineups(t, p);
     const games = boardsFor(l.first, l.second);
     const boards = await Promise.all(
       games.map(async (g) => {
@@ -160,7 +164,7 @@ describe("full tournament", () => {
         return { ...g, score: scoreOf(rec.result) };
       }),
     );
-    const user = matchFromBoards(1, p, l.first, boards);
+    const user = matchFromBoards(1, p, boards);
     t = recordRound(t, [user, ...fieldResults(ds, t)]);
     expect(currentRound(t)!.results).toHaveLength((fieldSize + 1) / 2);
     expect(user.firstPoints + user.secondPoints).toBe(4);

@@ -1,5 +1,5 @@
 /**
- * Draft (GDD §4): 5 weighted rolls, one card per roll into the slot of the
+ * Draft (GDD §4): 4 weighted rolls, one card per roll into the slot of the
  * board it played in the real edition, limited rerolls. Pure and
  * deterministic: roll n uses deriveRng(seed, "draft/roll/n").
  */
@@ -16,7 +16,7 @@ export interface DraftState {
   /** Team of the current roll, or null when the draft is complete. */
   currentTeamId: string | null;
   rerollsLeft: number;
-  /** Card id per slot (boards 1–4, then reserve). */
+  /** Card id per slot (boards 1–4). */
   slots: (string | null)[];
 }
 
@@ -39,10 +39,9 @@ const takenPersons = (ds: Dataset, s: DraftState) =>
 
 /**
  * The only slot a card can take (GDD §4.3): the board it played in the real
- * edition; real reserves (board 5+) go to the reserve slot.
+ * edition.
  */
-export const slotForCard = (ds: Dataset, cardId: string): number =>
-  Math.min(ds.card(cardId).board, balance.draft.slots) - 1;
+export const slotForCard = (ds: Dataset, cardId: string): number => ds.card(cardId).board - 1;
 
 /** Person not on the team yet and the card's slot still free. */
 function canPick(ds: Dataset, s: DraftState, taken: Set<string>, cardId: string): boolean {

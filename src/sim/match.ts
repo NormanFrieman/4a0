@@ -20,15 +20,21 @@ export interface BoardGame {
 }
 
 /** The team listed first plays white on boards 1 and 3 (GDD §5.2). */
+export const firstIsWhite = (board: number) => board % 2 === 1;
+
+/**
+ * Games of a match, board by board. Sides are told apart by board, never by
+ * card: the same card can play for both teams (GDD §5.1).
+ */
 export function boardsFor(
   firstLineup: readonly string[],
   secondLineup: readonly string[],
 ): BoardGame[] {
-  return [0, 1, 2, 3].map((i) => {
-    const firstWhite = i % 2 === 0;
-    const a = firstLineup[i]!;
-    const b = secondLineup[i]!;
-    return { board: i + 1, whiteCardId: firstWhite ? a : b, blackCardId: firstWhite ? b : a };
+  return [1, 2, 3, 4].map((board) => {
+    const a = firstLineup[board - 1]!;
+    const b = secondLineup[board - 1]!;
+    const w = firstIsWhite(board);
+    return { board, whiteCardId: w ? a : b, blackCardId: w ? b : a };
   });
 }
 
@@ -41,18 +47,14 @@ export function scoreOf(result: GameResult): GameScore {
 }
 
 /** First team's points on a board. */
-function firstPoints(b: BoardResult, firstCardIds: ReadonlySet<string>): number {
-  return firstCardIds.has(b.whiteCardId) ? b.score : 1 - b.score;
-}
+const firstPoints = (b: BoardResult) => (firstIsWhite(b.board) ? b.score : 1 - b.score);
 
 export function matchFromBoards(
   round: number,
   pairing: Pairing,
-  firstLineup: readonly string[],
   boards: BoardResult[],
 ): MatchResult {
-  const firstIds = new Set(firstLineup);
-  const fp = boards.reduce((s, b) => s + firstPoints(b, firstIds), 0);
+  const fp = boards.reduce((s, b) => s + firstPoints(b), 0);
   return {
     round,
     first: pairing.first,
@@ -90,7 +92,7 @@ export function quickMatch(
   const boards = boardsFor(firstLineup, secondLineup).map((g) =>
     quickGame(ds, g, `quick/r${round}/${pairing.first}-${pairing.second}/b${g.board}`, seed),
   );
-  return matchFromBoards(round, pairing, firstLineup, boards);
+  return matchFromBoards(round, pairing, boards);
 }
 
 function sideFor(ds: Dataset, cardId: string, books?: BookSet): GameSide {

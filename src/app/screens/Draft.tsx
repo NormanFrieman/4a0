@@ -65,11 +65,7 @@ export function Draft() {
               return (
                 <li key={id}>
                   <LineupRow
-                    boardLabel={
-                      v.card.board <= 4
-                        ? t("draft.boardOrdinal", { n: v.card.board })
-                        : t("draft.reserveBoard")
-                    }
+                    boardLabel={t("draft.boardOrdinal", { n: v.card.board })}
                     name={v.name}
                     title={v.card.title}
                     trait={v.trait}
@@ -103,7 +99,7 @@ export function Draft() {
               return (
                 <TeamSlot
                   key={i}
-                  label={i < 4 ? t("slots.board", { n: i + 1 }) : t("slots.reserve")}
+                  label={t("slots.board", { n: i + 1 })}
                   emptyText={targetSlot === i ? t("draft.placeHere") : t("draft.emptySlot")}
                   awaiting={targetSlot === i}
                   onPlace={() => placeCard(i)}

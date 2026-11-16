@@ -69,38 +69,6 @@
       "bookFile": "books/decade-1970.bin"
     },
     {
-      "id": "us-1976-5",
-      "personId": "william-lombardy",
-      "year": 1976,
-      "teamId": "us-1976",
-      "board": 5,
-      "title": "GM",
-      "fideRating": 2530,
-      "performance": 2705,
-      "strength": 2574,
-      "score": 7.5,
-      "games": 10,
-      "medals": [
-        "silver"
-      ],
-      "bookFile": "books/decade-1970.bin"
-    },
-    {
-      "id": "us-1976-6",
-      "personId": "kim-commons",
-      "year": 1976,
-      "teamId": "us-1976",
-      "board": 6,
-      "title": "IM",
-      "fideRating": 2455,
-      "performance": 2630,
-      "strength": 2499,
-      "score": 6,
-      "games": 8,
-      "medals": [],
-      "bookFile": "books/decade-1970.bin"
-    },
-    {
       "id": "nl-1976-1",
       "personId": "jan-timman",
       "year": 1976,
@@ -157,36 +125,6 @@
       "strength": 2491,
       "score": 6.5,
       "games": 10,
-      "medals": [],
-      "bookFile": "books/decade-1970.bin"
-    },
-    {
-      "id": "nl-1976-5",
-      "personId": "franciscus-kuijpers",
-      "year": 1976,
-      "teamId": "nl-1976",
-      "board": 5,
-      "title": "IM",
-      "fideRating": 2450,
-      "performance": 2567,
-      "strength": 2479,
-      "score": 6,
-      "games": 9,
-      "medals": [],
-      "bookFile": "books/decade-1970.bin"
-    },
-    {
-      "id": "nl-1976-6",
-      "personId": "hans-bohm",
-      "year": 1976,
-      "teamId": "nl-1976",
-      "board": 6,
-      "title": "IM",
-      "fideRating": 2435,
-      "performance": 2523,
-      "strength": 2457,
-      "score": 5,
-      "games": 8,
       "medals": [],
       "bookFile": "books/decade-1970.bin"
     }

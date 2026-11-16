@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { balance } from "../../config/balance.ts";
 import { USER_ID } from "../../tournament/tournament.ts";
+import { firstIsWhite } from "../../sim/match.ts";
 import {
   BoardCard,
   Button,
@@ -19,9 +20,9 @@ import { cardView, teamLabel } from "./helpers.ts";
 const START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
 /** User's score on a board (null while live). */
-function userScore(b: LiveBoard, userCards: ReadonlySet<string>): number | null {
+function userScore(b: LiveBoard, userWhite: boolean): number | null {
   if (!b.result || (!b.simulated && b.shown < b.moves.length)) return null;
-  return userCards.has(b.game.whiteCardId) ? b.result.score : 1 - b.result.score;
+  return userWhite ? b.result.score : 1 - b.result.score;
 }
 
 export function Round() {
@@ -38,10 +39,12 @@ export function Round() {
   }, [speed, tick]);
 
   if (!ds || !tournament || !live) return null;
-  const userCards = new Set(tournament.entrants.find((e) => e.id === USER_ID)!.cardIds);
+  // By board, not by card: the same card can play for both teams (GDD §5.1).
+  const userWhite = (b: LiveBoard) =>
+    (live.pairing.first === USER_ID) === firstIsWhite(b.game.board);
   const oppId = live.pairing.first === USER_ID ? live.pairing.second : live.pairing.first;
   const opp = teamLabel(ds, oppId, t("round.you"));
-  const scores = live.boards.map((b) => userScore(b, userCards));
+  const scores = live.boards.map((b) => userScore(b, userWhite(b)));
   const mine = scores.reduce<number>((a, p) => a + (p ?? 0), 0);
   const theirs = scores.reduce<number>((a, p) => a + (p === null ? 0 : 1 - p), 0);
   const liveCount = scores.filter((s) => s === null).length;
@@ -162,12 +165,12 @@ export function Round() {
               white={{
                 name: white.name,
                 strength: white.card.strength,
-                isUser: userCards.has(b.game.whiteCardId),
+                isUser: userWhite(b),
               }}
               black={{
                 name: black.name,
                 strength: black.card.strength,
-                isUser: userCards.has(b.game.blackCardId),
+                isUser: !userWhite(b),
               }}
               className="lg:mx-auto lg:w-[min(100%,calc(100cqh-5rem))]"
             />

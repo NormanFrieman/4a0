@@ -67,36 +67,6 @@
       "games": 9,
       "medals": [],
       "bookFile": "books/decade-1980.bin"
-    },
-    {
-      "id": "cs-1982-5",
-      "personId": "jan-plachetka",
-      "year": 1982,
-      "teamId": "cs-1982",
-      "board": 5,
-      "title": "GM",
-      "fideRating": 2480,
-      "performance": 2568,
-      "strength": 2502,
-      "score": 5,
-      "games": 8,
-      "medals": [],
-      "bookFile": "books/decade-1980.bin"
-    },
-    {
-      "id": "cs-1982-6",
-      "personId": "karel-mokry",
-      "year": 1982,
-      "teamId": "cs-1982",
-      "board": 6,
-      "title": "IM",
-      "fideRating": 2450,
-      "performance": 2606,
-      "strength": 2489,
-      "score": 6.5,
-      "games": 9,
-      "medals": [],
-      "bookFile": "books/decade-1980.bin"
     }
   ]
 }

@@ -36,24 +36,6 @@
     "decisiveness": 0.4
   },
   {
-    "id": "efim-geller",
-    "name": "Efim Geller",
-    "countryCodes": [
-      "su"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.5
-  },
-  {
-    "id": "garry-kasparov",
-    "name": "Garry Kasparov",
-    "countryCodes": [
-      "su"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.7
-  },
-  {
     "id": "lajos-portisch",
     "name": "Lajos Portisch",
     "countryCodes": [
@@ -88,24 +70,6 @@
     ],
     "maxTitle": "GM",
     "decisiveness": 0.55
-  },
-  {
-    "id": "istvan-csom",
-    "name": "István Csom",
-    "countryCodes": [
-      "hu"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.5
-  },
-  {
-    "id": "laszlo-vadasz",
-    "name": "László Vadász",
-    "countryCodes": [
-      "hu"
-    ],
-    "maxTitle": "IM",
-    "decisiveness": 0.6
   },
   {
     "id": "robert-byrne",
@@ -144,24 +108,6 @@
     "decisiveness": 0.55
   },
   {
-    "id": "william-lombardy",
-    "name": "William Lombardy",
-    "countryCodes": [
-      "us"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.45
-  },
-  {
-    "id": "kim-commons",
-    "name": "Kim Commons",
-    "countryCodes": [
-      "us"
-    ],
-    "maxTitle": "IM",
-    "decisiveness": 0.6
-  },
-  {
     "id": "svetozar-gligoric",
     "name": "Svetozar Gligorić",
     "countryCodes": [
@@ -196,24 +142,6 @@
     ],
     "maxTitle": "GM",
     "decisiveness": 0.75
-  },
-  {
-    "id": "dragoljub-velimirovic",
-    "name": "Dragoljub Velimirović",
-    "countryCodes": [
-      "yu"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.8
-  },
-  {
-    "id": "aleksandar-matanovic",
-    "name": "Aleksandar Matanović",
-    "countryCodes": [
-      "yu"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.35
   },
   {
     "id": "vlastimil-hort",
@@ -252,24 +180,6 @@
     "decisiveness": 0.5
   },
   {
-    "id": "jan-plachetka",
-    "name": "Ján Plachetka",
-    "countryCodes": [
-      "cs"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.4
-  },
-  {
-    "id": "karel-mokry",
-    "name": "Karel Mokrý",
-    "countryCodes": [
-      "cs"
-    ],
-    "maxTitle": "IM",
-    "decisiveness": 0.55
-  },
-  {
     "id": "tony-miles",
     "name": "Tony Miles",
     "countryCodes": [
@@ -304,24 +214,6 @@
     ],
     "maxTitle": "GM",
     "decisiveness": 0.5
-  },
-  {
-    "id": "jonathan-mestel",
-    "name": "Jonathan Mestel",
-    "countryCodes": [
-      "gb-eng"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.6
-  },
-  {
-    "id": "nigel-short",
-    "name": "Nigel Short",
-    "countryCodes": [
-      "gb-eng"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.55
   },
   {
     "id": "jan-timman",
@@ -360,24 +252,6 @@
     "decisiveness": 0.4
   },
   {
-    "id": "franciscus-kuijpers",
-    "name": "Franciscus Kuijpers",
-    "countryCodes": [
-      "nl"
-    ],
-    "maxTitle": "IM",
-    "decisiveness": 0.5
-  },
-  {
-    "id": "hans-bohm",
-    "name": "Hans Böhm",
-    "countryCodes": [
-      "nl"
-    ],
-    "maxTitle": "IM",
-    "decisiveness": 0.55
-  },
-  {
     "id": "robert-hubner",
     "name": "Robert Hübner",
     "countryCodes": [
@@ -412,24 +286,6 @@
     ],
     "maxTitle": "GM",
     "decisiveness": 0.55
-  },
-  {
-    "id": "klaus-darga",
-    "name": "Klaus Darga",
-    "countryCodes": [
-      "de"
-    ],
-    "maxTitle": "GM",
-    "decisiveness": 0.45
-  },
-  {
-    "id": "stefan-kindermann",
-    "name": "Stefan Kindermann",
-    "countryCodes": [
-      "de"
-    ],
-    "maxTitle": "IM",
-    "decisiveness": 0.6
   },
   {
     "id": "miguel-quinteros",
@@ -468,15 +324,6 @@
     "decisiveness": 0.5
   },
   {
-    "id": "juan-hase",
-    "name": "Juan Hase",
-    "countryCodes": [
-      "ar"
-    ],
-    "maxTitle": "IM",
-    "decisiveness": 0.55
-  },
-  {
     "id": "milko-bobotsov",
     "name": "Milko Bobotsov",
     "countryCodes": [
@@ -511,23 +358,5 @@
     ],
     "maxTitle": "GM",
     "decisiveness": 0.45
-  },
-  {
-    "id": "atanas-kolarov",
-    "name": "Atanas Kolarov",
-    "countryCodes": [
-      "bg"
-    ],
-    "maxTitle": "IM",
-    "decisiveness": 0.5
-  },
-  {
-    "id": "ivan-popov",
-    "name": "Ivan Popov",
-    "countryCodes": [
-      "bg"
-    ],
-    "maxTitle": "IM",
-    "decisiveness": 0.55
   }
 ]

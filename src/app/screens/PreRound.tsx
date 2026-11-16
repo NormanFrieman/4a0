@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { balance } from "../../config/balance.ts";
-import { lineupFor } from "../../tournament/lineup.ts";
+import type { Dataset } from "../../data/dataset.ts";
 import {
   USER_ID,
   currentRound,
@@ -14,12 +14,11 @@ import { cardView } from "./helpers.ts";
 
 export function PreRound() {
   const { t } = useTranslation();
-  const { dataset: ds, tournament, resting, setResting, playRound } = useSession();
+  const { dataset: ds, tournament, playRound } = useSession();
   if (!ds || !tournament) return null;
   const round = currentRound(tournament)!.round;
   const oppId = opponentOf(userPairing(tournament));
   const opp = ds.team(oppId);
-  const oppLineup = lineupFor(entrant(tournament, oppId).cardIds);
   const user = entrant(tournament, USER_ID);
 
   return (
@@ -55,65 +54,44 @@ export function PreRound() {
       }
     >
       <div className="grid gap-8 md:grid-cols-2 lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
-        <section>
-          <h3 className="font-display text-xl font-bold italic">{t("round.resting")}</h3>
-          <p className="mb-2 text-sm text-muted">{t("round.restingHint")}</p>
-          <ul className="divide-y divide-dotted divide-line">
-            {user.cardIds.map((id, i) => {
-              const v = cardView(ds, id);
-              const rests = resting === id;
-              return (
-                <li key={id}>
-                  <label
-                    className={`grid cursor-pointer grid-cols-[1.5rem_4.5rem_1fr_auto] items-center gap-2 px-1 py-2 ${rests ? "bg-surface" : ""}`}
-                  >
-                    <input
-                      type="radio"
-                      name="resting"
-                      checked={rests}
-                      onChange={() => setResting(id)}
-                      className="accent-accent"
-                    />
-                    <Kicker>{i < 4 ? t("slots.board", { n: i + 1 }) : t("slots.reserve")}</Kicker>
-                    <span className={`truncate ${rests ? "text-muted line-through" : "font-bold"}`}>
-                      {v.name}
-                    </span>
-                    <span className="text-sm tabular-nums">
-                      {rests ? (
-                        <i className="text-muted">{t("round.restsLabel")}</i>
-                      ) : (
-                        v.card.strength
-                      )}
-                    </span>
-                  </label>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-        <section>
-          <h3 className="font-display text-xl font-bold italic">{t("round.opponentLineup")}</h3>
-          <ul className="mt-7 divide-y divide-dotted divide-line">
-            {oppLineup.map((id, i) => {
-              const v = cardView(ds, id);
-              return (
-                <li key={id} className="grid grid-cols-[4.5rem_1fr_auto] items-center gap-2 py-2">
-                  <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
-                  <span className="min-w-0">
-                    <span className="block truncate font-bold">{v.name}</span>
-                    <span className="text-sm">
-                      <StyleTrait trait={v.trait} label={t(`trait.${v.trait}`)} />
-                    </span>
-                  </span>
-                  <span className="font-display text-xl font-bold tabular-nums">
-                    {v.card.strength}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
+        <LineupList ds={ds} title={t("round.yourLineup")} cardIds={user.cardIds} />
+        <LineupList ds={ds} title={t("round.opponentLineup")} cardIds={opp.cardIds} />
       </div>
     </ScreenLayout>
+  );
+}
+
+/** A team's 4 cards in board order, with trait and strength. */
+function LineupList({
+  ds,
+  title,
+  cardIds,
+}: {
+  ds: Dataset;
+  title: string;
+  cardIds: readonly string[];
+}) {
+  const { t } = useTranslation();
+  return (
+    <section>
+      <h3 className="font-display text-xl font-bold italic">{title}</h3>
+      <ul className="mt-2 divide-y divide-dotted divide-line">
+        {cardIds.map((id, i) => {
+          const v = cardView(ds, id);
+          return (
+            <li key={id} className="grid grid-cols-[4.5rem_1fr_auto] items-center gap-2 py-2">
+              <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
+              <span className="min-w-0">
+                <span className="block truncate font-bold">{v.name}</span>
+                <span className="text-sm">
+                  <StyleTrait trait={v.trait} label={t(`trait.${v.trait}`)} />
+                </span>
+              </span>
+              <span className="font-display text-xl font-bold tabular-nums">{v.card.strength}</span>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 }

@@ -67,36 +67,6 @@
       "games": 12,
       "medals": [],
       "bookFile": "books/decade-1970.bin"
-    },
-    {
-      "id": "bg-1970-5",
-      "personId": "atanas-kolarov",
-      "year": 1970,
-      "teamId": "bg-1970",
-      "board": 5,
-      "title": "IM",
-      "fideRating": 2430,
-      "performance": 2500,
-      "strength": 2448,
-      "score": 6,
-      "games": 10,
-      "medals": [],
-      "bookFile": "books/decade-1970.bin"
-    },
-    {
-      "id": "bg-1970-6",
-      "personId": "ivan-popov",
-      "year": 1970,
-      "teamId": "bg-1970",
-      "board": 6,
-      "title": "IM",
-      "fideRating": 2420,
-      "performance": 2498,
-      "strength": 2440,
-      "score": 5.5,
-      "games": 9,
-      "medals": [],
-      "bookFile": "books/decade-1970.bin"
     }
   ]
 }

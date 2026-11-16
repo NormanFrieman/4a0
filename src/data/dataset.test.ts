@@ -35,8 +35,8 @@ describe("card numbers", () => {
     expect(rollWeight(balance.draft.rollTopRank + 1)).toBe(1);
   });
 
-  it("averages the first four boards", () => {
-    expect(avgStrength([2600, 2500, 2400, 2300, 1000])).toBe(2450);
+  it("averages the four boards", () => {
+    expect(avgStrength([2600, 2500, 2400, 2300])).toBe(2450);
   });
 
   it("maps decisiveness to a trait", () => {

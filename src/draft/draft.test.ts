@@ -45,12 +45,12 @@ describe("draft", () => {
     expect(() => pick(ds, s2, card, slotForCard(ds, card))).toThrow();
   });
 
-  it("puts each card only in the slot of its real board (reserves in the reserve slot)", () => {
+  it("puts each card only in the slot of its real board", () => {
     for (let i = 0; i < 50; i++) {
       const s = autoDraft(`board-${i}`);
       s.slots.forEach((c, slot) => {
         const board = ds.card(c!).board;
-        expect(slot).toBe(Math.min(board, balance.draft.slots) - 1);
+        expect(slot).toBe(board - 1);
       });
     }
   });

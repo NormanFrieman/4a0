@@ -21,7 +21,7 @@ export interface SourceTeam {
   countryName: string;
   year: number;
   finalRank: number;
-  /** Real board order; 5th and 6th are reserves. */
+  /** Boards 1–4, in the real board order (reserves are not part of the game). */
   players: SourcePlayer[];
 }
 
@@ -72,8 +72,6 @@ export const teams: SourceTeam[] = [
       p("Lev Polugaevsky", "GM", 2625, 6, 10, 0.35),
       p("Mikhail Tal", "GM", 2615, 7.5, 11, 0.75, "silver"),
       p("Yuri Balashov", "GM", 2600, 6.5, 10, 0.4),
-      p("Efim Geller", "GM", 2580, 5.5, 8, 0.5),
-      p("Garry Kasparov", "GM", 2595, 9.5, 12, 0.7, "gold"),
     ],
   },
   {
@@ -86,8 +84,6 @@ export const teams: SourceTeam[] = [
       p("Zoltán Ribli", "GM", 2595, 7, 11, 0.4),
       p("Gyula Sax", "GM", 2550, 7.5, 11, 0.65),
       p("András Adorján", "GM", 2535, 6, 9, 0.55),
-      p("István Csom", "GM", 2500, 6.5, 8, 0.5, "gold"),
-      p("László Vadász", "IM", 2465, 4.5, 7, 0.6),
     ],
   },
   {
@@ -100,8 +96,6 @@ export const teams: SourceTeam[] = [
       p("Lubomir Kavalek", "GM", 2555, 6.5, 10, 0.5),
       p("Larry Evans", "GM", 2480, 7, 10, 0.4),
       p("James Tarjan", "GM", 2525, 7, 10, 0.55),
-      p("William Lombardy", "GM", 2530, 7.5, 10, 0.45, "silver"),
-      p("Kim Commons", "IM", 2455, 6, 8, 0.6),
     ],
   },
   {
@@ -114,8 +108,6 @@ export const teams: SourceTeam[] = [
       p("Ljubomir Ljubojević", "GM", 2620, 10, 14, 0.7, "silver"),
       p("Borislav Ivkov", "GM", 2540, 6.5, 12, 0.45),
       p("Albin Planinc", "GM", 2520, 8, 12, 0.75),
-      p("Dragoljub Velimirović", "GM", 2520, 6.5, 9, 0.8),
-      p("Aleksandar Matanović", "GM", 2495, 5, 7, 0.35),
     ],
   },
   {
@@ -128,8 +120,6 @@ export const teams: SourceTeam[] = [
       p("Jan Smejkal", "GM", 2545, 7, 11, 0.45),
       p("Lubomír Ftáčnik", "GM", 2545, 8, 11, 0.6),
       p("Vlastimil Jansa", "GM", 2510, 5.5, 9, 0.5),
-      p("Ján Plachetka", "GM", 2480, 5, 8, 0.4),
-      p("Karel Mokrý", "IM", 2450, 6.5, 9, 0.55),
     ],
   },
   {
@@ -142,8 +132,6 @@ export const teams: SourceTeam[] = [
       p("John Nunn", "GM", 2615, 10, 11, 0.7, "gold"),
       p("Jonathan Speelman", "GM", 2570, 6, 10, 0.55),
       p("Murray Chandler", "GM", 2560, 7, 11, 0.5),
-      p("Jonathan Mestel", "GM", 2550, 6.5, 10, 0.6),
-      p("Nigel Short", "GM", 2545, 7, 10, 0.55),
     ],
   },
   {
@@ -156,8 +144,6 @@ export const teams: SourceTeam[] = [
       p("Gennadi Sosonko", "GM", 2570, 7, 11, 0.45),
       p("Jan Hein Donner", "GM", 2480, 6, 10, 0.35),
       p("Hans Ree", "GM", 2465, 6.5, 10, 0.4),
-      p("Franciscus Kuijpers", "IM", 2450, 6, 9, 0.5),
-      p("Hans Böhm", "IM", 2435, 5, 8, 0.55),
     ],
   },
   {
@@ -170,8 +156,6 @@ export const teams: SourceTeam[] = [
       p("Wolfgang Unzicker", "GM", 2510, 6, 10, 0.35),
       p("Helmut Pfleger", "GM", 2525, 6.5, 10, 0.5),
       p("Hans-Joachim Hecht", "GM", 2475, 5.5, 9, 0.55),
-      p("Klaus Darga", "GM", 2465, 5, 8, 0.45),
-      p("Stefan Kindermann", "IM", 2435, 5, 8, 0.6),
     ],
   },
   {
@@ -184,7 +168,6 @@ export const teams: SourceTeam[] = [
       p("Oscar Panno", "GM", 2515, 6.5, 11, 0.35),
       p("Jorge Rubinetti", "IM", 2450, 6, 10, 0.4),
       p("Jaime Emma", "IM", 2420, 5, 9, 0.5),
-      p("Juan Hase", "IM", 2400, 4.5, 7, 0.55),
     ],
   },
   {
@@ -197,8 +180,6 @@ export const teams: SourceTeam[] = [
       p("Georgi Tringov", "GM", 2475, 7.5, 13, 0.55),
       p("Ivan Radulov", "IM", 2465, 8, 13, 0.6),
       p("Nikola Padevsky", "GM", 2450, 6.5, 12, 0.45),
-      p("Atanas Kolarov", "IM", 2430, 6, 10, 0.5),
-      p("Ivan Popov", "IM", 2420, 5.5, 9, 0.55),
     ],
   },
 ];

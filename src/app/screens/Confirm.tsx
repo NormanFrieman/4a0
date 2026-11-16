@@ -45,7 +45,7 @@ export function Confirm() {
           const v = cardView(ds, id);
           return (
             <li key={id} className="grid grid-cols-[4.5rem_1fr] items-center gap-3 py-2.5">
-              <Kicker>{i < 4 ? t("slots.board", { n: i + 1 }) : t("slots.reserve")}</Kicker>
+              <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
                   <Flag code={v.team.countryCode} label={v.team.countryName} className="w-5" />

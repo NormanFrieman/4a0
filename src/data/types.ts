@@ -20,10 +20,10 @@ export interface NationalTeam {
   countryCode: string;
   countryName: string;
   finalRank: number;
-  /** Mean strength of the first 4 cards (real board order). */
+  /** Mean strength of the 4 cards. */
   avgStrength: number;
   rollWeight: number;
-  /** In the real board order; index ≥ 4 = reserves. */
+  /** Boards 1–4, in the real board order (reserves are not in the data). */
   cardIds: string[];
 }
 
@@ -41,7 +41,7 @@ export interface PlayerCard {
   personId: string;
   year: number;
   teamId: string;
-  /** Board played in the real edition, 1-based (5+ = reserve). */
+  /** Board played in the real edition, 1–4. */
   board: number;
   title: string;
   fideRating: number;

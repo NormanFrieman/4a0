@@ -36,8 +36,8 @@ export interface BlunderTolerancePoint {
 export const balance = {
   // GDD §4.5 — draft
   draft: {
-    /** 4 boards + 1 reserve. */
-    slots: 5,
+    /** One slot per board; no reserve. */
+    slots: 4,
     rerollsPerDraft: 3,
     /** Roll weight of teams that finished within `rollTopRank` of their edition. */
     rollWeightTop10: 3,

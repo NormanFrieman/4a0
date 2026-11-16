@@ -11,7 +11,7 @@ export const ptBR = {
   home: {
     section: "Monte sua seleção histórica",
     pitch:
-      "Sorteie seleções de Olimpíadas reais, escolha um jogador de cada uma e dispute um torneio de {{rounds}} rodadas. As partidas são jogadas lance a lance pelo Maia-3.",
+      "Sorteie seleções de Olimpíadas reais, escolha um jogador de cada uma e dispute um torneio de {{rounds}} rodadas.",
     play: "Jogar",
     fastNote: "Modo rápido: suas partidas são simuladas sem tabuleiro, para testar o fluxo.",
   },
@@ -19,12 +19,11 @@ export const ptBR = {
     section: "Sorteio {{n}} de {{total}}",
     edition: "Olimpíada de {{city}}, terminou em {{rank}}º lugar.",
     instructions:
-      "Escolha um jogador da escalação. Ele só pode ocupar a vaga da mesa em que jogou; reservas vão para a Reserva.",
+      "Escolha um jogador da escalação. Ele só pode ocupar a vaga da mesa em que jogou.",
     reroll: "Re-sortear · restam {{left}} de {{total}}",
     yourTeam: "Sua escalação",
     emptySlot: "vaga em aberto",
     placeHere: "colocar aqui…",
-    reserveBoard: "res.",
     boardOrdinal: "{{n}}ª",
     medal_gold: "medalha de ouro",
     medal_silver: "medalha de prata",
@@ -32,7 +31,6 @@ export const ptBR = {
   },
   slots: {
     board: "Mesa {{n}}",
-    reserve: "Reserva",
   },
   trait: {
     solid: "Sólido",
@@ -42,7 +40,7 @@ export const ptBR = {
   confirm: {
     section: "Confirmação",
     title: "Sua seleção",
-    avg: "Força média das mesas 1 a 4: {{avg}}",
+    avg: "Força média: {{avg}}",
     boardsHint:
       "Cada jogador joga na mesa em que atuou na edição real. A ordem vale para todo o torneio.",
     confirm: "Confirmar equipe",
@@ -62,9 +60,7 @@ export const ptBR = {
     section: "Rodada {{n}} de {{total}}",
     you: "Sua seleção",
     opponentLineup: "Escalação do adversário",
-    resting: "Quem descansa nesta rodada?",
-    restingHint: "Jogam 4 cartas, na ordem da equipe. Por padrão, o reserva descansa.",
-    restsLabel: "descansa",
+    yourLineup: "Sua escalação",
     play: "Jogar a rodada",
     live_one: "Uma partida em andamento",
     live_other: "{{count}} partidas em andamento",

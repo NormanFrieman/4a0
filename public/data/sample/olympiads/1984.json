@@ -69,36 +69,6 @@
       "games": 11,
       "medals": [],
       "bookFile": "books/decade-1980.bin"
-    },
-    {
-      "id": "gb-eng-1984-5",
-      "personId": "jonathan-mestel",
-      "year": 1984,
-      "teamId": "gb-eng-1984",
-      "board": 5,
-      "title": "GM",
-      "fideRating": 2550,
-      "performance": 2655,
-      "strength": 2576,
-      "score": 6.5,
-      "games": 10,
-      "medals": [],
-      "bookFile": "books/decade-1980.bin"
-    },
-    {
-      "id": "gb-eng-1984-6",
-      "personId": "nigel-short",
-      "year": 1984,
-      "teamId": "gb-eng-1984",
-      "board": 6,
-      "title": "GM",
-      "fideRating": 2545,
-      "performance": 2685,
-      "strength": 2580,
-      "score": 7,
-      "games": 10,
-      "medals": [],
-      "bookFile": "books/gb-eng-1984-6.bin"
     }
   ]
 }

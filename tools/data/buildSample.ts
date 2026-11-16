@@ -72,7 +72,8 @@ for (const t of teams) {
       bookFile: "", // filled in by the opening books below
     };
   });
-  if (cards.length < 4) throw new Error(`${teamId}: needs at least 4 cards`);
+  if (cards.length !== balance.draft.slots)
+    throw new Error(`${teamId}: needs ${balance.draft.slots} players`);
   cardsByYear.set(t.year, [...(cardsByYear.get(t.year) ?? []), ...cards]);
   nationalTeams.push({
     id: teamId,

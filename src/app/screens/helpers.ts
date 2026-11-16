@@ -1,5 +1,6 @@
 import { traitOf } from "../../data/cardStrength.ts";
 import type { Dataset } from "../../data/dataset.ts";
+import { firstIsWhite } from "../../sim/match.ts";
 import { USER_ID, type TournamentState } from "../../tournament/tournament.ts";
 import type { MatchResult } from "../../tournament/types.ts";
 
@@ -51,16 +52,11 @@ export function cardTotals(t: TournamentState): Map<string, { points: number; ga
   const totals = new Map(user.cardIds.map((id) => [id, { points: 0, games: 0 }]));
   for (const m of userMatches(t))
     for (const b of m.boards) {
-      const asWhite = totals.get(b.whiteCardId);
-      const asBlack = totals.get(b.blackCardId);
-      if (asWhite) {
-        asWhite.points += b.score;
-        asWhite.games++;
-      }
-      if (asBlack) {
-        asBlack.points += 1 - b.score;
-        asBlack.games++;
-      }
+      // By board, not by card: the same card can play for both teams (GDD §5.1).
+      const white = (m.first === USER_ID) === firstIsWhite(b.board);
+      const s = totals.get(white ? b.whiteCardId : b.blackCardId)!;
+      s.points += white ? b.score : 1 - b.score;
+      s.games++;
     }
   return totals;
 }

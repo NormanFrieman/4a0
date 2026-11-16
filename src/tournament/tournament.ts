@@ -7,7 +7,6 @@ import { avgStrength } from "../data/cardStrength.ts";
 import type { Dataset } from "../data/dataset.ts";
 import { quickMatch } from "../sim/match.ts";
 import { buildField } from "./field.ts";
-import { lineupFor } from "./lineup.ts";
 import { pairRound, playedKey } from "./pairing.ts";
 import { standings, type StandingRow } from "./standings.ts";
 import type { Entrant, MatchResult, Pairing } from "./types.ts";
@@ -40,12 +39,12 @@ export function startTournament(
     id: USER_ID,
     isUser: true,
     cardIds: [...userCardIds],
-    avgStrength: avgStrength(userCardIds.slice(0, 4).map((id) => ds.card(id).strength)),
+    avgStrength: avgStrength(userCardIds.map((id) => ds.card(id).strength)),
   };
   return {
     seed,
     totalRounds,
-    entrants: [user, ...buildField(ds, seed, userCardIds, fieldSize)],
+    entrants: [user, ...buildField(ds, seed, fieldSize)],
     rounds: [],
   };
 }
@@ -100,17 +99,9 @@ export function userPairing(s: TournamentState): Pairing {
 
 export const opponentOf = (p: Pairing) => (p.first === USER_ID ? p.second : p.first);
 
-/** Lineups of a pairing; the user's depends on who rests. */
-export function lineups(
-  s: TournamentState,
-  p: Pairing,
-  userResting: string | null,
-): { first: string[]; second: string[] } {
-  const lu = (id: string) =>
-    id === USER_ID
-      ? lineupFor(entrant(s, id).cardIds, userResting)
-      : lineupFor(entrant(s, id).cardIds);
-  return { first: lu(p.first), second: lu(p.second) };
+/** Lineups of a pairing: every team plays its 4 cards in board order (GDD §4.3). */
+export function lineups(s: TournamentState, p: Pairing): { first: string[]; second: string[] } {
+  return { first: entrant(s, p.first).cardIds, second: entrant(s, p.second).cardIds };
 }
 
 /** Quick-simulated results of every match of the current round except the user's. */
@@ -119,7 +110,7 @@ export function fieldResults(ds: Dataset, s: TournamentState): MatchResult[] {
   return cur.pairings
     .filter((p) => p.first !== USER_ID && p.second !== USER_ID)
     .map((p) => {
-      const l = lineups(s, p, null);
+      const l = lineups(s, p);
       return quickMatch(ds, s.seed, cur.round, p, l.first, l.second);
     });
 }

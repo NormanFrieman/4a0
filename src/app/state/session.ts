@@ -19,9 +19,7 @@ import {
   scoreOf,
   type BoardGame,
 } from "../../sim/match.ts";
-import { defaultResting } from "../../tournament/lineup.ts";
 import {
-  USER_ID,
   currentRound,
   fieldResults,
   isFinished,
@@ -63,7 +61,6 @@ export interface LiveBoard {
 export interface LiveRound {
   round: number;
   pairing: Pairing;
-  firstLineup: string[];
   boards: LiveBoard[];
   userMatch: MatchResult | null;
   field: MatchResult[];
@@ -79,7 +76,6 @@ interface SessionState {
   draft: DraftState | null;
   selectedCardId: string | null;
   tournament: TournamentState | null;
-  resting: string | null;
   live: LiveRound | null;
   speed: Speed;
 
@@ -90,7 +86,6 @@ interface SessionState {
   rerollDraft(): void;
   confirmTeam(): void;
   startRound(): void;
-  setResting(cardId: string): void;
   playRound(): void;
   setSpeed(speed: Speed): void;
   tick(): void;
@@ -126,7 +121,6 @@ export const useSession = create<SessionState>()((set, get) => ({
   draft: null,
   selectedCardId: null,
   tournament: null,
-  resting: null,
   live: null,
   speed: "normal",
 
@@ -194,21 +188,16 @@ export const useSession = create<SessionState>()((set, get) => ({
     const { tournament } = get();
     if (!tournament) return;
     const t = pairNextRound(tournament);
-    const user = t.entrants.find((e) => e.id === USER_ID)!;
-    set({ tournament: t, resting: defaultResting(user.cardIds), live: null, phase: "preRound" });
-  },
-
-  setResting(cardId) {
-    set({ resting: cardId });
+    set({ tournament: t, live: null, phase: "preRound" });
   },
 
   playRound() {
-    const { dataset, tournament: t, resting, fastMode, seed } = get();
+    const { dataset, tournament: t, fastMode, seed } = get();
     if (!dataset || !t) return;
     const gen = ++generation;
     const round = currentRound(t)!.round;
     const pairing = userPairing(t);
-    const l = lineups(t, pairing, resting);
+    const l = lineups(t, pairing);
     const games = boardsFor(l.first, l.second);
     const field = fieldResults(dataset, t);
 
@@ -220,11 +209,10 @@ export const useSession = create<SessionState>()((set, get) => ({
       const userMatch = matchFromBoards(
         round,
         pairing,
-        l.first,
         boards.map((b) => b.result),
       );
       set({
-        live: { round, pairing, firstLineup: l.first, boards, userMatch, field },
+        live: { round, pairing, boards, userMatch, field },
         phase: "playing",
       });
       return;
@@ -236,7 +224,6 @@ export const useSession = create<SessionState>()((set, get) => ({
       live: {
         round,
         pairing,
-        firstLineup: l.first,
         boards: games.map((g) => ({
           game: g,
           moves: [],
@@ -260,7 +247,6 @@ export const useSession = create<SessionState>()((set, get) => ({
           ? matchFromBoards(
               round,
               pairing,
-              l.first,
               boards.map((b) => b.result!),
             )
           : null;
@@ -320,7 +306,7 @@ export const useSession = create<SessionState>()((set, get) => ({
     generation++;
     const seed = newSeed();
     writeUrl(seed, get().fastMode);
-    set({ seed, tournament: null, live: null, draft: null, resting: null });
+    set({ seed, tournament: null, live: null, draft: null });
     get().startDraft();
   },
 }));

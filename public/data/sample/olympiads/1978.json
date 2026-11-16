@@ -71,38 +71,6 @@
       "bookFile": "books/decade-1970.bin"
     },
     {
-      "id": "hu-1978-5",
-      "personId": "istvan-csom",
-      "year": 1978,
-      "teamId": "hu-1978",
-      "board": 5,
-      "title": "GM",
-      "fideRating": 2500,
-      "performance": 2719,
-      "strength": 2555,
-      "score": 6.5,
-      "games": 8,
-      "medals": [
-        "gold"
-      ],
-      "bookFile": "books/decade-1970.bin"
-    },
-    {
-      "id": "hu-1978-6",
-      "personId": "laszlo-vadasz",
-      "year": 1978,
-      "teamId": "hu-1978",
-      "board": 6,
-      "title": "IM",
-      "fideRating": 2465,
-      "performance": 2565,
-      "strength": 2490,
-      "score": 4.5,
-      "games": 7,
-      "medals": [],
-      "bookFile": "books/decade-1970.bin"
-    },
-    {
       "id": "ar-1978-1",
       "personId": "miguel-quinteros",
       "year": 1978,
@@ -159,21 +127,6 @@
       "strength": 2430,
       "score": 5,
       "games": 9,
-      "medals": [],
-      "bookFile": "books/decade-1970.bin"
-    },
-    {
-      "id": "ar-1978-5",
-      "personId": "juan-hase",
-      "year": 1978,
-      "teamId": "ar-1978",
-      "board": 5,
-      "title": "IM",
-      "fideRating": 2400,
-      "performance": 2500,
-      "strength": 2425,
-      "score": 4.5,
-      "games": 7,
       "medals": [],
       "bookFile": "books/decade-1970.bin"
     }

@@ -242,7 +242,6 @@ export function UiCatalog() {
                 year: 1968,
               }}
             />
-            <TeamSlot label="Reserva" emptyText="vaga em aberto" />
           </div>
         </div>
       </Section>

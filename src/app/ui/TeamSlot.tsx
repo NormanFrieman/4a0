@@ -2,7 +2,7 @@ import { Flag } from "./Flag.tsx";
 import { Kicker } from "./Masthead.tsx";
 
 /**
- * One of the 5 team slots (4 boards + reserve). Empty slots are dashed;
+ * One of the 4 team slots (one per board). Empty slots are dashed;
  * `awaiting` highlights free slots while a card is selected.
  */
 export function TeamSlot({

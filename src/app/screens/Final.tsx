@@ -122,7 +122,7 @@ export function Final() {
               return (
                 <li key={id} className="flex items-baseline gap-2">
                   <span className="w-16 shrink-0">
-                    <Kicker>{i < 4 ? t("slots.board", { n: i + 1 }) : t("slots.reserve")}</Kicker>
+                    <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
                   </span>
                   <span className={id === best ? "font-bold" : ""}>{v.name}</span>
                   <span className="flex-1 border-b border-dotted border-line" />

@@ -16,10 +16,9 @@ export function rollWeight(finalRank: number): number {
   return finalRank <= balance.draft.rollTopRank ? balance.draft.rollWeightTop10 : 1;
 }
 
-/** Mean strength of the first 4 cards, in board order. */
+/** Mean strength of a team (GDD §5.2: round 1 pairing, tiebreak). */
 export function avgStrength(strengths: readonly number[]): number {
-  const top = strengths.slice(0, 4);
-  return Math.round(top.reduce((a, b) => a + b, 0) / top.length);
+  return Math.round(strengths.reduce((a, b) => a + b, 0) / strengths.length);
 }
 
 export type Trait = "solid" | "balanced" | "combative";
