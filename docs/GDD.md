@@ -26,7 +26,7 @@ Este documento é a fonte de verdade do projeto para o Claude Code. Exporte como
 1. **Sessão curta e completa.** Montar a equipe em cerca de 2 minutos; torneio inteiro em menos de 15 (com opção de acelerar).
 2. **História real.** Jogadores, escalações e seleções vêm de Olimpíadas reais.
 3. **Partidas de verdade, não dados.** Os resultados saem de partidas jogadas pelo Maia, que podem ser assistidas e revistas.
-4. **Decisões que importam:** quem escolher, em qual mesa colocar e quem descansa em cada rodada.
+4. **Decisões que importam:** quem escolher em cada sorteio, sabendo que cada jogador só ocupa a mesa em que jogou.
 5. **Feito para compartilhar.** Desafio diário igual para todos e imagem de resultado.
 
 **Fora do escopo (DECIDIDO):** cidade, economia, recursos, contas de usuário obrigatórias e multiplayer em tempo real.
@@ -41,10 +41,9 @@ Este documento é a fonte de verdade do projeto para o Claude Code. Exporte como
 | Carta | `PlayerCard` | Uma pessoa numa edição específica (ex.: Kasparov 1980). É o que o usuário escolhe. |
 | Sorteio | `Roll` | Um país + edição sorteados, mostrando a escalação daquela seleção. |
 | Re-sorteio | `Reroll` | Descartar o sorteio atual e sortear outro. Limitado. |
-| Draft | `Draft` | A fase de montar a equipe: 5 sorteios, 5 escolhas. |
-| Equipe do usuário | `UserTeam` | As 5 cartas escolhidas, com mesa atribuída. |
+| Draft | `Draft` | A fase de montar a equipe: 4 sorteios, 4 escolhas. |
+| Equipe do usuário | `UserTeam` | As 4 cartas escolhidas, uma por mesa. |
 | Mesa | `Board` | Posição 1 a 4 na equipe. Mesa 1 é a mais forte. |
-| Reserva | `Reserve` | A 5ª carta; entra no lugar de um titular quando o usuário decide. |
 | Campo | `Field` | Todas as seleções históricas que disputam o torneio contra o usuário. |
 | Rodada | `Round` | Uma rodada do suíço: todas as equipes jogam um match. |
 | Match | `Match` | Confronto de 4 partidas entre duas equipes. |
@@ -58,37 +57,39 @@ Este documento é a fonte de verdade do projeto para o Claude Code. Exporte como
 Uma sessão vai do primeiro sorteio à medalha, sem interrupção, em cerca de 15 minutos.
 
 1. **Início:** o usuário escolhe o modo (Clássico ou Desafio diário). O jogo gera a semente da sessão.
-2. **Draft (5 sorteios):** a cada sorteio aparece uma seleção histórica; o usuário escolhe um jogador, que vai para a vaga da mesa em que jogou na edição real.
+2. **Draft (4 sorteios):** a cada sorteio aparece uma seleção histórica; o usuário escolhe um jogador, que vai para a vaga da mesa em que jogou na edição real.
 3. **Confirmação:** revisão das mesas e confirmação da equipe.
 4. **Sorteio do campo:** o jogo monta as seleções adversárias e mostra a lista de participantes.
-5. **Rodadas (7 no MVP):** em cada uma, o usuário vê o adversário, escolhe quem descansa e assiste ao match. Os outros matches são simulados em segundo plano.
+5. **Rodadas (7 no MVP):** em cada uma, o usuário vê o adversário e assiste ao match. Os outros matches são simulados em segundo plano.
 6. **Classificação:** atualizada após cada rodada.
 7. **Resultado final:** colocação, medalha, destaques individuais e imagem para compartilhar.
 8. **Replay:** qualquer partida pode ser revista e baixada em PGN.
 
 ## 4. Draft
 
-O usuário monta uma equipe de 5 cartas em 5 sorteios: 4 titulares (mesas 1 a 4) e 1 reserva, como no formato atual da Olimpíada.
+O usuário monta uma equipe de 4 cartas em 4 sorteios, uma por mesa (1 a 4).
+
+**DECIDIDO (nov/2026): não há reserva.** Sem cansaço nem outro efeito, escolher quem descansa não era uma decisão de verdade. O jogo só usa os jogadores das mesas 1 a 4 de cada seleção; os reservas reais (5º e 6º tabuleiro) ficam fora dos dados.
 
 ### 4.1 Sorteio
 
 - Cada sorteio escolhe uma `NationalTeam` (país + edição) do conjunto de dados.
 - **Peso do sorteio:** seleções que terminaram entre as 10 primeiras da sua edição têm peso `rollWeightTop10`; as demais, peso 1. Assim, equipes fortes aparecem com frequência suficiente sem dominar.
-- Só entram seleções com pelo menos 4 jogadores com dados completos (nome, força, partidas).
+- Só entram seleções com os 4 jogadores das mesas 1 a 4 com dados completos (nome, força, partidas).
 - Um mesmo país + edição não aparece duas vezes no mesmo draft.
 
 ### 4.2 O que o sorteio mostra
 
 - Bandeira, país, ano, cidade-sede e colocação final da seleção naquela edição.
-- A escalação completa (4 a 6 jogadores), cada um com: nome, título, mesa em que jogou, força de jogo, pontuação real naquela edição (ex.: 8½/11) e medalhas.
+- A escalação das mesas 1 a 4, cada jogador com: nome, título, mesa em que jogou, força de jogo, pontuação real naquela edição (ex.: 8½/11) e medalhas.
 - No modo **Almanaque**, a força de jogo fica oculta: o usuário decide pelo conhecimento histórico.
 
 ### 4.3 Escolha e vagas
 
-- O usuário escolhe **um** jogador do sorteio. **Cada jogador só ocupa a vaga da mesa em que jogou na edição real:** quem foi mesa 1 só entra na vaga 1, e assim por diante; reservas reais (5º ou 6º tabuleiro) só entram na vaga Reserva.
+- O usuário escolhe **um** jogador do sorteio. **Cada jogador só ocupa a vaga da mesa em que jogou na edição real:** quem foi mesa 1 só entra na vaga 1, e assim por diante.
 - Jogadores cuja vaga já está ocupada não podem ser escolhidos. O sorteio só oferece seleções com pelo menos um jogador escolhível.
 - A mesma pessoa não pode entrar duas vezes, mesmo de edições diferentes.
-- **Ordem fixa durante o torneio (regra real da Olimpíada):** a ordem das 5 cartas é definida antes da 1ª rodada. Em cada rodada jogam 4 delas, na mesma ordem relativa. Ex.: ordem A, B, C, D, R; se B descansa, as mesas ficam A, C, D, R.
+- **Ordem fixa durante o torneio:** as 4 cartas jogam todas as rodadas, cada uma na sua mesa.
 
 ### 4.4 Re-sorteios
 
@@ -99,7 +100,7 @@ O usuário monta uma equipe de 5 cartas em 5 sorteios: 4 titulares (mesas 1 a 4)
 
 | Chave | Valor inicial |
 | --- | --- |
-| `draftSlots` | 5 (4 mesas + 1 reserva) |
+| `draftSlots` | 4 (uma vaga por mesa) |
 | `rerollsPerDraft` | 3 |
 | `rollWeightTop10` | 3 |
 
@@ -112,8 +113,8 @@ O torneio é um suíço por pontos de match, como a Olimpíada real, encurtado p
 - O campo é sorteado com a semente da sessão, em três faixas de força média: `fieldTiers` define quantas seleções de elite, intermediárias e mais fracas entram.
 - A faixa de elite sempre inclui pelo menos `fieldMinChampions` seleções campeãs da sua edição.
 - No máximo `fieldMaxPerCountry` seleções do mesmo país (ex.: URSS 1980 e URSS 1970 podem coexistir; três URSS não).
-- **Jogador escolhido pelo usuário:** se a pessoa estiver numa seleção do campo, essa seleção usa o seu reserva real no lugar dela.
-- Cada seleção do campo usa sua escalação real, na ordem de mesas real. Os 4 primeiros jogam todas as rodadas (sem rodízio no MVP).
+- **Jogador escolhido pelo usuário (DECIDIDO, nov/2026):** se a pessoa estiver numa seleção do campo, essa seleção continua com ela. A mesma carta pode jogar pelos dois lados; por isso o lado de cada partida é identificado pela mesa, nunca pela carta.
+- Cada seleção do campo usa suas 4 mesas reais, na ordem real, em todas as rodadas.
 
 ### 5.2 Emparelhamento
 
@@ -129,10 +130,9 @@ O torneio é um suíço por pontos de match, como a Olimpíada real, encurtado p
 - **Medalhas por equipe:** 1º ouro, 2º prata, 3º bronze.
 - **Prêmios individuais:** melhor desempenho em cada mesa (mínimo de partidas jogadas).
 
-### 5.4 Decisão por rodada
+### 5.4 Antes de cada rodada
 
-- Antes de cada rodada, o usuário vê o adversário (escalação e forças) e escolhe qual das 5 cartas descansa.
-- Padrão: o reserva descansa. O usuário pode confirmar com um clique.
+- O usuário vê as duas escalações (mesas, traços e forças) e inicia o match. Não há decisão por rodada.
 
 ### 5.5 Configuração inicial
 
@@ -329,9 +329,9 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 | Tela | Conteúdo | Ações |
 | --- | --- | --- |
 | Início | Nome do jogo, modos, histórico local de campanhas | Jogar (Clássico ou Almanaque), Desafio diário, Como jogar |
-| Draft | Cartão do sorteio (bandeira, ano, sede, colocação), escalação com as cartas, as 5 vagas, contador de re-sorteios | Escolher carta, escolher vaga, re-sortear |
-| Confirmação | As 5 cartas na ordem, força média, traços de estilo | Confirmar |
-| Rodada | Adversário e suas cartas, escolha de quem descansa, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Escolher descanso, mudar velocidade, pular |
+| Draft | Cartão do sorteio (bandeira, ano, sede, colocação), escalação com as cartas, as 4 vagas, contador de re-sorteios | Escolher carta, escolher vaga, re-sortear |
+| Confirmação | As 4 cartas na ordem, força média, traços de estilo | Confirmar |
+| Rodada | As duas escalações, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Jogar, mudar velocidade, pular |
 | Classificação | Tabela após cada rodada, com pontos de match, de partida e desempate | Próxima rodada |
 | Resultado final | Colocação, medalha, campanha rodada a rodada, destaque individual por mesa | Compartilhar imagem, copiar texto, jogar de novo |
 | Replay | Tabuleiro com navegação pelos lances, nomes, resultado | Baixar PGN, voltar |
@@ -447,12 +447,12 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 
 ### 13.2 Critérios de aceite do MVP
 
-- [ ] Um draft completo tem 5 sorteios, permite até 3 re-sorteios e impede a mesma pessoa duas vezes.
+- [ ] Um draft completo tem 4 sorteios, permite até 3 re-sorteios e impede a mesma pessoa duas vezes.
 - [ ] O sorteio respeita os pesos e nunca repete país + edição no mesmo draft.
 - [ ] O modo Almanaque oculta a força em todas as telas até o fim do torneio.
 - [ ] O campo tem 23 seleções nas faixas configuradas, com pelo menos 3 campeãs e no máximo 2 por país.
 - [ ] O emparelhamento nunca repete confrontos e segue os grupos de pontuação.
-- [ ] A ordem fixa das mesas e a regra do reserva funcionam como em 4.3.
+- [ ] Cada carta só ocupa a mesa em que jogou e joga nela todas as rodadas (4.3).
 - [ ] As partidas do usuário são jogadas pelo Maia-3 no worker, usando livro quando disponível.
 - [ ] A mesma semente reproduz exatamente o mesmo draft, campo, emparelhamentos e partidas (backend WASM).
 - [ ] Classificação, desempates e medalhas estão corretos (testes com torneios de exemplo).
