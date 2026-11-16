@@ -8,6 +8,7 @@
  *   pnpm engine:ladder                    # 600..2600 step 200, 200 games/pair
  *   pnpm engine:ladder --games 50 --step 400
  *   pnpm engine:ladder --style-temps 0.7,0.9,1.1   # style grid (GDD §7.2)
+ *   pnpm engine:ladder --fine 1200-2000:100        # extra nodes where strength is steep
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -28,6 +29,8 @@ const { values } = parseArgs({
     min: { type: "string", default: "600" },
     max: { type: "string", default: "2600" },
     step: { type: "string", default: "200" },
+    /** Extra selfElo nodes "from-to:step", e.g. where the blunder check makes strength steep. */
+    fine: { type: "string", default: "" },
     games: { type: "string", default: "200" },
     /** Temperatures explored at the top of the ladder (stronger than T=1). */
     "top-temps": { type: "string", default: "0.8,0.6" },
@@ -67,8 +70,16 @@ const max = Number(values.max);
 const step = Number(values.step);
 const gamesPerPair = Number(values.games);
 
-const base: Node[] = [];
-for (let e = min; e <= max; e += step) base.push(node(e, 1));
+const elos = new Set<number>();
+for (let e = min; e <= max; e += step) elos.add(e);
+let fineStep = step;
+if (values.fine) {
+  const [range, s] = values.fine.split(":");
+  const [from, to] = range!.split("-").map(Number);
+  fineStep = Number(s);
+  for (let e = from!; e <= to!; e += fineStep) elos.add(e);
+}
+const base: Node[] = [...elos].sort((a, b) => a - b).map((e) => node(e, 1));
 
 const pairs: Array<[Node, Node]> = [];
 // Neighbours at distance 1 and 2 on the T=1 ladder.
@@ -89,6 +100,11 @@ const topTemps = values["top-temps"] ? values["top-temps"].split(",").map(Number
 const bottomTemps = values["bottom-temps"] ? values["bottom-temps"].split(",").map(Number) : [];
 chain([base[base.length - 1]!, base[base.length - 2]!], topTemps, max);
 chain([base[0]!, base[1]!], bottomTemps, min);
+// Each top node also plays the top of the T=1 curve (2nd and 3rd strongest),
+// so the region above it is tied to more than one chain.
+for (const t of topTemps) {
+  for (const anchor of base.slice(-3, -1)) pairs.push([node(max, t), anchor]);
+}
 const styleTemps = values["style-temps"]
   ? values["style-temps"]
       .split(",")
@@ -101,6 +117,18 @@ for (const t of styleTemps) {
     pairs.push([ladder[i]!, base[i]!]);
     if (ladder[i + 1]) pairs.push([ladder[i]!, ladder[i + 1]!]);
   }
+}
+
+// The same pair twice would replay the same seeds: keep one.
+{
+  const seen = new Set<string>();
+  const unique = pairs.filter(([a, b]) => {
+    const k = [a.id, b.id].sort().join("|");
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+  pairs.splice(0, pairs.length, ...unique);
 }
 
 const jobs: ValidateJob[] = [];
@@ -192,7 +220,7 @@ const byElo = new Map<
 >();
 for (const r of results) {
   const [aId, bId] = pairOf.get(r.id)!.split("|") as [string, string];
-  const elo = Math.round((Number(aId.split("@")[0]) + Number(bId.split("@")[0])) / 2 / step) * step;
+  const elo = Math.round((Number(aId.split("@")[0]) + Number(bId.split("@")[0])) / 2 / fineStep) * fineStep;
   const s = byElo.get(elo) ?? { n: 0, draws: 0, agreement: 0, resignation: 0 };
   s.n++;
   if (r.result === "1/2-1/2") s.draws++;
