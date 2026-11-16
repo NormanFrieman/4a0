@@ -22,6 +22,10 @@ Jogo de navegador: o usuário monta uma equipe de 5 enxadristas históricos e di
 - Força de jogo nunca vai direto para `selfElo`: converta com `toEngineParams` (`src/engine/strength.ts`), que passa pela escala calibrada (GDD §6.2).
 - Se o modelo ou o sorteio mudarem, meça de novo com `pnpm engine:ladder` e atualize `engineCalibration`.
 
+## Git
+
+- **Todo o trabalho é feito direto na `main`.** Não criar branches a partir dela; commits vão na `main`.
+
 ## Estado atual
 
 Fatia jogável da Fase 1 em `/`: draft → confirmação → campo → 7 rodadas (Maia nos 4 tabuleiros do usuário, simulação rápida no resto) → resultado, com o conjunto de **dados de teste** (`public/data/sample`, 10 seleções, números aproximados; 8 equipes no torneio). Cada carta abre com seu livro de aberturas (GDD §7.1: carreira até o ano da carta, ou livro da década), em `public/data/sample/books/`. `?seed=` reproduz a sessão; `?rapido=1` simula as partidas do usuário sem o Maia. Fora desta fatia: Replay/PGN, retomar sessão, Desafio diário, modo Almanaque, compartilhamento, campo por faixas de força (§5.1).
