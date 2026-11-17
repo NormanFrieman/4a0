@@ -1,0 +1,7 @@
+{| class="wikitable"
+!Rg||Mannschaft||Code||BP||Buch||1||2||3||4||5||6||7||8||9||10||11||12||13||14
+|-
+|1.||Sowjetunion||URS||39||449,5||VEN<br>2½||GRE<br>3½||AUT<br>3½||YUG<br>2½||BUL<br>2||NED<br>3||HUN<br>2||ENG<br>2½||CSR<br>2||ISL<br>3½||USA<br>2½||ARG<br>3½||ROM<br>2½||DEN<br>3½
+|-
+|||Malta II||MLT2||25½||355,5||ROM<br>2||MEX<br>½||SYR<br>½||AND<br>2||FAI<br>1||PNG<br>3||NGR<br>2½||LBA<br>2½||MLT<br>1||KEN<br>2½||LUX<br>2||JPN<br>1½||ZAI<br>2½||HKG<br>2
+|}

@@ -40,6 +40,8 @@ Fatia jogável da Fase 1 em `/`: draft → confirmação → campo → 7 rodadas
 - `pnpm build` — gera `dist/` para o Cloudflare Pages (cabeçalhos em `public/_headers`; o `.wasm` do ORT vem do jsDelivr e fica fora do build)
 - `pnpm data:pgn` — baixa as coleções PGN de `tools/data/sample/pgnSources.ts` (PGN Mentor, só para desenvolvimento) para `tools/data/sample/pgn/`, fora do git
 - `pnpm data:sample` — gera `public/data/sample` a partir de `tools/data/sample/source.ts`, com os livros de abertura (precisa do `data:pgn` antes). Os livros (`public/data/sample/books/`) ficam fora do git: num clone novo, rode os dois comandos antes de jogar
+- `pnpm data:fetch [--years 1980,2024]` — baixa da de.wikipedia e do Wikidata as fontes dos dados olímpicos para `tools/data/cache/`, fora do git (`revid` fixados em `tools/data/olympiads/sources.json`; `--update` pega revisões novas)
+- `pnpm data:olympiads [--years 1980,2024]` — gera os dados a partir do cache, sem rede, em `tools/data/olympiads/out/` (fora do git) e o relatório `tools/data/olympiads/report.md`
 - `pnpm engine:play ... --white-book <arquivo.bin>` — partida com livro Polyglot
 - `pnpm engine:play --white 1500 --black 1600 --seed 42`
 - `pnpm engine:validate --game --bands 1000,1400,1800` — valida a escala calibrada

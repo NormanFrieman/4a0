@@ -23,6 +23,8 @@
     "engine:quality": "tsx tools/engine/cli/quality.ts",
     "data:sample": "tsx tools/data/buildSample.ts",
     "data:pgn": "tsx tools/data/fetchPgn.ts",
+    "data:fetch": "tsx tools/data/olympiads/fetch.ts",
+    "data:olympiads": "tsx tools/data/olympiads/build.ts",
     "engine:endrules": "tsx tools/engine/cli/endrules.ts"
   },
   "dependencies": {

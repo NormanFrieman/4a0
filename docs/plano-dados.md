@@ -1,6 +1,6 @@
 # Plano: dados completos (20 melhores seleções de cada Olimpíada)
 
-**Situação:** planejado em 2026-11-16. Antecipa parte da Fase 2 do GDD (§13) a pedido do usuário. Substitui a dependência do OlimpBase (§9.1, §14.2).
+**Situação:** planejado em 2026-11-16; passos 1 e 2 (prova de conceito com 1980 e 2024) feitos. Antecipa parte da Fase 2 do GDD (§13) a pedido do usuário. Substitui a dependência do OlimpBase (§9.1, §14.2).
 
 ## Decisões do usuário (2026-11-16)
 
@@ -75,11 +75,38 @@ Correções manuais (nome errado, QID ausente, mesa trocada) ficam em `tools/dat
 
 ## Passos
 
-1. Registrar as decisões no GDD (§9.1, §14.1, §14.2) e esta fonte.
-2. Prova de conceito com 1980 e 2024: parser, QIDs, Elo e performance. Conferir à mão as 4 primeiras seleções contra a amostra atual.
-3. Rodar as 28 edições e revisar o relatório de validação.
+1. ✅ Registrar as decisões no GDD (§9.1, §14.1, §14.2) e esta fonte.
+2. ✅ Prova de conceito com 1980 e 2024: parser, QIDs, Elo e performance. Conferir à mão as 4 primeiras seleções contra a amostra atual. Resultado abaixo.
+3. Rodar as 28 edições e revisar o relatório de validação. Antes: digitar as 26 edições restantes em `editions.ts` e resolver as pendências da prova de conceito.
 4. Publicar `v1`, trocar o app e rodar `pnpm test`, `pnpm typecheck` e `pnpm lint`.
 5. Jogar 3 sessões com sementes diferentes e conferir nomes, bandeiras, mesas e forças.
+
+## Prova de conceito (1980 e 2024, feita em 2026-11-16)
+
+Código em `tools/data/olympiads/`: `pnpm data:fetch --years 1980,2024` baixa as fontes para `tools/data/cache/` (fora do git) e fixa os `revid` em `sources.json`; `pnpm data:olympiads --years 1980,2024` gera `tools/data/olympiads/out/` (fora do git, já no formato de `public/data/`) e o [relatório](../tools/data/olympiads/report.md). Uma segunda execução não faz requisições e gera saída idêntica.
+
+**O que funcionou**
+
+- As páginas de escalação e as `/Tabelle` existem e têm o formato esperado nas duas edições. 82 e 188 seleções lidas, nenhuma do top 20 excluída.
+- **Cobertura:** 157 de 160 cartas com QID e Elo (98%); 151 com título.
+- **Performance aproximada:** fica perto da oficial. Gukesh 2024: 3043 (oficial 3056); Erigaisi: 3006 (oficial 3051).
+- **As fontes corrigiram a amostra:** a mesa 4 da URSS em 1980 era Geller (Balashov e Kasparov foram reservas), Karpov fez 9/12 e a Alemanha Ocidental ficou em 25º, fora do top 20 (a amostra dizia 7º).
+
+**Mudanças em relação ao plano**
+
+- **Busca de nome no Wikidata.** Muitos jogadores não têm artigo na de.wikipedia (link vermelho ou sem link): em 1980 eram 26 das 80 cartas. Sem QID não há Elo, e a força ficaria limitada a `unratedCap`. Para as mesas 1 a 4 do top 20 sem QID, o `fetch` busca o nome no Wikidata. O `build` só aceita o resultado se exatamente um dos enxadristas (P106) encontrados tiver lista FIDE nos 6 anos anteriores à edição. Os 28 QIDs achados assim aparecem no relatório para conferência, e todos batem com nome, país e época.
+- **P aproximada por mesa:** em cada rodada, usa o rating do adversário na **mesma mesa** (se ele não tiver Elo, a média das mesas com Elo da seleção adversária), em vez da média das 4 mesas. Continua contando as rodadas em que o jogador descansou.
+- **Pessoas sem QID:** `personId` = `nq-{nome}`.
+
+**Pendências para o passo 3**
+
+- **Três cartas sem QID:** Milan Vukadinov (Canadá 1980), John Cooper (País de Gales 1980) e Luka Paichadse (Geórgia 2024; a de.wikipedia translitera "Paichadze"). A correção vai em `overrides.ts` (não feita: a API do Wikidata bloqueou temporariamente as consultas).
+- **Limite de requisições da Wikimedia:** com 1 requisição por segundo, o Wikidata responde 429 a cada ~5 buscas. As 31 buscas da prova de conceito levaram 6 minutos; as 28 edições (~400 nomes) devem levar cerca de 1 h, uma vez só, graças ao cache. Quando o repositório for público, pôr a URL dele no User-Agent como contato, como pede a política da Wikimedia (decisão do usuário).
+- **Rating dos adversários:** só quem tem QID entra na média, e a busca de nome não cobre os adversários (só as cartas). Em 1980, 88% das rodadas têm adversário com rating; em 2024, 79%. O efeito na força é pequeno (`performanceWeight` = 0,25).
+- **Brettp. ≠ soma das mesas:** Romênia 1980 (31,5 contra 29,5), por um 2:2 por W.O. que a própria página explica. É um aviso, não um erro.
+- **Medalhas individuais:** ainda não lidas (`medals: []`); falta o parser da en.wikipedia ou a digitação manual.
+- **Sem rating:** `PlayerCard.fideRating` é `number`; a saída usa 0. Decidir na publicação (passo 4) se o tipo passa a aceitar `null`.
+- **Wikidata sem versão fixa:** o `lastrevid` de cada entidade fica só no cache; a reprodutibilidade completa exige gravá-lo em `sources.json`.
 
 ## Fora deste plano
 

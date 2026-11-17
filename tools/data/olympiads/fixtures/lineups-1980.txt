@@ -1,0 +1,68 @@
+Die Tabellen nennen die Aufstellung der Mannschaften bei der [[Schacholympiade 1980]] in [[Valletta]]. An der Olympiade nahmen 82 Mannschaften teil, die ein Turnier im [[Schweizer System]] über 14 Runden austrugen. Darunter befand sich zur Sicherung einer geraden Teilnehmerzahl eine B-Mannschaft des Gastgeberlandes. Diese spielte außer Konkurrenz und erhielt keine Platzierung zugeordnet. Die Wertung erfolgte primär nach Brettpunkten, dann nach der [[Feinwertung#Buchholz-Wertung|Buchholz-Wertung]] und schließlich nach Mannschaftspunkten. Zu jedem Team gehörten vier Stamm- und maximal zwei Ersatzspieler.
+
+== Mannschaften ==
+=== 1. Sowjetunion ===
+{| class="wikitable"
+|-
+! Platz !! Land !! G !! R !! V !! Brettp. !! Mannschaftsp. 
+|-
+| 1 || {{SUN-1980}} || 11 || 3 || 0 ||- style="text-align:center;" | 39 ||- style="text-align:center;" | 25
+|-
+! Brett !! Spieler !! G !! R !! V !! Punkte !! Partien 
+|-
+| 1 || [[Anatoli Jewgenjewitsch Karpow|Anatoli Karpow]] || {{0}}6 || 6 || 0 ||- style="text-align:center;" | 9 ||- style="text-align:center;" | 12
+|-
+| 2 || [[Lew Abramowitsch Polugajewski|Lew Polugajewski]] || {{0}}0 || 6 || 1 ||- style="text-align:center;" | 3 ||- style="text-align:center;" | 7
+|-
+| 3 || [[Michail Tal]] || {{0}}2 || 3 || 1 ||- style="text-align:center;" | 3,5 ||- style="text-align:center;" | 6
+|-
+| 4 || [[Efim Geller]] || {{0}}4 || 5 || 0 ||- style="text-align:center;" | 6,5 ||- style="text-align:center;" | 9
+|-
+| R || [[Juri Sergejewitsch Balaschow|Juri Balaschow]] || {{0}}5 || 5 || 0 ||- style="text-align:center;" | 7,5 ||- style="text-align:center;" | 10
+|-
+| R || [[Garri Kimowitsch Kasparow|Garri Kasparow]] || {{0}}8 || 3 || 1 ||- style="text-align:center;" | 9,5 ||- style="text-align:center;" | 12
+|}
+
+=== 9. Kanada ===
+{| class="wikitable"
+|-
+! Platz !! Land !! G !! R !! V !! Brettp. !! Mannschaftsp. 
+|-
+| 9 || {{CAN}} || 6 || 3 || 5 ||- style="text-align:center;" | 32 ||- style="text-align:center;" | 15
+|-
+! Brett !! Spieler !! G !! R !! V !! Punkte !! Partien 
+|-
+| 1 || [[Jean Hébert (Schachspieler)|Jean Hébert]] || 4 || 6 || 2 ||- style="text-align:center;" | 7 ||- style="text-align:center;" | 12
+|-
+| 2 || [[Lawrence Day]] || 5 || 4 || 2 ||- style="text-align:center;" | 7 ||- style="text-align:center;" | 11
+|-
+| 3 || [[Daniel Abraham Yanofsky]] || 3 || 6 || 2 ||- style="text-align:center;" | 6 ||- style="text-align:center;" | 11
+|-
+| 4 || Milan Vukadinov || 3 || 4 || 2 ||- style="text-align:center;" | 5 ||- style="text-align:center;" | 9
+|-
+| R || [[Zvonko Vranesic]] || 4 || 3 || 1 ||- style="text-align:center;" | 5,5 ||- style="text-align:center;" | 8
+|-
+| R || Denis Allan || 1 || 1 || 3 ||- style="text-align:center;" | 1,5 ||- style="text-align:center;" | 5
+|}
+
+=== Malta B ===
+{| class="wikitable"
+|-
+! Platz !! Land !! G !! R !! V !! Brettp. !! Mannschaftsp. 
+|-
+| - || {{MLT|2=Malta B}} || 5 || 4 || 5 ||- style="text-align:center;" | 25,5 ||- style="text-align:center;" | 14
+|-
+! Brett !! Spieler !! G !! R !! V !! Punkte !! Partien 
+|-
+| 1 || Victor Cilia Vicenti || 1 || 4 || 4 ||- style="text-align:center;" | 3 ||- style="text-align:center;" | 9
+|-
+| 2 || Walter Vella Gera || 0 || 1 || 6 ||- style="text-align:center;" | 0,5 ||- style="text-align:center;" | 7
+|-
+| 3 || Mario Psaila || 1 || 5 || 4 ||- style="text-align:center;" | 3,5 ||- style="text-align:center;" | 10
+|-
+| 4 || Conrad Thake || 5 || 3 || 2 ||- style="text-align:center;" | 6,5 ||- style="text-align:center;" | 10	
+|-
+| R || Ray Vasallo || 1 || 2 || 3 ||- style="text-align:center;" | 2 ||- style="text-align:center;" | 6
+|-
+| R || Andrew Borg || 7 || 2 || 1 ||- style="text-align:center;" | 8 ||- style="text-align:center;" | 10
+|}

@@ -21,3 +21,7 @@ Thumbs.db
 
 # Sample opening books, built from PGN Mentor collections (pnpm data:sample)
 public/data/sample/books/
+
+# Olympiad data pipeline: downloaded sources and intermediate output (pnpm data:fetch / data:olympiads)
+tools/data/cache/
+tools/data/olympiads/out/

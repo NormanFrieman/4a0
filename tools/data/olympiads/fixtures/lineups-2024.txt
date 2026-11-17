@@ -1,0 +1,39 @@
+=== 1. Indien ===
+{| class="wikitable"
+|-
+! Platz !! Land !! G !! R !! V !! Brettp. !! Mannschaftsp. 
+|-
+| 1 || {{IND}} || 10 || 1 || 0 ||- style="text-align:center;" | 35 ||- style="text-align:center;" | 21
+|-
+! Brett !! Spieler !! G !! R !! V !! Punkte !! Partien 
+|-
+| 1 || [[D. Gukesh]] || 8 || 2 || 0 ||- style="text-align:center;" | 9 ||- style="text-align:center;" | 10
+|-
+| 2 || [[R. Praggnanandhaa]] || 3 || 6 || 1 ||- style="text-align:center;" | 6 ||- style="text-align:center;" | 10
+|-
+| 3 || [[Erigaisi Arjun]] || 9 || 2 || 0 ||- style="text-align:center;" | 10 ||- style="text-align:center;" | 11
+|-
+| 4 || [[Santosh Gujrathi Vidit]] || 5 || 5 || 0 ||- style="text-align:center;" | 7,5 ||- style="text-align:center;" | 10
+|-
+| R || [[P. Harikrishna]] || 2 || 1 || 0 ||- style="text-align:center;" | 2,5 ||- style="text-align:center;" | 3
+|}
+
+=== 33. Ungarn B ===
+{| class="wikitable"
+|-
+! Platz !! Land !! G !! R !! V !! Brettp. !! Mannschaftsp. 
+|-
+| 33 || {{HUN}} B || 6 || 2 || 3 ||- style="text-align:center;" | 27 ||- style="text-align:center;" | 14
+|-
+! Brett !! Spieler !! G !! R !! V !! Punkte !! Partien 
+|-
+| 1 || [[Ádám Kozák]] || 3 || 5 || 2 ||- style="text-align:center;" | 5,5 ||- style="text-align:center;" | 10
+|-
+| 2 || [[Tamás Bánusz]] || 4 || 3 || 3 ||- style="text-align:center;" | 5,5 ||- style="text-align:center;" | 10
+|-
+| 3 || [[Péter Prohászka]] || 6 || 1 || 2 ||- style="text-align:center;" | 6,5 ||- style="text-align:center;" | 9
+|-
+| 4 || [[Gergely Antal]] || 4 || 3 || 0 ||- style="text-align:center;" | 5,5 ||- style="text-align:center;" | 7
+|-
+| R || [[Gábor Papp]] || 2 || 4 || 2 ||- style="text-align:center;" | 4 ||- style="text-align:center;" | 8
+|}
