@@ -73,10 +73,10 @@ O usuário monta uma equipe de 4 cartas em 4 sorteios, uma por mesa (1 a 4).
 
 ### 4.1 Sorteio
 
-- Cada sorteio escolhe uma `NationalTeam` (país + edição) do conjunto de dados.
+- Cada sorteio escolhe uma `NationalTeam` (uma seleção numa edição) do conjunto de dados. Em geral é país + edição; o país-sede pode ter uma segunda equipe (ex.: "Rússia 2" em 1994), que conta como outra seleção.
 - **Peso do sorteio:** seleções que terminaram entre as 10 primeiras da sua edição têm peso `rollWeightTop10`; as demais, peso 1. Assim, equipes fortes aparecem com frequência suficiente sem dominar.
 - Só entram seleções com os 4 jogadores das mesas 1 a 4 com dados completos (nome, força, partidas).
-- Um mesmo país + edição não aparece duas vezes no mesmo draft.
+- Uma mesma seleção não aparece duas vezes no mesmo draft. **DECIDIDO (2026-11-17):** a equipe principal e a segunda equipe do país-sede são seleções diferentes e podem sair no mesmo draft.
 
 ### 4.2 O que o sorteio mostra
 
@@ -119,7 +119,7 @@ O torneio é um suíço por pontos de match, como a Olimpíada real, encurtado p
 ### 5.2 Emparelhamento
 
 - Rodada 1: campo ordenado por força média; metade de cima contra metade de baixo.
-- Rodadas seguintes: grupos de mesma pontuação de match, metade de cima contra metade de baixo dentro do grupo, sem repetir confrontos. Desce-se um flutuante para o grupo seguinte quando necessário.
+- Rodadas seguintes: grupos de mesma pontuação de match, metade de cima contra metade de baixo dentro do grupo, sem repetir confrontos. Desce-se um flutuante para o grupo seguinte quando necessário: entre os emparelhamentos sem repetição, vale o que atravessa menos grupos (2026-11-17).
 - Não é preciso seguir à risca o sistema holandês da FIDE. O importante é ser determinístico e sem repetições.
 - **Cores:** a equipe listada primeiro joga de brancas nas mesas 1 e 3; a outra, nas mesas 2 e 4. Alternância por rodada, buscando equilíbrio.
 
@@ -128,7 +128,7 @@ O torneio é um suíço por pontos de match, como a Olimpíada real, encurtado p
 - Partida: 1, ½ ou 0. Match: vitória (mais de 2 pontos) = 2 pontos de match; empate (2 a 2) = 1; derrota = 0.
 - Classificação: pontos de match → pontos de partida → soma dos pontos de match dos adversários (Buchholz) → confronto direto.
 - **Medalhas por equipe:** 1º ouro, 2º prata, 3º bronze.
-- **Prêmios individuais:** melhor desempenho em cada mesa (mínimo de partidas jogadas).
+- **Prêmios individuais:** melhor desempenho em cada mesa, entre todas as cartas do torneio com pelo menos `boardPrizeMinGames` partidas nela. Desempenho = força média dos adversários + dp(pontuação), com a tabela da FIDE. Desempate: pontos → força média dos adversários → pessoa. Aparecem no Resultado final.
 
 ### 5.4 Antes de cada rodada
 
@@ -145,6 +145,7 @@ O torneio é um suíço por pontos de match, como a Olimpíada real, encurtado p
 | `fieldMinChampions` | 3 |
 | `fieldMaxPerCountry` | 2 |
 | `matchPoints` | vitória 2, empate 1, derrota 0 |
+| `boardPrizeMinGames` | 5 (partidas numa mesa para concorrer ao prêmio individual) |
 
 ## 6. Força dos jogadores
 
@@ -183,7 +184,7 @@ E = \frac{1}{1 + 10^{-d/400}}
 ```
 
 - d = diferença de força de jogo (brancas − pretas + `whiteAdvantage`).
-- Probabilidade de empate: `drawBase` + `drawSlope` × (força média − 2000) / 100, limitada a \[`drawMin`, `drawMax`\] e a 2 × min(E, 1 − E).
+- Probabilidade de empate: `drawBase` + `drawSlope` × (força média − `drawPivot`) / 100, limitada a \[`drawMin`, `drawMax`\] e a 2 × min(E, 1 − E).
 - Vitória das brancas = E − empate / 2. O resto é vitória das pretas.
 - Os parâmetros devem ser ajustados para que a taxa de empates simulada fique próxima da taxa observada nas partidas Maia contra Maia do mesmo nível, para que os dois modos de simulação sejam coerentes.
 
@@ -195,7 +196,7 @@ E = \frac{1}{1 + 10^{-d/400}}
 | `unratedCap` | 2200 |
 | `maiaEloRange` | 1000–2600 |
 | `whiteAdvantage` | 35 |
-| `drawBase` / `drawSlope` | 0,30 / 0,03 |
+| `drawBase` / `drawSlope` / `drawPivot` | 0,30 / 0,03 / 2000 |
 | `drawMin` / `drawMax` | 0,10 / 0,60 |
 
 ## 7. Personalidade
@@ -447,18 +448,20 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 
 ### 13.2 Critérios de aceite do MVP
 
-- [ ] Um draft completo tem 4 sorteios, permite até 3 re-sorteios e impede a mesma pessoa duas vezes.
-- [ ] O sorteio respeita os pesos e nunca repete país + edição no mesmo draft.
+- [x] Um draft completo tem 4 sorteios, permite até 3 re-sorteios e impede a mesma pessoa duas vezes.
+- [x] O sorteio respeita os pesos e nunca repete a mesma seleção no mesmo draft (4.1).
 - [x] O modo Mestre oculta a força em todas as telas até o fim do torneio.
 - [x] O campo tem 23 seleções nas faixas configuradas, com pelo menos 3 campeãs e no máximo 2 por país.
-- [ ] O emparelhamento nunca repete confrontos e segue os grupos de pontuação.
-- [ ] Cada carta só ocupa a mesa em que jogou e joga nela todas as rodadas (4.3).
-- [ ] As partidas do usuário são jogadas pelo Maia-3 no worker, usando livro quando disponível.
-- [ ] A mesma semente reproduz exatamente o mesmo draft, campo, emparelhamentos e partidas (backend WASM).
-- [ ] Classificação, desempates e medalhas estão corretos (testes com torneios de exemplo).
+- [x] O emparelhamento nunca repete confrontos e segue os grupos de pontuação.
+- [x] Cada carta só ocupa a mesa em que jogou e joga nela todas as rodadas (4.3).
+- [x] As partidas do usuário são jogadas pelo Maia-3 no worker, usando livro quando disponível (os dados `v1` ainda não têm livros, 7.1).
+- [x] A mesma semente reproduz exatamente o mesmo draft, campo, emparelhamentos e partidas (backend WASM).
+- [x] Classificação, desempates, medalhas e prêmios por mesa estão corretos (testes com torneios de exemplo).
 - [x] Texto e imagem de compartilhamento são gerados no navegador.
 - [x] Qualquer partida pode ser revista e baixada em PGN.
-- [ ] Todos os valores de balanceamento vêm de `balance.ts`.
+- [x] Todos os valores de balanceamento vêm de `balance.ts`.
+
+Evidência de cada critério: [plano-mvp-aceite.md](plano-mvp-aceite.md) (2026-11-17).
 
 ## 14. Licenças, direitos e questões em aberto
 

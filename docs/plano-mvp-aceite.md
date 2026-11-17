@@ -1,11 +1,12 @@
 # Plano: fechar o MVP (critérios de aceite do GDD §13.2)
 
-**Situação:** planejado em 2026-11-17; não iniciado.
+**Situação:** concluído em 2026-11-17. Todos os critérios do GDD §13.2 estão marcados; a evidência de cada um está em "Evidências", no fim. Falta medir a rodada num notebook médio e num celular médio (`benchmarks.md`, "Benchmarks futuros", item 2).
 
 ## Decisões do usuário (2026-11-17)
 
 - Próxima etapa: fechar o MVP, antes dos livros do Lichess e da calibração B/C.
 - Prêmios individuais por mesa (GDD §5.3) entram agora.
+- A segunda equipe do país-sede (ex.: "Rússia 2" em 1994) é outra seleção: pode sair no mesmo draft que a equipe principal (GDD §4.1). O critério passou a ser "nunca repete a mesma seleção".
 
 ## Contexto
 
@@ -71,3 +72,20 @@ Os critérios já marcados (Mestre, campo, compartilhamento, replay) não mudam.
 - O teste de ponta a ponta da semente roda duas vezes com o mesmo resultado, e com outra semente o resultado muda.
 - No navegador, `/?seed=teste&rapido=1` até o fim mostra os 4 premiados por mesa. Com `?modo=mestre`, a força não aparece antes do Resultado final.
 - Tempo de rodada e sessão `18ya360` anotados em `benchmarks.md`.
+
+## Evidências (2026-11-17)
+
+| Critério §13.2                                       | Evidência                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Draft: 4 sorteios, 3 re-sorteios, sem repetir pessoa | `draft.test.ts` ("fills every slot…", "limits rerolls…"); `v1.test.ts` "never offers a person already on the team, even from another edition" (300 drafts nos dados `v1`, forçando pessoas de várias edições)                                                                                                                                                                                                                 |
+| Pesos, sem repetir seleção                           | `v1.test.ts` "rolls top teams by their weight" (4 000 sorteios, ±3 p.p. da fração esperada) e "has one team id per team…"; `draft.test.ts` "never shows a team twice"                                                                                                                                                                                                                                                         |
+| Emparelhamento sem repetição, por grupos             | `pairing.test.ts` "score groups (GDD §5.2)". **Correção:** a busca pegava o primeiro emparelhamento sem repetição e fazia descer equipes sem necessidade (em 40% das rodadas, com 24 equipes). Agora escolhe o que atravessa menos grupos; em 3 000 rodadas simuladas, os flutuantes por rodada caíram de 3,98 para 3,45 (o mínimo pela paridade dos grupos é 2,99; o resto vem das repetições). Pior caso: 122 ms por rodada |
+| Cada carta na sua mesa, todas as rodadas             | `tournament.test.ts` "plays every card on its real board in every round"                                                                                                                                                                                                                                                                                                                                                      |
+| Maia-3 no worker, com livro quando houver            | `src/app/state/engine.ts` (`MaiaWorkerPool`, `forceWasm: true`); `session.ts` `playRound` passa o `bookSet` a `gameJobFor`; `localSimulator.test.ts` (livro, depois engine). Os dados `v1` não têm livros (decisão provisória)                                                                                                                                                                                                |
+| Mesma semente reproduz tudo                          | `tournament.test.ts` "reproduces draft, field, pairings and games for the same seed" (sessão inteira, 28 partidas por `GameSimulator`); no navegador, o `/spike` deu o mesmo hash dos PGNs em 3 rodadas seguidas                                                                                                                                                                                                              |
+| Classificação, desempates, medalhas                  | `tournament.test.ts` "standings tiebreaks, one at a time" (pontos de partida, Buchholz e confronto direto isolados; medalhas só nos 3 primeiros); `boardPrizes.test.ts`                                                                                                                                                                                                                                                       |
+| Balanceamento em `balance.ts`                        | Busca de literais numéricos em `src/` (fora de `config/`, testes, `ui/`, `i18n/` e `dev/`). Única pendência: o pivô 2000 da fórmula de empates da simulação rápida, que foi para `balance.quickSim.drawPivot`. O resto é estrutura (4 mesas, formato Polyglot, tabela dp da FIDE, PRNG), tempo de interface ou limite técnico (`PAIRING_NODE_LIMIT`, cache do Stockfish)                                                      |
+
+**Prêmios por mesa:** `src/tournament/boardPrizes.ts`, seção "Melhores por mesa" no Resultado final. Conferido no navegador com `?seed=teste&rapido=1`, em 1280 px e em 390 px (Mestre), sem erros no console.
+
+**Antes de publicar:** `pnpm test` (33 arquivos, 220 testes), `typecheck`, `lint` e `build` passando. Rodada no `/spike`: 7,9–8,2 s no desktop (11,1 s na 1ª rodada), e sessão `18ya360` sem abandono antes do lance 30 (`benchmarks.md`, "Depois da Fase A").

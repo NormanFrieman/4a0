@@ -277,12 +277,47 @@ Fase A de [plano-calibracao.md](plano-calibracao.md). Cada célula foi jogada um
 - **Livro de abertura** (`decade-1980.bin` nos dois lados, 6 células × 200, `bench-results/endrules-games-2026-11-15T23-44-49-323Z.json`): +2 a +4 p.p. de empates e pontuação dos +200 em 95,0% / 64,3% / 64,3%, contra 94,7% / 66,7% / 66,2% sem livro. Diferença dentro da margem (±7 p.p.): **a escada pode rodar sem livro.**
 - **Achado para a escada (Fase B):** com o filtro, a força fica muito íngreme entre 1400 e 1800 (1800 vence 1600 por 94,7% e 1400 por 99,2%). A tolerância cai de 0,8 em 1400 para 0,2 em 1800, e o filtro mais rígido vale centenas de pontos. Pares com 95–99% medem mal o Elo, então a escada precisa de passo menor (100) nessa faixa.
 
+## Depois da Fase A (2026-11-17)
+
+Pendências da Fase A de [plano-calibracao.md](plano-calibracao.md), medidas no fechamento do MVP ([plano-mvp-aceite.md](plano-mvp-aceite.md)). Máquina: desktop Ryzen 5 PRO 4650G (6 núcleos / 12 threads), Chrome 157 headless no Windows, sem outra carga.
+
+### Rodada de 4 partidas no `/spike`
+
+Configuração padrão da página: 5M, só WASM, filtro do Stockfish ligado, ratings 1700 × 1650 descendo 50 por mesa, semente `spike-1`. Três rodadas seguidas na mesma página (o modelo já carregado; download de 3,2 s fora da conta).
+
+| Rodada    | Tempo  | Meios-lances | Finais               |
+| --------- | ------ | ------------ | -------------------- |
+| 1ª (fria) | 11,1 s | 306          | 2 abandonos, 2 mates |
+| 2ª        | 7,9 s  | 306          | idem                 |
+| 3ª        | 8,2 s  | 306          | idem                 |
+
+- **Meta de < 10 s (GDD §8.3): atingida a partir da 2ª rodada** neste desktop. A 1ª passa da meta; a hipótese (não medida) é o aquecimento do ONNX Runtime e do Stockfish nos workers. No jogo, esse custo cairia na rodada 1, depois do draft.
+- As partidas ficaram mais curtas que na medição de 2026-11-14 (306 meios-lances contra 386). Aquela foi feita noutra máquina e antes do filtro e da Fase A, então os tempos não são comparáveis diretamente.
+- **Determinismo:** a 2ª e a 3ª rodadas deram o mesmo hash dos PGNs que a 1ª.
+- Falta medir num notebook médio e num celular médio.
+
+### Sessão `18ya360` em Node
+
+Sessão inteira com os dados `v1` (`tsx`, 5M, onnxruntime-node, filtro ligado), com as escolhas automáticas do draft (o primeiro jogador escolhível de cada sorteio). A equipe não é a mesma da medição de referência: aquela usava a amostra antiga, com 5 vagas. Por isso a comparação vale para a distribuição dos finais, não para as partidas. Equipe: Gligorić, Wang Hao, Rodríguez Céspedes e Chandler; 28 partidas em 104 s.
+
+| Fim                   | Antes do filtro (referência) | Agora |
+| --------------------- | ---------------------------- | ----- |
+| Xeque-mate            | 16                           | 6     |
+| Abandono              | 7                            | 13    |
+| Afogamento            | 3                            | 1     |
+| Tripla repetição      | 2                            | 6     |
+| Material insuficiente | 0                            | 1     |
+| Empate por acordo     | 0                            | 1     |
+
+- **Nenhum abandono antes do lance 30** (`resignFromMove`). Na referência, houve abandonos no 6º e no 11º lance.
+- Mates e afogamentos em finais perdidos caíram de 19 para 7. Um mate saiu no 17º lance (Eljanov × Rodríguez Céspedes, 2697 × 2476), num jogo decidido cedo.
+
 ## Benchmarks futuros (ideias anotadas)
 
 Medições a fazer, em ordem aproximada de prioridade. Ao concluir uma, registre os resultados numa seção própria acima e remova o item daqui.
 
 1. **Calibração pós-filtro (prioridade máxima).** Plano em fases: [plano-calibracao.md](plano-calibracao.md). Junta os antigos itens de escada com o filtro do Stockfish, topo da escala (`selfElo` 2600, T < 1), empate por acordo, abandono, simulação rápida coerente com o Maia e livros de abertura. A ordem garante que a escada (a etapa mais cara, ~6–7 h nesta máquina com o filtro) rode uma vez só, depois das regras de fim de partida.
-2. **Rodada no navegador < 10 s (GDD §8.3).** Repetir a rodada de 4 partidas depois da Fase A do plano de calibração (partidas mais curtas). Medir num notebook médio e num celular médio (tabela "Navegador" acima), e no desktop sem carga paralela.
+2. **Rodada no navegador < 10 s (GDD §8.3).** Desktop medido em 2026-11-17 ("Depois da Fase A": 7,9–8,2 s, 11,1 s na 1ª rodada). Falta medir num notebook médio e num celular médio (tabela "Navegador" acima).
 3. **Configuração do grupo de workers.** Comparar 1 × 4 threads, 2 × 2, 4 × 1 e 4 × 2 em máquinas com 4, 8 e 12+ núcleos, medindo tempo de rodada e memória (4 sessões ONNX). Definir `defaultPoolSize` e `defaultThreadsPerWorker` a partir disso.
 4. **Determinismo entre navegadores e dispositivos (GDD §8.4).** Mesma semente em Chrome, Firefox e Safari, desktop e celular, e com contagens de threads diferentes: os PGNs devem ser idênticos no modo só WASM. Medir também o quanto a WebGPU diverge.
 5. **Modelo 23M (`maiaModelVariant`, "testar 23m").** Repetir escada e validação com o 23M para ver se a compressão no topo diminui, e medir o custo no navegador (download, latência, rodada).

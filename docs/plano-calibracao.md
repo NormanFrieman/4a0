@@ -43,7 +43,7 @@ Houve abandono na abertura (Bobotsov no 6º lance contra Karpov, Gligorić no 11
 
 **Resultado:** `resignFromMove` 30, `resignProb` 0,10, `resignStableMoves` 6; acordo mantido (lance 30, faixa 0,08, 10 lances), porque o alvo de empates vale para jogadores de mesma força (decisão do usuário, 2026-11-15). Livro de abertura sem efeito além da margem: a escada roda sem livro. Execução real: ~1h35 (3 600 + 1 200 partidas), com a varredura offline descrita no passo 2.
 
-Pendente desta fase: rodar de novo a sessão `18ya360` e medir a rodada no `/spike` (vão junto com o passo 12).
+Pendências desta fase feitas em 2026-11-17 (`benchmarks.md`, "Depois da Fase A"): a sessão `18ya360` não teve abandono antes do lance 30, e a rodada no `/spike` levou 7,9–8,2 s no desktop (11,1 s na 1ª rodada).
 
 Não depende da calibração.
 
