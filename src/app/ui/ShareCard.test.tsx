@@ -13,10 +13,38 @@ const summary: ShareSummary = {
   matchPoints: 13,
   gamePoints: 21.5,
   players: [
-    { board: 1, name: "Anatoly Karpov", countryCode: "su", countryName: "URSS", year: 1974 },
-    { board: 2, name: "Bent Larsen", countryCode: "dk", countryName: "Dinamarca", year: 1970 },
-    { board: 3, name: "Lajos Portisch", countryCode: "hu", countryName: "Hungria", year: 1978 },
-    { board: 4, name: "Judit Polgár", countryCode: "hu", countryName: "Hungria", year: 2002 },
+    {
+      board: 1,
+      name: "Anatoly Karpov",
+      countryCode: "su",
+      countryName: "URSS",
+      year: 1974,
+      champion: true,
+    },
+    {
+      board: 2,
+      name: "Bent Larsen",
+      countryCode: "dk",
+      countryName: "Dinamarca",
+      year: 1970,
+      champion: false,
+    },
+    {
+      board: 3,
+      name: "Lajos Portisch",
+      countryCode: "hu",
+      countryName: "Hungria",
+      year: 1978,
+      champion: false,
+    },
+    {
+      board: 4,
+      name: "Judit Polgár",
+      countryCode: "hu",
+      countryName: "Hungria",
+      year: 2002,
+      champion: false,
+    },
   ],
   rounds: [
     { round: 1, own: 3.5, other: 0.5 },
@@ -50,6 +78,20 @@ describe("ShareCard", () => {
     for (const score of ["3½–½", "3–1", "2–2", "2½–1½", "1½–2½", "4–0"])
       expect(html).toContain(score);
     expect(html).toContain("4a0.test/?seed=abc&amp;modo=mestre");
+  });
+
+  it("marks the world champions only", () => {
+    const html = renderToStaticMarkup(
+      <ShareCard
+        medal={summary.medal}
+        players={summary.players}
+        rounds={summary.rounds}
+        labels={shareCardLabels(summary, t)}
+      />,
+    );
+    // Karpov is the only world champion of the summary.
+    expect(html.match(/text-champion/g)).toHaveLength(1);
+    expect(html).toContain('title="Campeão mundial"');
   });
 
   it("shows the place without a medal", () => {

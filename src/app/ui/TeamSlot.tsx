@@ -1,9 +1,11 @@
+import { ChampionName } from "./ChampionName.tsx";
 import { Flag } from "./Flag.tsx";
 import { Kicker } from "./Masthead.tsx";
 
 /**
  * One of the 4 team slots (one per board). Empty slots are dashed;
- * `awaiting` highlights free slots while a card is selected.
+ * `awaiting` highlights free slots while a card is selected. `card.champion`
+ * is the world champion label (i18n), only for world champions.
  */
 export function TeamSlot({
   label,
@@ -13,7 +15,13 @@ export function TeamSlot({
   onPlace,
 }: {
   label: string;
-  card?: { name: string; countryCode: string; countryName: string; year: number } | null;
+  card?: {
+    name: string;
+    countryCode: string;
+    countryName: string;
+    year: number;
+    champion?: string;
+  } | null;
   emptyText: string;
   awaiting?: boolean;
   onPlace?: () => void;
@@ -30,7 +38,7 @@ export function TeamSlot({
       {card ? (
         <div className="flex items-center gap-2">
           <Flag code={card.countryCode} label={card.countryName} className="w-5" />
-          <span className="truncate font-bold">{card.name}</span>
+          <ChampionName name={card.name} champion={card.champion} className="truncate font-bold" />
           <span className="ml-auto text-sm text-muted italic">{card.year}</span>
         </div>
       ) : (

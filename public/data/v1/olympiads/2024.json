@@ -21,7 +21,7 @@
       "score": 9,
       "games": 10,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/in-2024-1.bin"
     },
     {
       "id": "in-2024-2",
@@ -201,7 +201,7 @@
       "score": 3.5,
       "games": 8,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/cn-2024-1.bin"
     },
     {
       "id": "cn-2024-2",
@@ -801,7 +801,7 @@
       "score": 6,
       "games": 8,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/no-2024-1.bin"
     },
     {
       "id": "no-2024-2",

@@ -1,4 +1,5 @@
 import { BoardFrame } from "./BoardFrame.tsx";
+import { ChampionName } from "./ChampionName.tsx";
 import { Kicker } from "./Masthead.tsx";
 import { ResultBadge } from "./ResultBadge.tsx";
 import type { Outcome } from "./format.ts";
@@ -8,6 +9,8 @@ export interface BoardCardPlayer {
   /** null in the Mestre mode. */
   strength: number | null;
   isUser: boolean;
+  /** World champion label (i18n), only for world champions. */
+  champion?: string;
 }
 
 /**
@@ -50,7 +53,11 @@ export function BoardCard({
         aria-hidden
         className={`mr-1 inline-block size-2.5 border border-ink align-middle ${color === "white" ? "bg-white" : "bg-ink"}`}
       />
-      <span className={p.isUser ? "font-bold" : "italic"}>{p.name}</span>{" "}
+      <ChampionName
+        name={p.name}
+        champion={p.champion}
+        className={p.isUser ? "font-bold" : "italic"}
+      />{" "}
       {p.strength !== null && <span className="text-muted tabular-nums">{p.strength}</span>}
     </div>
   );

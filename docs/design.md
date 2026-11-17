@@ -28,6 +28,7 @@ Use as utilidades do Tailwind geradas pelos tokens (`bg-paper`, `text-ink`, `bor
 | `line`                               | `#cdbb9b`                         | Filetes, pontilhados, bordas (decorativo)        | —                    |
 | `win` / `draw` / `loss`              | `#3f6b3a` / `#735a26` / `#8e2b22` | Resultado do ponto de vista do usuário           | 5,2 / 5,5 / 7,0      |
 | `medal-gold` / `-silver` / `-bronze` | `#7d6216` / `#5f6366` / `#87512a` | Medalhas (texto)                                 | 4,8 / 5,1 / 5,4      |
+| `champion`                           | `#7d6216`                         | Campeões mundiais: nome em dourado               | 4,8                  |
 | `board-light` / `board-dark`         | `#efe3c8` / `#b49a6e`             | Casas do tabuleiro (sépia)                       | —                    |
 
 Todos os textos atendem WCAG AA (≥ 4,5) sobre `paper` e `surface`.
@@ -55,6 +56,7 @@ Todo texto de interface entra por props (vem do i18n quando o i18next entrar na 
 | `StyleTrait`                 | Traço Sólido / Equilibrado / Combativo (GDD §7.2)                                                                                                                                                                           |
 | `LineupRow`                  | Uma carta na escalação do sorteio (Draft), selecionável. `strength: null` no modo Mestre                                                                                                                                    |
 | `TeamSlot`                   | Uma das 4 vagas; tracejada quando vazia, realçada (`awaiting`) quando há carta selecionada                                                                                                                                  |
+| `ChampionName`               | Nome do jogador; campeões mundiais (`Person.worldChampion`, GDD §10) em `champion` (dourado), com o rótulo do i18n como dica e para leitores de tela. `inherit` mantém a cor do texto (linha selecionada)                   |
 | `MatchScore`                 | Placar-manchete do match                                                                                                                                                                                                    |
 | `BoardFrame`                 | Tabuleiro chessground só leitura, tema sépia, moldura de papel                                                                                                                                                              |
 | `BoardCard`                  | Uma partida da Rodada: mesa, status colorido, tabuleiro e jogadores (o de cima do tabuleiro primeiro; o usuário em negrito, o adversário em itálico)                                                                        |

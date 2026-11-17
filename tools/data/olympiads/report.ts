@@ -5,6 +5,7 @@
 import type { Person } from "../../../src/data/types.ts";
 import { teams as sampleTeams } from "../sample/source.ts";
 import type { EditionResult, TeamResult } from "./build.ts";
+import type { ChampionBooks } from "./championBooks.ts";
 import { crosstablePage, lineupsPage } from "./cache.ts";
 
 /** A FIDE list older than this before the edition is flagged. */
@@ -188,7 +189,33 @@ ${rows.join("\n")}
 `;
 }
 
-export function renderReport(results: EditionResult[], persons: Person[]): string {
+/** Opening books of the world champions (GDD §7.1, pilot of the per-card book). */
+function championBooksSection(books: ChampionBooks): string {
+  const withBook = books.rows.filter((r) => r.bookFile);
+  const bytes = withBook.reduce((s, r) => s + r.bytes, 0);
+  const rows = books.rows.map(
+    (r) =>
+      `| ${r.name} | ${r.cardId} | ${r.games} | ${r.bookFile ? r.entries : "sem livro"} | ` +
+      `${r.asWhite.join(", ")} | ${r.vsE4.join(", ")} | ${r.vsD4.join(", ")} |`,
+  );
+  const pgn = books.pgnStats.map((p) => `${p.file} ${p.kept}/${p.read}`).join(", ");
+  return `## Livros de abertura dos campeões mundiais
+
+Piloto do livro por carta (GDD §7.1): as partidas de cada campeão no PGN Mentor até o ano da carta, só os lances dele, até \`bookMaxPlies\` meios-lances. Carta com menos de \`bookMinGames\` partidas fica sem livro.
+
+**Cartas:** ${books.rows.length}, ${withBook.length} com livro. **Tamanho:** ${fmt(Math.round(bytes / 100) / 10)} kB. **Partidas lidas** (aproveitadas/lidas): ${pgn}.
+
+| Campeão | Carta | Partidas | Entradas | De brancas | Contra 1.e4 | Contra 1.d4 |
+| --- | --- | --- | --- | --- | --- | --- |
+${rows.join("\n")}
+`;
+}
+
+export function renderReport(
+  results: EditionResult[],
+  persons: Person[],
+  books: ChampionBooks,
+): string {
   const unknown = [...new Set(results.flatMap((r) => r.unknownTitles))];
   const cards = results.flatMap((r) => r.top.flatMap((t) => t.cards));
   const pct = (n: number) =>
@@ -218,6 +245,7 @@ ${results.map(editionSection).join("\n")}
 ${unknown.length ? unknown.map((q) => `- [${q}](https://www.wikidata.org/wiki/${q})`).join("\n") : "Nenhum."}
 Fora da tabela \`TITLE_RANK\` (\`wikidata.ts\`): ignorados no título da carta.
 
+${championBooksSection(books)}
 ## Comparação com a amostra (\`tools/data/sample/source.ts\`)
 
 A amostra foi digitada de memória; em caso de diferença, as fontes prevalecem.

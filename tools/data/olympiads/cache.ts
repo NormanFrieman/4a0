@@ -9,6 +9,8 @@ import type { PersonEntity } from "./wikidata.ts";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const CACHE_DIR = resolve(HERE, "../cache");
+/** PGN collections of the world champions (`pnpm data:pgn --champions`). */
+export const CHAMPIONS_PGN_DIR = join(CACHE_DIR, "pgn");
 export const SOURCES_FILE = join(HERE, "sources.json");
 export const OUT_DIR = join(HERE, "out");
 /** Published dataset (`pnpm data:olympiads --publish`). */

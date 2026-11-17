@@ -1,23 +1,36 @@
 /**
- * Downloads the PGN collections of tools/data/sample/pgnSources.ts into
- * tools/data/sample/pgn/ (git-ignored). `pnpm data:pgn`. Files are only read
- * as text by the book pipeline, never executed. Existing files are kept;
- * pass --force to download again.
+ * Downloads PGN collections from PGN Mentor. Files are only read as text by
+ * the book pipeline, never executed. Existing files are kept; pass --force to
+ * download again.
+ *
+ * - `pnpm data:pgn`: tools/data/sample/pgnSources.ts → tools/data/sample/pgn/
+ * - `pnpm data:pgn --champions`: the world champions of
+ *   tools/data/olympiads/worldChampions.ts → tools/data/cache/pgn/
+ *
+ * Both folders are git-ignored.
  */
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { unzipSync } from "fflate";
+import { CHAMPIONS_PGN_DIR } from "./olympiads/cache.ts";
+import { worldChampions } from "./olympiads/worldChampions.ts";
 import { PGN_BASE_URL, pgnSources } from "./sample/pgnSources.ts";
 
-export const PGN_DIR = resolve(dirname(fileURLToPath(import.meta.url)), "sample/pgn");
+const HERE = dirname(fileURLToPath(import.meta.url));
+export const PGN_DIR = resolve(HERE, "sample/pgn");
 
 async function main() {
   const force = process.argv.includes("--force");
-  mkdirSync(PGN_DIR, { recursive: true });
-  const files = [...new Set(Object.values(pgnSources).map((s) => s.file))];
+  const champions = process.argv.includes("--champions");
+  const dir = champions ? CHAMPIONS_PGN_DIR : PGN_DIR;
+  const sources = champions
+    ? Object.values(worldChampions).map((c) => c.pgn)
+    : Object.values(pgnSources);
+  mkdirSync(dir, { recursive: true });
+  const files = [...new Set(sources.map((s) => s.file))];
   for (const file of files) {
-    const out = join(PGN_DIR, `${file}.pgn`);
+    const out = join(dir, `${file}.pgn`);
     if (!force && existsSync(out)) {
       console.log(`${file}: already downloaded`);
       continue;

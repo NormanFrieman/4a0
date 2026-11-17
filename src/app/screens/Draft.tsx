@@ -73,6 +73,7 @@ export function Draft() {
                     traitLabel={t(`trait.${v.trait}`)}
                     details={details}
                     strength={show ? v.card.strength : null}
+                    {...(v.champion ? { champion: t("champion.label") } : {})}
                     selected={selectedCardId === id}
                     disabled={!pickable.has(id)}
                     onSelect={() => selectCard(id)}
@@ -110,6 +111,7 @@ export function Draft() {
                       countryCode: v.team.countryCode,
                       countryName: v.team.countryName,
                       year: v.team.year,
+                      ...(v.champion ? { champion: t("champion.label") } : {}),
                     }
                   }
                 />

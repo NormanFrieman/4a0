@@ -25,10 +25,27 @@ const traitLabel: Record<Trait, string> = {
   combative: "Combativo",
 };
 
-const lineup: { name: string; board: string; strength: number; trait: Trait; details: string }[] = [
-  { name: "Anatoly Karpov", board: "1ª", strength: 2725, trait: "solid", details: "6½/9" },
+const CHAMPION = "Campeão mundial";
+
+const lineup: {
+  name: string;
+  board: string;
+  strength: number;
+  trait: Trait;
+  details: string;
+  champion?: boolean;
+}[] = [
+  {
+    name: "Anatoly Karpov",
+    board: "1ª",
+    strength: 2725,
+    trait: "solid",
+    details: "6½/9",
+    champion: true,
+  },
   {
     name: "Mikhail Tal",
+    champion: true,
     board: "3ª",
     strength: 2705,
     trait: "combative",
@@ -44,7 +61,7 @@ const games = [
     outcome: null,
     fen: "r2q1rk1/pp2bppp/2n1bn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQ1RK1 w - - 0 10",
     lastMove: ["c8", "e6"] as const,
-    white: { name: "Mikhail Tal", strength: 2705, isUser: true },
+    white: { name: "Mikhail Tal", strength: 2705, isUser: true, champion: CHAMPION },
     black: { name: "Svetozar Gligorić", strength: 2575, isUser: false },
   },
   {
@@ -77,10 +94,38 @@ const games = [
 ];
 
 const sharePlayers = [
-  { board: 1, name: "Anatoly Karpov", countryCode: "su", countryName: "URSS", year: 1974 },
-  { board: 2, name: "Bent Larsen", countryCode: "dk", countryName: "Dinamarca", year: 1970 },
-  { board: 3, name: "Lajos Portisch", countryCode: "hu", countryName: "Hungria", year: 1978 },
-  { board: 4, name: "Svetozar Gligorić", countryCode: "yu", countryName: "Iugoslávia", year: 1972 },
+  {
+    board: 1,
+    name: "Anatoly Karpov",
+    countryCode: "su",
+    countryName: "URSS",
+    year: 1974,
+    champion: true,
+  },
+  {
+    board: 2,
+    name: "Bent Larsen",
+    countryCode: "dk",
+    countryName: "Dinamarca",
+    year: 1970,
+    champion: false,
+  },
+  {
+    board: 3,
+    name: "Lajos Portisch",
+    countryCode: "hu",
+    countryName: "Hungria",
+    year: 1978,
+    champion: false,
+  },
+  {
+    board: 4,
+    name: "Svetozar Gligorić",
+    countryCode: "yu",
+    countryName: "Iugoslávia",
+    year: 1972,
+    champion: false,
+  },
 ];
 
 const shareRounds = [
@@ -105,6 +150,7 @@ const shareLabels = (medal: boolean) => ({
     : "9 pontos de match · 16½ de partida",
   board: (n: number) => `Mesa ${n}`,
   round: (n: number) => `${n}ª`,
+  champion: CHAMPION,
   footer: "Jogue a mesma semente em 4a0.example/?seed=abc&modo=mestre",
 });
 
@@ -245,6 +291,7 @@ export function UiCatalog() {
                   traitLabel={traitLabel[c.trait]}
                   details={c.details}
                   strength={hide(c.strength)}
+                  {...(c.champion ? { champion: CHAMPION } : {})}
                   selected={selected === c.name}
                   onSelect={() => setSelected((s) => (s === c.name ? null : c.name))}
                 />
@@ -254,6 +301,7 @@ export function UiCatalog() {
               <LineupRow
                 boardLabel="res."
                 name="Garry Kasparov (já na equipe)"
+                champion={CHAMPION}
                 title="GM"
                 trait="combative"
                 traitLabel={traitLabel.combative}
@@ -265,6 +313,17 @@ export function UiCatalog() {
           </ol>
           <div className="space-y-2">
             <TeamSlot label="Mesa 1" emptyText="vaga em aberto" awaiting={!!selected} />
+            <TeamSlot
+              label="Mesa 3"
+              emptyText="vaga em aberto"
+              card={{
+                name: "Mikhail Tal",
+                countryCode: "su",
+                countryName: "URSS",
+                year: 1972,
+                champion: CHAMPION,
+              }}
+            />
             <TeamSlot
               label="Mesa 2"
               emptyText="vaga em aberto"

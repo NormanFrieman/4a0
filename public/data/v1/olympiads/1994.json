@@ -21,7 +21,7 @@
       "score": 6.5,
       "games": 10,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/ru-1994-1.bin"
     },
     {
       "id": "ru-1994-2",
@@ -36,7 +36,7 @@
       "score": 8,
       "games": 11,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/ru-1994-2.bin"
     },
     {
       "id": "ru-1994-3",

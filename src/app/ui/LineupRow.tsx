@@ -1,8 +1,11 @@
+import { ChampionName } from "./ChampionName.tsx";
 import { StyleTrait, type Trait } from "./StyleTrait.tsx";
 
 /**
  * One card in a roll's lineup, as a selectable typographic row (Draft).
- * Strength is `null` in the Mestre mode (hidden, GDD §4.2).
+ * Strength is `null` in the Mestre mode (hidden, GDD §4.2). `champion` is the
+ * world champion label (i18n), only for world champions: their name is gold,
+ * with the label as tooltip and for screen readers.
  */
 export function LineupRow({
   boardLabel,
@@ -12,6 +15,7 @@ export function LineupRow({
   traitLabel,
   details,
   strength,
+  champion,
   selected = false,
   disabled = false,
   onSelect,
@@ -24,6 +28,7 @@ export function LineupRow({
   /** Extra line after the trait, e.g. "7½/11 · medalha de prata". */
   details?: string;
   strength: number | null;
+  champion?: string;
   selected?: boolean;
   disabled?: boolean;
   onSelect?: () => void;
@@ -38,7 +43,12 @@ export function LineupRow({
     >
       <span className="text-sm tabular-nums opacity-70">{boardLabel}</span>
       <span className="min-w-0">
-        <span className="text-lg font-bold">{name}</span>{" "}
+        <ChampionName
+          name={name}
+          champion={champion}
+          inherit={selected}
+          className="text-lg font-bold"
+        />{" "}
         <span className="text-xs tracking-widest uppercase opacity-70">{title}</span>
         <span className="block text-sm opacity-80">
           <StyleTrait trait={trait} label={traitLabel} />

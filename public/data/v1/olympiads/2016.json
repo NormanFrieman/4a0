@@ -156,7 +156,7 @@
       "score": 6.5,
       "games": 8,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/ru-2016-2.bin"
     },
     {
       "id": "ru-2016-3",
@@ -261,7 +261,7 @@
       "score": 7.5,
       "games": 10,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/no-2016-1.bin"
     },
     {
       "id": "no-2016-2",
@@ -756,7 +756,7 @@
       "score": 7.5,
       "games": 10,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/cn-2016-2.bin"
     },
     {
       "id": "cn-2016-3",

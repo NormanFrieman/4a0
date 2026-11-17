@@ -81,7 +81,7 @@
       "score": 7,
       "games": 11,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/su-1978-1.bin"
     },
     {
       "id": "su-1978-2",
@@ -96,7 +96,7 @@
       "score": 6,
       "games": 9,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/su-1978-2.bin"
     },
     {
       "id": "su-1978-3",

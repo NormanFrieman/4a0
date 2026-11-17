@@ -6,7 +6,8 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.622
+    "decisiveness": 0.622,
+    "worldChampion": true
   },
   {
     "id": "Q10365093",
@@ -15,7 +16,8 @@
       "br"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q104148",
@@ -24,7 +26,8 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.52
+    "decisiveness": 0.52,
+    "worldChampion": true
   },
   {
     "id": "Q1042830",
@@ -33,7 +36,8 @@
       "co"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.592
+    "decisiveness": 0.592,
+    "worldChampion": false
   },
   {
     "id": "Q106374",
@@ -42,7 +46,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.353
+    "decisiveness": 0.353,
+    "worldChampion": false
   },
   {
     "id": "Q106807",
@@ -51,7 +56,8 @@
       "no"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.647
+    "decisiveness": 0.647,
+    "worldChampion": true
   },
   {
     "id": "Q1078924",
@@ -60,7 +66,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.51
+    "decisiveness": 0.51,
+    "worldChampion": false
   },
   {
     "id": "Q108129123",
@@ -69,7 +76,8 @@
       "lt"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.714
+    "decisiveness": 0.714,
+    "worldChampion": false
   },
   {
     "id": "Q108311537",
@@ -78,7 +86,8 @@
       "tr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4
+    "decisiveness": 0.4,
+    "worldChampion": false
   },
   {
     "id": "Q108328207",
@@ -87,7 +96,8 @@
       "tr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.476
+    "decisiveness": 0.476,
+    "worldChampion": false
   },
   {
     "id": "Q108396478",
@@ -96,7 +106,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q108562291",
@@ -105,7 +116,8 @@
       "ir"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q108574423",
@@ -114,7 +126,8 @@
       "vn"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.818
+    "decisiveness": 0.818,
+    "worldChampion": false
   },
   {
     "id": "Q108577394",
@@ -123,7 +136,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.65
+    "decisiveness": 0.65,
+    "worldChampion": false
   },
   {
     "id": "Q10860652",
@@ -132,7 +146,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q108807",
@@ -141,7 +156,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.765
+    "decisiveness": 0.765,
+    "worldChampion": false
   },
   {
     "id": "Q109422804",
@@ -150,7 +166,8 @@
       "vn"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q109727",
@@ -159,7 +176,8 @@
       "de"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.65
+    "decisiveness": 0.65,
+    "worldChampion": false
   },
   {
     "id": "Q1097763",
@@ -168,7 +186,8 @@
       "pl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q1106653",
@@ -177,7 +196,8 @@
       "nl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.643
+    "decisiveness": 0.643,
+    "worldChampion": false
   },
   {
     "id": "Q1119406",
@@ -186,7 +206,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.649
+    "decisiveness": 0.649,
+    "worldChampion": false
   },
   {
     "id": "Q112168",
@@ -195,7 +216,8 @@
       "py"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q112198429",
@@ -204,7 +226,8 @@
       "ir"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.75
+    "decisiveness": 0.75,
+    "worldChampion": false
   },
   {
     "id": "Q1124934",
@@ -213,7 +236,8 @@
       "rs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.685
+    "decisiveness": 0.685,
+    "worldChampion": false
   },
   {
     "id": "Q113087582",
@@ -222,7 +246,8 @@
       "ir"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q1142618",
@@ -231,7 +256,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.25
+    "decisiveness": 0.25,
+    "worldChampion": false
   },
   {
     "id": "Q114505",
@@ -240,7 +266,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.72
+    "decisiveness": 0.72,
+    "worldChampion": false
   },
   {
     "id": "Q115212",
@@ -249,7 +276,8 @@
       "kz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.436
+    "decisiveness": 0.436,
+    "worldChampion": false
   },
   {
     "id": "Q1152824",
@@ -258,7 +286,8 @@
       "no"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.442
+    "decisiveness": 0.442,
+    "worldChampion": false
   },
   {
     "id": "Q115303",
@@ -267,7 +296,8 @@
       "kz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.507
+    "decisiveness": 0.507,
+    "worldChampion": false
   },
   {
     "id": "Q115562538",
@@ -276,7 +306,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.545
+    "decisiveness": 0.545,
+    "worldChampion": false
   },
   {
     "id": "Q1160387",
@@ -285,7 +316,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.554
+    "decisiveness": 0.554,
+    "worldChampion": false
   },
   {
     "id": "Q11691651",
@@ -294,7 +326,8 @@
       "pe"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q116980550",
@@ -303,7 +336,8 @@
       "vn"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.636
+    "decisiveness": 0.636,
+    "worldChampion": false
   },
   {
     "id": "Q116980860",
@@ -312,7 +346,8 @@
       "vn"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.818
+    "decisiveness": 0.818,
+    "worldChampion": false
   },
   {
     "id": "Q1169976",
@@ -321,7 +356,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.615
+    "decisiveness": 0.615,
+    "worldChampion": false
   },
   {
     "id": "Q11699820",
@@ -330,7 +366,8 @@
       "co"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.724
+    "decisiveness": 0.724,
+    "worldChampion": false
   },
   {
     "id": "Q11728361",
@@ -339,7 +376,8 @@
       "cs"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.516
+    "decisiveness": 0.516,
+    "worldChampion": false
   },
   {
     "id": "Q11728571",
@@ -348,7 +386,8 @@
       "py"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.816
+    "decisiveness": 0.816,
+    "worldChampion": false
   },
   {
     "id": "Q11742921",
@@ -357,7 +396,8 @@
       "se"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.857
+    "decisiveness": 0.857,
+    "worldChampion": false
   },
   {
     "id": "Q11755625",
@@ -366,7 +406,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.536
+    "decisiveness": 0.536,
+    "worldChampion": false
   },
   {
     "id": "Q11780574",
@@ -375,7 +416,8 @@
       "ro"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.605
+    "decisiveness": 0.605,
+    "worldChampion": false
   },
   {
     "id": "Q1178283",
@@ -384,7 +426,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.471
+    "decisiveness": 0.471,
+    "worldChampion": false
   },
   {
     "id": "Q11797711",
@@ -393,7 +436,8 @@
       "dk"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.514
+    "decisiveness": 0.514,
+    "worldChampion": false
   },
   {
     "id": "Q11802586",
@@ -402,7 +446,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.531
+    "decisiveness": 0.531,
+    "worldChampion": false
   },
   {
     "id": "Q11856779",
@@ -411,7 +456,8 @@
       "fi"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.333
+    "decisiveness": 0.333,
+    "worldChampion": false
   },
   {
     "id": "Q11887540",
@@ -420,7 +466,8 @@
       "fi"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.722
+    "decisiveness": 0.722,
+    "worldChampion": false
   },
   {
     "id": "Q1190860",
@@ -429,7 +476,8 @@
       "br"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.628
+    "decisiveness": 0.628,
+    "worldChampion": false
   },
   {
     "id": "Q1191198",
@@ -438,7 +486,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.456
+    "decisiveness": 0.456,
+    "worldChampion": true
   },
   {
     "id": "Q122628",
@@ -447,7 +496,8 @@
       "ch"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.655
+    "decisiveness": 0.655,
+    "worldChampion": false
   },
   {
     "id": "Q12541963",
@@ -456,7 +506,8 @@
       "kz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.588
+    "decisiveness": 0.588,
+    "worldChampion": false
   },
   {
     "id": "Q1254774",
@@ -465,7 +516,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.78
+    "decisiveness": 0.78,
+    "worldChampion": false
   },
   {
     "id": "Q1256081",
@@ -474,7 +526,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.579
+    "decisiveness": 0.579,
+    "worldChampion": false
   },
   {
     "id": "Q1266603",
@@ -483,7 +536,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.607
+    "decisiveness": 0.607,
+    "worldChampion": false
   },
   {
     "id": "Q1268259",
@@ -492,7 +546,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q1275033",
@@ -501,7 +556,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q1278611",
@@ -510,7 +566,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.558
+    "decisiveness": 0.558,
+    "worldChampion": false
   },
   {
     "id": "Q1284438",
@@ -519,7 +576,8 @@
       "id"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.596
+    "decisiveness": 0.596,
+    "worldChampion": false
   },
   {
     "id": "Q1286880",
@@ -528,7 +586,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.694
+    "decisiveness": 0.694,
+    "worldChampion": false
   },
   {
     "id": "Q1300969",
@@ -537,7 +596,8 @@
       "ir"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.509
+    "decisiveness": 0.509,
+    "worldChampion": false
   },
   {
     "id": "Q1308965",
@@ -546,7 +606,8 @@
       "br"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.68
+    "decisiveness": 0.68,
+    "worldChampion": false
   },
   {
     "id": "Q131674",
@@ -555,7 +616,8 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.662
+    "decisiveness": 0.662,
+    "worldChampion": true
   },
   {
     "id": "Q1320395",
@@ -564,7 +626,8 @@
       "vn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.553
+    "decisiveness": 0.553,
+    "worldChampion": false
   },
   {
     "id": "Q1321833",
@@ -573,7 +636,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.429
+    "decisiveness": 0.429,
+    "worldChampion": false
   },
   {
     "id": "Q1323576",
@@ -582,7 +646,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.578
+    "decisiveness": 0.578,
+    "worldChampion": false
   },
   {
     "id": "Q1326557",
@@ -591,7 +656,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.557
+    "decisiveness": 0.557,
+    "worldChampion": false
   },
   {
     "id": "Q1334037",
@@ -600,7 +666,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.675
+    "decisiveness": 0.675,
+    "worldChampion": false
   },
   {
     "id": "Q1334637",
@@ -609,7 +676,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.693
+    "decisiveness": 0.693,
+    "worldChampion": false
   },
   {
     "id": "Q1335244",
@@ -618,7 +686,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.602
+    "decisiveness": 0.602,
+    "worldChampion": false
   },
   {
     "id": "Q1335802",
@@ -627,7 +696,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.597
+    "decisiveness": 0.597,
+    "worldChampion": false
   },
   {
     "id": "Q1338537",
@@ -636,7 +706,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.596
+    "decisiveness": 0.596,
+    "worldChampion": false
   },
   {
     "id": "Q1338668",
@@ -645,7 +716,8 @@
       "fi"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.684
+    "decisiveness": 0.684,
+    "worldChampion": false
   },
   {
     "id": "Q1339557",
@@ -654,7 +726,8 @@
       "tr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.615
+    "decisiveness": 0.615,
+    "worldChampion": false
   },
   {
     "id": "Q1342196",
@@ -663,7 +736,8 @@
       "lv"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.708
+    "decisiveness": 0.708,
+    "worldChampion": false
   },
   {
     "id": "Q1342210",
@@ -672,7 +746,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.513
+    "decisiveness": 0.513,
+    "worldChampion": false
   },
   {
     "id": "Q1343565",
@@ -681,7 +756,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.574
+    "decisiveness": 0.574,
+    "worldChampion": false
   },
   {
     "id": "Q1346918",
@@ -690,7 +766,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.439
+    "decisiveness": 0.439,
+    "worldChampion": false
   },
   {
     "id": "Q1346942",
@@ -699,7 +776,8 @@
       "ba"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.468
+    "decisiveness": 0.468,
+    "worldChampion": false
   },
   {
     "id": "Q1347292",
@@ -708,7 +786,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.382
+    "decisiveness": 0.382,
+    "worldChampion": false
   },
   {
     "id": "Q1347335",
@@ -717,7 +796,8 @@
       "it"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.475
+    "decisiveness": 0.475,
+    "worldChampion": false
   },
   {
     "id": "Q1347365",
@@ -726,7 +806,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.636
+    "decisiveness": 0.636,
+    "worldChampion": false
   },
   {
     "id": "Q1347422",
@@ -735,7 +816,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.54
+    "decisiveness": 0.54,
+    "worldChampion": false
   },
   {
     "id": "Q1350057",
@@ -744,7 +826,8 @@
       "id"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.657
+    "decisiveness": 0.657,
+    "worldChampion": false
   },
   {
     "id": "Q1350369",
@@ -753,7 +836,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.397
+    "decisiveness": 0.397,
+    "worldChampion": false
   },
   {
     "id": "Q1353835",
@@ -762,7 +846,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.783
+    "decisiveness": 0.783,
+    "worldChampion": false
   },
   {
     "id": "Q1355533",
@@ -771,7 +856,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.321
+    "decisiveness": 0.321,
+    "worldChampion": false
   },
   {
     "id": "Q1356841",
@@ -780,7 +866,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.479
+    "decisiveness": 0.479,
+    "worldChampion": false
   },
   {
     "id": "Q1359706",
@@ -789,7 +876,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.842
+    "decisiveness": 0.842,
+    "worldChampion": false
   },
   {
     "id": "Q1361566",
@@ -798,7 +886,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.466
+    "decisiveness": 0.466,
+    "worldChampion": false
   },
   {
     "id": "Q1361637",
@@ -807,7 +896,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q13631982",
@@ -816,7 +906,8 @@
       "cn"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q1363654",
@@ -825,7 +916,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.536
+    "decisiveness": 0.536,
+    "worldChampion": false
   },
   {
     "id": "Q1364609",
@@ -834,7 +926,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.676
+    "decisiveness": 0.676,
+    "worldChampion": false
   },
   {
     "id": "Q13646741",
@@ -843,7 +936,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55
+    "decisiveness": 0.55,
+    "worldChampion": false
   },
   {
     "id": "Q1365436",
@@ -852,7 +946,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.537
+    "decisiveness": 0.537,
+    "worldChampion": false
   },
   {
     "id": "Q1367139",
@@ -861,7 +956,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.506
+    "decisiveness": 0.506,
+    "worldChampion": false
   },
   {
     "id": "Q1368259",
@@ -870,7 +966,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.522
+    "decisiveness": 0.522,
+    "worldChampion": false
   },
   {
     "id": "Q1371501",
@@ -879,7 +976,8 @@
       "mk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.574
+    "decisiveness": 0.574,
+    "worldChampion": false
   },
   {
     "id": "Q1373329",
@@ -888,7 +986,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.605
+    "decisiveness": 0.605,
+    "worldChampion": false
   },
   {
     "id": "Q1373353",
@@ -897,7 +996,8 @@
       "ph"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.541
+    "decisiveness": 0.541,
+    "worldChampion": false
   },
   {
     "id": "Q1374241",
@@ -906,7 +1006,8 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q1376710",
@@ -915,7 +1016,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.525
+    "decisiveness": 0.525,
+    "worldChampion": false
   },
   {
     "id": "Q1376746",
@@ -924,7 +1026,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.545
+    "decisiveness": 0.545,
+    "worldChampion": false
   },
   {
     "id": "Q1376801",
@@ -934,7 +1037,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.574
+    "decisiveness": 0.574,
+    "worldChampion": false
   },
   {
     "id": "Q1376810",
@@ -943,7 +1047,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.651
+    "decisiveness": 0.651,
+    "worldChampion": false
   },
   {
     "id": "Q1376916",
@@ -952,7 +1057,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.559
+    "decisiveness": 0.559,
+    "worldChampion": false
   },
   {
     "id": "Q1379305",
@@ -961,7 +1067,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.833
+    "decisiveness": 0.833,
+    "worldChampion": false
   },
   {
     "id": "Q1379424",
@@ -970,7 +1077,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.524
+    "decisiveness": 0.524,
+    "worldChampion": false
   },
   {
     "id": "Q1379765",
@@ -979,7 +1087,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.519
+    "decisiveness": 0.519,
+    "worldChampion": false
   },
   {
     "id": "Q1379840",
@@ -988,7 +1097,8 @@
       "it"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.59
+    "decisiveness": 0.59,
+    "worldChampion": false
   },
   {
     "id": "Q1379866",
@@ -997,7 +1107,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.604
+    "decisiveness": 0.604,
+    "worldChampion": false
   },
   {
     "id": "Q1382022",
@@ -1006,7 +1117,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.482
+    "decisiveness": 0.482,
+    "worldChampion": false
   },
   {
     "id": "Q1382386",
@@ -1015,7 +1127,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4
+    "decisiveness": 0.4,
+    "worldChampion": false
   },
   {
     "id": "Q1382684",
@@ -1024,7 +1137,8 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.582
+    "decisiveness": 0.582,
+    "worldChampion": false
   },
   {
     "id": "Q1383082",
@@ -1033,7 +1147,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.745
+    "decisiveness": 0.745,
+    "worldChampion": false
   },
   {
     "id": "Q1383467",
@@ -1042,7 +1157,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.495
+    "decisiveness": 0.495,
+    "worldChampion": false
   },
   {
     "id": "Q1387247",
@@ -1051,7 +1167,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.278
+    "decisiveness": 0.278,
+    "worldChampion": false
   },
   {
     "id": "Q139438",
@@ -1060,7 +1177,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.491
+    "decisiveness": 0.491,
+    "worldChampion": false
   },
   {
     "id": "Q1396774",
@@ -1069,7 +1187,8 @@
       "is"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.52
+    "decisiveness": 0.52,
+    "worldChampion": false
   },
   {
     "id": "Q1397091",
@@ -1078,7 +1197,8 @@
       "is"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.522
+    "decisiveness": 0.522,
+    "worldChampion": false
   },
   {
     "id": "Q1398266",
@@ -1087,7 +1207,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.357
+    "decisiveness": 0.357,
+    "worldChampion": false
   },
   {
     "id": "Q1406499",
@@ -1096,7 +1217,8 @@
       "ch"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.741
+    "decisiveness": 0.741,
+    "worldChampion": false
   },
   {
     "id": "Q142319",
@@ -1105,7 +1227,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q1439516",
@@ -1114,7 +1237,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.684
+    "decisiveness": 0.684,
+    "worldChampion": false
   },
   {
     "id": "Q1443810",
@@ -1123,7 +1247,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.701
+    "decisiveness": 0.701,
+    "worldChampion": false
   },
   {
     "id": "Q1450826",
@@ -1132,7 +1257,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.419
+    "decisiveness": 0.419,
+    "worldChampion": false
   },
   {
     "id": "Q1468090",
@@ -1141,7 +1267,8 @@
       "md"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.604
+    "decisiveness": 0.604,
+    "worldChampion": false
   },
   {
     "id": "Q14703323",
@@ -1150,7 +1277,8 @@
       "tr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.622
+    "decisiveness": 0.622,
+    "worldChampion": false
   },
   {
     "id": "Q147495",
@@ -1159,7 +1287,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.453
+    "decisiveness": 0.453,
+    "worldChampion": false
   },
   {
     "id": "Q15043825",
@@ -1168,7 +1297,8 @@
       "au"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.659
+    "decisiveness": 0.659,
+    "worldChampion": false
   },
   {
     "id": "Q15068870",
@@ -1177,7 +1307,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q15206237",
@@ -1186,7 +1317,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.615
+    "decisiveness": 0.615,
+    "worldChampion": false
   },
   {
     "id": "Q1524136",
@@ -1195,7 +1327,8 @@
       "br"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.621
+    "decisiveness": 0.621,
+    "worldChampion": false
   },
   {
     "id": "Q154586",
@@ -1205,7 +1338,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.448
+    "decisiveness": 0.448,
+    "worldChampion": false
   },
   {
     "id": "Q15614436",
@@ -1214,7 +1348,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.419
+    "decisiveness": 0.419,
+    "worldChampion": false
   },
   {
     "id": "Q15614497",
@@ -1223,7 +1358,8 @@
       "ca"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.8
+    "decisiveness": 0.8,
+    "worldChampion": false
   },
   {
     "id": "Q15633706",
@@ -1232,7 +1368,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.333
+    "decisiveness": 0.333,
+    "worldChampion": false
   },
   {
     "id": "Q15783291",
@@ -1241,7 +1378,8 @@
       "at"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.636
+    "decisiveness": 0.636,
+    "worldChampion": false
   },
   {
     "id": "Q158050",
@@ -1250,7 +1388,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q15877133",
@@ -1259,7 +1398,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.585
+    "decisiveness": 0.585,
+    "worldChampion": false
   },
   {
     "id": "Q1594647",
@@ -1268,7 +1408,8 @@
       "fi"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.641
+    "decisiveness": 0.641,
+    "worldChampion": false
   },
   {
     "id": "Q15955505",
@@ -1277,7 +1418,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.541
+    "decisiveness": 0.541,
+    "worldChampion": false
   },
   {
     "id": "Q1601176",
@@ -1286,7 +1428,8 @@
       "ch"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q16015836",
@@ -1295,7 +1438,8 @@
       "co"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q161092",
@@ -1304,7 +1448,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.444
+    "decisiveness": 0.444,
+    "worldChampion": true
   },
   {
     "id": "Q16157664",
@@ -1313,7 +1458,8 @@
       "vn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.545
+    "decisiveness": 0.545,
+    "worldChampion": false
   },
   {
     "id": "Q1620593",
@@ -1322,7 +1468,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.73
+    "decisiveness": 0.73,
+    "worldChampion": false
   },
   {
     "id": "Q16299158",
@@ -1331,7 +1478,8 @@
       "fi"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.85
+    "decisiveness": 0.85,
+    "worldChampion": false
   },
   {
     "id": "Q1630579",
@@ -1340,7 +1488,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.833
+    "decisiveness": 0.833,
+    "worldChampion": false
   },
   {
     "id": "Q1643669",
@@ -1349,7 +1498,8 @@
       "it"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q1645419",
@@ -1358,7 +1508,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.489
+    "decisiveness": 0.489,
+    "worldChampion": false
   },
   {
     "id": "Q16555772",
@@ -1367,7 +1518,8 @@
       "pe"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.73
+    "decisiveness": 0.73,
+    "worldChampion": false
   },
   {
     "id": "Q1657753",
@@ -1377,7 +1529,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.623
+    "decisiveness": 0.623,
+    "worldChampion": false
   },
   {
     "id": "Q1657802",
@@ -1386,7 +1539,8 @@
       "lv"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.37
+    "decisiveness": 0.37,
+    "worldChampion": false
   },
   {
     "id": "Q1658816",
@@ -1395,7 +1549,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.813
+    "decisiveness": 0.813,
+    "worldChampion": false
   },
   {
     "id": "Q1658829",
@@ -1404,7 +1559,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q16630500",
@@ -1413,7 +1569,8 @@
       "ca"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.818
+    "decisiveness": 0.818,
+    "worldChampion": false
   },
   {
     "id": "Q16655550",
@@ -1422,7 +1579,8 @@
       "rs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.681
+    "decisiveness": 0.681,
+    "worldChampion": false
   },
   {
     "id": "Q16670513",
@@ -1431,7 +1589,8 @@
       "il"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q16713280",
@@ -1440,7 +1599,8 @@
       "dk"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.484
+    "decisiveness": 0.484,
+    "worldChampion": false
   },
   {
     "id": "Q1675990",
@@ -1449,7 +1609,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.526
+    "decisiveness": 0.526,
+    "worldChampion": false
   },
   {
     "id": "Q168048",
@@ -1458,7 +1619,8 @@
       "pl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q1682332",
@@ -1467,7 +1629,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q168312",
@@ -1476,7 +1639,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.463
+    "decisiveness": 0.463,
+    "worldChampion": false
   },
   {
     "id": "Q168943",
@@ -1486,7 +1650,8 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.675
+    "decisiveness": 0.675,
+    "worldChampion": false
   },
   {
     "id": "Q16937772",
@@ -1495,7 +1660,8 @@
       "lt"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.614
+    "decisiveness": 0.614,
+    "worldChampion": false
   },
   {
     "id": "Q1703454",
@@ -1504,7 +1670,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.595
+    "decisiveness": 0.595,
+    "worldChampion": false
   },
   {
     "id": "Q1713972",
@@ -1513,7 +1680,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q1715662",
@@ -1522,7 +1690,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.56
+    "decisiveness": 0.56,
+    "worldChampion": false
   },
   {
     "id": "Q1723070",
@@ -1531,7 +1700,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q172798",
@@ -1540,7 +1710,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.647
+    "decisiveness": 0.647,
+    "worldChampion": false
   },
   {
     "id": "Q17386461",
@@ -1549,7 +1720,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55
+    "decisiveness": 0.55,
+    "worldChampion": false
   },
   {
     "id": "Q17411381",
@@ -1558,7 +1730,8 @@
       "id"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.714
+    "decisiveness": 0.714,
+    "worldChampion": false
   },
   {
     "id": "Q17482340",
@@ -1567,7 +1740,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.75
+    "decisiveness": 0.75,
+    "worldChampion": false
   },
   {
     "id": "Q1770496",
@@ -1576,7 +1750,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.69
+    "decisiveness": 0.69,
+    "worldChampion": false
   },
   {
     "id": "Q177310",
@@ -1586,7 +1761,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.367
+    "decisiveness": 0.367,
+    "worldChampion": true
   },
   {
     "id": "Q180636",
@@ -1595,7 +1771,8 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.509
+    "decisiveness": 0.509,
+    "worldChampion": true
   },
   {
     "id": "Q1817728",
@@ -1604,7 +1781,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.558
+    "decisiveness": 0.558,
+    "worldChampion": false
   },
   {
     "id": "Q18202642",
@@ -1613,7 +1791,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.577
+    "decisiveness": 0.577,
+    "worldChampion": false
   },
   {
     "id": "Q18238541",
@@ -1622,7 +1801,8 @@
       "at"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.68
+    "decisiveness": 0.68,
+    "worldChampion": false
   },
   {
     "id": "Q18243395",
@@ -1631,7 +1811,8 @@
       "de"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q18274585",
@@ -1640,7 +1821,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q18280536",
@@ -1649,7 +1831,8 @@
       "dk"
     ],
     "maxTitle": "",
-    "decisiveness": 0.833
+    "decisiveness": 0.833,
+    "worldChampion": false
   },
   {
     "id": "Q183250",
@@ -1658,7 +1841,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.588
+    "decisiveness": 0.588,
+    "worldChampion": false
   },
   {
     "id": "Q185236",
@@ -1667,7 +1851,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.557
+    "decisiveness": 0.557,
+    "worldChampion": false
   },
   {
     "id": "Q1853719",
@@ -1676,7 +1861,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q1857837",
@@ -1685,7 +1871,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.435
+    "decisiveness": 0.435,
+    "worldChampion": false
   },
   {
     "id": "Q18634656",
@@ -1694,7 +1881,8 @@
       "vn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q1891541",
@@ -1703,7 +1891,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.569
+    "decisiveness": 0.569,
+    "worldChampion": false
   },
   {
     "id": "Q1950207",
@@ -1712,7 +1901,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q195112",
@@ -1721,7 +1911,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55
+    "decisiveness": 0.55,
+    "worldChampion": false
   },
   {
     "id": "Q195296",
@@ -1730,7 +1921,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q1961002",
@@ -1739,7 +1931,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.633
+    "decisiveness": 0.633,
+    "worldChampion": false
   },
   {
     "id": "Q1961009",
@@ -1748,7 +1941,8 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.678
+    "decisiveness": 0.678,
+    "worldChampion": false
   },
   {
     "id": "Q19613834",
@@ -1757,7 +1951,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q19615148",
@@ -1766,7 +1961,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.692
+    "decisiveness": 0.692,
+    "worldChampion": false
   },
   {
     "id": "Q197265",
@@ -1775,7 +1971,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.9
+    "decisiveness": 0.9,
+    "worldChampion": false
   },
   {
     "id": "Q1973188",
@@ -1784,7 +1981,8 @@
       "lv"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.631
+    "decisiveness": 0.631,
+    "worldChampion": false
   },
   {
     "id": "Q197348",
@@ -1793,7 +1991,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.615
+    "decisiveness": 0.615,
+    "worldChampion": false
   },
   {
     "id": "Q197984",
@@ -1802,7 +2001,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.375
+    "decisiveness": 0.375,
+    "worldChampion": false
   },
   {
     "id": "Q19915607",
@@ -1811,7 +2011,8 @@
       "rs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.579
+    "decisiveness": 0.579,
+    "worldChampion": false
   },
   {
     "id": "Q1992344",
@@ -1820,7 +2021,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.593
+    "decisiveness": 0.593,
+    "worldChampion": false
   },
   {
     "id": "Q1992664",
@@ -1829,7 +2031,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.632
+    "decisiveness": 0.632,
+    "worldChampion": false
   },
   {
     "id": "Q1999428",
@@ -1838,7 +2041,8 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.506
+    "decisiveness": 0.506,
+    "worldChampion": false
   },
   {
     "id": "Q20026028",
@@ -1847,7 +2051,8 @@
       "vn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.467
+    "decisiveness": 0.467,
+    "worldChampion": false
   },
   {
     "id": "Q2004661",
@@ -1856,7 +2061,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.63
+    "decisiveness": 0.63,
+    "worldChampion": false
   },
   {
     "id": "Q2004689",
@@ -1865,7 +2071,8 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.554
+    "decisiveness": 0.554,
+    "worldChampion": false
   },
   {
     "id": "Q20179966",
@@ -1874,7 +2081,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q202015",
@@ -1883,7 +2091,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.684
+    "decisiveness": 0.684,
+    "worldChampion": false
   },
   {
     "id": "Q2030950",
@@ -1892,7 +2101,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.493
+    "decisiveness": 0.493,
+    "worldChampion": false
   },
   {
     "id": "Q2033533",
@@ -1901,7 +2111,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q2034176",
@@ -1910,7 +2121,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.515
+    "decisiveness": 0.515,
+    "worldChampion": false
   },
   {
     "id": "Q2036425",
@@ -1919,7 +2131,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q203644",
@@ -1928,7 +2141,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.494
+    "decisiveness": 0.494,
+    "worldChampion": false
   },
   {
     "id": "Q2047618",
@@ -1937,7 +2151,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q2047898",
@@ -1946,7 +2161,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.556
+    "decisiveness": 0.556,
+    "worldChampion": false
   },
   {
     "id": "Q20503420",
@@ -1955,7 +2171,8 @@
       "lt"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q20503481",
@@ -1964,7 +2181,8 @@
       "lt"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.421
+    "decisiveness": 0.421,
+    "worldChampion": false
   },
   {
     "id": "Q2062580",
@@ -1973,7 +2191,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.385
+    "decisiveness": 0.385,
+    "worldChampion": false
   },
   {
     "id": "Q20631628",
@@ -1982,7 +2201,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.68
+    "decisiveness": 0.68,
+    "worldChampion": false
   },
   {
     "id": "Q2064831",
@@ -1991,7 +2211,8 @@
       "pl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.733
+    "decisiveness": 0.733,
+    "worldChampion": false
   },
   {
     "id": "Q2065079",
@@ -2001,7 +2222,8 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.635
+    "decisiveness": 0.635,
+    "worldChampion": false
   },
   {
     "id": "Q2066039",
@@ -2010,7 +2232,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.581
+    "decisiveness": 0.581,
+    "worldChampion": false
   },
   {
     "id": "Q2071871",
@@ -2019,7 +2242,8 @@
       "co"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.742
+    "decisiveness": 0.742,
+    "worldChampion": false
   },
   {
     "id": "Q2076172",
@@ -2028,7 +2252,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.714
+    "decisiveness": 0.714,
+    "worldChampion": false
   },
   {
     "id": "Q207723",
@@ -2037,7 +2262,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.426
+    "decisiveness": 0.426,
+    "worldChampion": false
   },
   {
     "id": "Q2077405",
@@ -2046,7 +2272,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.682
+    "decisiveness": 0.682,
+    "worldChampion": false
   },
   {
     "id": "Q2078617",
@@ -2055,7 +2282,8 @@
       "is"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.515
+    "decisiveness": 0.515,
+    "worldChampion": false
   },
   {
     "id": "Q20808228",
@@ -2064,7 +2292,8 @@
       "no"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.542
+    "decisiveness": 0.542,
+    "worldChampion": false
   },
   {
     "id": "Q208229",
@@ -2074,7 +2303,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.466
+    "decisiveness": 0.466,
+    "worldChampion": false
   },
   {
     "id": "Q2083177",
@@ -2083,7 +2313,8 @@
       "nl"
     ],
     "maxTitle": "",
-    "decisiveness": 0.471
+    "decisiveness": 0.471,
+    "worldChampion": false
   },
   {
     "id": "Q2090109",
@@ -2092,7 +2323,8 @@
       "ph"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.806
+    "decisiveness": 0.806,
+    "worldChampion": false
   },
   {
     "id": "Q20908925",
@@ -2101,7 +2333,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.558
+    "decisiveness": 0.558,
+    "worldChampion": false
   },
   {
     "id": "Q2096349",
@@ -2110,7 +2343,8 @@
       "at"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.652
+    "decisiveness": 0.652,
+    "worldChampion": false
   },
   {
     "id": "Q21088289",
@@ -2119,7 +2353,8 @@
       "co"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q210922",
@@ -2128,7 +2363,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.363
+    "decisiveness": 0.363,
+    "worldChampion": false
   },
   {
     "id": "Q2111035",
@@ -2137,7 +2373,8 @@
       "vn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.512
+    "decisiveness": 0.512,
+    "worldChampion": false
   },
   {
     "id": "Q2114635",
@@ -2146,7 +2383,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.507
+    "decisiveness": 0.507,
+    "worldChampion": false
   },
   {
     "id": "Q211634",
@@ -2155,7 +2393,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.467
+    "decisiveness": 0.467,
+    "worldChampion": false
   },
   {
     "id": "Q2119517",
@@ -2164,7 +2403,8 @@
       "tr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.552
+    "decisiveness": 0.552,
+    "worldChampion": false
   },
   {
     "id": "Q212554",
@@ -2173,7 +2413,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.496
+    "decisiveness": 0.496,
+    "worldChampion": false
   },
   {
     "id": "Q212889",
@@ -2183,7 +2424,8 @@
       "ch"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.512
+    "decisiveness": 0.512,
+    "worldChampion": false
   },
   {
     "id": "Q2137386",
@@ -2192,7 +2434,8 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.393
+    "decisiveness": 0.393,
+    "worldChampion": false
   },
   {
     "id": "Q214713",
@@ -2202,7 +2445,8 @@
       "lv"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.558
+    "decisiveness": 0.558,
+    "worldChampion": false
   },
   {
     "id": "Q217198",
@@ -2212,7 +2456,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.513
+    "decisiveness": 0.513,
+    "worldChampion": false
   },
   {
     "id": "Q2182051",
@@ -2221,7 +2466,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q2184474",
@@ -2230,7 +2476,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.8
+    "decisiveness": 0.8,
+    "worldChampion": false
   },
   {
     "id": "Q218875",
@@ -2239,7 +2486,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.526
+    "decisiveness": 0.526,
+    "worldChampion": false
   },
   {
     "id": "Q218923",
@@ -2248,7 +2496,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q219019",
@@ -2257,7 +2506,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.393
+    "decisiveness": 0.393,
+    "worldChampion": false
   },
   {
     "id": "Q2191949",
@@ -2266,7 +2516,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.531
+    "decisiveness": 0.531,
+    "worldChampion": false
   },
   {
     "id": "Q2194745",
@@ -2275,7 +2526,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q2195871",
@@ -2284,7 +2536,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.544
+    "decisiveness": 0.544,
+    "worldChampion": false
   },
   {
     "id": "Q22046430",
@@ -2293,7 +2546,8 @@
       "dk"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q22133635",
@@ -2302,7 +2556,8 @@
       "ch"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q2218873",
@@ -2311,7 +2566,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.657
+    "decisiveness": 0.657,
+    "worldChampion": false
   },
   {
     "id": "Q2227066",
@@ -2320,7 +2576,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.652
+    "decisiveness": 0.652,
+    "worldChampion": false
   },
   {
     "id": "Q22338182",
@@ -2329,7 +2586,8 @@
       "ir"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.632
+    "decisiveness": 0.632,
+    "worldChampion": false
   },
   {
     "id": "Q2249476",
@@ -2338,7 +2596,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.515
+    "decisiveness": 0.515,
+    "worldChampion": false
   },
   {
     "id": "Q22570141",
@@ -2347,7 +2606,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.639
+    "decisiveness": 0.639,
+    "worldChampion": false
   },
   {
     "id": "Q22696880",
@@ -2356,7 +2616,8 @@
       "ph"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.756
+    "decisiveness": 0.756,
+    "worldChampion": false
   },
   {
     "id": "Q22918580",
@@ -2365,7 +2626,8 @@
       "ro"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.611
+    "decisiveness": 0.611,
+    "worldChampion": false
   },
   {
     "id": "Q22918731",
@@ -2374,7 +2636,8 @@
       "co"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.596
+    "decisiveness": 0.596,
+    "worldChampion": false
   },
   {
     "id": "Q22919485",
@@ -2383,7 +2646,8 @@
       "gb-eng"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q2301888",
@@ -2393,7 +2657,8 @@
       "rs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.591
+    "decisiveness": 0.591,
+    "worldChampion": false
   },
   {
     "id": "Q2325682",
@@ -2403,7 +2668,8 @@
       "rs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.512
+    "decisiveness": 0.512,
+    "worldChampion": false
   },
   {
     "id": "Q2333254",
@@ -2412,7 +2678,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q2339541",
@@ -2421,7 +2688,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.74
+    "decisiveness": 0.74,
+    "worldChampion": false
   },
   {
     "id": "Q2356884",
@@ -2430,7 +2698,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q2357364",
@@ -2439,7 +2708,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.472
+    "decisiveness": 0.472,
+    "worldChampion": false
   },
   {
     "id": "Q23656656",
@@ -2448,7 +2718,8 @@
       "at"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.909
+    "decisiveness": 0.909,
+    "worldChampion": false
   },
   {
     "id": "Q23656736",
@@ -2457,7 +2728,8 @@
       "at"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.567
+    "decisiveness": 0.567,
+    "worldChampion": false
   },
   {
     "id": "Q23710569",
@@ -2466,7 +2738,8 @@
       "ir"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.487
+    "decisiveness": 0.487,
+    "worldChampion": false
   },
   {
     "id": "Q23837072",
@@ -2475,7 +2748,8 @@
       "at"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.583
+    "decisiveness": 0.583,
+    "worldChampion": false
   },
   {
     "id": "Q2392158",
@@ -2484,7 +2758,8 @@
       "it"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.622
+    "decisiveness": 0.622,
+    "worldChampion": false
   },
   {
     "id": "Q24175293",
@@ -2493,7 +2768,8 @@
       "au"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q2441357",
@@ -2502,7 +2778,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.486
+    "decisiveness": 0.486,
+    "worldChampion": false
   },
   {
     "id": "Q250157",
@@ -2511,7 +2788,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q250179",
@@ -2520,7 +2798,8 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.692
+    "decisiveness": 0.692,
+    "worldChampion": false
   },
   {
     "id": "Q2524265",
@@ -2529,7 +2808,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.526
+    "decisiveness": 0.526,
+    "worldChampion": false
   },
   {
     "id": "Q2527387",
@@ -2538,7 +2818,8 @@
       "it"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.464
+    "decisiveness": 0.464,
+    "worldChampion": false
   },
   {
     "id": "Q253524",
@@ -2548,7 +2829,8 @@
       "ca"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.591
+    "decisiveness": 0.591,
+    "worldChampion": false
   },
   {
     "id": "Q2542149",
@@ -2557,7 +2839,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q25511602",
@@ -2566,7 +2849,8 @@
       "no"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.605
+    "decisiveness": 0.605,
+    "worldChampion": false
   },
   {
     "id": "Q2561974",
@@ -2575,7 +2859,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.727
+    "decisiveness": 0.727,
+    "worldChampion": false
   },
   {
     "id": "Q2562010",
@@ -2584,7 +2869,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.611
+    "decisiveness": 0.611,
+    "worldChampion": false
   },
   {
     "id": "Q2563529",
@@ -2593,7 +2879,8 @@
       "br"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.58
+    "decisiveness": 0.58,
+    "worldChampion": false
   },
   {
     "id": "Q2563589",
@@ -2602,7 +2889,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q2564094",
@@ -2611,7 +2899,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.412
+    "decisiveness": 0.412,
+    "worldChampion": false
   },
   {
     "id": "Q2565820",
@@ -2620,7 +2909,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.412
+    "decisiveness": 0.412,
+    "worldChampion": false
   },
   {
     "id": "Q2567676",
@@ -2629,7 +2919,8 @@
       "kz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q256923",
@@ -2638,7 +2929,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.385
+    "decisiveness": 0.385,
+    "worldChampion": false
   },
   {
     "id": "Q2581383",
@@ -2647,7 +2939,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q25932923",
@@ -2656,7 +2949,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q260172",
@@ -2665,7 +2959,8 @@
       "ch"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.418
+    "decisiveness": 0.418,
+    "worldChampion": false
   },
   {
     "id": "Q2607943",
@@ -2674,7 +2969,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.593
+    "decisiveness": 0.593,
+    "worldChampion": false
   },
   {
     "id": "Q2613932",
@@ -2683,7 +2979,8 @@
       "ee"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.394
+    "decisiveness": 0.394,
+    "worldChampion": false
   },
   {
     "id": "Q2616379",
@@ -2692,7 +2989,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.564
+    "decisiveness": 0.564,
+    "worldChampion": false
   },
   {
     "id": "Q2616692",
@@ -2701,7 +2999,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.559
+    "decisiveness": 0.559,
+    "worldChampion": false
   },
   {
     "id": "Q26255609",
@@ -2710,7 +3009,8 @@
       "tr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.711
+    "decisiveness": 0.711,
+    "worldChampion": false
   },
   {
     "id": "Q2634340",
@@ -2719,7 +3019,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.531
+    "decisiveness": 0.531,
+    "worldChampion": false
   },
   {
     "id": "Q2650747",
@@ -2728,7 +3029,8 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.3
+    "decisiveness": 0.3,
+    "worldChampion": false
   },
   {
     "id": "Q2669497",
@@ -2737,7 +3039,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.549
+    "decisiveness": 0.549,
+    "worldChampion": false
   },
   {
     "id": "Q26703041",
@@ -2746,7 +3049,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.448
+    "decisiveness": 0.448,
+    "worldChampion": false
   },
   {
     "id": "Q26990815",
@@ -2755,7 +3059,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q2741731",
@@ -2764,7 +3069,8 @@
       "fr"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.744
+    "decisiveness": 0.744,
+    "worldChampion": false
   },
   {
     "id": "Q2744238",
@@ -2773,7 +3079,8 @@
       "is"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.593
+    "decisiveness": 0.593,
+    "worldChampion": false
   },
   {
     "id": "Q2748712",
@@ -2782,7 +3089,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.569
+    "decisiveness": 0.569,
+    "worldChampion": false
   },
   {
     "id": "Q27522353",
@@ -2791,7 +3099,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4
+    "decisiveness": 0.4,
+    "worldChampion": false
   },
   {
     "id": "Q27523092",
@@ -2800,7 +3109,8 @@
       "dk"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q27523343",
@@ -2809,7 +3119,8 @@
       "md"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q27524423",
@@ -2818,7 +3129,8 @@
       "ph"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.375
+    "decisiveness": 0.375,
+    "worldChampion": false
   },
   {
     "id": "Q27524449",
@@ -2827,7 +3139,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.52
+    "decisiveness": 0.52,
+    "worldChampion": false
   },
   {
     "id": "Q27524779",
@@ -2836,7 +3149,8 @@
       "uz"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.375
+    "decisiveness": 0.375,
+    "worldChampion": false
   },
   {
     "id": "Q27524847",
@@ -2845,7 +3159,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q27524930",
@@ -2854,7 +3169,8 @@
       "eg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q27525155",
@@ -2863,7 +3179,8 @@
       "co"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.9
+    "decisiveness": 0.9,
+    "worldChampion": false
   },
   {
     "id": "Q27525674",
@@ -2872,7 +3189,8 @@
       "md"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.765
+    "decisiveness": 0.765,
+    "worldChampion": false
   },
   {
     "id": "Q27525810",
@@ -2881,7 +3199,8 @@
       "eg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.889
+    "decisiveness": 0.889,
+    "worldChampion": false
   },
   {
     "id": "Q27525927",
@@ -2890,7 +3209,8 @@
       "ir"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.612
+    "decisiveness": 0.612,
+    "worldChampion": false
   },
   {
     "id": "Q27526379",
@@ -2899,7 +3219,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.765
+    "decisiveness": 0.765,
+    "worldChampion": false
   },
   {
     "id": "Q27526478",
@@ -2908,7 +3229,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.481
+    "decisiveness": 0.481,
+    "worldChampion": false
   },
   {
     "id": "Q27526530",
@@ -2917,7 +3239,8 @@
       "uz"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q27526663",
@@ -2926,7 +3249,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.556
+    "decisiveness": 0.556,
+    "worldChampion": false
   },
   {
     "id": "Q27526776",
@@ -2935,7 +3259,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q27527334",
@@ -2944,7 +3269,8 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q27527430",
@@ -2953,7 +3279,8 @@
       "ir"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.636
+    "decisiveness": 0.636,
+    "worldChampion": false
   },
   {
     "id": "Q27527525",
@@ -2962,7 +3289,8 @@
       "md"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q27527529",
@@ -2971,7 +3299,8 @@
       "ir"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q27527783",
@@ -2980,7 +3309,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.357
+    "decisiveness": 0.357,
+    "worldChampion": false
   },
   {
     "id": "Q27528282",
@@ -2989,7 +3319,8 @@
       "lv"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.632
+    "decisiveness": 0.632,
+    "worldChampion": false
   },
   {
     "id": "Q27528724",
@@ -2998,7 +3329,8 @@
       "in"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.45
+    "decisiveness": 0.45,
+    "worldChampion": false
   },
   {
     "id": "Q27528849",
@@ -3007,7 +3339,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.467
+    "decisiveness": 0.467,
+    "worldChampion": false
   },
   {
     "id": "Q27528859",
@@ -3016,7 +3349,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q27529082",
@@ -3025,7 +3359,8 @@
       "dk"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.583
+    "decisiveness": 0.583,
+    "worldChampion": false
   },
   {
     "id": "Q27529864",
@@ -3034,7 +3369,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q27530090",
@@ -3043,7 +3379,8 @@
       "in"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.652
+    "decisiveness": 0.652,
+    "worldChampion": false
   },
   {
     "id": "Q27531181",
@@ -3052,7 +3389,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.533
+    "decisiveness": 0.533,
+    "worldChampion": false
   },
   {
     "id": "Q27531199",
@@ -3061,7 +3399,8 @@
       "rs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q27531213",
@@ -3070,7 +3409,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.364
+    "decisiveness": 0.364,
+    "worldChampion": false
   },
   {
     "id": "Q27531893",
@@ -3079,7 +3419,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q27531978",
@@ -3088,7 +3429,8 @@
       "il"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.385
+    "decisiveness": 0.385,
+    "worldChampion": false
   },
   {
     "id": "Q27532037",
@@ -3097,7 +3439,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.633
+    "decisiveness": 0.633,
+    "worldChampion": false
   },
   {
     "id": "Q27532772",
@@ -3106,7 +3449,8 @@
       "ro"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q27532882",
@@ -3115,7 +3459,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q27533120",
@@ -3124,7 +3469,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q27533264",
@@ -3133,7 +3479,8 @@
       "vn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.636
+    "decisiveness": 0.636,
+    "worldChampion": false
   },
   {
     "id": "Q27533974",
@@ -3142,7 +3489,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.65
+    "decisiveness": 0.65,
+    "worldChampion": false
   },
   {
     "id": "Q27534227",
@@ -3151,7 +3499,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.25
+    "decisiveness": 0.25,
+    "worldChampion": false
   },
   {
     "id": "Q27534239",
@@ -3160,7 +3509,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.561
+    "decisiveness": 0.561,
+    "worldChampion": false
   },
   {
     "id": "Q27579547",
@@ -3169,7 +3519,8 @@
       "ph"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.727
+    "decisiveness": 0.727,
+    "worldChampion": false
   },
   {
     "id": "Q276818",
@@ -3178,7 +3529,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.629
+    "decisiveness": 0.629,
+    "worldChampion": false
   },
   {
     "id": "Q276885",
@@ -3187,7 +3539,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.533
+    "decisiveness": 0.533,
+    "worldChampion": false
   },
   {
     "id": "Q2785407",
@@ -3196,7 +3549,8 @@
       "ca"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.63
+    "decisiveness": 0.63,
+    "worldChampion": false
   },
   {
     "id": "Q278777",
@@ -3205,7 +3559,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q278844",
@@ -3214,7 +3569,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.424
+    "decisiveness": 0.424,
+    "worldChampion": false
   },
   {
     "id": "Q2833832",
@@ -3223,7 +3579,8 @@
       "ca"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.672
+    "decisiveness": 0.672,
+    "worldChampion": false
   },
   {
     "id": "Q2842364",
@@ -3232,7 +3589,8 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q28614",
@@ -3242,7 +3600,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.646
+    "decisiveness": 0.646,
+    "worldChampion": true
   },
   {
     "id": "Q2863141",
@@ -3251,7 +3610,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.556
+    "decisiveness": 0.556,
+    "worldChampion": false
   },
   {
     "id": "Q289349",
@@ -3260,7 +3620,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.483
+    "decisiveness": 0.483,
+    "worldChampion": false
   },
   {
     "id": "Q289875",
@@ -3269,7 +3630,8 @@
       "no"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.649
+    "decisiveness": 0.649,
+    "worldChampion": false
   },
   {
     "id": "Q293409",
@@ -3278,7 +3640,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.345
+    "decisiveness": 0.345,
+    "worldChampion": false
   },
   {
     "id": "Q2991159",
@@ -3287,7 +3650,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.526
+    "decisiveness": 0.526,
+    "worldChampion": false
   },
   {
     "id": "Q299636",
@@ -3296,7 +3660,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.43
+    "decisiveness": 0.43,
+    "worldChampion": false
   },
   {
     "id": "Q30309485",
@@ -3305,7 +3670,8 @@
       "co"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.714
+    "decisiveness": 0.714,
+    "worldChampion": false
   },
   {
     "id": "Q3106411",
@@ -3314,7 +3680,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.464
+    "decisiveness": 0.464,
+    "worldChampion": false
   },
   {
     "id": "Q312267",
@@ -3323,7 +3690,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.513
+    "decisiveness": 0.513,
+    "worldChampion": false
   },
   {
     "id": "Q312918",
@@ -3332,7 +3700,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.529
+    "decisiveness": 0.529,
+    "worldChampion": false
   },
   {
     "id": "Q313778",
@@ -3341,7 +3710,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.494
+    "decisiveness": 0.494,
+    "worldChampion": false
   },
   {
     "id": "Q314531",
@@ -3350,7 +3720,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.533
+    "decisiveness": 0.533,
+    "worldChampion": false
   },
   {
     "id": "Q315155",
@@ -3359,7 +3730,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.603
+    "decisiveness": 0.603,
+    "worldChampion": false
   },
   {
     "id": "Q319208",
@@ -3368,7 +3740,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.529
+    "decisiveness": 0.529,
+    "worldChampion": false
   },
   {
     "id": "Q319380",
@@ -3377,7 +3750,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.585
+    "decisiveness": 0.585,
+    "worldChampion": false
   },
   {
     "id": "Q3200058",
@@ -3386,7 +3760,8 @@
       "pl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.333
+    "decisiveness": 0.333,
+    "worldChampion": false
   },
   {
     "id": "Q3263044",
@@ -3395,7 +3770,8 @@
       "fr"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.375
+    "decisiveness": 0.375,
+    "worldChampion": false
   },
   {
     "id": "Q326562",
@@ -3404,7 +3780,8 @@
       "it"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.774
+    "decisiveness": 0.774,
+    "worldChampion": false
   },
   {
     "id": "Q3299882",
@@ -3413,7 +3790,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q3340359",
@@ -3422,7 +3800,8 @@
       "fr"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.647
+    "decisiveness": 0.647,
+    "worldChampion": false
   },
   {
     "id": "Q337223",
@@ -3431,7 +3810,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.507
+    "decisiveness": 0.507,
+    "worldChampion": false
   },
   {
     "id": "Q339392",
@@ -3440,7 +3820,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.518
+    "decisiveness": 0.518,
+    "worldChampion": false
   },
   {
     "id": "Q344466",
@@ -3449,7 +3830,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.44
+    "decisiveness": 0.44,
+    "worldChampion": false
   },
   {
     "id": "Q3445619",
@@ -3458,7 +3840,8 @@
       "ca"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q344716",
@@ -3468,7 +3851,8 @@
       "sk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.447
+    "decisiveness": 0.447,
+    "worldChampion": false
   },
   {
     "id": "Q346022",
@@ -3477,7 +3861,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.559
+    "decisiveness": 0.559,
+    "worldChampion": false
   },
   {
     "id": "Q351204",
@@ -3486,7 +3871,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.613
+    "decisiveness": 0.613,
+    "worldChampion": false
   },
   {
     "id": "Q352142",
@@ -3495,7 +3881,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.63
+    "decisiveness": 0.63,
+    "worldChampion": false
   },
   {
     "id": "Q352301",
@@ -3504,7 +3891,8 @@
       "ca"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.634
+    "decisiveness": 0.634,
+    "worldChampion": false
   },
   {
     "id": "Q352413",
@@ -3515,7 +3903,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.572
+    "decisiveness": 0.572,
+    "worldChampion": false
   },
   {
     "id": "Q352495",
@@ -3524,7 +3913,8 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q354819",
@@ -3533,7 +3923,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.52
+    "decisiveness": 0.52,
+    "worldChampion": false
   },
   {
     "id": "Q356258",
@@ -3542,7 +3933,8 @@
       "es"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.757
+    "decisiveness": 0.757,
+    "worldChampion": false
   },
   {
     "id": "Q357092",
@@ -3551,7 +3943,8 @@
       "pe"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.649
+    "decisiveness": 0.649,
+    "worldChampion": false
   },
   {
     "id": "Q357119",
@@ -3560,7 +3953,8 @@
       "mk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.584
+    "decisiveness": 0.584,
+    "worldChampion": false
   },
   {
     "id": "Q359802",
@@ -3569,7 +3963,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.631
+    "decisiveness": 0.631,
+    "worldChampion": false
   },
   {
     "id": "Q360308",
@@ -3578,7 +3973,8 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.769
+    "decisiveness": 0.769,
+    "worldChampion": false
   },
   {
     "id": "Q361454",
@@ -3587,7 +3983,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q3618872",
@@ -3596,7 +3993,8 @@
       "ca"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.533
+    "decisiveness": 0.533,
+    "worldChampion": false
   },
   {
     "id": "Q3622579",
@@ -3605,7 +4003,8 @@
       "mk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.659
+    "decisiveness": 0.659,
+    "worldChampion": false
   },
   {
     "id": "Q3622636",
@@ -3614,7 +4013,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.698
+    "decisiveness": 0.698,
+    "worldChampion": false
   },
   {
     "id": "Q363211",
@@ -3623,7 +4023,8 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.647
+    "decisiveness": 0.647,
+    "worldChampion": false
   },
   {
     "id": "Q363218",
@@ -3632,7 +4033,8 @@
       "sk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q363291",
@@ -3641,7 +4043,8 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q364327",
@@ -3650,7 +4053,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.54
+    "decisiveness": 0.54,
+    "worldChampion": false
   },
   {
     "id": "Q364519",
@@ -3659,7 +4063,8 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.651
+    "decisiveness": 0.651,
+    "worldChampion": false
   },
   {
     "id": "Q364668",
@@ -3668,7 +4073,8 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q365467",
@@ -3677,7 +4083,8 @@
       "ph"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q3656357",
@@ -3686,7 +4093,8 @@
       "rs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.588
+    "decisiveness": 0.588,
+    "worldChampion": false
   },
   {
     "id": "Q3656900",
@@ -3695,7 +4103,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.545
+    "decisiveness": 0.545,
+    "worldChampion": false
   },
   {
     "id": "Q3657177",
@@ -3704,7 +4113,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.481
+    "decisiveness": 0.481,
+    "worldChampion": false
   },
   {
     "id": "Q3657764",
@@ -3713,7 +4123,8 @@
       "gr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.644
+    "decisiveness": 0.644,
+    "worldChampion": false
   },
   {
     "id": "Q3657800",
@@ -3722,7 +4133,8 @@
       "bg"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.682
+    "decisiveness": 0.682,
+    "worldChampion": false
   },
   {
     "id": "Q3659234",
@@ -3731,7 +4143,8 @@
       "it"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.556
+    "decisiveness": 0.556,
+    "worldChampion": false
   },
   {
     "id": "Q3659625",
@@ -3740,7 +4153,8 @@
       "it"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q367277",
@@ -3750,7 +4164,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.545
+    "decisiveness": 0.545,
+    "worldChampion": false
   },
   {
     "id": "Q368004",
@@ -3759,7 +4174,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.536
+    "decisiveness": 0.536,
+    "worldChampion": false
   },
   {
     "id": "Q370989",
@@ -3768,7 +4184,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.662
+    "decisiveness": 0.662,
+    "worldChampion": false
   },
   {
     "id": "Q371180",
@@ -3777,7 +4194,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.549
+    "decisiveness": 0.549,
+    "worldChampion": false
   },
   {
     "id": "Q372965",
@@ -3786,7 +4204,8 @@
       "fr"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.661
+    "decisiveness": 0.661,
+    "worldChampion": false
   },
   {
     "id": "Q373570",
@@ -3795,7 +4214,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.351
+    "decisiveness": 0.351,
+    "worldChampion": false
   },
   {
     "id": "Q377105",
@@ -3804,7 +4224,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q3774327",
@@ -3813,7 +4234,8 @@
       "py"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.631
+    "decisiveness": 0.631,
+    "worldChampion": false
   },
   {
     "id": "Q3774368",
@@ -3822,7 +4244,8 @@
       "md"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.704
+    "decisiveness": 0.704,
+    "worldChampion": false
   },
   {
     "id": "Q377866",
@@ -3831,7 +4254,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.549
+    "decisiveness": 0.549,
+    "worldChampion": false
   },
   {
     "id": "Q378734",
@@ -3841,7 +4265,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.495
+    "decisiveness": 0.495,
+    "worldChampion": false
   },
   {
     "id": "Q380839",
@@ -3850,7 +4275,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.402
+    "decisiveness": 0.402,
+    "worldChampion": false
   },
   {
     "id": "Q3823030",
@@ -3859,7 +4285,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.222
+    "decisiveness": 0.222,
+    "worldChampion": false
   },
   {
     "id": "Q3824586",
@@ -3868,7 +4295,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.424
+    "decisiveness": 0.424,
+    "worldChampion": false
   },
   {
     "id": "Q3824620",
@@ -3877,7 +4305,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.75
+    "decisiveness": 0.75,
+    "worldChampion": false
   },
   {
     "id": "Q3846866",
@@ -3886,7 +4315,8 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.708
+    "decisiveness": 0.708,
+    "worldChampion": false
   },
   {
     "id": "Q3847863",
@@ -3895,7 +4325,8 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q385119",
@@ -3904,7 +4335,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q388220",
@@ -3913,7 +4345,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.536
+    "decisiveness": 0.536,
+    "worldChampion": false
   },
   {
     "id": "Q390430",
@@ -3922,7 +4355,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.58
+    "decisiveness": 0.58,
+    "worldChampion": false
   },
   {
     "id": "Q3917277",
@@ -3931,7 +4365,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q392661",
@@ -3940,7 +4375,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.494
+    "decisiveness": 0.494,
+    "worldChampion": false
   },
   {
     "id": "Q4057362",
@@ -3949,7 +4385,8 @@
       "pl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.621
+    "decisiveness": 0.621,
+    "worldChampion": false
   },
   {
     "id": "Q4068939",
@@ -3958,7 +4395,8 @@
       "id"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.694
+    "decisiveness": 0.694,
+    "worldChampion": false
   },
   {
     "id": "Q4074716",
@@ -3967,7 +4405,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q4075848",
@@ -3976,7 +4415,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.733
+    "decisiveness": 0.733,
+    "worldChampion": false
   },
   {
     "id": "Q4080610",
@@ -3985,7 +4425,8 @@
       "pl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.529
+    "decisiveness": 0.529,
+    "worldChampion": false
   },
   {
     "id": "Q4088072",
@@ -3994,7 +4435,8 @@
       "il"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q4089406",
@@ -4003,7 +4445,8 @@
       "mk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.687
+    "decisiveness": 0.687,
+    "worldChampion": false
   },
   {
     "id": "Q4094089",
@@ -4012,7 +4455,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.642
+    "decisiveness": 0.642,
+    "worldChampion": false
   },
   {
     "id": "Q4094832",
@@ -4021,7 +4465,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.538
+    "decisiveness": 0.538,
+    "worldChampion": false
   },
   {
     "id": "Q4102447",
@@ -4030,7 +4475,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.741
+    "decisiveness": 0.741,
+    "worldChampion": false
   },
   {
     "id": "Q4103242",
@@ -4039,7 +4485,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.605
+    "decisiveness": 0.605,
+    "worldChampion": false
   },
   {
     "id": "Q4131618",
@@ -4048,7 +4495,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.632
+    "decisiveness": 0.632,
+    "worldChampion": false
   },
   {
     "id": "Q4135037",
@@ -4057,7 +4505,8 @@
       "il"
     ],
     "maxTitle": "",
-    "decisiveness": 0.737
+    "decisiveness": 0.737,
+    "worldChampion": false
   },
   {
     "id": "Q4139059",
@@ -4066,7 +4515,8 @@
       "ro"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.508
+    "decisiveness": 0.508,
+    "worldChampion": false
   },
   {
     "id": "Q4157722",
@@ -4075,7 +4525,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.75
+    "decisiveness": 0.75,
+    "worldChampion": false
   },
   {
     "id": "Q4159881",
@@ -4084,7 +4535,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q4161414",
@@ -4093,7 +4545,8 @@
       "ba"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.512
+    "decisiveness": 0.512,
+    "worldChampion": false
   },
   {
     "id": "Q4161709",
@@ -4102,7 +4555,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.8
+    "decisiveness": 0.8,
+    "worldChampion": false
   },
   {
     "id": "Q4183732",
@@ -4111,7 +4565,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.559
+    "decisiveness": 0.559,
+    "worldChampion": false
   },
   {
     "id": "Q4184534",
@@ -4120,7 +4575,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.654
+    "decisiveness": 0.654,
+    "worldChampion": false
   },
   {
     "id": "Q4199277",
@@ -4129,7 +4585,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q4202750",
@@ -4138,7 +4595,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.552
+    "decisiveness": 0.552,
+    "worldChampion": false
   },
   {
     "id": "Q4207104",
@@ -4147,7 +4605,8 @@
       "il"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.759
+    "decisiveness": 0.759,
+    "worldChampion": false
   },
   {
     "id": "Q4217951",
@@ -4156,7 +4615,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.65
+    "decisiveness": 0.65,
+    "worldChampion": false
   },
   {
     "id": "Q4225422",
@@ -4166,7 +4626,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.707
+    "decisiveness": 0.707,
+    "worldChampion": false
   },
   {
     "id": "Q4225706",
@@ -4176,7 +4637,8 @@
       "rs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.476
+    "decisiveness": 0.476,
+    "worldChampion": false
   },
   {
     "id": "Q4235524",
@@ -4185,7 +4647,8 @@
       "pl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q4250038",
@@ -4194,7 +4657,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.375
+    "decisiveness": 0.375,
+    "worldChampion": false
   },
   {
     "id": "Q4261192",
@@ -4203,7 +4667,8 @@
       "ph"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q427768",
@@ -4212,7 +4677,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q4281305",
@@ -4221,7 +4687,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.592
+    "decisiveness": 0.592,
+    "worldChampion": false
   },
   {
     "id": "Q4282096",
@@ -4230,7 +4697,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.857
+    "decisiveness": 0.857,
+    "worldChampion": false
   },
   {
     "id": "Q4282611",
@@ -4239,7 +4707,8 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q4302345",
@@ -4248,7 +4717,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.444
+    "decisiveness": 0.444,
+    "worldChampion": false
   },
   {
     "id": "Q4337114",
@@ -4257,7 +4727,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.659
+    "decisiveness": 0.659,
+    "worldChampion": false
   },
   {
     "id": "Q434000",
@@ -4266,7 +4737,8 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.51
+    "decisiveness": 0.51,
+    "worldChampion": false
   },
   {
     "id": "Q434364",
@@ -4275,7 +4747,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.383
+    "decisiveness": 0.383,
+    "worldChampion": false
   },
   {
     "id": "Q4348358",
@@ -4284,7 +4757,8 @@
       "ca"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q4368102",
@@ -4293,7 +4767,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.875
+    "decisiveness": 0.875,
+    "worldChampion": false
   },
   {
     "id": "Q4386158",
@@ -4302,7 +4777,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.515
+    "decisiveness": 0.515,
+    "worldChampion": false
   },
   {
     "id": "Q4390194",
@@ -4311,7 +4787,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.784
+    "decisiveness": 0.784,
+    "worldChampion": false
   },
   {
     "id": "Q439610",
@@ -4320,7 +4797,8 @@
       "at"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.776
+    "decisiveness": 0.776,
+    "worldChampion": false
   },
   {
     "id": "Q442544",
@@ -4329,7 +4807,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.35
+    "decisiveness": 0.35,
+    "worldChampion": false
   },
   {
     "id": "Q4455415",
@@ -4338,7 +4817,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q4456514",
@@ -4347,7 +4827,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.75
+    "decisiveness": 0.75,
+    "worldChampion": false
   },
   {
     "id": "Q445661",
@@ -4356,7 +4837,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.519
+    "decisiveness": 0.519,
+    "worldChampion": false
   },
   {
     "id": "Q4460949",
@@ -4365,7 +4847,8 @@
       "es"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.524
+    "decisiveness": 0.524,
+    "worldChampion": false
   },
   {
     "id": "Q4474884",
@@ -4374,7 +4857,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.333
+    "decisiveness": 0.333,
+    "worldChampion": false
   },
   {
     "id": "Q4482094",
@@ -4383,7 +4867,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q4494446",
@@ -4392,7 +4877,8 @@
       "pl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.909
+    "decisiveness": 0.909,
+    "worldChampion": false
   },
   {
     "id": "Q4502452",
@@ -4401,7 +4887,8 @@
       "ch"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q450419",
@@ -4410,7 +4897,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.626
+    "decisiveness": 0.626,
+    "worldChampion": false
   },
   {
     "id": "Q4521047",
@@ -4419,7 +4907,8 @@
       "ch"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q4521873",
@@ -4428,7 +4917,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.705
+    "decisiveness": 0.705,
+    "worldChampion": false
   },
   {
     "id": "Q4525016",
@@ -4437,7 +4927,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.688
+    "decisiveness": 0.688,
+    "worldChampion": false
   },
   {
     "id": "Q4525983",
@@ -4448,7 +4939,8 @@
       "tr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.405
+    "decisiveness": 0.405,
+    "worldChampion": false
   },
   {
     "id": "Q4539867",
@@ -4457,7 +4949,8 @@
       "mk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.58
+    "decisiveness": 0.58,
+    "worldChampion": false
   },
   {
     "id": "Q45747",
@@ -4466,7 +4959,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.494
+    "decisiveness": 0.494,
+    "worldChampion": true
   },
   {
     "id": "Q460020",
@@ -4476,7 +4970,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.438
+    "decisiveness": 0.438,
+    "worldChampion": false
   },
   {
     "id": "Q465247",
@@ -4485,7 +4980,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q465524",
@@ -4494,7 +4990,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.611
+    "decisiveness": 0.611,
+    "worldChampion": false
   },
   {
     "id": "Q4667403",
@@ -4503,7 +5000,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.583
+    "decisiveness": 0.583,
+    "worldChampion": false
   },
   {
     "id": "Q470788",
@@ -4512,7 +5010,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.383
+    "decisiveness": 0.383,
+    "worldChampion": false
   },
   {
     "id": "Q471084",
@@ -4521,7 +5020,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.654
+    "decisiveness": 0.654,
+    "worldChampion": false
   },
   {
     "id": "Q471374",
@@ -4530,7 +5030,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.457
+    "decisiveness": 0.457,
+    "worldChampion": false
   },
   {
     "id": "Q473184",
@@ -4539,7 +5040,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.583
+    "decisiveness": 0.583,
+    "worldChampion": false
   },
   {
     "id": "Q47454056",
@@ -4548,7 +5050,8 @@
       "dk"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q47543934",
@@ -4557,7 +5060,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q47543951",
@@ -4566,7 +5070,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.65
+    "decisiveness": 0.65,
+    "worldChampion": false
   },
   {
     "id": "Q4775756",
@@ -4575,7 +5080,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.724
+    "decisiveness": 0.724,
+    "worldChampion": false
   },
   {
     "id": "Q4777556",
@@ -4584,7 +5090,8 @@
       "pt"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.741
+    "decisiveness": 0.741,
+    "worldChampion": false
   },
   {
     "id": "Q4800779",
@@ -4593,7 +5100,8 @@
       "ph"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q486592",
@@ -4602,7 +5110,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.623
+    "decisiveness": 0.623,
+    "worldChampion": false
   },
   {
     "id": "Q486778",
@@ -4613,7 +5122,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.33
+    "decisiveness": 0.33,
+    "worldChampion": false
   },
   {
     "id": "Q487793",
@@ -4622,7 +5132,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q487995",
@@ -4631,7 +5142,8 @@
       "sk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.662
+    "decisiveness": 0.662,
+    "worldChampion": false
   },
   {
     "id": "Q488267",
@@ -4640,7 +5152,8 @@
       "br"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.479
+    "decisiveness": 0.479,
+    "worldChampion": false
   },
   {
     "id": "Q489002",
@@ -4649,7 +5162,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q489015",
@@ -4658,7 +5172,8 @@
       "uz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.491
+    "decisiveness": 0.491,
+    "worldChampion": false
   },
   {
     "id": "Q48963376",
@@ -4667,7 +5182,8 @@
       "dk"
     ],
     "maxTitle": "",
-    "decisiveness": 0.538
+    "decisiveness": 0.538,
+    "worldChampion": false
   },
   {
     "id": "Q492441",
@@ -4676,7 +5192,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q495696",
@@ -4685,7 +5202,8 @@
       "lv"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.403
+    "decisiveness": 0.403,
+    "worldChampion": false
   },
   {
     "id": "Q496191",
@@ -4694,7 +5212,8 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.417
+    "decisiveness": 0.417,
+    "worldChampion": false
   },
   {
     "id": "Q496958",
@@ -4703,7 +5222,8 @@
       "at"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.659
+    "decisiveness": 0.659,
+    "worldChampion": false
   },
   {
     "id": "Q4977065",
@@ -4712,7 +5232,8 @@
       "ca"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q499615",
@@ -4721,7 +5242,8 @@
       "ee"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.447
+    "decisiveness": 0.447,
+    "worldChampion": false
   },
   {
     "id": "Q500436",
@@ -4730,7 +5252,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.474
+    "decisiveness": 0.474,
+    "worldChampion": false
   },
   {
     "id": "Q502088",
@@ -4739,7 +5262,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.449
+    "decisiveness": 0.449,
+    "worldChampion": false
   },
   {
     "id": "Q502570",
@@ -4749,7 +5273,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q506421",
@@ -4759,7 +5284,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.517
+    "decisiveness": 0.517,
+    "worldChampion": false
   },
   {
     "id": "Q506473",
@@ -4768,7 +5294,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.608
+    "decisiveness": 0.608,
+    "worldChampion": false
   },
   {
     "id": "Q520993",
@@ -4777,7 +5304,8 @@
       "ch"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.583
+    "decisiveness": 0.583,
+    "worldChampion": false
   },
   {
     "id": "Q521817",
@@ -4786,7 +5314,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.553
+    "decisiveness": 0.553,
+    "worldChampion": false
   },
   {
     "id": "Q525731",
@@ -4795,7 +5324,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.562
+    "decisiveness": 0.562,
+    "worldChampion": false
   },
   {
     "id": "Q525884",
@@ -4804,7 +5334,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q528959",
@@ -4813,7 +5344,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q534057",
@@ -4822,7 +5354,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.551
+    "decisiveness": 0.551,
+    "worldChampion": false
   },
   {
     "id": "Q535368",
@@ -4831,7 +5364,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q535460",
@@ -4840,7 +5374,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.583
+    "decisiveness": 0.583,
+    "worldChampion": false
   },
   {
     "id": "Q5386660",
@@ -4849,7 +5384,8 @@
       "ca"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q541729",
@@ -4858,7 +5394,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.524
+    "decisiveness": 0.524,
+    "worldChampion": false
   },
   {
     "id": "Q543241",
@@ -4867,7 +5404,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.477
+    "decisiveness": 0.477,
+    "worldChampion": false
   },
   {
     "id": "Q543256",
@@ -4876,7 +5414,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.584
+    "decisiveness": 0.584,
+    "worldChampion": false
   },
   {
     "id": "Q548946",
@@ -4885,7 +5424,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.524
+    "decisiveness": 0.524,
+    "worldChampion": false
   },
   {
     "id": "Q550688",
@@ -4895,7 +5435,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.394
+    "decisiveness": 0.394,
+    "worldChampion": false
   },
   {
     "id": "Q55107014",
@@ -4904,7 +5445,8 @@
       "au"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.706
+    "decisiveness": 0.706,
+    "worldChampion": false
   },
   {
     "id": "Q551331",
@@ -4913,7 +5455,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.444
+    "decisiveness": 0.444,
+    "worldChampion": false
   },
   {
     "id": "Q551687",
@@ -4922,7 +5465,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q553397",
@@ -4931,7 +5475,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.366
+    "decisiveness": 0.366,
+    "worldChampion": false
   },
   {
     "id": "Q555232",
@@ -4940,7 +5485,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.406
+    "decisiveness": 0.406,
+    "worldChampion": false
   },
   {
     "id": "Q555598",
@@ -4950,7 +5496,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.421
+    "decisiveness": 0.421,
+    "worldChampion": false
   },
   {
     "id": "Q55759143",
@@ -4959,7 +5506,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.591
+    "decisiveness": 0.591,
+    "worldChampion": false
   },
   {
     "id": "Q56026072",
@@ -4968,7 +5516,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.781
+    "decisiveness": 0.781,
+    "worldChampion": true
   },
   {
     "id": "Q56084845",
@@ -4977,7 +5526,8 @@
       "rs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4
+    "decisiveness": 0.4,
+    "worldChampion": false
   },
   {
     "id": "Q562700",
@@ -4986,7 +5536,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.615
+    "decisiveness": 0.615,
+    "worldChampion": false
   },
   {
     "id": "Q5651719",
@@ -4995,7 +5546,8 @@
       "cu"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q574962",
@@ -5004,7 +5556,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.565
+    "decisiveness": 0.565,
+    "worldChampion": false
   },
   {
     "id": "Q576461",
@@ -5013,7 +5566,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.521
+    "decisiveness": 0.521,
+    "worldChampion": false
   },
   {
     "id": "Q583139",
@@ -5022,7 +5576,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.525
+    "decisiveness": 0.525,
+    "worldChampion": false
   },
   {
     "id": "Q585320",
@@ -5031,7 +5586,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.654
+    "decisiveness": 0.654,
+    "worldChampion": false
   },
   {
     "id": "Q586778",
@@ -5040,7 +5596,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.393
+    "decisiveness": 0.393,
+    "worldChampion": false
   },
   {
     "id": "Q5888939",
@@ -5049,7 +5606,8 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.375
+    "decisiveness": 0.375,
+    "worldChampion": false
   },
   {
     "id": "Q591200",
@@ -5058,7 +5616,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.681
+    "decisiveness": 0.681,
+    "worldChampion": false
   },
   {
     "id": "Q59137809",
@@ -5067,7 +5626,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.636
+    "decisiveness": 0.636,
+    "worldChampion": false
   },
   {
     "id": "Q593192",
@@ -5076,7 +5636,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.478
+    "decisiveness": 0.478,
+    "worldChampion": false
   },
   {
     "id": "Q5935233",
@@ -5085,7 +5646,8 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.444
+    "decisiveness": 0.444,
+    "worldChampion": false
   },
   {
     "id": "Q5948354",
@@ -5094,7 +5656,8 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q599621",
@@ -5103,7 +5666,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.521
+    "decisiveness": 0.521,
+    "worldChampion": false
   },
   {
     "id": "Q6029513",
@@ -5112,7 +5676,8 @@
       "se"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q603418",
@@ -5121,7 +5686,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q60598",
@@ -5131,7 +5697,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.402
+    "decisiveness": 0.402,
+    "worldChampion": false
   },
   {
     "id": "Q60832229",
@@ -5140,7 +5707,8 @@
       "fi"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q6109690",
@@ -5149,7 +5717,8 @@
       "ar"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.875
+    "decisiveness": 0.875,
+    "worldChampion": false
   },
   {
     "id": "Q613427",
@@ -5158,7 +5727,8 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.583
+    "decisiveness": 0.583,
+    "worldChampion": false
   },
   {
     "id": "Q613780",
@@ -5167,7 +5737,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.713
+    "decisiveness": 0.713,
+    "worldChampion": false
   },
   {
     "id": "Q614941",
@@ -5176,7 +5747,8 @@
       "at"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.532
+    "decisiveness": 0.532,
+    "worldChampion": false
   },
   {
     "id": "Q61673",
@@ -5185,7 +5757,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.462
+    "decisiveness": 0.462,
+    "worldChampion": false
   },
   {
     "id": "Q6167988",
@@ -5194,7 +5767,8 @@
       "ph"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.636
+    "decisiveness": 0.636,
+    "worldChampion": false
   },
   {
     "id": "Q6168791",
@@ -5203,7 +5777,8 @@
       "se"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.643
+    "decisiveness": 0.643,
+    "worldChampion": false
   },
   {
     "id": "Q6170865",
@@ -5212,7 +5787,8 @@
       "ca"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.66
+    "decisiveness": 0.66,
+    "worldChampion": false
   },
   {
     "id": "Q61823",
@@ -5221,7 +5797,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.362
+    "decisiveness": 0.362,
+    "worldChampion": false
   },
   {
     "id": "Q61880",
@@ -5231,7 +5808,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.534
+    "decisiveness": 0.534,
+    "worldChampion": false
   },
   {
     "id": "Q627186",
@@ -5240,7 +5818,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.534
+    "decisiveness": 0.534,
+    "worldChampion": false
   },
   {
     "id": "Q630437",
@@ -5250,7 +5829,8 @@
       "py"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.579
+    "decisiveness": 0.579,
+    "worldChampion": false
   },
   {
     "id": "Q631301",
@@ -5259,7 +5839,8 @@
       "lv"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.679
+    "decisiveness": 0.679,
+    "worldChampion": false
   },
   {
     "id": "Q63148997",
@@ -5268,7 +5849,8 @@
       "ph"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.727
+    "decisiveness": 0.727,
+    "worldChampion": false
   },
   {
     "id": "Q63303",
@@ -5277,7 +5859,8 @@
       "dd"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.474
+    "decisiveness": 0.474,
+    "worldChampion": false
   },
   {
     "id": "Q63323",
@@ -5286,7 +5869,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.7
+    "decisiveness": 0.7,
+    "worldChampion": false
   },
   {
     "id": "Q634634",
@@ -5295,7 +5879,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q634635",
@@ -5305,7 +5890,8 @@
       "ba"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.507
+    "decisiveness": 0.507,
+    "worldChampion": false
   },
   {
     "id": "Q63752",
@@ -5314,7 +5900,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q63926",
@@ -5323,7 +5910,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.593
+    "decisiveness": 0.593,
+    "worldChampion": false
   },
   {
     "id": "Q64220",
@@ -5333,7 +5921,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q647494",
@@ -5342,7 +5931,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.458
+    "decisiveness": 0.458,
+    "worldChampion": false
   },
   {
     "id": "Q64754",
@@ -5351,7 +5941,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.406
+    "decisiveness": 0.406,
+    "worldChampion": false
   },
   {
     "id": "Q650941",
@@ -5360,7 +5951,8 @@
       "su"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.6
+    "decisiveness": 0.6,
+    "worldChampion": false
   },
   {
     "id": "Q651846",
@@ -5369,7 +5961,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.688
+    "decisiveness": 0.688,
+    "worldChampion": false
   },
   {
     "id": "Q653351",
@@ -5378,7 +5971,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.725
+    "decisiveness": 0.725,
+    "worldChampion": false
   },
   {
     "id": "Q6539358",
@@ -5387,7 +5981,8 @@
       "cn"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q65461017",
@@ -5396,7 +5991,8 @@
       "md"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.3
+    "decisiveness": 0.3,
+    "worldChampion": false
   },
   {
     "id": "Q65493830",
@@ -5405,7 +6001,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.556
+    "decisiveness": 0.556,
+    "worldChampion": false
   },
   {
     "id": "Q6550102",
@@ -5414,7 +6011,8 @@
       "cn"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q658013",
@@ -5423,7 +6021,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.548
+    "decisiveness": 0.548,
+    "worldChampion": false
   },
   {
     "id": "Q6627804",
@@ -5432,7 +6031,8 @@
       "il"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.688
+    "decisiveness": 0.688,
+    "worldChampion": false
   },
   {
     "id": "Q6653772",
@@ -5441,7 +6041,8 @@
       "cn"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.892
+    "decisiveness": 0.892,
+    "worldChampion": false
   },
   {
     "id": "Q665695",
@@ -5450,7 +6051,8 @@
       "ca"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.565
+    "decisiveness": 0.565,
+    "worldChampion": false
   },
   {
     "id": "Q667067",
@@ -5459,7 +6061,8 @@
       "ch"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.476
+    "decisiveness": 0.476,
+    "worldChampion": false
   },
   {
     "id": "Q670159",
@@ -5468,7 +6071,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.634
+    "decisiveness": 0.634,
+    "worldChampion": false
   },
   {
     "id": "Q6706845",
@@ -5477,7 +6081,8 @@
       "pt"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.75
+    "decisiveness": 0.75,
+    "worldChampion": false
   },
   {
     "id": "Q673962",
@@ -5486,7 +6091,8 @@
       "nl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.542
+    "decisiveness": 0.542,
+    "worldChampion": false
   },
   {
     "id": "Q674633",
@@ -5495,7 +6101,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.513
+    "decisiveness": 0.513,
+    "worldChampion": false
   },
   {
     "id": "Q6769148",
@@ -5504,7 +6111,8 @@
       "ph"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.769
+    "decisiveness": 0.769,
+    "worldChampion": false
   },
   {
     "id": "Q676954",
@@ -5513,7 +6121,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q67746",
@@ -5522,7 +6131,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.519
+    "decisiveness": 0.519,
+    "worldChampion": false
   },
   {
     "id": "Q67772",
@@ -5531,7 +6141,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.598
+    "decisiveness": 0.598,
+    "worldChampion": false
   },
   {
     "id": "Q679404",
@@ -5540,7 +6151,8 @@
       "ch"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.632
+    "decisiveness": 0.632,
+    "worldChampion": false
   },
   {
     "id": "Q682145",
@@ -5549,7 +6161,8 @@
       "at"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.588
+    "decisiveness": 0.588,
+    "worldChampion": false
   },
   {
     "id": "Q685064",
@@ -5558,7 +6171,8 @@
       "ch"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.465
+    "decisiveness": 0.465,
+    "worldChampion": false
   },
   {
     "id": "Q685117",
@@ -5567,7 +6181,8 @@
       "ch"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.523
+    "decisiveness": 0.523,
+    "worldChampion": false
   },
   {
     "id": "Q685386",
@@ -5576,7 +6191,8 @@
       "ch"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q68610",
@@ -5585,7 +6201,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.488
+    "decisiveness": 0.488,
+    "worldChampion": false
   },
   {
     "id": "Q686383",
@@ -5594,7 +6211,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q68688",
@@ -5603,7 +6221,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.507
+    "decisiveness": 0.507,
+    "worldChampion": false
   },
   {
     "id": "Q688382",
@@ -5612,7 +6231,8 @@
       "at"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.506
+    "decisiveness": 0.506,
+    "worldChampion": false
   },
   {
     "id": "Q690938",
@@ -5621,7 +6241,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.529
+    "decisiveness": 0.529,
+    "worldChampion": false
   },
   {
     "id": "Q692756",
@@ -5630,7 +6251,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.333
+    "decisiveness": 0.333,
+    "worldChampion": false
   },
   {
     "id": "Q6968911",
@@ -5639,7 +6261,8 @@
       "il"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.615
+    "decisiveness": 0.615,
+    "worldChampion": false
   },
   {
     "id": "Q69937",
@@ -5648,7 +6271,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.574
+    "decisiveness": 0.574,
+    "worldChampion": false
   },
   {
     "id": "Q702454",
@@ -5657,7 +6281,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.64
+    "decisiveness": 0.64,
+    "worldChampion": false
   },
   {
     "id": "Q706149",
@@ -5666,7 +6291,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q706264",
@@ -5675,7 +6301,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q706461",
@@ -5684,7 +6311,8 @@
       "ca"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q707111",
@@ -5693,7 +6321,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.561
+    "decisiveness": 0.561,
+    "worldChampion": false
   },
   {
     "id": "Q70779",
@@ -5702,7 +6331,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.333
+    "decisiveness": 0.333,
+    "worldChampion": false
   },
   {
     "id": "Q70780",
@@ -5711,7 +6341,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.4
+    "decisiveness": 0.4,
+    "worldChampion": false
   },
   {
     "id": "Q708045",
@@ -5720,7 +6351,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.469
+    "decisiveness": 0.469,
+    "worldChampion": false
   },
   {
     "id": "Q708680",
@@ -5729,7 +6361,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.375
+    "decisiveness": 0.375,
+    "worldChampion": false
   },
   {
     "id": "Q708938",
@@ -5738,7 +6371,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.333
+    "decisiveness": 0.333,
+    "worldChampion": false
   },
   {
     "id": "Q708943",
@@ -5747,7 +6381,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.493
+    "decisiveness": 0.493,
+    "worldChampion": false
   },
   {
     "id": "Q709256",
@@ -5756,7 +6391,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.688
+    "decisiveness": 0.688,
+    "worldChampion": false
   },
   {
     "id": "Q709548",
@@ -5767,7 +6403,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.492
+    "decisiveness": 0.492,
+    "worldChampion": false
   },
   {
     "id": "Q709682",
@@ -5777,7 +6414,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.629
+    "decisiveness": 0.629,
+    "worldChampion": false
   },
   {
     "id": "Q710938",
@@ -5786,7 +6424,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.443
+    "decisiveness": 0.443,
+    "worldChampion": false
   },
   {
     "id": "Q71292057",
@@ -5795,7 +6434,8 @@
       "co"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q71292408",
@@ -5804,7 +6444,8 @@
       "il"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q71294171",
@@ -5813,7 +6454,8 @@
       "fi"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.778
+    "decisiveness": 0.778,
+    "worldChampion": false
   },
   {
     "id": "Q71294867",
@@ -5822,7 +6464,8 @@
       "it"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.667
+    "decisiveness": 0.667,
+    "worldChampion": false
   },
   {
     "id": "Q71300083",
@@ -5831,7 +6474,8 @@
       "ph"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.556
+    "decisiveness": 0.556,
+    "worldChampion": false
   },
   {
     "id": "Q71319435",
@@ -5840,7 +6484,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q71319508",
@@ -5849,7 +6494,8 @@
       "no"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.75
+    "decisiveness": 0.75,
+    "worldChampion": false
   },
   {
     "id": "Q715401",
@@ -5858,7 +6504,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.463
+    "decisiveness": 0.463,
+    "worldChampion": false
   },
   {
     "id": "Q716035",
@@ -5867,7 +6514,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.48
+    "decisiveness": 0.48,
+    "worldChampion": false
   },
   {
     "id": "Q7162685",
@@ -5876,7 +6524,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.532
+    "decisiveness": 0.532,
+    "worldChampion": false
   },
   {
     "id": "Q716593",
@@ -5885,7 +6534,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.774
+    "decisiveness": 0.774,
+    "worldChampion": false
   },
   {
     "id": "Q717486",
@@ -5894,7 +6544,8 @@
       "cs"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.397
+    "decisiveness": 0.397,
+    "worldChampion": false
   },
   {
     "id": "Q718236",
@@ -5903,7 +6554,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.59
+    "decisiveness": 0.59,
+    "worldChampion": false
   },
   {
     "id": "Q718592",
@@ -5912,7 +6564,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.53
+    "decisiveness": 0.53,
+    "worldChampion": false
   },
   {
     "id": "Q71977",
@@ -5921,7 +6574,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.385
+    "decisiveness": 0.385,
+    "worldChampion": false
   },
   {
     "id": "Q720934",
@@ -5930,7 +6584,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.417
+    "decisiveness": 0.417,
+    "worldChampion": false
   },
   {
     "id": "Q722108",
@@ -5939,7 +6594,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.646
+    "decisiveness": 0.646,
+    "worldChampion": false
   },
   {
     "id": "Q722868",
@@ -5948,7 +6604,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.813
+    "decisiveness": 0.813,
+    "worldChampion": false
   },
   {
     "id": "Q723552",
@@ -5957,7 +6614,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.379
+    "decisiveness": 0.379,
+    "worldChampion": false
   },
   {
     "id": "Q723715",
@@ -5966,7 +6624,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.518
+    "decisiveness": 0.518,
+    "worldChampion": false
   },
   {
     "id": "Q724047",
@@ -5975,7 +6634,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.647
+    "decisiveness": 0.647,
+    "worldChampion": false
   },
   {
     "id": "Q724051",
@@ -5984,7 +6644,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.619
+    "decisiveness": 0.619,
+    "worldChampion": false
   },
   {
     "id": "Q724540",
@@ -5993,7 +6654,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.508
+    "decisiveness": 0.508,
+    "worldChampion": false
   },
   {
     "id": "Q72463",
@@ -6002,7 +6664,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.539
+    "decisiveness": 0.539,
+    "worldChampion": false
   },
   {
     "id": "Q72473",
@@ -6011,7 +6674,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.75
+    "decisiveness": 0.75,
+    "worldChampion": false
   },
   {
     "id": "Q724807",
@@ -6020,7 +6684,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.544
+    "decisiveness": 0.544,
+    "worldChampion": false
   },
   {
     "id": "Q724979",
@@ -6029,7 +6694,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.419
+    "decisiveness": 0.419,
+    "worldChampion": false
   },
   {
     "id": "Q725177",
@@ -6038,7 +6704,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.642
+    "decisiveness": 0.642,
+    "worldChampion": false
   },
   {
     "id": "Q725279",
@@ -6047,7 +6714,8 @@
       "ro"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.494
+    "decisiveness": 0.494,
+    "worldChampion": false
   },
   {
     "id": "Q725606",
@@ -6057,7 +6725,8 @@
       "mk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.56
+    "decisiveness": 0.56,
+    "worldChampion": false
   },
   {
     "id": "Q725629",
@@ -6066,7 +6735,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.591
+    "decisiveness": 0.591,
+    "worldChampion": false
   },
   {
     "id": "Q726187",
@@ -6075,7 +6745,8 @@
       "ge"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.564
+    "decisiveness": 0.564,
+    "worldChampion": false
   },
   {
     "id": "Q7267581",
@@ -6084,7 +6755,8 @@
       "cn"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.708
+    "decisiveness": 0.708,
+    "worldChampion": false
   },
   {
     "id": "Q726996",
@@ -6093,7 +6765,8 @@
       "gb-eng"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.58
+    "decisiveness": 0.58,
+    "worldChampion": false
   },
   {
     "id": "Q727947",
@@ -6102,7 +6775,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.559
+    "decisiveness": 0.559,
+    "worldChampion": false
   },
   {
     "id": "Q728133",
@@ -6111,7 +6785,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.642
+    "decisiveness": 0.642,
+    "worldChampion": false
   },
   {
     "id": "Q728142",
@@ -6120,7 +6795,8 @@
       "pe"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.647
+    "decisiveness": 0.647,
+    "worldChampion": false
   },
   {
     "id": "Q728179",
@@ -6129,7 +6805,8 @@
       "md"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.62
+    "decisiveness": 0.62,
+    "worldChampion": false
   },
   {
     "id": "Q72822",
@@ -6138,7 +6815,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.545
+    "decisiveness": 0.545,
+    "worldChampion": false
   },
   {
     "id": "Q729383",
@@ -6147,7 +6825,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.697
+    "decisiveness": 0.697,
+    "worldChampion": false
   },
   {
     "id": "Q730058",
@@ -6156,7 +6835,8 @@
       "pe"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.795
+    "decisiveness": 0.795,
+    "worldChampion": false
   },
   {
     "id": "Q730478",
@@ -6165,7 +6845,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.8
+    "decisiveness": 0.8,
+    "worldChampion": false
   },
   {
     "id": "Q7332271",
@@ -6174,7 +6855,8 @@
       "ph"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.463
+    "decisiveness": 0.463,
+    "worldChampion": false
   },
   {
     "id": "Q734168",
@@ -6183,7 +6865,8 @@
       "vn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.536
+    "decisiveness": 0.536,
+    "worldChampion": false
   },
   {
     "id": "Q735789",
@@ -6193,7 +6876,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.64
+    "decisiveness": 0.64,
+    "worldChampion": false
   },
   {
     "id": "Q73631",
@@ -6202,7 +6886,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.507
+    "decisiveness": 0.507,
+    "worldChampion": false
   },
   {
     "id": "Q738034",
@@ -6211,7 +6896,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.558
+    "decisiveness": 0.558,
+    "worldChampion": false
   },
   {
     "id": "Q738665",
@@ -6221,7 +6907,8 @@
       "am"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.484
+    "decisiveness": 0.484,
+    "worldChampion": false
   },
   {
     "id": "Q741364",
@@ -6230,7 +6917,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.471
+    "decisiveness": 0.471,
+    "worldChampion": false
   },
   {
     "id": "Q743690",
@@ -6239,7 +6927,8 @@
       "cz"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.719
+    "decisiveness": 0.719,
+    "worldChampion": false
   },
   {
     "id": "Q76254",
@@ -6248,7 +6937,8 @@
       "dd"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.618
+    "decisiveness": 0.618,
+    "worldChampion": false
   },
   {
     "id": "Q768198",
@@ -6257,7 +6947,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.613
+    "decisiveness": 0.613,
+    "worldChampion": false
   },
   {
     "id": "Q77224",
@@ -6267,7 +6958,8 @@
       "az"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.633
+    "decisiveness": 0.633,
+    "worldChampion": false
   },
   {
     "id": "Q77389",
@@ -6276,7 +6968,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.464
+    "decisiveness": 0.464,
+    "worldChampion": false
   },
   {
     "id": "Q780927",
@@ -6285,7 +6978,8 @@
       "si"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.574
+    "decisiveness": 0.574,
+    "worldChampion": false
   },
   {
     "id": "Q786107",
@@ -6294,7 +6988,8 @@
       "sk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.58
+    "decisiveness": 0.58,
+    "worldChampion": false
   },
   {
     "id": "Q786173",
@@ -6303,7 +6998,8 @@
       "it"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.659
+    "decisiveness": 0.659,
+    "worldChampion": false
   },
   {
     "id": "Q786798",
@@ -6312,7 +7008,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.42
+    "decisiveness": 0.42,
+    "worldChampion": false
   },
   {
     "id": "Q789568",
@@ -6321,7 +7018,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.477
+    "decisiveness": 0.477,
+    "worldChampion": false
   },
   {
     "id": "Q793526",
@@ -6330,7 +7028,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q795182",
@@ -6339,7 +7038,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.452
+    "decisiveness": 0.452,
+    "worldChampion": false
   },
   {
     "id": "Q8038983",
@@ -6348,7 +7048,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.75
+    "decisiveness": 0.75,
+    "worldChampion": false
   },
   {
     "id": "Q809574",
@@ -6357,7 +7058,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.534
+    "decisiveness": 0.534,
+    "worldChampion": false
   },
   {
     "id": "Q809621",
@@ -6366,7 +7068,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.456
+    "decisiveness": 0.456,
+    "worldChampion": false
   },
   {
     "id": "Q813100",
@@ -6375,7 +7078,8 @@
       "ch"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.538
+    "decisiveness": 0.538,
+    "worldChampion": false
   },
   {
     "id": "Q83732440",
@@ -6384,7 +7088,8 @@
       "tr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.714
+    "decisiveness": 0.714,
+    "worldChampion": false
   },
   {
     "id": "Q874008",
@@ -6393,7 +7098,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.542
+    "decisiveness": 0.542,
+    "worldChampion": false
   },
   {
     "id": "Q88780",
@@ -6402,7 +7108,8 @@
       "dd"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.583
+    "decisiveness": 0.583,
+    "worldChampion": false
   },
   {
     "id": "Q891144",
@@ -6412,7 +7119,8 @@
       "ba"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.485
+    "decisiveness": 0.485,
+    "worldChampion": false
   },
   {
     "id": "Q893618",
@@ -6421,7 +7129,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.548
+    "decisiveness": 0.548,
+    "worldChampion": false
   },
   {
     "id": "Q893658",
@@ -6431,7 +7140,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.425
+    "decisiveness": 0.425,
+    "worldChampion": false
   },
   {
     "id": "Q898663",
@@ -6440,7 +7150,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.633
+    "decisiveness": 0.633,
+    "worldChampion": false
   },
   {
     "id": "Q90505",
@@ -6449,7 +7160,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.55
+    "decisiveness": 0.55,
+    "worldChampion": false
   },
   {
     "id": "Q9054021",
@@ -6458,7 +7170,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.375
+    "decisiveness": 0.375,
+    "worldChampion": false
   },
   {
     "id": "Q90555",
@@ -6467,7 +7180,8 @@
       "dd"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q9077450",
@@ -6476,7 +7190,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.533
+    "decisiveness": 0.533,
+    "worldChampion": false
   },
   {
     "id": "Q910231",
@@ -6485,7 +7200,8 @@
       "ru"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.333
+    "decisiveness": 0.333,
+    "worldChampion": false
   },
   {
     "id": "Q91150",
@@ -6494,7 +7210,8 @@
       "dd"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.533
+    "decisiveness": 0.533,
+    "worldChampion": false
   },
   {
     "id": "Q9158182",
@@ -6503,7 +7220,8 @@
       "pt"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q9160773",
@@ -6512,7 +7230,8 @@
       "pl"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.429
+    "decisiveness": 0.429,
+    "worldChampion": false
   },
   {
     "id": "Q9182996",
@@ -6521,7 +7240,8 @@
       "se"
     ],
     "maxTitle": "FM",
-    "decisiveness": 0.712
+    "decisiveness": 0.712,
+    "worldChampion": false
   },
   {
     "id": "Q92207",
@@ -6530,7 +7250,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.657
+    "decisiveness": 0.657,
+    "worldChampion": false
   },
   {
     "id": "Q92291",
@@ -6539,7 +7260,8 @@
       "dd"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.543
+    "decisiveness": 0.543,
+    "worldChampion": false
   },
   {
     "id": "Q923453",
@@ -6548,7 +7270,8 @@
       "ua"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.651
+    "decisiveness": 0.651,
+    "worldChampion": false
   },
   {
     "id": "Q923807",
@@ -6557,7 +7280,8 @@
       "is"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.597
+    "decisiveness": 0.597,
+    "worldChampion": false
   },
   {
     "id": "Q924753",
@@ -6566,7 +7290,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.591
+    "decisiveness": 0.591,
+    "worldChampion": false
   },
   {
     "id": "Q9253565",
@@ -6575,7 +7300,8 @@
       "ro"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.609
+    "decisiveness": 0.609,
+    "worldChampion": false
   },
   {
     "id": "Q9254639",
@@ -6584,7 +7310,8 @@
       "dk"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.568
+    "decisiveness": 0.568,
+    "worldChampion": false
   },
   {
     "id": "Q9266681",
@@ -6593,7 +7320,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.471
+    "decisiveness": 0.471,
+    "worldChampion": false
   },
   {
     "id": "Q9291551",
@@ -6602,7 +7330,8 @@
       "br"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.556
+    "decisiveness": 0.556,
+    "worldChampion": false
   },
   {
     "id": "Q932307",
@@ -6611,7 +7340,8 @@
       "cu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.622
+    "decisiveness": 0.622,
+    "worldChampion": false
   },
   {
     "id": "Q93674",
@@ -6620,7 +7350,8 @@
       "eg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.718
+    "decisiveness": 0.718,
+    "worldChampion": false
   },
   {
     "id": "Q9370712",
@@ -6629,7 +7360,8 @@
       "at"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.543
+    "decisiveness": 0.543,
+    "worldChampion": false
   },
   {
     "id": "Q937577",
@@ -6638,7 +7370,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.571
+    "decisiveness": 0.571,
+    "worldChampion": false
   },
   {
     "id": "Q9383570",
@@ -6647,7 +7380,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.5
+    "decisiveness": 0.5,
+    "worldChampion": false
   },
   {
     "id": "Q93883",
@@ -6656,7 +7390,8 @@
       "eg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.759
+    "decisiveness": 0.759,
+    "worldChampion": false
   },
   {
     "id": "Q942782",
@@ -6665,7 +7400,8 @@
       "ca"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.648
+    "decisiveness": 0.648,
+    "worldChampion": false
   },
   {
     "id": "Q943533",
@@ -6674,7 +7410,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.507
+    "decisiveness": 0.507,
+    "worldChampion": false
   },
   {
     "id": "Q945565",
@@ -6683,7 +7420,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.556
+    "decisiveness": 0.556,
+    "worldChampion": false
   },
   {
     "id": "Q946506",
@@ -6692,7 +7430,8 @@
       "gb-eng"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.455
+    "decisiveness": 0.455,
+    "worldChampion": false
   },
   {
     "id": "Q946534",
@@ -6701,7 +7440,8 @@
       "ee"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.676
+    "decisiveness": 0.676,
+    "worldChampion": false
   },
   {
     "id": "Q947095",
@@ -6710,7 +7450,8 @@
       "gb-eng"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.526
+    "decisiveness": 0.526,
+    "worldChampion": false
   },
   {
     "id": "Q947253",
@@ -6719,7 +7460,8 @@
       "dk"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.403
+    "decisiveness": 0.403,
+    "worldChampion": false
   },
   {
     "id": "Q948740",
@@ -6728,7 +7470,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.462
+    "decisiveness": 0.462,
+    "worldChampion": false
   },
   {
     "id": "Q952098",
@@ -6737,7 +7480,8 @@
       "in"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.587
+    "decisiveness": 0.587,
+    "worldChampion": false
   },
   {
     "id": "Q952411",
@@ -6746,7 +7490,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.509
+    "decisiveness": 0.509,
+    "worldChampion": false
   },
   {
     "id": "Q955831",
@@ -6755,7 +7500,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.44
+    "decisiveness": 0.44,
+    "worldChampion": false
   },
   {
     "id": "Q956390",
@@ -6764,7 +7510,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q957014",
@@ -6773,7 +7520,8 @@
       "hu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.385
+    "decisiveness": 0.385,
+    "worldChampion": false
   },
   {
     "id": "Q9602520",
@@ -6782,7 +7530,8 @@
       "br"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.563
+    "decisiveness": 0.563,
+    "worldChampion": false
   },
   {
     "id": "Q961003",
@@ -6791,7 +7540,8 @@
       "us"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.479
+    "decisiveness": 0.479,
+    "worldChampion": false
   },
   {
     "id": "Q961090",
@@ -6800,7 +7550,8 @@
       "pl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.611
+    "decisiveness": 0.611,
+    "worldChampion": false
   },
   {
     "id": "Q96129",
@@ -6809,7 +7560,8 @@
       "dd"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.586
+    "decisiveness": 0.586,
+    "worldChampion": false
   },
   {
     "id": "Q961633",
@@ -6818,7 +7570,8 @@
       "nl"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.333
+    "decisiveness": 0.333,
+    "worldChampion": false
   },
   {
     "id": "Q961715",
@@ -6827,7 +7580,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.465
+    "decisiveness": 0.465,
+    "worldChampion": false
   },
   {
     "id": "Q9619152",
@@ -6836,7 +7590,8 @@
       "pt"
     ],
     "maxTitle": "IM",
-    "decisiveness": 0.818
+    "decisiveness": 0.818,
+    "worldChampion": false
   },
   {
     "id": "Q96227",
@@ -6845,7 +7600,8 @@
       "de"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.696
+    "decisiveness": 0.696,
+    "worldChampion": false
   },
   {
     "id": "Q964563",
@@ -6854,7 +7610,8 @@
       "bg"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.488
+    "decisiveness": 0.488,
+    "worldChampion": false
   },
   {
     "id": "Q964655",
@@ -6863,7 +7620,8 @@
       "yu"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.357
+    "decisiveness": 0.357,
+    "worldChampion": false
   },
   {
     "id": "Q964813",
@@ -6872,7 +7630,8 @@
       "ee"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.362
+    "decisiveness": 0.362,
+    "worldChampion": false
   },
   {
     "id": "Q964913",
@@ -6881,7 +7640,8 @@
       "cn"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.531
+    "decisiveness": 0.531,
+    "worldChampion": false
   },
   {
     "id": "Q968844",
@@ -6890,7 +7650,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.444
+    "decisiveness": 0.444,
+    "worldChampion": false
   },
   {
     "id": "Q969892",
@@ -6899,7 +7660,8 @@
       "fr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.586
+    "decisiveness": 0.586,
+    "worldChampion": false
   },
   {
     "id": "Q969913",
@@ -6908,7 +7670,8 @@
       "il"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.625
+    "decisiveness": 0.625,
+    "worldChampion": false
   },
   {
     "id": "Q973792",
@@ -6917,7 +7680,8 @@
       "es"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.9
+    "decisiveness": 0.9,
+    "worldChampion": false
   },
   {
     "id": "Q975861",
@@ -6926,7 +7690,8 @@
       "se"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.427
+    "decisiveness": 0.427,
+    "worldChampion": false
   },
   {
     "id": "Q977595",
@@ -6935,7 +7700,8 @@
       "by"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.643
+    "decisiveness": 0.643,
+    "worldChampion": false
   },
   {
     "id": "Q981325",
@@ -6944,7 +7710,8 @@
       "ar"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.561
+    "decisiveness": 0.561,
+    "worldChampion": false
   },
   {
     "id": "Q989820",
@@ -6953,7 +7720,8 @@
       "md"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.474
+    "decisiveness": 0.474,
+    "worldChampion": false
   },
   {
     "id": "Q993350",
@@ -6962,6 +7730,7 @@
       "hr"
     ],
     "maxTitle": "GM",
-    "decisiveness": 0.479
+    "decisiveness": 0.479,
+    "worldChampion": false
   }
 ]

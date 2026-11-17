@@ -39,6 +39,7 @@ export function cardView(ds: Dataset, id: string) {
     team,
     name: person.name,
     trait: traitOf(person.decisiveness),
+    champion: person.worldChampion === true,
   };
 }
 
@@ -91,10 +92,11 @@ export function shareSummary(
     matchPoints: row.matchPoints,
     gamePoints: row.gamePoints,
     players: user.cardIds.map((id, i) => {
-      const { name, team } = cardView(ds, id);
+      const { name, team, champion } = cardView(ds, id);
       return {
         board: i + 1,
         name,
+        champion,
         countryCode: team.countryCode,
         countryName: team.countryName,
         year: team.year,

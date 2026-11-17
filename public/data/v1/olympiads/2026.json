@@ -126,7 +126,7 @@
       "score": 8.5,
       "games": 11,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/in-2026-4.bin"
     },
     {
       "id": "de-2026-1",
@@ -441,7 +441,7 @@
       "score": 6,
       "games": 11,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/cn-2026-1.bin"
     },
     {
       "id": "cn-2026-2",
