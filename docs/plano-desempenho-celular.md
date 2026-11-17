@@ -1,6 +1,6 @@
 # Plano: desempenho no celular
 
-**Status:** tarefas 1 e 2 feitas em 2026-11-17 (medição em [benchmarks.md](benchmarks.md), "Celular Android"). Próxima: tarefa 3.
+**Status:** tarefas 1 e 2 feitas em 2026-11-17 (medição em [benchmarks.md](benchmarks.md), "Celular Android"). As tarefas 3 a 5 foram **despriorizadas pelo usuário em 2026-11-17** e ficam atrás das outras pendências de [plano-lancamento.md](plano-lancamento.md).
 
 ## Problema
 

@@ -1,6 +1,6 @@
 # Plano: código aberto e jogo gratuito
 
-**Situação:** passos 1 a 6 feitos em 2026-11-16; falta só você tornar o repositório público no GitHub.
+**Situação:** concluído. Passos 1 a 6 feitos em 2026-11-16; repositório público em <https://github.com/NormanFrieman/4a0> e jogo publicado em <https://4a0chess.com.br/> em 2026-11-17.
 
 ## Decisão do usuário (2026-11-16)
 
@@ -44,7 +44,7 @@
    - fontes dos dados e dos livros, com as licenças;
    - Maia-3 (projeto Maia, Universidade de Toronto) e Stockfish;
    - aviso: jogo sem fins lucrativos, sem ligação com a FIDE nem com os jogadores. Nomes de pessoas reais usados como fato histórico, sem fotos (GDD §10).
-5. ✅ **Repositório público** (revisão do histórico feita; tornar público é uma ação do usuário)
+5. ✅ **Repositório público** (revisão do histórico feita; tornado público pelo usuário em 2026-11-17)
    - Antes de abrir o repositório, revisar o histórico: segredos, arquivos grandes e PGNs. Em 2026-11-16, `git log --all -- '*.pgn'` não encontrou nada, e `models/`, `*.onnx` e `bench-results/` já estão no `.gitignore`.
    - O branch `prototype/design-system` pode ir junto ou ser removido do remoto; decisão do usuário na hora de publicar.
    - Criar o repositório (ex.: GitHub) é uma ação do usuário, que define nome e conta.
@@ -56,4 +56,4 @@
 ## Pendências
 
 - ✅ **Nome definitivo:** "4 a 0" (decisão do usuário, 2026-11-16).
-- **Domínio e hospedagem:** Cloudflare Pages já está configurado (`public/_headers`); falta o domínio.
+- ✅ **Domínio e hospedagem:** <https://4a0chess.com.br/>, num Cloudflare Worker com assets estáticos (2026-11-17). O merge na `main` publica (Workers Builds).
