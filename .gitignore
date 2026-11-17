@@ -18,3 +18,6 @@ bench-results/
 
 .DS_Store
 Thumbs.db
+
+# Sample opening books, built from PGN Mentor collections (pnpm data:sample)
+public/data/sample/books/
