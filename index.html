@@ -3,10 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4 a 0</title>
+    <title>4 a 0 — Monte sua seleção de xadrez e dispute a Olimpíada</title>
+    <meta
+      name="description"
+      content="Jogo de xadrez gratuito no navegador: monte uma equipe com enxadristas históricos de Olimpíadas reais (1970–2026) e dispute um torneio suíço. As partidas são jogadas lance a lance pela rede neural Maia-3."
+    />
+    <link rel="canonical" href="https://4a0chess.com.br/" />
+    <meta name="theme-color" content="#f3ead7" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="4 a 0" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://4a0chess.com.br/" />
+    <meta property="og:title" content="4 a 0 — Olimpíadas de Xadrez" />
+    <meta
+      property="og:description"
+      content="E se Tal, Kasparov e Carlsen jogassem na mesma equipe? Monte sua seleção com lendas do xadrez e dispute a Olimpíada no navegador."
+    />
+    <meta property="og:image" content="https://4a0chess.com.br/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="4 a 0, Olimpíadas de Xadrez: quatro tabuleiros de um match em andamento"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "4 a 0",
+        "url": "https://4a0chess.com.br/",
+        "description": "Monte uma equipe com enxadristas históricos de Olimpíadas de Xadrez reais e dispute um torneio suíço. As partidas são jogadas lance a lance pela rede neural Maia-3, no navegador.",
+        "image": "https://4a0chess.com.br/og-image.png",
+        "inLanguage": "pt-BR",
+        "genre": ["Xadrez", "Estratégia"],
+        "gamePlatform": "Navegador web",
+        "applicationCategory": "Game",
+        "operatingSystem": "Qualquer",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+        "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+        "codeRepository": "https://github.com/NormanFrieman/4a0"
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!--
+        Static copy of the Home masthead, shown until React mounts (and the
+        only content for crawlers that don't run JavaScript). createRoot()
+        replaces it. Keep it in sync with Home.tsx / src/i18n/pt-BR.ts.
+      -->
+      <div class="mx-auto w-full max-w-2xl px-4 py-10 text-center">
+        <header class="border-b-4 border-double border-ink pb-2 text-center">
+          <div class="text-[11px] tracking-[0.3em] text-muted uppercase">Olimpíadas de Xadrez</div>
+          <h1 class="font-display text-4xl font-black tracking-tight sm:text-6xl">4 a 0</h1>
+          <div class="mt-1 text-sm text-muted italic">Monte sua seleção histórica</div>
+        </header>
+        <p class="mt-8 text-lg">
+          Sorteie seleções de Olimpíadas de Xadrez reais, de 1970 a 2026, escolha um jogador de cada
+          uma e dispute um torneio no sistema suíço. As partidas são jogadas lance a lance pela rede
+          neural Maia-3, no seu navegador: gratuito, sem conta e sem anúncios.
+        </p>
+        <noscript>
+          <p class="mt-8 text-accent">O jogo precisa de JavaScript ativado para funcionar.</p>
+        </noscript>
+      </div>
+    </div>
     <script type="module" src="/src/app/main.tsx"></script>
   </body>
 </html>

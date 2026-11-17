@@ -50,3 +50,4 @@ Fatia jogável da Fase 1 em `/`: draft → confirmação → campo (por faixas d
 - `pnpm engine:ladder` — mede a curva de força do Maia (gera `engineCalibration`)
 - `pnpm engine:endrules` — joga as células sem regras de fim de partida e varre abandono/acordo offline (`--from <json>` reaproveita as partidas)
 - `pnpm engine:bench`
+- `pnpm seo:images` — regera `public/og-image.png` e `public/apple-touch-icon.png` a partir de `tools/seo/*.html` (precisa do Chromium; `CHROME=` muda o binário). SEO fica no `index.html` (meta, Open Graph, JSON-LD, texto estático em `#root`), com `robots.txt` e `sitemap.xml` em `public/`; o domínio canônico é `https://4a0chess.com.br/`
