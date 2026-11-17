@@ -14,18 +14,18 @@
 
 ## Planos e ordem sugerida
 
-| #   | Plano                                                       | Depende de                                                         |
-| --- | ----------------------------------------------------------- | ------------------------------------------------------------------ |
-| 1   | [Código aberto e jogo gratuito](plano-codigo-aberto.md)     | —                                                                  |
-| 2   | [Dados: 20 melhores seleções](plano-dados.md)               | —                                                                  |
-| 3   | [Livros de abertura do Lichess](plano-livros.md)            | 2 (anos das edições); **decisão pendente sobre o livro por carta** |
-| 4   | ✅ [Campo por faixas de força](plano-mvp-campo-faixas.md)   | 2                                                                  |
-| 5   | ✅ [Replay e PGN](plano-mvp-replay-pgn.md)                  | —                                                                  |
-| 6   | ✅ [Modo Mestre](plano-mvp-modo-mestre.md)                  | —                                                                  |
-| 7   | ✅ [Compartilhamento](plano-mvp-compartilhamento.md)        | —                                                                  |
-| 8   | [Calibração, fases B e C](plano-calibracao.md)              | 2, 3 (a escala precisa da faixa real de forças)                    |
-| 9   | ✅ [Fechar o MVP: critérios de aceite](plano-mvp-aceite.md) | —                                                                  |
-| 10  | [Desempenho no celular](plano-desempenho-celular.md)        | —                                                                  |
+| #   | Plano                                                                       | Depende de                                                         |
+| --- | --------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| 1   | [Código aberto e jogo gratuito](plano-codigo-aberto.md)                     | —                                                                  |
+| 2   | [Dados: 20 melhores seleções](plano-dados.md)                               | —                                                                  |
+| 3   | [Livros de abertura do Lichess](plano-livros.md)                            | 2 (anos das edições); **decisão pendente sobre o livro por carta** |
+| 4   | ✅ [Campo por faixas de força](plano-mvp-campo-faixas.md)                   | 2                                                                  |
+| 5   | ✅ [Replay e PGN](plano-mvp-replay-pgn.md)                                  | —                                                                  |
+| 6   | ✅ [Modo Mestre](plano-mvp-modo-mestre.md)                                  | —                                                                  |
+| 7   | ✅ [Compartilhamento](plano-mvp-compartilhamento.md)                        | —                                                                  |
+| 8   | [Calibração, fases B e C](plano-calibracao.md)                              | 2, 3 (a escala precisa da faixa real de forças)                    |
+| 9   | ✅ [Fechar o MVP: critérios de aceite](plano-mvp-aceite.md)                 | —                                                                  |
+| 10  | [Desempenho no celular](plano-desempenho-celular.md) (tarefas 1 e 2 feitas) | —                                                                  |
 
 Os itens 5 e 6 não dependem dos dados e podem andar em paralelo com 2 e 3.
 

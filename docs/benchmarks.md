@@ -30,7 +30,7 @@ Conclusões:
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Desktop dev (12 núcleos, Chrome 157, isolado†) | 5M (22 MB) | 4,4 s | 3,0 s | 231 ms | 55 ms | 72 ms | 54 MB |
 | Notebook médio | 5M | _a medir_ | | | | | |
-| Celular médio | 5M | _a medir_ | | | | | |
+| Celular Android (8 núcleos, Chrome, isolado) | 5M | 5,4 s | 4,9 s | | | | |
 | Desktop dev | 23M | _a medir_ | | | | | |
 
 † Medido **enquanto a validação rodava em 10 workers** no mesmo PC: a latência provavelmente está inflada. Repetir com a máquina ociosa. A partida (134 meios-lances) levou 8,6 s.
@@ -294,7 +294,20 @@ Configuração padrão da página: 5M, só WASM, filtro do Stockfish ligado, rat
 - **Meta de < 10 s (GDD §8.3): atingida a partir da 2ª rodada** neste desktop. A 1ª passa da meta; a hipótese (não medida) é o aquecimento do ONNX Runtime e do Stockfish nos workers. No jogo, esse custo cairia na rodada 1, depois do draft.
 - As partidas ficaram mais curtas que na medição de 2026-11-14 (306 meios-lances contra 386). Aquela foi feita noutra máquina e antes do filtro e da Fase A, então os tempos não são comparáveis diretamente.
 - **Determinismo:** a 2ª e a 3ª rodadas deram o mesmo hash dos PGNs que a 1ª.
-- Falta medir num notebook médio e num celular médio.
+- Falta medir num notebook médio. Celular: ver abaixo.
+
+### Celular Android (2026-11-17)
+
+Android com Chrome, 8 núcleos lógicos, isolado (`crossOriginIsolated: true`), via túnel https (`cloudflared`) para o `pnpm dev`. Mesma configuração do `/spike` acima (semente `spike-1`). Cada linha é a 1ª rodada (fria) de uma página recém-aberta.
+
+| Workers × threads do ORT      | Init sessão | Rodada | Meios-lances | Hash dos PGNs |
+| ----------------------------- | ----------- | ------ | ------------ | ------------- |
+| 4 × 1                         | 8,5 s       | 64,6 s | 306          | `85e1a1b3`    |
+| 4 × 2 (padrão para 8 núcleos) | 4,9 s       | 52,4 s | 306          | `85e1a1b3`    |
+
+- **Excesso de threads não é a causa da lentidão.** O Stockfish de cada worker roda entre as inferências do Maia, nunca junto (`BlunderCheckedAI`), então 4 × 2 ocupa os 8 núcleos sem sobrar thread. Tirar a 2ª thread do ORT deixou a rodada ~23% mais lenta. O padrão continua 4 × 2.
+- **Ritmo:** 76,5 meios-lances por tabuleiro em 52,4 s dá ~1,46 meio-lance/s, praticamente o ritmo do replay a 1× (1,43/s, `msPerPly.normal = 700`). Sem folga, qualquer partida mais longa ou queda de clock faz o tabuleiro parar. É ~4,7× o desktop na rodada fria (11,1 s).
+- **Determinismo:** mesmo hash dos PGNs com 1 e 2 threads do ORT. O hash do desktop não foi anotado, então a comparação entre aparelhos (GDD §8.4) continua pendente.
 
 ### Sessão `18ya360` em Node
 
