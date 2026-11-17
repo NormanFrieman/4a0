@@ -265,8 +265,7 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 
 ### 8.3 Ritmo e exibição
 
-- Ao iniciar a rodada, o worker calcula as 4 partidas o mais rápido possível; a interface reproduz os lances no ritmo escolhido (1×, 4×, instantâneo).
-- "Pular" mostra o resultado assim que o cálculo termina.
+- Ao iniciar a rodada, o worker calcula as 4 partidas o mais rápido possível; a interface reproduz os lances no ritmo escolhido (1×, 4×, sem pausa). "Sem pausa" mostra cada lance assim que é calculado: a partida acaba quando o cálculo acaba, não na hora.
 - Os matches do campo usam a simulação rápida (seção 6.3) e ficam prontos em milissegundos.
 - Meta de desempenho: uma rodada completa (4 partidas) calculada em menos de 10 s num notebook comum com o modelo de 5M. Medir na fase 0.
 
@@ -337,7 +336,7 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 | Início | Nome do jogo, modos | Jogar (Clássico ou Mestre), Como jogar |
 | Draft | Cartão do sorteio (bandeira, ano, sede, colocação), escalação com as cartas, as 4 vagas, contador de re-sorteios | Escolher carta, escolher vaga, re-sortear |
 | Confirmação | As 4 cartas na ordem, força média, traços de estilo | Confirmar |
-| Rodada | As duas escalações, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Jogar, mudar velocidade, pular |
+| Rodada | As duas escalações, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Jogar, mudar velocidade |
 | Classificação | Tabela após cada rodada, com pontos de match, de partida e desempate | Próxima rodada |
 | Resultado final | Colocação, medalha, campanha rodada a rodada, destaque individual por mesa | Compartilhar imagem, copiar texto, jogar de novo |
 | Replay | Tabuleiro com navegação pelos lances, nomes, resultado | Baixar PGN, voltar |

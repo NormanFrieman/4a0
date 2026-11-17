@@ -51,7 +51,7 @@ Máquina: notebook i7-1165G7 (4 núcleos / 8 threads), 32 GB.
 
 - **Determinismo:** as 3 configurações produziram exatamente os mesmos 4 PGNs (mesmo hash), inclusive com contagens de threads diferentes.
 - **Meta de < 10 s não atingida** nesta máquina. O custo é limitado pela CPU total (soma dos lances), não pelo paralelismo: paralelizar por partida não ganhou nada em 4 núcleos físicos. A rodada medida tem partidas longas (média de ~97 meios-lances); o ajuste do empate por acordo e do abandono (etapa 6) deve encurtá-las.
-- Como a interface reproduz os lances num ritmo bem mais lento que o cálculo (§8.3), a espera só aparece em "instantâneo" e "Pular".
+- Como a interface reproduz os lances num ritmo bem mais lento que o cálculo (§8.3), a espera só aparece em "Sem pausa".
 - Download do modelo: ~3 s (22 MB, primeira visita); depois vem do Cache Storage.
 
 ## Validação de força (GDD §12.1) — `pnpm engine:validate`

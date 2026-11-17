@@ -180,12 +180,12 @@ export function UiCatalog() {
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="primary">Confirmar equipe</Button>
           <Button>Copiar texto</Button>
-          <Button variant="link">Pular para o resultado</Button>
+          <Button variant="link">Ver a partida</Button>
           <Button variant="primary" disabled>
             Desabilitado
           </Button>
           <span className="flex gap-1">
-            {["1×", "4×", "Instantâneo"].map((s) => (
+            {["1×", "4×", "Sem pausa"].map((s) => (
               <Button
                 key={s}
                 variant="toggle"

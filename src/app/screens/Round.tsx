@@ -89,9 +89,6 @@ export function Round() {
                   )}
                 </Button>
               ))}
-              <Button variant="link" onClick={() => setSpeed("instant")}>
-                {t("round.skip")}
-              </Button>
             </>
           )}
         </div>
