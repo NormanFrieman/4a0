@@ -82,7 +82,7 @@ O usuário monta uma equipe de 4 cartas em 4 sorteios, uma por mesa (1 a 4).
 
 - Bandeira, país, ano, cidade-sede e colocação final da seleção naquela edição.
 - A escalação das mesas 1 a 4, cada jogador com: nome, título, mesa em que jogou, força de jogo, pontuação real naquela edição (ex.: 8½/11) e medalhas.
-- No modo **Almanaque**, a força de jogo fica oculta: o usuário decide pelo conhecimento histórico.
+- No modo **Mestre**, a força de jogo fica oculta: o usuário decide pelo conhecimento histórico.
 
 ### 4.3 Escolha e vagas
 
@@ -334,7 +334,7 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 
 | Tela | Conteúdo | Ações |
 | --- | --- | --- |
-| Início | Nome do jogo, modos, histórico local de campanhas | Jogar (Clássico ou Almanaque), Desafio diário, Como jogar |
+| Início | Nome do jogo, modos | Jogar (Clássico ou Mestre), Desafio diário, Como jogar |
 | Draft | Cartão do sorteio (bandeira, ano, sede, colocação), escalação com as cartas, as 4 vagas, contador de re-sorteios | Escolher carta, escolher vaga, re-sortear |
 | Confirmação | As 4 cartas na ordem, força média, traços de estilo | Confirmar |
 | Rodada | As duas escalações, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Jogar, mudar velocidade, pular |
@@ -342,13 +342,12 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 | Resultado final | Colocação, medalha, campanha rodada a rodada, destaque individual por mesa | Compartilhar imagem, copiar texto, jogar de novo |
 | Replay | Tabuleiro com navegação pelos lances, nomes, resultado | Baixar PGN, voltar |
 
-O tabuleiro usa chessground. As cartas mostram nome, país, ano, título, força (exceto no Almanaque), traço de estilo e campanha real. Não usar fotos de jogadores reais.
+O tabuleiro usa chessground. As cartas mostram nome, país, ano, título, força (exceto no modo Mestre), traço de estilo e campanha real. Não usar fotos de jogadores reais.
 
 ### 10.1 Direção visual (DECIDIDO)
 
 **Almanaque histórico:** o jogo tem cara de almanaque esportivo ou enciclopédia antiga. Papel envelhecido, tipografia serifada (Fraunces), filetes e linhas pontilhadas, escalações como listas tipográficas, Rodada com legenda de jornal, Resultado como certificado. Tokens, componentes e regras ficam em [docs/design.md](design.md).
 
-- Não confundir com o **modo Almanaque** (força oculta, §4.2): a direção visual vale para todos os modos.
 - **Rodada:** os 4 tabuleiros têm o mesmo tamanho, para o usuário acompanhar todos os resultados ao mesmo tempo (4 em linha no desktop, 2 × 2 no celular). Não há mesa ampliada.
 - Escolhida entre 5 direções comparadas num protótipo (Almanaque, Transmissão esportiva, Draft viral, Construtivismo soviético, Pixel art), guardado no branch `prototype/design-system`.
 
@@ -357,7 +356,7 @@ O tabuleiro usa chessground. As cartas mostram nome, país, ano, título, força
 O Desafio diário dá a todos os usuários os mesmos sorteios e o mesmo campo no mesmo dia, para que os resultados sejam comparáveis.
 
 - **Semente do dia** = hash(data em UTC, versão dos dados). Um desafio por dia, numerado a partir do lançamento.
-- **Regras do diário:** modo Almanaque (força oculta) e sem re-sorteios.
+- **Regras do diário:** modo Mestre (força oculta) e sem re-sorteios.
 - **Uma tentativa por dia** por navegador (guardado em `localStorage`; sem contas no MVP).
 - **Texto para compartilhar**, no estilo Wordle: número do desafio, medalha e uma linha por rodada (vitória, empate ou derrota), mais o link do jogo.
 - **Imagem para compartilhar:** a equipe escolhida, a colocação e o placar de cada rodada, gerada no navegador.
@@ -431,8 +430,8 @@ interface QuickSimulator {
 
 ### 12.4 Persistência
 
-- Sessão em andamento e histórico de campanhas no `localStorage`, com try/catch (pode estar indisponível).
-- Fechar a aba no meio do torneio permite retomar: a sessão guarda semente, equipe e resultados já jogados; partidas são recalculadas pela semente.
+- **DECIDIDO (2026-11-17): sem retomar sessão e sem histórico de campanhas.** Fechar a aba encerra a campanha; `?seed=` continua reproduzindo a sessão do início.
+- O único dado no `localStorage` é o registro do Desafio diário (uma tentativa por dia, §11), com try/catch (pode estar indisponível).
 
 ## 13. MVP, fases e critérios de aceite
 
@@ -455,7 +454,7 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 
 - [ ] Um draft completo tem 4 sorteios, permite até 3 re-sorteios e impede a mesma pessoa duas vezes.
 - [ ] O sorteio respeita os pesos e nunca repete país + edição no mesmo draft.
-- [ ] O modo Almanaque oculta a força em todas as telas até o fim do torneio.
+- [x] O modo Mestre oculta a força em todas as telas até o fim do torneio.
 - [x] O campo tem 23 seleções nas faixas configuradas, com pelo menos 3 campeãs e no máximo 2 por país.
 - [ ] O emparelhamento nunca repete confrontos e segue os grupos de pontuação.
 - [ ] Cada carta só ocupa a mesa em que jogou e joga nela todas as rodadas (4.3).
