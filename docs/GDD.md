@@ -476,8 +476,8 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 | Escalações e resultados (de.wikipedia) | CC BY-SA 4.0 | Os dados publicados herdam a CC BY-SA, com atribuição |
 | Pessoas, Elo e títulos (Wikidata) | CC0 | Atribuição por cortesia |
 | Livros de abertura (Lichess masters) | Estatística agregada de lances | Atribuição ao Lichess; a API exige token pessoal, usado só na ferramenta offline |
-| PGNs do PGN Mentor | Coleções gratuitas por jogador; licença não declarada | Só no desenvolvimento; sai quando os livros do Lichess entrarem (7.1) |
-| Nomes de jogadores reais | Pessoas reais, muitas vivas | Avaliar uso de nome em jogo, sobretudo se comercial; não usar fotos |
+| PGNs do PGN Mentor | Coleções gratuitas por jogador; licença não declarada | Só no desenvolvimento; os livros gerados ficam fora do git; saem quando os livros do Lichess entrarem (7.1) |
+| Nomes de jogadores reais | Pessoas reais, muitas vivas | Jogo gratuito; nomes usados como fato histórico; não usar fotos |
 
 **DECIDIDO (2026-11-16): código aberto (AGPL-3.0-or-later) e jogo gratuito**, sem anúncios nem pagamentos. Plano: [plano-codigo-aberto.md](plano-codigo-aberto.md). Este documento não é aconselhamento jurídico.
 
