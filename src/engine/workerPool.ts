@@ -5,14 +5,31 @@ import type { InitOptions, ReadyInfo } from "./workerProtocol.ts";
 
 const cores = () => (typeof navigator !== "undefined" ? navigator.hardwareConcurrency || 2 : 2);
 
-/** Default pool size: one worker per board, bounded by the CPU. */
-export function defaultPoolSize(): number {
-  return Math.max(1, Math.min(4, cores() - 1));
+/** At most one worker per board of a round. */
+const MAX_WORKERS = 4;
+
+/**
+ * Workers for a machine with `n` logical cores: one per board, leaving a core
+ * for the UI. Each worker's Stockfish runs between Maia's inferences, never at
+ * the same time (`BlunderCheckedAI`), so it doesn't need a core of its own.
+ */
+export function poolSizeFor(n: number): number {
+  return Math.max(1, Math.min(MAX_WORKERS, n - 1));
 }
 
-/** ORT threads per worker so the pool uses the cores without oversubscribing them. */
+/** ORT threads per worker, splitting the cores among the workers. */
+export function threadsPerWorkerFor(n: number, size: number): number {
+  return Math.max(1, Math.floor(n / size));
+}
+
+/** Default pool size for this device. */
+export function defaultPoolSize(): number {
+  return poolSizeFor(cores());
+}
+
+/** ORT threads per worker for this device. */
 export function defaultThreadsPerWorker(size: number): number {
-  return Math.max(1, Math.floor(cores() / size));
+  return threadsPerWorkerFor(cores(), size);
 }
 
 /**
