@@ -25,7 +25,9 @@ Jogo de navegador: o usuário monta uma equipe de 5 enxadristas históricos e di
 
 ## Git
 
-- **Todo o trabalho é feito direto na `main`.** Não criar branches a partir dela; commits vão na `main`.
+- **O jogo está em produção: nunca commitar direto na `main`.** Todo trabalho novo vai numa branch a partir da `main` (`feat/…`, `fix/…`, `docs/…`, `ci/…`) e entra por PR (`gh pr create`).
+- O merge na `main` publica em produção (Cloudflare Workers Builds). Quem faz o merge é o usuário, depois do CI verde (`.github/workflows/ci.yml`: lint, testes e build) e da revisão do Claude (`claude-code-review.yml`).
+- Os testes que dependem de arquivos fora do git (livros de abertura, modelo) devem pular quando o arquivo faltar, senão quebram o CI.
 
 ## Estado atual
 
