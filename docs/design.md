@@ -2,7 +2,7 @@
 
 Direção visual **DECIDIDA** em GDD §10.1: o jogo tem cara de almanaque esportivo ou enciclopédia antiga. Este documento é a referência para construir as telas da Fase 1.
 
-- **Catálogo vivo:** `pnpm dev` → `/dev/ui` (todos os componentes e estados, com o modo Almanaque).
+- **Catálogo vivo:** `pnpm dev` → `/dev/ui` (todos os componentes e estados, com o modo Mestre).
 - **Tokens:** `src/app/styles.css` (`@theme`). **Componentes:** `src/app/ui/`.
 - **Protótipo das 5 direções** (descartado): branch `prototype/design-system`.
 
@@ -11,7 +11,7 @@ Direção visual **DECIDIDA** em GDD §10.1: o jogo tem cara de almanaque esport
 1. **Tipografia antes de ornamento.** Hierarquia vem de peso, itálico, versaletes e filetes, não de caixas, sombras ou ícones.
 2. **Papel, não tela.** Fundo de papel envelhecido, tinta marrom-escura, um único acento (vermelho-tijolo). Nada de gradientes vivos nem cantos arredondados.
 3. **Números são protagonistas.** Força, placares e pontuações usam `tabular-nums` e o peso display. Meio ponto sempre com `½` (`formatPoints`).
-4. **Não confundir com o modo Almanaque** (força oculta, GDD §4.2). A direção visual vale para todos os modos; no modo Almanaque, componentes que mostram força recebem `null` e exibem `?` (ou omitem).
+4. **A direção visual vale para todos os modos.** No modo Mestre (força oculta, GDD §4.2), componentes que mostram força recebem `null` e exibem `?` (ou omitem).
 
 ## Tokens
 
@@ -53,7 +53,7 @@ Todo texto de interface entra por props (vem do i18n quando o i18next entrar na 
 | `Button`                     | `primary` (uma por tela), `secondary`, `link` (baixa ênfase), `toggle` (escolhas segmentadas, com `aria-pressed`)                                                                                                           |
 | `Flag`                       | Bandeira 3:2 por código ISO minúsculo. `flag-icons` para países atuais; URSS (`su`), Iugoslávia (`yu`), Tchecoslováquia (`cs`) e Alemanha Oriental (`dd`) são desenhadas no componente. Código desconhecido mostra o código |
 | `StyleTrait`                 | Traço Sólido / Equilibrado / Combativo (GDD §7.2)                                                                                                                                                                           |
-| `LineupRow`                  | Uma carta na escalação do sorteio (Draft), selecionável. `strength: null` no modo Almanaque                                                                                                                                 |
+| `LineupRow`                  | Uma carta na escalação do sorteio (Draft), selecionável. `strength: null` no modo Mestre                                                                                                                                    |
 | `TeamSlot`                   | Uma das 4 vagas; tracejada quando vazia, realçada (`awaiting`) quando há carta selecionada                                                                                                                                  |
 | `MatchScore`                 | Placar-manchete do match                                                                                                                                                                                                    |
 | `BoardFrame`                 | Tabuleiro chessground só leitura, tema sépia, moldura de papel                                                                                                                                                              |

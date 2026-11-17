@@ -2,7 +2,7 @@ import { StyleTrait, type Trait } from "./StyleTrait.tsx";
 
 /**
  * One card in a roll's lineup, as a selectable typographic row (Draft).
- * Strength is `null` in the Almanaque mode (hidden, GDD §4.2).
+ * Strength is `null` in the Mestre mode (hidden, GDD §4.2).
  */
 export function LineupRow({
   boardLabel,

@@ -2,15 +2,15 @@ import { describe, expect, it } from "vitest";
 import { modeParam, parseMode, showStrength } from "./mode.ts";
 
 describe("parseMode / modeParam", () => {
-  it("reads ?modo=almanaque and defaults to Clássico", () => {
-    expect(parseMode("almanaque")).toBe("almanac");
+  it("reads ?modo=mestre and defaults to Clássico", () => {
+    expect(parseMode("mestre")).toBe("master");
     expect(parseMode(null)).toBe("classic");
     expect(parseMode("")).toBe("classic");
     expect(parseMode("outro")).toBe("classic");
   });
 
   it("round-trips", () => {
-    expect(parseMode(modeParam("almanac"))).toBe("almanac");
+    expect(parseMode(modeParam("master"))).toBe("master");
     expect(parseMode(modeParam("classic"))).toBe("classic");
     expect(modeParam("classic")).toBeNull();
   });
@@ -24,13 +24,13 @@ describe("showStrength", () => {
       expect(showStrength("classic", phase, "playing")).toBe(true);
   });
 
-  it("hides strength in Almanaque until the tournament is over", () => {
-    for (const phase of during) expect(showStrength("almanac", phase, null)).toBe(false);
-    expect(showStrength("almanac", "replay", "playing")).toBe(false);
+  it("hides strength in Mestre until the tournament is over", () => {
+    for (const phase of during) expect(showStrength("master", phase, null)).toBe(false);
+    expect(showStrength("master", "replay", "playing")).toBe(false);
   });
 
   it("reveals strength on the final result and its replays", () => {
-    expect(showStrength("almanac", "final", null)).toBe(true);
-    expect(showStrength("almanac", "replay", "final")).toBe(true);
+    expect(showStrength("master", "final", null)).toBe(true);
+    expect(showStrength("master", "replay", "final")).toBe(true);
   });
 });

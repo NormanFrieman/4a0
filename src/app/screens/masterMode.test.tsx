@@ -1,5 +1,5 @@
 /**
- * GDD §13.2: "O modo Almanaque oculta a força em todas as telas até o fim do
+ * GDD §13.2: "O modo Mestre oculta a força em todas as telas até o fim do
  * torneio." Renders each screen on the server (no DOM: chessground only runs
  * in effects) and looks for every strength number the screen could show.
  */
@@ -29,7 +29,7 @@ import { PreRound } from "./PreRound.tsx";
 import { Round } from "./Round.tsx";
 
 const ds = sampleDataset();
-const seed = "almanac-test";
+const seed = "master-test";
 const field = fieldConfig({ ...balance.tournament, ...balance.sampleTournament });
 
 /** Draft with every slot but the last filled, and the completed draft. */
@@ -114,10 +114,10 @@ beforeAll(() => {
   for (const n of strengths) expect(n < 1900 || n > 2100).toBe(true);
 });
 
-describe("Almanaque mode", () => {
+describe("Mestre mode", () => {
   for (const s of screens) {
     it(`hides strength in ${s.name}`, () => {
-      expect(shownStrengths(renderIn("almanac", s.phase, s.render))).toEqual([]);
+      expect(shownStrengths(renderIn("master", s.phase, s.render))).toEqual([]);
     });
 
     it(`shows strength in ${s.name} in Clássico`, () => {
@@ -126,6 +126,6 @@ describe("Almanaque mode", () => {
   }
 
   it("reveals strength on the final result", () => {
-    expect(shownStrengths(renderIn("almanac", "final", () => <Final />)).length).toBeGreaterThan(0);
+    expect(shownStrengths(renderIn("master", "final", () => <Final />)).length).toBeGreaterThan(0);
   });
 });

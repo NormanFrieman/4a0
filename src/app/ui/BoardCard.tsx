@@ -5,7 +5,7 @@ import type { Outcome } from "./format.ts";
 
 export interface BoardCardPlayer {
   name: string;
-  /** null in the Almanaque mode. */
+  /** null in the Mestre mode. */
   strength: number | null;
   isUser: boolean;
 }

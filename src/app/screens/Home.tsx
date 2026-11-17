@@ -15,12 +15,12 @@ export function Home() {
       )}
       {fastMode && <p className="mt-3 text-sm text-accent italic">{t("home.fastNote")}</p>}
       <Rule className="my-8" />
-      <div className="flex flex-col items-center">
-        <Button variant="primary" className="px-8 py-3 text-lg" onClick={startDraft}>
-          {t("home.play")}
-        </Button>
-        <div role="group" aria-label={t("home.mode")} className="mt-6 flex">
-          {(["classic", "almanac"] as const).map((m) => (
+      <Button variant="primary" className="px-8 py-3 text-lg" onClick={startDraft}>
+        {t("home.play")}
+      </Button>
+      <div className="mt-6 flex flex-col items-center">
+        <div role="group" aria-label={t("home.mode")} className="flex">
+          {(["classic", "master"] as const).map((m) => (
             <Button
               key={m}
               variant="toggle"

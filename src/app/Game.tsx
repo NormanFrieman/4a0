@@ -50,7 +50,7 @@ export function Game() {
       </main>
       <footer className="py-3 text-center text-xs text-muted lg:shrink-0 lg:py-1.5">
         {seed && t("app.seed", { seed })}
-        {mode === "almanac" && ` · ${t("app.almanacMode")}`}
+        {mode === "master" && ` · ${t("app.masterMode")}`}
         {fastMode && ` · ${t("app.fastMode")}`}
         {seed && " · "}
         <a

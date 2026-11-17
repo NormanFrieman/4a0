@@ -16,7 +16,7 @@ https://…/
 ```
 
 - Uma marca por rodada (🟩 vitória, 🟨 empate, 🟥 derrota) com o placar do match. Medalha ou colocação.
-- **Clássico/Almanaque:** cabeçalho com o modo e o link com `?seed=` (e `?modo=`), para um amigo tentar a mesma semente.
+- **Clássico/Mestre:** cabeçalho com o modo e o link com `?seed=` (e `?modo=`), para um amigo tentar a mesma semente.
 - **Diário:** número do desafio e link sem semente (o diário usa a do dia). Sem nomes das cartas, para não entregar o draft de quem ainda não jogou.
 - **Copiar:** `navigator.clipboard.writeText`, com retorno visual ("Copiado"). Se falhar, mostrar o texto selecionável.
 - Testes: texto de uma campanha de exemplo (vitórias, empates, derrotas, meio ponto), por modo.

@@ -4,7 +4,7 @@
  * `replay` opens over `playing` or `final` and returns to it.
  * Game logic lives in src/draft, src/tournament and src/sim; this store only
  * sequences it and holds UI state. `?seed=` reproduces a session; `?rapido=1`
- * simulates the user's games instantly (test mode); `?modo=almanaque` hides
+ * simulates the user's games instantly (test mode); `?modo=mestre` hides
  * playing strength until the end (GDD §4.2).
  */
 import { create } from "zustand";

@@ -5,7 +5,7 @@ export const ptBR = {
     kicker: "Olimpíadas de Xadrez",
     seed: "Semente {{seed}}",
     fastMode: "modo rápido de teste",
-    almanacMode: "modo Almanaque",
+    masterMode: "modo Mestre",
     loading: "Carregando dados…",
     loadError: "Não foi possível carregar os dados: {{error}}",
     sourceCode: "Código-fonte",
@@ -17,9 +17,9 @@ export const ptBR = {
     play: "Jogar",
     mode: "Modo de jogo",
     mode_classic: "Clássico",
-    mode_almanac: "Almanaque",
+    mode_master: "Mestre",
     hint_classic: "A força de cada jogador aparece nas cartas.",
-    hint_almanac:
+    hint_master:
       "A força fica oculta até o fim do torneio: escolha pelo que você sabe da história do xadrez.",
     fastNote: "Modo rápido: suas partidas são simuladas sem tabuleiro, para testar o fluxo.",
     about: "Sobre e créditos",

@@ -101,17 +101,17 @@ const swatches = [
 ];
 
 export function UiCatalog() {
-  const [almanaque, setAlmanaque] = useState(false);
+  const [master, setMaster] = useState(false);
   const [selected, setSelected] = useState<string | null>("Mikhail Tal");
   const [speed, setSpeed] = useState("1×");
-  const hide = (n: number) => (almanaque ? null : n);
+  const hide = (n: number) => (master ? null : n);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-6">
       <Masthead title="4 a 0" kicker="Design system" section="Catálogo de componentes" />
       <div className="mt-4 flex justify-center">
-        <Button variant="toggle" aria-pressed={almanaque} onClick={() => setAlmanaque((a) => !a)}>
-          Modo Almanaque (força oculta)
+        <Button variant="toggle" aria-pressed={master} onClick={() => setMaster((a) => !a)}>
+          Modo Mestre (força oculta)
         </Button>
       </div>
 
