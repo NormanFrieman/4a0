@@ -1,6 +1,6 @@
 # Plano: Replay e PGN (GDD §3.8, §10)
 
-**Situação:** planejado em 2026-11-16.
+**Situação:** planejado em 2026-11-16; **feito em 2026-11-17** (`src/sim/gameArchive.ts`, `src/sim/pgn.ts`, `src/app/screens/Replay.tsx`). O arquivo das partidas é preenchido quando cada partida termina (não em `finishRound`), para o Replay já abrir na tela da rodada.
 
 **Critério de aceite (§13.2):** "Qualquer partida pode ser revista e baixada em PGN."
 

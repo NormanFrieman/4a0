@@ -464,7 +464,7 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 - [ ] Classificação, desempates e medalhas estão corretos (testes com torneios de exemplo).
 - [ ] O Desafio diário gera o mesmo conteúdo para todos no mesmo dia e permite uma tentativa.
 - [ ] Texto e imagem de compartilhamento são gerados no navegador.
-- [ ] Qualquer partida pode ser revista e baixada em PGN.
+- [x] Qualquer partida pode ser revista e baixada em PGN.
 - [ ] Todos os valores de balanceamento vêm de `balance.ts`.
 
 ## 14. Licenças, direitos e questões em aberto
