@@ -36,7 +36,7 @@ import {
 import { fieldConfig } from "../../tournament/field.ts";
 import type { BoardResult, MatchResult, Pairing } from "../../tournament/types.ts";
 import { enginePool, loadEngine, type EngineStatus } from "./engine.ts";
-import { modeParam, parseMode, showStrength, type Mode } from "./mode.ts";
+import { parseMode, showStrength, type Mode } from "./mode.ts";
 
 export type Phase =
   | "loading"
@@ -116,14 +116,9 @@ function newSeed(): string {
   return crypto.getRandomValues(new Uint32Array(1))[0]!.toString(36);
 }
 
-function writeUrl(seed: string, fast: boolean, mode: Mode) {
-  const p = new URLSearchParams(location.search);
-  p.set("seed", seed);
-  if (fast) p.set("rapido", "1");
-  const m = modeParam(mode);
-  if (m) p.set("modo", m);
-  else p.delete("modo");
-  history.replaceState(null, "", `${location.pathname}?${p}`);
+/** The address bar stays clean: `init` reads the query once and drops it. */
+function cleanUrl() {
+  history.replaceState(null, "", location.pathname);
 }
 
 /** Bumped on every new round/session so late worker callbacks are ignored. */
@@ -153,7 +148,7 @@ export const useSession = create<SessionState>()((set, get) => ({
     const seed = p.get("seed") || newSeed();
     const fastMode = p.get("rapido") === "1";
     const mode = parseMode(p.get("modo"));
-    writeUrl(seed, fastMode, mode);
+    cleanUrl();
     set({ seed, fastMode, mode });
     try {
       const dataset = await loadDataset("v1");
@@ -164,15 +159,12 @@ export const useSession = create<SessionState>()((set, get) => ({
   },
 
   setMode(mode) {
-    const { seed, fastMode } = get();
-    writeUrl(seed, fastMode, mode);
     set({ mode });
   },
 
   startDraft() {
-    const { dataset, seed, fastMode, mode } = get();
+    const { dataset, seed, fastMode } = get();
     if (!dataset) return;
-    writeUrl(seed, fastMode, mode);
     set({ draft: createDraft(dataset, seed), selectedCardId: null, phase: "draft" });
     if (!fastMode) loadEngine((engine) => set({ engine })).catch(() => {});
   },
