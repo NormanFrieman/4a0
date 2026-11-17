@@ -55,5 +55,5 @@
 
 ## Pendências
 
-- **Nome definitivo** (GDD §14.2): verificar se "4 a 0" já é usado antes de publicar o repositório com esse nome.
+- ✅ **Nome definitivo:** "4 a 0" (decisão do usuário, 2026-11-16).
 - **Domínio e hospedagem:** Cloudflare Pages já está configurado (`public/_headers`); falta o domínio.

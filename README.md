@@ -2,7 +2,7 @@
 
 Jogo de navegador, gratuito e de código aberto: você monta uma equipe de quatro enxadristas históricos, sorteados de seleções reais das Olimpíadas de Xadrez, e disputa um torneio contra outras seleções. As partidas são jogadas lance a lance pelo [Maia-3](https://github.com/CSSLab), uma IA treinada para jogar como pessoas de cada nível.
 
-> **Estado:** em desenvolvimento (Fase 1 do [GDD](docs/GDD.md)), com dados de teste aproximados. "4 a 0" é um nome provisório.
+> **Estado:** em desenvolvimento (Fase 1 do [GDD](docs/GDD.md)), com os dados `v1`: as 20 primeiras seleções de cada Olimpíada de 1970 a 2026.
 
 ## Como rodar
 

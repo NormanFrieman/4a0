@@ -15,7 +15,7 @@ Este documento é a fonte de verdade do projeto para o Claude Code. Exporte como
 
 ## 1. Visão geral e pilares
 
-**4 a 0** (nome provisório, o placar perfeito de um match olímpico) é um jogo de navegador em que o jogador monta uma equipe de 5 enxadristas históricos e disputa uma Olimpíada de Xadrez contra seleções reais de várias épocas. As partidas são jogadas lance a lance pelo Maia-3, uma IA que joga como humanos de cada nível.
+**4 a 0** (o placar perfeito de um match olímpico) é um jogo de navegador em que o jogador monta uma equipe de 5 enxadristas históricos e disputa uma Olimpíada de Xadrez contra seleções reais de várias épocas. As partidas são jogadas lance a lance pelo Maia-3, uma IA que joga como humanos de cada nível.
 
 **Inspiração:** o jogo "7 a 0" e similares (38 a 0, 82 a 0), em que o usuário sorteia seleções históricas da Copa do Mundo, escolhe um jogador de cada uma e o jogo simula o torneio.
 
@@ -486,7 +486,7 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 
 ### 14.2 Questões em aberto
 
-- [ ] **Nome definitivo.** "4 a 0" é provisório; verificar se já existe jogo ou marca com esse nome.
+- [x] **Nome definitivo.** DECIDIDO (2026-11-16): **4 a 0**.
 - [x] **Permissão de dados:** resolvido em 2026-11-16 (Wikipedia + Wikidata, §9.1).
 - [x] **Fonte dos PGNs dos livros:** resolvido em 2026-11-16 (Lichess, §7.1).
 - [ ] **Livro por carta (§7.1):** o Lichess não filtra por jogador. Usar livro por edição, por década, ou outra fonte por jogador? Ver [plano-livros.md](plano-livros.md).

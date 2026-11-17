@@ -30,5 +30,5 @@ Os itens 5 e 7 não dependem dos dados e podem andar em paralelo com 2 e 3.
 ## Antes de publicar
 
 - Todos os critérios de aceite do GDD §13.2 marcados.
-- Nome definitivo (GDD §14.2).
+- ✅ Nome definitivo: "4 a 0" (2026-11-16).
 - `pnpm test`, `pnpm typecheck`, `pnpm lint` e `pnpm build` passando, e a meta de < 10 s por rodada medida no `/spike` (GDD §8.3).
