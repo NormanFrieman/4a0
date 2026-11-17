@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Colours: --color-accent / --color-accent-ink (src/app/styles.css). -->
+  <!-- Colours: color-accent / color-accent-ink tokens (src/app/styles.css). -->
   <rect width="64" height="64" rx="10" fill="#7a2e1f"/>
   <text x="32" y="45" text-anchor="middle" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-weight="900" font-size="38" fill="#fbf6ea">4·0</text>
 </svg>
