@@ -21,12 +21,12 @@ Parâmetros úteis na URL: `?seed=123` reproduz uma sessão; `?rapido=1` simula 
 
 ## Comandos
 
-| Comando | O que faz |
-| --- | --- |
-| `pnpm test` | Testes (Vitest) |
-| `pnpm typecheck` / `pnpm lint` | Tipos e lint |
-| `pnpm build` | Gera `dist/` para hospedagem estática (Cloudflare Pages) |
-| `pnpm engine:*` | Ferramentas da engine: partidas, calibração, benchmarks (ver [CLAUDE.md](CLAUDE.md)) |
+| Comando                        | O que faz                                                                            |
+| ------------------------------ | ------------------------------------------------------------------------------------ |
+| `pnpm test`                    | Testes (Vitest)                                                                      |
+| `pnpm typecheck` / `pnpm lint` | Tipos e lint                                                                         |
+| `pnpm build`                   | Gera `dist/` para hospedagem estática (Cloudflare Pages)                             |
+| `pnpm engine:*`                | Ferramentas da engine: partidas, calibração, benchmarks (ver [CLAUDE.md](CLAUDE.md)) |
 
 ## Estrutura
 

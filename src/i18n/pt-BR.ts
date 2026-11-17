@@ -7,6 +7,7 @@ export const ptBR = {
     fastMode: "modo rápido de teste",
     loading: "Carregando dados…",
     loadError: "Não foi possível carregar os dados: {{error}}",
+    sourceCode: "Código-fonte",
   },
   home: {
     section: "Monte sua seleção histórica",
@@ -14,6 +15,36 @@ export const ptBR = {
       "Sorteie seleções de Olimpíadas reais, escolha um jogador de cada uma e dispute um torneio de {{rounds}} rodadas.",
     play: "Jogar",
     fastNote: "Modo rápido: suas partidas são simuladas sem tabuleiro, para testar o fluxo.",
+    about: "Sobre e créditos",
+  },
+  about: {
+    section: "Sobre e créditos",
+    back: "Voltar",
+    data: {
+      title: "Dados",
+      body: "Esta versão usa dados de teste: as escalações são de seleções reais das Olimpíadas de 1970 a 1984, mas ratings, pontuações e colocações são aproximados. Os dados definitivos virão da Wikipedia (CC BY-SA 4.0) e do Wikidata (CC0).",
+    },
+    books: {
+      title: "Livros de abertura",
+      body: "Cada jogador abre as partidas com um livro de aberturas da sua carreira ou da sua década. Nesta versão de teste, os livros são gerados de coleções públicas de partidas; os definitivos virão da base de mestres do Lichess.",
+    },
+    engine: {
+      title: "Quem joga as partidas",
+      body: "Os lances são escolhidos pelo Maia-3, do projeto Maia (CSSLab, Universidade de Toronto), uma rede neural treinada para jogar como pessoas de cada nível (licença AGPLv3). O Stockfish (GPL-3.0) evita erros grosseiros demais para a força de cada jogador.",
+    },
+    libraries: {
+      title: "Bibliotecas",
+      body: "chessground (tabuleiro, Lichess), chess.js (regras), ONNX Runtime Web (inferência), React, i18next, zustand, flag-icons (bandeiras) e a fonte Fraunces. A lista completa, com as licenças, está no repositório.",
+    },
+    license: {
+      title: "Licença",
+      body: "O jogo é gratuito e de código aberto, sob a GNU AGPL-3.0 ou posterior. Os dados são publicados sob CC BY-SA 4.0.",
+      link: "Ver o código-fonte desta versão",
+    },
+    disclaimer: {
+      title: "Aviso",
+      body: "Jogo sem fins lucrativos, sem anúncios nem pagamentos, e sem ligação com a FIDE nem com os jogadores. Os nomes de pessoas reais aparecem como fato histórico. As partidas são simuladas e não reproduzem partidas reais.",
+    },
   },
   draft: {
     section: "Sorteio {{n}} de {{total}}",

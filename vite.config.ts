@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
@@ -65,7 +66,24 @@ function serveStockfish(): Plugin {
   };
 }
 
+// Link to the published source code (AGPL §13, docs/plano-codigo-aberto.md).
+const sourceUrl = process.env.SOURCE_URL ?? "https://github.com/NormanFrieman/4a0";
+
+function currentCommit(): string {
+  const fromCi = process.env.CF_PAGES_COMMIT_SHA;
+  if (fromCi) return fromCi;
+  try {
+    return execSync("git rev-parse HEAD", { encoding: "utf8" }).trim();
+  } catch {
+    return "";
+  }
+}
+
 export default defineConfig({
+  define: {
+    __SOURCE_URL__: JSON.stringify(sourceUrl),
+    __COMMIT__: JSON.stringify(currentCommit()),
+  },
   plugins: [react(), tailwindcss(), dropOrtWasm(), serveStockfish()],
   server: { headers: isolation },
   preview: { headers: isolation },

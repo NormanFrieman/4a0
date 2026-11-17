@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { sourceLink } from "./buildInfo.ts";
 import { useSession } from "./state/session.ts";
+import { About } from "./screens/About.tsx";
 import { Confirm } from "./screens/Confirm.tsx";
 import { Draft } from "./screens/Draft.tsx";
 import { Field } from "./screens/Field.tsx";
@@ -35,6 +37,7 @@ export function Game() {
           <p className="p-8 text-center text-loss">{t("app.loadError", { error })}</p>
         )}
         {phase === "home" && <Home />}
+        {phase === "about" && <About />}
         {phase === "draft" && <Draft />}
         {phase === "confirm" && <Confirm />}
         {phase === "field" && <Field />}
@@ -46,6 +49,15 @@ export function Game() {
       <footer className="py-3 text-center text-xs text-muted lg:shrink-0 lg:py-1.5">
         {seed && t("app.seed", { seed })}
         {fastMode && ` · ${t("app.fastMode")}`}
+        {seed && " · "}
+        <a
+          href={sourceLink()}
+          target="_blank"
+          rel="noreferrer"
+          className="underline decoration-dotted underline-offset-2 hover:text-accent"
+        >
+          {t("app.sourceCode")}
+        </a>
       </footer>
     </div>
   );

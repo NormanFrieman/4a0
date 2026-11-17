@@ -37,6 +37,7 @@ export type Phase =
   | "loading"
   | "error"
   | "home"
+  | "about"
   | "draft"
   | "confirm"
   | "field"
@@ -81,6 +82,8 @@ interface SessionState {
 
   init(): Promise<void>;
   startDraft(): void;
+  openAbout(): void;
+  closeAbout(): void;
   selectCard(id: string): void;
   placeCard(slot: number): void;
   rerollDraft(): void;
@@ -300,6 +303,14 @@ export const useSession = create<SessionState>()((set, get) => ({
     if (!tournament) return;
     if (isFinished(tournament)) set({ phase: "final" });
     else get().startRound();
+  },
+
+  openAbout() {
+    if (get().phase === "home") set({ phase: "about" });
+  },
+
+  closeAbout() {
+    if (get().phase === "about") set({ phase: "home" });
   },
 
   playAgain() {
