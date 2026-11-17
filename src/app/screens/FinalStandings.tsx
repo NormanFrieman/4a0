@@ -156,15 +156,7 @@ const tabLabel = {
 } as const;
 
 /** Right column of the Final screen: Campanha | Classificação | Prêmios. */
-export function FinalTabs({
-  campaign,
-  prizes,
-  className = "",
-}: {
-  campaign: ReactNode;
-  prizes: ReactNode;
-  className?: string;
-}) {
+export function FinalTabs({ campaign, prizes }: { campaign: ReactNode; prizes: ReactNode }) {
   const { t } = useTranslation();
   const [tab, setTab] = useState<Tab>("campaign");
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
@@ -179,7 +171,7 @@ export function FinalTabs({
   };
 
   return (
-    <div className={`mt-8 lg:mt-0 lg:flex lg:min-h-0 lg:flex-col ${className}`}>
+    <div className="mt-8 lg:mt-0 lg:flex lg:min-h-0 lg:flex-col">
       <div role="tablist" aria-label={t("final.section")} className="flex lg:shrink-0">
         {TABS.map((id, i) => (
           <Button

@@ -271,10 +271,8 @@ export function Final() {
   return (
     <ScreenLayout
       width="max-w-4xl"
-      // Desktop: certificate on the left, tabs on the right, actions along the
-      // bottom. Mobile: actions right below the certificate, so they are
-      // reachable without scrolling past the tabs.
-      className="lg:mt-4 lg:grid lg:grid-cols-2 lg:grid-rows-[minmax(0,1fr)_auto] lg:gap-x-8 lg:gap-y-3"
+      // Desktop: certificate on the left, campaign, standings and prizes on the right.
+      className="lg:mt-4 lg:grid lg:grid-cols-2 lg:gap-8"
       header={
         <Masthead
           compact
@@ -282,6 +280,19 @@ export function Final() {
           kicker={t("app.kicker")}
           section={t("final.section")}
         />
+      }
+      actions={
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button variant="primary" onClick={playAgain}>
+            {t("final.playAgain")}
+          </Button>
+          {hasGames && (
+            <Button onClick={() => downloadCampaign(ds, seed, t, games)}>
+              {t("replay.downloadCampaign")}
+            </Button>
+          )}
+          <SharePanel />
+        </div>
       }
     >
       <section
@@ -305,22 +316,7 @@ export function Final() {
         </div>
       </section>
 
-      <div className="mt-6 flex flex-wrap justify-center gap-3 lg:col-span-2 lg:row-start-2 lg:mt-0">
-        <Button variant="primary" onClick={playAgain}>
-          {t("final.playAgain")}
-        </Button>
-        {hasGames && (
-          <Button onClick={() => downloadCampaign(ds, seed, t, games)}>
-            {t("replay.downloadCampaign")}
-          </Button>
-        )}
-        <SharePanel />
-      </div>
-      <FinalTabs
-        className="lg:col-start-2 lg:row-start-1"
-        campaign={campaignAndBoards}
-        prizes={<BoardPrizes />}
-      />
+      <FinalTabs campaign={campaignAndBoards} prizes={<BoardPrizes />} />
     </ScreenLayout>
   );
 }

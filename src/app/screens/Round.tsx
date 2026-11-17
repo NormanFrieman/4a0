@@ -62,60 +62,52 @@ export function Round() {
   const liveCount = scores.filter((s) => s === null).length;
   const done = roundDone(live);
 
-  const footer = (
-    <>
-      <Rule className="my-4 lg:my-3" />
-      <div className="grid gap-6 md:grid-cols-2">
-        <div className="flex flex-wrap items-start gap-2 text-sm">
-          {done ? (
-            <Button variant="primary" className="px-6 py-2" onClick={finishRound}>
-              {t("round.standings")}
+  const actions = (
+    <div className="flex flex-wrap items-start gap-2 text-sm">
+      {done ? (
+        <Button variant="primary" className="px-6 py-2" onClick={finishRound}>
+          {t("round.standings")}
+        </Button>
+      ) : (
+        <>
+          {(["normal", "fast", "instant"] as const).map((sp) => (
+            <Button
+              key={sp}
+              variant="toggle"
+              aria-pressed={speed === sp}
+              onClick={() => setSpeed(sp)}
+            >
+              {t(
+                sp === "normal" ? "round.speed1" : sp === "fast" ? "round.speed4" : "round.instant",
+              )}
             </Button>
-          ) : (
-            <>
-              {(["normal", "fast", "instant"] as const).map((sp) => (
-                <Button
-                  key={sp}
-                  variant="toggle"
-                  aria-pressed={speed === sp}
-                  onClick={() => setSpeed(sp)}
-                >
-                  {t(
-                    sp === "normal"
-                      ? "round.speed1"
-                      : sp === "fast"
-                        ? "round.speed4"
-                        : "round.instant",
-                  )}
-                </Button>
-              ))}
-            </>
-          )}
-        </div>
-        {done && (
-          <div>
-            <h3 className="font-display font-bold italic">{t("round.others")}</h3>
-            <ul className="mt-1 space-y-1 text-sm lg:max-h-24 lg:overflow-y-auto">
-              {live.field.map((m) => {
-                const a = teamLabel(ds, m.first, t("round.you"));
-                const b = teamLabel(ds, m.second, t("round.you"));
-                return (
-                  <li key={m.first} className="flex flex-wrap items-center gap-x-1.5">
-                    {a.countryCode && <Flag code={a.countryCode} className="w-4" />}
-                    {a.name}
-                    <b className="tabular-nums">
-                      {formatPoints(m.firstPoints)}–{formatPoints(m.secondPoints)}
-                    </b>
-                    {b.name}
-                    {b.countryCode && <Flag code={b.countryCode} className="w-4" />}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )}
-      </div>
-    </>
+          ))}
+        </>
+      )}
+    </div>
+  );
+
+  const footer = done && (
+    <div className="mt-6 lg:mt-3">
+      <h3 className="font-display font-bold italic">{t("round.others")}</h3>
+      <ul className="mt-1 space-y-1 text-sm lg:max-h-24 lg:overflow-y-auto">
+        {live.field.map((m) => {
+          const a = teamLabel(ds, m.first, t("round.you"));
+          const b = teamLabel(ds, m.second, t("round.you"));
+          return (
+            <li key={m.first} className="flex flex-wrap items-center gap-x-1.5">
+              {a.countryCode && <Flag code={a.countryCode} className="w-4" />}
+              {a.name}
+              <b className="tabular-nums">
+                {formatPoints(m.firstPoints)}–{formatPoints(m.secondPoints)}
+              </b>
+              {b.name}
+              {b.countryCode && <Flag code={b.countryCode} className="w-4" />}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 
   return (
@@ -144,6 +136,7 @@ export function Round() {
           <Rule className="my-4 lg:my-3" />
         </>
       }
+      actions={actions}
       footer={footer}
     >
       {/* On desktop the grid is a size container: each board is capped by the

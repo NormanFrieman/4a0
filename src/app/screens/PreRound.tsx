@@ -52,9 +52,8 @@ export function PreRound() {
           <Rule className="my-4 lg:my-3" />
         </>
       }
-      footer={
+      actions={
         <>
-          <Rule className="my-4 lg:my-3" />
           <div className="text-center">
             <Button variant="primary" className="px-8 py-3" onClick={playRound}>
               {t("round.play")}
