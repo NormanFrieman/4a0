@@ -25,9 +25,9 @@
 
 - **URL do código-fonte:** `https://github.com/NormanFrieman/4a0` (padrão em `vite.config.ts`, com override por `SOURCE_URL`). O commit vem do `git rev-parse HEAD` ou do `CF_PAGES_COMMIT_SHA`.
 - **Livros de amostra:** gerados de PGNs do PGN Mentor (licença não declarada), saem do git **e do histórico**. Ficam em `.gitignore` e são gerados com `pnpm data:pgn && pnpm data:sample`.
-- **Consequência para o deploy:** um build feito direto do repositório fica sem livros e para na rodada 1. Até os livros do Lichess (plano 3), o deploy sai do `dist/` local.
+- **Consequência para o deploy:** resolvida com os dados `v1` (2026-11-16), que não usam livros: um build feito direto do repositório joga o torneio inteiro.
 - **Branch `feat/blunder-check`:** removido do remoto. O `prototype/design-system`, citado abaixo, já não existia.
-- **Dados:** o `LICENSE.md` dos dados de teste está em `public/data/sample/`. O de `public/data/v1/` nasce com o plano 2.
+- **Dados:** o `LICENSE.md` dos dados de teste está em `public/data/sample/`. O de `public/data/v1/` foi criado com o plano 2 (CC BY-SA 4.0, atribuição à Wikipedia e ao Wikidata).
 
 ## Passos
 

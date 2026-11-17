@@ -1,10 +1,13 @@
 /**
  * Builds the Olympiad dataset from the cached sources (`pnpm data:fetch`
- * first), without network access. `pnpm data:olympiads [--years 1980,2024]`.
+ * first), without network access. `pnpm data:olympiads [--years 1980,2024]
+ * [--publish]`.
  *
  * Writes tools/data/olympiads/out/ in the published layout (GDD §9.3:
  * index.json, persons.json, olympiads/{year}.json; no books yet) and the
- * validation report tools/data/olympiads/report.md.
+ * validation report tools/data/olympiads/report.md. With `--publish` (all
+ * editions only), writes the data files to public/data/v1/ instead; the
+ * hand-written LICENSE.md there is kept.
  */
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -20,6 +23,7 @@ import type {
 } from "../../../src/data/types.ts";
 import {
   OUT_DIR,
+  PUBLISH_DIR,
   REPORT_FILE,
   crosstablePage,
   lineupsPage,
@@ -268,7 +272,7 @@ export function buildEdition(year: number): EditionResult {
         score: p.points,
         games: p.games,
         medals: [],
-        bookFile: "",
+        bookFile: null, // no opening books yet (plano-livros.md)
       };
       return [{ card, player: p, ratedRounds: ratings.length, rounds }];
     });
@@ -334,7 +338,12 @@ export function buildPersons(results: EditionResult[], allTeams: ResolvedPlayer[
 }
 
 function main() {
-  const years = yearsFromArgs(process.argv.slice(2));
+  const argv = process.argv.slice(2);
+  const years = yearsFromArgs(argv);
+  const publish = argv.includes("--publish");
+  if (publish && argv.includes("--years"))
+    throw new Error("--publish needs every edition (drop --years)");
+  const outDir = publish ? PUBLISH_DIR : OUT_DIR;
   const results = years.map(buildEdition);
 
   // Every participation (all teams, reserves included) for decisiveness.
@@ -346,7 +355,7 @@ function main() {
 
   const kept = results.map((r) => ({ r, teams: r.top.filter((t) => !t.excluded) }));
   const index: DatasetIndex = {
-    version: "v1-poc",
+    version: "v1",
     dataset: "v1",
     olympiads: results.map((r) => {
       const { year, city, country, rounds, teamsCount } = r.edition;
@@ -355,10 +364,11 @@ function main() {
     teams: kept.flatMap((k) => k.teams.map((t) => t.team)),
   };
 
-  rmSync(OUT_DIR, { recursive: true, force: true });
-  mkdirSync(join(OUT_DIR, "olympiads"), { recursive: true });
+  for (const f of ["index.json", "persons.json", "olympiads"])
+    rmSync(join(outDir, f), { recursive: true, force: true });
+  mkdirSync(join(outDir, "olympiads"), { recursive: true });
   const write = (file: string, data: unknown) =>
-    writeFileSync(join(OUT_DIR, file), JSON.stringify(data, null, 2) + "\n");
+    writeFileSync(join(outDir, file), JSON.stringify(data, null, 2) + "\n");
   write("index.json", index);
   write("persons.json", persons);
   for (const { r, teams } of kept) {
@@ -378,7 +388,7 @@ function main() {
         `, crosstable ${r.crosstableFound ? "ok" : "missing"}`,
     );
   }
-  console.log(`${persons.length} persons → ${OUT_DIR}; report → ${REPORT_FILE}`);
+  console.log(`${persons.length} persons → ${outDir}; report → ${REPORT_FILE}`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) main();

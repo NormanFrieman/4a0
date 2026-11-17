@@ -55,8 +55,8 @@ describe("gameJobFor with books", () => {
   it("gives each side its card's book", async () => {
     const books = await loadBooks(ds, [a!, b!], fakeFetch);
     const job = gameJobFor(ds, "s", 1, game, books);
-    expect(job.white.book).toBe(books.get(ds.card(a!).bookFile));
-    expect(job.black.book).toBe(books.get(ds.card(b!).bookFile));
+    expect(job.white.book).toBe(books.get(ds.card(a!).bookFile!));
+    expect(job.black.book).toBe(books.get(ds.card(b!).bookFile!));
   });
 
   it("plays without books when none are given, and refuses a missing one", () => {

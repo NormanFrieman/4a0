@@ -1,6 +1,6 @@
 # Plano: dados completos (20 melhores seleções de cada Olimpíada)
 
-**Situação:** planejado em 2026-11-16; passos 1 e 2 feitos; passo 3 rodado nas 28 edições, faltam as correções manuais. Antecipa parte da Fase 2 do GDD (§13) a pedido do usuário. Substitui a dependência do OlimpBase (§9.1, §14.2).
+**Situação:** planejado em 2026-11-16; passos 1 a 4 feitos (`v1` publicado e em uso pelo app). As correções manuais das cartas sem Elo ficam para depois (decisão do usuário). Antecipa parte da Fase 2 do GDD (§13) a pedido do usuário. Substitui a dependência do OlimpBase (§9.1, §14.2).
 
 ## Decisões do usuário (2026-11-16)
 
@@ -77,8 +77,8 @@ Correções manuais (nome errado, QID ausente, mesa trocada) ficam em `tools/dat
 
 1. ✅ Registrar as decisões no GDD (§9.1, §14.1, §14.2) e esta fonte.
 2. ✅ Prova de conceito com 1980 e 2024: parser, QIDs, Elo e performance. Conferir à mão as 4 primeiras seleções contra a amostra atual. Resultado abaixo.
-3. 🟡 Rodar as 28 edições e revisar o relatório de validação: rodado e revisado (resultado abaixo). Falta corrigir à mão as cartas sem QID ou sem Elo (`overrides.ts`).
-4. Publicar `v1`, trocar o app e rodar `pnpm test`, `pnpm typecheck` e `pnpm lint`.
+3. ✅ Rodar as 28 edições e revisar o relatório de validação (resultado abaixo). **Adiado (decisão do usuário, 2026-11-16):** corrigir à mão as 46 cartas sem QID ou sem Elo (`overrides.ts`). Até lá, as 42 seleções delas ficam fora do `v1`. A lista está em "Correções pendentes" no [relatório](../tools/data/olympiads/report.md).
+4. ✅ Publicar `v1`, trocar o app e rodar `pnpm test`, `pnpm typecheck` e `pnpm lint` (ver "Publicação" abaixo).
 5. Jogar 3 sessões com sementes diferentes e conferir nomes, bandeiras, mesas e forças.
 
 ## Prova de conceito (1980 e 2024, feita em 2026-11-16)
@@ -132,6 +132,15 @@ Código em `tools/data/olympiads/`: `pnpm data:fetch --years 1980,2024` baixa as
   - têm QID, mas o Wikidata não traz o histórico de Elo (Najdorf, Reshevsky, Bolbochán…);
   - não têm QID: a busca não achou nenhum enxadrista, ou achou candidatos sem lista na janela (Paichadse 2024, Jan Malek 2026…).
 - A correção vai em `overrides.ts`: o QID e, quando o Wikidata não tiver, o Elo. Para o Elo, falta escolher uma fonte livre. Cada carta corrigida devolve a sua seleção aos dados.
+
+## Publicação (passo 4, 2026-11-16)
+
+- `pnpm data:olympiads --publish` grava `index.json`, `persons.json` e `olympiads/` em `public/data/v1/`, versionados no git (~1 MB). Só aceita todas as edições. O `LICENSE.md` da pasta é escrito à mão e não é apagado.
+- **518 seleções** (das 560; 42 de fora pelas cartas sem Elo), 2 072 cartas, 769 pessoas. `version: "v1"`, sem `note`.
+- **Sem livros (decisão do usuário):** `bookFile: null` em todas as cartas. O Maia joga desde o primeiro lance; `loadBooks` ignora as cartas sem livro. Os livros do Lichess ficam para depois ([plano-livros.md](plano-livros.md)).
+- **App:** `loadDataset("v1")` e `balance.tournament.fieldSize` (23): torneio de 24 seleções, 7 rodadas. O campo ainda é sorteado sem faixas, só com o limite por país ([plano-mvp-campo-faixas.md](plano-mvp-campo-faixas.md)). `balance.sampleTournament` ficou só para os testes da amostra.
+- Teste novo `src/data/v1.test.ts`: as 28 edições, Elo em todas as cartas, nenhum livro e um torneio completo com o campo de 23 em três sementes.
+- Medalhas individuais continuam vazias (`medals: []`).
 
 ## Fora deste plano
 

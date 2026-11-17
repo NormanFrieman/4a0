@@ -1,0 +1,6967 @@
+[
+  {
+    "id": "Q102664",
+    "name": "Mikhail Tal",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.622
+  },
+  {
+    "id": "Q10365093",
+    "name": "Rubens Filguth",
+    "countryCodes": [
+      "br"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q104148",
+    "name": "Vasily Smyslov",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.52
+  },
+  {
+    "id": "Q1042830",
+    "name": "Carlos Cuartas",
+    "countryCodes": [
+      "co"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.592
+  },
+  {
+    "id": "Q106374",
+    "name": "Alexander Khalifman",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.353
+  },
+  {
+    "id": "Q106807",
+    "name": "Magnus Carlsen",
+    "countryCodes": [
+      "no"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.647
+  },
+  {
+    "id": "Q1078924",
+    "name": "Christian Bauer",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.51
+  },
+  {
+    "id": "Q108129123",
+    "name": "Karolis Jukšta",
+    "countryCodes": [
+      "lt"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.714
+  },
+  {
+    "id": "Q108311537",
+    "name": "Işık Can",
+    "countryCodes": [
+      "tr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4
+  },
+  {
+    "id": "Q108328207",
+    "name": "Ediz Gürel",
+    "countryCodes": [
+      "tr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.476
+  },
+  {
+    "id": "Q108396478",
+    "name": "Ihor Samunenkov",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q108562291",
+    "name": "Bardiya Daneshvar",
+    "countryCodes": [
+      "ir"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q108574423",
+    "name": "Pham Tran Gia Phuc",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.818
+  },
+  {
+    "id": "Q108577394",
+    "name": "Frederik Svane",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.65
+  },
+  {
+    "id": "Q10860652",
+    "name": "Jan-Krzysztof Duda",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q108807",
+    "name": "Bent Larsen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.765
+  },
+  {
+    "id": "Q109422804",
+    "name": "Quoc Hy Nguyen",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q109727",
+    "name": "Dieter Mohrlok",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.65
+  },
+  {
+    "id": "Q1097763",
+    "name": "Jacek Bielczyk",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q1106653",
+    "name": "Coen Zuidema",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.643
+  },
+  {
+    "id": "Q1119406",
+    "name": "David Howell",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.649
+  },
+  {
+    "id": "Q112168",
+    "name": "Axel Bachmann",
+    "countryCodes": [
+      "py"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q112198429",
+    "name": "Reza Mahdavi",
+    "countryCodes": [
+      "ir"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.75
+  },
+  {
+    "id": "Q1124934",
+    "name": "Robert Markuš",
+    "countryCodes": [
+      "rs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.685
+  },
+  {
+    "id": "Q113087582",
+    "name": "Mahdi Gholami Orimi",
+    "countryCodes": [
+      "ir"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q1142618",
+    "name": "Csaba Horváth",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.25
+  },
+  {
+    "id": "Q114505",
+    "name": "Stefan Kindermann",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.72
+  },
+  {
+    "id": "Q115212",
+    "name": "Serikbay Temirbayev",
+    "countryCodes": [
+      "kz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.436
+  },
+  {
+    "id": "Q1152824",
+    "name": "Jon Ludvig Hammer",
+    "countryCodes": [
+      "no"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.442
+  },
+  {
+    "id": "Q115303",
+    "name": "Pavel Kotsur",
+    "countryCodes": [
+      "kz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.507
+  },
+  {
+    "id": "Q115562538",
+    "name": "Mukhammadzokhid Suyarov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.545
+  },
+  {
+    "id": "Q1160387",
+    "name": "Daniel Cámpora",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.554
+  },
+  {
+    "id": "Q11691651",
+    "name": "Cristhian Cruz Sánchez",
+    "countryCodes": [
+      "pe"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q116980550",
+    "name": "Banh Gia Huy",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.636
+  },
+  {
+    "id": "Q116980860",
+    "name": "Dau Khuong Duy",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.818
+  },
+  {
+    "id": "Q1169976",
+    "name": "Tamás Bánusz",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.615
+  },
+  {
+    "id": "Q11699820",
+    "name": "Gildardo García",
+    "countryCodes": [
+      "co"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.724
+  },
+  {
+    "id": "Q11728361",
+    "name": "Josef Přibyl",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.516
+  },
+  {
+    "id": "Q11728571",
+    "name": "José Fernando Cubas",
+    "countryCodes": [
+      "py"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.816
+  },
+  {
+    "id": "Q11742921",
+    "name": "Konstanty Kaiszauri",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.857
+  },
+  {
+    "id": "Q11755625",
+    "name": "Liang Jinrong",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.536
+  },
+  {
+    "id": "Q11780574",
+    "name": "Mihail-Viorel Ghindă",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.605
+  },
+  {
+    "id": "Q1178283",
+    "name": "Davor Palo",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.471
+  },
+  {
+    "id": "Q11797711",
+    "name": "Ole Jakobsen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.514
+  },
+  {
+    "id": "Q11802586",
+    "name": "S.P. Sethuraman",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.531
+  },
+  {
+    "id": "Q11856779",
+    "name": "Eero Raaste",
+    "countryCodes": [
+      "fi"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.333
+  },
+  {
+    "id": "Q11887540",
+    "name": "Pertti Poutiainen",
+    "countryCodes": [
+      "fi"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.722
+  },
+  {
+    "id": "Q1190860",
+    "name": "Krikor Mekhitarian",
+    "countryCodes": [
+      "br"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.628
+  },
+  {
+    "id": "Q1191198",
+    "name": "Ding Liren",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.456
+  },
+  {
+    "id": "Q122628",
+    "name": "Lucas Brunner",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.655
+  },
+  {
+    "id": "Q12541963",
+    "name": "Ruslan Irzhanov",
+    "countryCodes": [
+      "kz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.588
+  },
+  {
+    "id": "Q1254774",
+    "name": "Dragoljub Velimirović",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.78
+  },
+  {
+    "id": "Q1256081",
+    "name": "Dražen Sermek",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.579
+  },
+  {
+    "id": "Q1266603",
+    "name": "Gregory Kaidanov",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.607
+  },
+  {
+    "id": "Q1268259",
+    "name": "Duško Pavasovič",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q1275033",
+    "name": "Alexander Goldin",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q1278611",
+    "name": "Fernando Peralta",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.558
+  },
+  {
+    "id": "Q1284438",
+    "name": "Edhi Handoko",
+    "countryCodes": [
+      "id"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.596
+  },
+  {
+    "id": "Q1286880",
+    "name": "Murray Chandler",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.694
+  },
+  {
+    "id": "Q1300969",
+    "name": "Ehsan Ghaem Maghami",
+    "countryCodes": [
+      "ir"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.509
+  },
+  {
+    "id": "Q1308965",
+    "name": "Alexandr Fier",
+    "countryCodes": [
+      "br"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.68
+  },
+  {
+    "id": "Q131674",
+    "name": "Anatoly Karpov",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.662
+  },
+  {
+    "id": "Q1320395",
+    "name": "Đào Thiên Hải",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.553
+  },
+  {
+    "id": "Q1321833",
+    "name": "Mikhail Kobalia",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.429
+  },
+  {
+    "id": "Q1323576",
+    "name": "Guillermo Garcia Gonzales",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.578
+  },
+  {
+    "id": "Q1326557",
+    "name": "Gerardo Barbero",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.557
+  },
+  {
+    "id": "Q1334037",
+    "name": "Eltaj Safarli",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.675
+  },
+  {
+    "id": "Q1334637",
+    "name": "Emanuel Berg",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.693
+  },
+  {
+    "id": "Q1335244",
+    "name": "Maxim Rodshtein",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.602
+  },
+  {
+    "id": "Q1335802",
+    "name": "Vassilios Kotronias",
+    "countryCodes": [
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.597
+  },
+  {
+    "id": "Q1338537",
+    "name": "Yehuda Gruenfeld",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.596
+  },
+  {
+    "id": "Q1338668",
+    "name": "Yrjö Rantanen",
+    "countryCodes": [
+      "fi"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.684
+  },
+  {
+    "id": "Q1339557",
+    "name": "Emre Can",
+    "countryCodes": [
+      "tr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.615
+  },
+  {
+    "id": "Q1342196",
+    "name": "Māris Krakops",
+    "countryCodes": [
+      "lv"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.708
+  },
+  {
+    "id": "Q1342210",
+    "name": "John van der Wiel",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.513
+  },
+  {
+    "id": "Q1343565",
+    "name": "Joel Benjamin",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.574
+  },
+  {
+    "id": "Q1346918",
+    "name": "Oleg Romanishin",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.439
+  },
+  {
+    "id": "Q1346942",
+    "name": "Suat Atalık",
+    "countryCodes": [
+      "ba"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.468
+  },
+  {
+    "id": "Q1347292",
+    "name": "Milko Bobotsov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.382
+  },
+  {
+    "id": "Q1347335",
+    "name": "Michele Godena",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.475
+  },
+  {
+    "id": "Q1347365",
+    "name": "Timur Gareev",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.636
+  },
+  {
+    "id": "Q1347422",
+    "name": "Ye Jiangchuan",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.54
+  },
+  {
+    "id": "Q1350057",
+    "name": "Utut Adianto",
+    "countryCodes": [
+      "id"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.657
+  },
+  {
+    "id": "Q1350369",
+    "name": "Florin Gheorghiu",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.397
+  },
+  {
+    "id": "Q1353835",
+    "name": "Erik Blomqvist",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.783
+  },
+  {
+    "id": "Q1355533",
+    "name": "Zviad Izoria",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.321
+  },
+  {
+    "id": "Q1356841",
+    "name": "Jonathan Speelman",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.479
+  },
+  {
+    "id": "Q1359706",
+    "name": "John Fedorowicz",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.842
+  },
+  {
+    "id": "Q1361566",
+    "name": "Jesus Nogueiras",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.466
+  },
+  {
+    "id": "Q1361637",
+    "name": "Hans Ree",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q13631982",
+    "name": "Chen De",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q1363654",
+    "name": "Erwin l'Ami",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.536
+  },
+  {
+    "id": "Q1364609",
+    "name": "Li Chao",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.676
+  },
+  {
+    "id": "Q13646741",
+    "name": "Wei Yi",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55
+  },
+  {
+    "id": "Q1365436",
+    "name": "Pablo Zarnicki",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.537
+  },
+  {
+    "id": "Q1367139",
+    "name": "Mihai Șubă",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.506
+  },
+  {
+    "id": "Q1368259",
+    "name": "Merab Gagunashvili",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.522
+  },
+  {
+    "id": "Q1371501",
+    "name": "Trajče Nedev",
+    "countryCodes": [
+      "mk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.574
+  },
+  {
+    "id": "Q1373329",
+    "name": "Győző Forintos",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.605
+  },
+  {
+    "id": "Q1373353",
+    "name": "Eugenio Torre",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.541
+  },
+  {
+    "id": "Q1374241",
+    "name": "Jan Smejkal",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q1376710",
+    "name": "Sergei Zhigalko",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.525
+  },
+  {
+    "id": "Q1376746",
+    "name": "Alexei Fedorov",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.545
+  },
+  {
+    "id": "Q1376801",
+    "name": "Yury Shulman",
+    "countryCodes": [
+      "by",
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.574
+  },
+  {
+    "id": "Q1376810",
+    "name": "Viktor Kupreichik",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.651
+  },
+  {
+    "id": "Q1376916",
+    "name": "Petar Popović",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.559
+  },
+  {
+    "id": "Q1379305",
+    "name": "Ibrohim Hamroqulov",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.833
+  },
+  {
+    "id": "Q1379424",
+    "name": "Alexei Barsov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.524
+  },
+  {
+    "id": "Q1379765",
+    "name": "Jan Smeets",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.519
+  },
+  {
+    "id": "Q1379840",
+    "name": "Sergio Mariotti",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.59
+  },
+  {
+    "id": "Q1379866",
+    "name": "Friso Nijboer",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.604
+  },
+  {
+    "id": "Q1382022",
+    "name": "Vlastimil Babula",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.482
+  },
+  {
+    "id": "Q1382386",
+    "name": "Hrant Melkumyan",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4
+  },
+  {
+    "id": "Q1382684",
+    "name": "Ján Plachetka",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.582
+  },
+  {
+    "id": "Q1383082",
+    "name": "James Tarjan",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.745
+  },
+  {
+    "id": "Q1383467",
+    "name": "Laurent Fressinet",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.495
+  },
+  {
+    "id": "Q1387247",
+    "name": "Vladímir Baklan",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.278
+  },
+  {
+    "id": "Q139438",
+    "name": "Jan Timman",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.491
+  },
+  {
+    "id": "Q1396774",
+    "name": "Margeir Pétursson",
+    "countryCodes": [
+      "is"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.52
+  },
+  {
+    "id": "Q1397091",
+    "name": "Helgi Ólafsson",
+    "countryCodes": [
+      "is"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.522
+  },
+  {
+    "id": "Q1398266",
+    "name": "Aleksander Wojtkiewicz",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.357
+  },
+  {
+    "id": "Q1406499",
+    "name": "Fernand Gobet",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.741
+  },
+  {
+    "id": "Q142319",
+    "name": "Julian Hodgson",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q1439516",
+    "name": "Adam Kuligowski",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.684
+  },
+  {
+    "id": "Q1443810",
+    "name": "Pablo Ricardi",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.701
+  },
+  {
+    "id": "Q1450826",
+    "name": "Ni Hua",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.419
+  },
+  {
+    "id": "Q1468090",
+    "name": "Viorel Iordăchescu",
+    "countryCodes": [
+      "md"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.604
+  },
+  {
+    "id": "Q14703323",
+    "name": "Mustafa Yılmaz",
+    "countryCodes": [
+      "tr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.622
+  },
+  {
+    "id": "Q147495",
+    "name": "Wesley So",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.453
+  },
+  {
+    "id": "Q15043825",
+    "name": "Maxwell Fuller",
+    "countryCodes": [
+      "au"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.659
+  },
+  {
+    "id": "Q15068870",
+    "name": "Vladislav Kovalev",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q15206237",
+    "name": "Maxime Lagarde",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.615
+  },
+  {
+    "id": "Q1524136",
+    "name": "Gilberto Milos",
+    "countryCodes": [
+      "br"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.621
+  },
+  {
+    "id": "Q154586",
+    "name": "Levon Aronian",
+    "countryCodes": [
+      "am",
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.448
+  },
+  {
+    "id": "Q15614436",
+    "name": "Vidit Gujrathi",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.419
+  },
+  {
+    "id": "Q15614497",
+    "name": "Leon David Piasetski",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.8
+  },
+  {
+    "id": "Q15633706",
+    "name": "Avital Boruchovsky",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.333
+  },
+  {
+    "id": "Q15783291",
+    "name": "Andreas Diermair",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.636
+  },
+  {
+    "id": "Q158050",
+    "name": "Svetozar Gligorić",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q15877133",
+    "name": "Jorden van Foreest",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.585
+  },
+  {
+    "id": "Q1594647",
+    "name": "Heikki Westerinen",
+    "countryCodes": [
+      "fi"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.641
+  },
+  {
+    "id": "Q15955505",
+    "name": "David Antón Guijarro",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.541
+  },
+  {
+    "id": "Q1601176",
+    "name": "Heinz Wirthensohn",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q16015836",
+    "name": "José Antonio Gutiérrez",
+    "countryCodes": [
+      "co"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q161092",
+    "name": "Vladimir Kramnik",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.444
+  },
+  {
+    "id": "Q16157664",
+    "name": "Nguyen Anh Khoi",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.545
+  },
+  {
+    "id": "Q1620593",
+    "name": "Tamir Nabaty",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.73
+  },
+  {
+    "id": "Q16299158",
+    "name": "Harri Hurme",
+    "countryCodes": [
+      "fi"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.85
+  },
+  {
+    "id": "Q1630579",
+    "name": "Jan Krejčí",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.833
+  },
+  {
+    "id": "Q1643669",
+    "name": "Fernando Braga",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q1645419",
+    "name": "Micheil Mtschedlischwili",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.489
+  },
+  {
+    "id": "Q16555772",
+    "name": "Deivy Vera Sigueñas",
+    "countryCodes": [
+      "pe"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.73
+  },
+  {
+    "id": "Q1657753",
+    "name": "Igor Miladinović",
+    "countryCodes": [
+      "yu",
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.623
+  },
+  {
+    "id": "Q1657802",
+    "name": "Igors Rausis",
+    "countryCodes": [
+      "lv"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.37
+  },
+  {
+    "id": "Q1658816",
+    "name": "Sébastien Mazé",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.813
+  },
+  {
+    "id": "Q1658829",
+    "name": "Marc Santo-Roman",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q16630500",
+    "name": "Laszlo Witt",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.818
+  },
+  {
+    "id": "Q16655550",
+    "name": "Aleksandar Inđić",
+    "countryCodes": [
+      "rs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.681
+  },
+  {
+    "id": "Q16670513",
+    "name": "Leon Lederman",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q16713280",
+    "name": "Svend Hamann",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.484
+  },
+  {
+    "id": "Q1675990",
+    "name": "Ivan Radulov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.526
+  },
+  {
+    "id": "Q168048",
+    "name": "Zbigniew Doda",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q1682332",
+    "name": "Jan Votava",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q168312",
+    "name": "Zbyněk Hráček",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.463
+  },
+  {
+    "id": "Q168943",
+    "name": "Zdenko Kožul",
+    "countryCodes": [
+      "yu",
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.675
+  },
+  {
+    "id": "Q16937772",
+    "name": "Tomas Laurušas",
+    "countryCodes": [
+      "lt"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.614
+  },
+  {
+    "id": "Q1703454",
+    "name": "Jonny Hector",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.595
+  },
+  {
+    "id": "Q1713972",
+    "name": "Yuriy Kryvoruchko",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q1715662",
+    "name": "Mircea Pârligras",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.56
+  },
+  {
+    "id": "Q1723070",
+    "name": "Kamil Mitoń",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q172798",
+    "name": "Veselin Topalov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.647
+  },
+  {
+    "id": "Q17386461",
+    "name": "Nihal Sarin",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55
+  },
+  {
+    "id": "Q17411381",
+    "name": "Salor Sitanggang",
+    "countryCodes": [
+      "id"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.714
+  },
+  {
+    "id": "Q17482340",
+    "name": "Jakob Vang Glud",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.75
+  },
+  {
+    "id": "Q1770496",
+    "name": "Carlos García Palermo",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.69
+  },
+  {
+    "id": "Q177310",
+    "name": "Boris Spassky",
+    "countryCodes": [
+      "su",
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.367
+  },
+  {
+    "id": "Q180636",
+    "name": "Tigran Petrosian",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.509
+  },
+  {
+    "id": "Q1817728",
+    "name": "Shukhrat Safin",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.558
+  },
+  {
+    "id": "Q18202642",
+    "name": "Alan Pichot",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.577
+  },
+  {
+    "id": "Q18238541",
+    "name": "Georg Danner",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.68
+  },
+  {
+    "id": "Q18243395",
+    "name": "Hans-Günter Kestler",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q18274585",
+    "name": "Štěpán Žilka",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q18280536",
+    "name": "Bo Jacobsen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "",
+    "decisiveness": 0.833
+  },
+  {
+    "id": "Q183250",
+    "name": "Judit Polgár",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.588
+  },
+  {
+    "id": "Q185236",
+    "name": "Radosław Wojtaszek",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.557
+  },
+  {
+    "id": "Q1853719",
+    "name": "Benjamin Bok",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q1857837",
+    "name": "Michael Roiz",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.435
+  },
+  {
+    "id": "Q18634656",
+    "name": "Nguyen Duc Hoa",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q1891541",
+    "name": "Jesús Díez del Corral",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.569
+  },
+  {
+    "id": "Q1950207",
+    "name": "Igor Novikov",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q195112",
+    "name": "Jens Kristiansen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55
+  },
+  {
+    "id": "Q195296",
+    "name": "Jacek Tomczak",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q1961002",
+    "name": "Hugo Spangenberg",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.633
+  },
+  {
+    "id": "Q1961009",
+    "name": "Jorge Rubinetti",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.678
+  },
+  {
+    "id": "Q19613834",
+    "name": "Matthias Blübaum",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q19615148",
+    "name": "Alexander Donchenko",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.692
+  },
+  {
+    "id": "Q197265",
+    "name": "Zhang Pengxiang",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.9
+  },
+  {
+    "id": "Q1973188",
+    "name": "Arturs Neikšāns",
+    "countryCodes": [
+      "lv"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.631
+  },
+  {
+    "id": "Q197348",
+    "name": "Zhang Zhong",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.615
+  },
+  {
+    "id": "Q197984",
+    "name": "Zhou Jianchao",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.375
+  },
+  {
+    "id": "Q19915607",
+    "name": "Alexandr Predke",
+    "countryCodes": [
+      "rs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.579
+  },
+  {
+    "id": "Q1992344",
+    "name": "Nils Grandelius",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.593
+  },
+  {
+    "id": "Q1992664",
+    "name": "Dariusz Świercz",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.632
+  },
+  {
+    "id": "Q1999428",
+    "name": "Ognjen Cvitan",
+    "countryCodes": [
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.506
+  },
+  {
+    "id": "Q20026028",
+    "name": "Nguyễn Văn Huy",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.467
+  },
+  {
+    "id": "Q2004661",
+    "name": "Viktor Láznička",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.63
+  },
+  {
+    "id": "Q2004689",
+    "name": "Vlastimil Jansa",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.554
+  },
+  {
+    "id": "Q20179966",
+    "name": "Rasmus Svane",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q202015",
+    "name": "Pia Cramling",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.684
+  },
+  {
+    "id": "Q2030950",
+    "name": "Zurab Sturua",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.493
+  },
+  {
+    "id": "Q2033533",
+    "name": "Sergey Volkov",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q2034176",
+    "name": "Aleksej Aleksandrov",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.515
+  },
+  {
+    "id": "Q2036425",
+    "name": "Leonid Gofshtein",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q203644",
+    "name": "Anthony Miles",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.494
+  },
+  {
+    "id": "Q2047618",
+    "name": "Thomas Ernst",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q2047898",
+    "name": "Evgeny Ermenkov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.556
+  },
+  {
+    "id": "Q20503420",
+    "name": "Paulius Pultinevičius",
+    "countryCodes": [
+      "lt"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q20503481",
+    "name": "Titas Stremavičius",
+    "countryCodes": [
+      "lt"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.421
+  },
+  {
+    "id": "Q2062580",
+    "name": "Vereslav Eingorn",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.385
+  },
+  {
+    "id": "Q20631628",
+    "name": "Jahongir Vahidov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.68
+  },
+  {
+    "id": "Q2064831",
+    "name": "Aleksander Sznapik",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.733
+  },
+  {
+    "id": "Q2065079",
+    "name": "Vlatko Kovačević",
+    "countryCodes": [
+      "yu",
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.635
+  },
+  {
+    "id": "Q2066039",
+    "name": "Andrey Zhigalko",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.581
+  },
+  {
+    "id": "Q2071871",
+    "name": "Alonso Zapata",
+    "countryCodes": [
+      "co"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.742
+  },
+  {
+    "id": "Q2076172",
+    "name": "İldar İbrahimof",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.714
+  },
+  {
+    "id": "Q207723",
+    "name": "Ruslan Ponomariov",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.426
+  },
+  {
+    "id": "Q2077405",
+    "name": "Ferdinand Hellers",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.682
+  },
+  {
+    "id": "Q2078617",
+    "name": "Jón Loftur Árnason",
+    "countryCodes": [
+      "is"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.515
+  },
+  {
+    "id": "Q20808228",
+    "name": "Aryan Tari",
+    "countryCodes": [
+      "no"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.542
+  },
+  {
+    "id": "Q208229",
+    "name": "Vassily Ivanchuk",
+    "countryCodes": [
+      "su",
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.466
+  },
+  {
+    "id": "Q2083177",
+    "name": "Eddy Scholl",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "",
+    "decisiveness": 0.471
+  },
+  {
+    "id": "Q2090109",
+    "name": "Rodolfo Tan Cardoso",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.806
+  },
+  {
+    "id": "Q20908925",
+    "name": "Nodirbek Abdusattorov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.558
+  },
+  {
+    "id": "Q2096349",
+    "name": "Franz Hölzl",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.652
+  },
+  {
+    "id": "Q21088289",
+    "name": "Dario Alzate",
+    "countryCodes": [
+      "co"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q210922",
+    "name": "Péter Lékó",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.363
+  },
+  {
+    "id": "Q2111035",
+    "name": "Nguyễn Ngọc Trường Sơn",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.512
+  },
+  {
+    "id": "Q2114635",
+    "name": "Ioannis Nikolaidis",
+    "countryCodes": [
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.507
+  },
+  {
+    "id": "Q211634",
+    "name": "Teimour Radjabov",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.467
+  },
+  {
+    "id": "Q2119517",
+    "name": "Alexander Ipatov",
+    "countryCodes": [
+      "tr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.552
+  },
+  {
+    "id": "Q212554",
+    "name": "Miguel Illescas",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.496
+  },
+  {
+    "id": "Q212889",
+    "name": "Viktor Korchnoi",
+    "countryCodes": [
+      "su",
+      "ch"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.512
+  },
+  {
+    "id": "Q2137386",
+    "name": "Bogdan Lalić",
+    "countryCodes": [
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.393
+  },
+  {
+    "id": "Q214713",
+    "name": "Alexei Shirov",
+    "countryCodes": [
+      "es",
+      "lv"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.558
+  },
+  {
+    "id": "Q217198",
+    "name": "Sergey Karjakin",
+    "countryCodes": [
+      "ua",
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.513
+  },
+  {
+    "id": "Q2182051",
+    "name": "Gad Rechlis",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q2184474",
+    "name": "Daniel Gormally",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.8
+  },
+  {
+    "id": "Q218875",
+    "name": "Zoltán Almási",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.526
+  },
+  {
+    "id": "Q218923",
+    "name": "Zoltan Gyimesi",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q219019",
+    "name": "Zoltán Ribli",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.393
+  },
+  {
+    "id": "Q2191949",
+    "name": "Xu Jun",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.531
+  },
+  {
+    "id": "Q2194745",
+    "name": "Ilan Manor",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q2195871",
+    "name": "Giorgi Gel Giorgadze",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.544
+  },
+  {
+    "id": "Q22046430",
+    "name": "Steen Fedder",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q22133635",
+    "name": "Giancarlo Franzoni",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q2218873",
+    "name": "Sam Shankland",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.657
+  },
+  {
+    "id": "Q2227066",
+    "name": "Mihail Saltaev",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.652
+  },
+  {
+    "id": "Q22338182",
+    "name": "Alireza Firouzja",
+    "countryCodes": [
+      "ir"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.632
+  },
+  {
+    "id": "Q2249476",
+    "name": "Dibyendu Barua",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.515
+  },
+  {
+    "id": "Q22570141",
+    "name": "Benjámin Gledura",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.639
+  },
+  {
+    "id": "Q22696880",
+    "name": "Ruben Rodríguez",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.756
+  },
+  {
+    "id": "Q22918580",
+    "name": "Dumitru Ghizdavu",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.611
+  },
+  {
+    "id": "Q22918731",
+    "name": "Oscar Castro",
+    "countryCodes": [
+      "co"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.596
+  },
+  {
+    "id": "Q22919485",
+    "name": "Andrew Whiteley",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q2301888",
+    "name": "Ivan Ivanišević",
+    "countryCodes": [
+      "yu",
+      "rs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.591
+  },
+  {
+    "id": "Q2325682",
+    "name": "Miloš Perunović",
+    "countryCodes": [
+      "yu",
+      "rs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.512
+  },
+  {
+    "id": "Q2333254",
+    "name": "Saidali Iuldachev",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q2339541",
+    "name": "Marat Dzhumaev",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.74
+  },
+  {
+    "id": "Q2356884",
+    "name": "Julen Luis Arizmendi Martínez",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q2357364",
+    "name": "Iván Salgado López",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.472
+  },
+  {
+    "id": "Q23656656",
+    "name": "Adolf Herzog",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.909
+  },
+  {
+    "id": "Q23656736",
+    "name": "Karl Janetschek",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.567
+  },
+  {
+    "id": "Q23710569",
+    "name": "Amin Tabatabaei",
+    "countryCodes": [
+      "ir"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.487
+  },
+  {
+    "id": "Q23837072",
+    "name": "Valentin Dragnev",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.583
+  },
+  {
+    "id": "Q2392158",
+    "name": "Daniele Vocaturo",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.622
+  },
+  {
+    "id": "Q24175293",
+    "name": "Terrey Ian Shaw",
+    "countryCodes": [
+      "au"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q2441357",
+    "name": "Tomáš Oral",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.486
+  },
+  {
+    "id": "Q250157",
+    "name": "Attila Grószpéter",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q250179",
+    "name": "Mišo Cebalo",
+    "countryCodes": [
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.692
+  },
+  {
+    "id": "Q2524265",
+    "name": "Viktor Erdős",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.526
+  },
+  {
+    "id": "Q2527387",
+    "name": "Stefano Tatai",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.464
+  },
+  {
+    "id": "Q253524",
+    "name": "Evgeny Bareev",
+    "countryCodes": [
+      "ru",
+      "ca"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.591
+  },
+  {
+    "id": "Q2542149",
+    "name": "Valery Loginov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q25511602",
+    "name": "Johan-Sebastian Christiansen",
+    "countryCodes": [
+      "no"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.605
+  },
+  {
+    "id": "Q2561974",
+    "name": "Juan Manuel Bellón López",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.727
+  },
+  {
+    "id": "Q2562010",
+    "name": "Ventzislav Inkiov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.611
+  },
+  {
+    "id": "Q2563529",
+    "name": "Jaime Sunye Neto",
+    "countryCodes": [
+      "br"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.58
+  },
+  {
+    "id": "Q2563589",
+    "name": "Elizbar Ubilava",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q2564094",
+    "name": "Petar Velikov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.412
+  },
+  {
+    "id": "Q2565820",
+    "name": "Hristos Banikas",
+    "countryCodes": [
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.412
+  },
+  {
+    "id": "Q2567676",
+    "name": "Murtas Kazhgaleyev",
+    "countryCodes": [
+      "kz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q256923",
+    "name": "Maxime Vachier-Lagrave",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.385
+  },
+  {
+    "id": "Q2581383",
+    "name": "Gregory Serper",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q25932923",
+    "name": "Jules Moussard",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q260172",
+    "name": "Werner Hug",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.418
+  },
+  {
+    "id": "Q2607943",
+    "name": "Bachar Kouatly",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.593
+  },
+  {
+    "id": "Q2613932",
+    "name": "Mihhail Rõtšagov",
+    "countryCodes": [
+      "ee"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.394
+  },
+  {
+    "id": "Q2616379",
+    "name": "Dimitris Mastrovasilis",
+    "countryCodes": [
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.564
+  },
+  {
+    "id": "Q2616692",
+    "name": "Robert Hovhannisyan",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.559
+  },
+  {
+    "id": "Q26255609",
+    "name": "Vahap Şanal",
+    "countryCodes": [
+      "tr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.711
+  },
+  {
+    "id": "Q2634340",
+    "name": "Atanas Kolev",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.531
+  },
+  {
+    "id": "Q2650747",
+    "name": "Samuel Schweber",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.3
+  },
+  {
+    "id": "Q2669497",
+    "name": "Krum Georgiev",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.549
+  },
+  {
+    "id": "Q26703041",
+    "name": "R Praggnanandhaa",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.448
+  },
+  {
+    "id": "Q26990815",
+    "name": "Maksim Chigaev",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q2741731",
+    "name": "Aldo Haïk",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.744
+  },
+  {
+    "id": "Q2744238",
+    "name": "Hannes Stefansson",
+    "countryCodes": [
+      "is"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.593
+  },
+  {
+    "id": "Q2748712",
+    "name": "Roberto Cifuentes",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.569
+  },
+  {
+    "id": "Q27522353",
+    "name": "Abdimalik Abdisalimov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4
+  },
+  {
+    "id": "Q27523092",
+    "name": "Mikkel Antonsen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q27523343",
+    "name": "Iulian Baltag",
+    "countryCodes": [
+      "md"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q27524423",
+    "name": "Ricardo De Guzman",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.375
+  },
+  {
+    "id": "Q27524449",
+    "name": "Bogdan-Daniel Deac",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.52
+  },
+  {
+    "id": "Q27524779",
+    "name": "Vladimir Egin",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.375
+  },
+  {
+    "id": "Q27524847",
+    "name": "Arjun Erigaisi",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q27524930",
+    "name": "Adham Fawzy",
+    "countryCodes": [
+      "eg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q27525155",
+    "name": "Nelson Gamboa",
+    "countryCodes": [
+      "co"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.9
+  },
+  {
+    "id": "Q27525674",
+    "name": "Vladimir Hamițevici",
+    "countryCodes": [
+      "md"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.765
+  },
+  {
+    "id": "Q27525810",
+    "name": "Abdelrahman Hesham",
+    "countryCodes": [
+      "eg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.889
+  },
+  {
+    "id": "Q27525927",
+    "name": "Pouya Idani",
+    "countryCodes": [
+      "ir"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.612
+  },
+  {
+    "id": "Q27526379",
+    "name": "Gergely Kántor",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.765
+  },
+  {
+    "id": "Q27526478",
+    "name": "Vincent Keymer",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.481
+  },
+  {
+    "id": "Q27526530",
+    "name": "Nikita Khoroshev",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q27526663",
+    "name": "Dmitrij Kollars",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.556
+  },
+  {
+    "id": "Q27526776",
+    "name": "Stamatis Kourkoulos-Arditis",
+    "countryCodes": [
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q27527334",
+    "name": "Leon Livaic",
+    "countryCodes": [
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q27527430",
+    "name": "Shahin Lorparizangeneh",
+    "countryCodes": [
+      "ir"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.636
+  },
+  {
+    "id": "Q27527525",
+    "name": "Andrei Macovei",
+    "countryCodes": [
+      "md"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q27527529",
+    "name": "Parham Maghsoodloo",
+    "countryCodes": [
+      "ir"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q27527783",
+    "name": "Haik Martirosyan",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.357
+  },
+  {
+    "id": "Q27528282",
+    "name": "Nikita Meshkovs",
+    "countryCodes": [
+      "lv"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.632
+  },
+  {
+    "id": "Q27528724",
+    "name": "Krishnamoorthy Murugan",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.45
+  },
+  {
+    "id": "Q27528849",
+    "name": "Thai Dai Van Nguyen",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.467
+  },
+  {
+    "id": "Q27528859",
+    "name": "Ortik Nigmatov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q27529082",
+    "name": "Jacob Øst-Hansen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.583
+  },
+  {
+    "id": "Q27529864",
+    "name": "Manuel Petrosyan",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q27530090",
+    "name": "Devaki Prasad",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.652
+  },
+  {
+    "id": "Q27531181",
+    "name": "Jaime Santos Latasa",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.533
+  },
+  {
+    "id": "Q27531199",
+    "name": "Alexey Sarana",
+    "countryCodes": [
+      "rs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q27531213",
+    "name": "Shant Sargsyan",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.364
+  },
+  {
+    "id": "Q27531893",
+    "name": "Kirill Shevchenko",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q27531978",
+    "name": "Eliahu Shvidler",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.385
+  },
+  {
+    "id": "Q27532037",
+    "name": "Javokhir Sindarov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.633
+  },
+  {
+    "id": "Q27532772",
+    "name": "Valentin Stoica",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q27532882",
+    "name": "S.L. Narayanan",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q27533120",
+    "name": "Nikolas Theodorou",
+    "countryCodes": [
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q27533264",
+    "name": "Trần Tuấn Minh",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.636
+  },
+  {
+    "id": "Q27533974",
+    "name": "Shamsiddin Vokhidov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.65
+  },
+  {
+    "id": "Q27534227",
+    "name": "Xu Xiangyu",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.25
+  },
+  {
+    "id": "Q27534239",
+    "name": "Nodirbek Yakubboev",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.561
+  },
+  {
+    "id": "Q27579547",
+    "name": "Rafaelito Maninang",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.727
+  },
+  {
+    "id": "Q276818",
+    "name": "Jacob Aagaard",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.629
+  },
+  {
+    "id": "Q276885",
+    "name": "Andrei Volokitin",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.533
+  },
+  {
+    "id": "Q2785407",
+    "name": "Lawrence Day",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.63
+  },
+  {
+    "id": "Q278777",
+    "name": "Peter Svidler",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q278844",
+    "name": "Božidar Ivanović",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.424
+  },
+  {
+    "id": "Q2833832",
+    "name": "Alexandre Lesiège",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.672
+  },
+  {
+    "id": "Q2842364",
+    "name": "Luis Bronstein",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q28614",
+    "name": "Garry Kasparov",
+    "countryCodes": [
+      "su",
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.646
+  },
+  {
+    "id": "Q2863141",
+    "name": "Arnaud Hauchard",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.556
+  },
+  {
+    "id": "Q289349",
+    "name": "Étienne Bacrot",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.483
+  },
+  {
+    "id": "Q289875",
+    "name": "Frode Urkedal",
+    "countryCodes": [
+      "no"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.649
+  },
+  {
+    "id": "Q293409",
+    "name": "Oscar Panno",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.345
+  },
+  {
+    "id": "Q2991159",
+    "name": "Igor-Alexandre Nataf",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.526
+  },
+  {
+    "id": "Q299636",
+    "name": "Michael Adams",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.43
+  },
+  {
+    "id": "Q30309485",
+    "name": "Antonio Agudelo",
+    "countryCodes": [
+      "co"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.714
+  },
+  {
+    "id": "Q3106411",
+    "name": "Gilles Mirallès",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.464
+  },
+  {
+    "id": "Q312267",
+    "name": "Shakhriyar Mamedyarov",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.513
+  },
+  {
+    "id": "Q312918",
+    "name": "Alexander Morozevich",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.529
+  },
+  {
+    "id": "Q313778",
+    "name": "Nigel Short",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.494
+  },
+  {
+    "id": "Q314531",
+    "name": "Alexander Grischuk",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.533
+  },
+  {
+    "id": "Q315155",
+    "name": "Gata Kamsky",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.603
+  },
+  {
+    "id": "Q319208",
+    "name": "Yasser Seirawan",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.529
+  },
+  {
+    "id": "Q319380",
+    "name": "Vugar Gashimov",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.585
+  },
+  {
+    "id": "Q3200058",
+    "name": "Krzysztof Pytel",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.333
+  },
+  {
+    "id": "Q3263044",
+    "name": "Louis Roos",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.375
+  },
+  {
+    "id": "Q326562",
+    "name": "Bela Toth",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.774
+  },
+  {
+    "id": "Q3299882",
+    "name": "Matthieu Cornette",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q3340359",
+    "name": "Nicolas Giffard",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.647
+  },
+  {
+    "id": "Q337223",
+    "name": "Hikaru Nakamura",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.507
+  },
+  {
+    "id": "Q339392",
+    "name": "Victor Ciocâltea",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.518
+  },
+  {
+    "id": "Q344466",
+    "name": "Michael Stean",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.44
+  },
+  {
+    "id": "Q3445619",
+    "name": "Zvonko Vranesic",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q344716",
+    "name": "Ľubomír Ftáčnik",
+    "countryCodes": [
+      "cs",
+      "sk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.447
+  },
+  {
+    "id": "Q346022",
+    "name": "József Pintér",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.559
+  },
+  {
+    "id": "Q351204",
+    "name": "Johan Hellsten",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.613
+  },
+  {
+    "id": "Q352142",
+    "name": "Carsten Høi",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.63
+  },
+  {
+    "id": "Q352301",
+    "name": "Duncan Suttles",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.634
+  },
+  {
+    "id": "Q352413",
+    "name": "Alexander Beliavsky",
+    "countryCodes": [
+      "su",
+      "ua",
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.572
+  },
+  {
+    "id": "Q352495",
+    "name": "Efim Geller",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q354819",
+    "name": "Reynaldo Vera",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.52
+  },
+  {
+    "id": "Q356258",
+    "name": "Ricardo Calvo Mínguez",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.757
+  },
+  {
+    "id": "Q357092",
+    "name": "Emilio Córdova Daza",
+    "countryCodes": [
+      "pe"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.649
+  },
+  {
+    "id": "Q357119",
+    "name": "Nikola Mitkov",
+    "countryCodes": [
+      "mk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.584
+  },
+  {
+    "id": "Q359802",
+    "name": "Levan Pantsulaia",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.631
+  },
+  {
+    "id": "Q360308",
+    "name": "Ante Brkić",
+    "countryCodes": [
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.769
+  },
+  {
+    "id": "Q361454",
+    "name": "Pavel Eljanov",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q3618872",
+    "name": "Anton Kovalyov",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.533
+  },
+  {
+    "id": "Q3622579",
+    "name": "Vladimir Georgiev",
+    "countryCodes": [
+      "mk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.659
+  },
+  {
+    "id": "Q3622636",
+    "name": "Vladislav Nevednichy",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.698
+  },
+  {
+    "id": "Q363211",
+    "name": "Pavel Blatný",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.647
+  },
+  {
+    "id": "Q363218",
+    "name": "Gennadi Timoshchenko",
+    "countryCodes": [
+      "sk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q363291",
+    "name": "Petr Hába",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q364327",
+    "name": "Ljubomir Ljubojević",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.54
+  },
+  {
+    "id": "Q364519",
+    "name": "Karel Mokrý",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.651
+  },
+  {
+    "id": "Q364668",
+    "name": "Eduard Meduna",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q365467",
+    "name": "Rosendo Balinas Jr.",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q3656357",
+    "name": "Nikola Sedlak",
+    "countryCodes": [
+      "rs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.588
+  },
+  {
+    "id": "Q3656900",
+    "name": "Athanasios Mastrovasilis",
+    "countryCodes": [
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.545
+  },
+  {
+    "id": "Q3657177",
+    "name": "Ioannis Papaioannou",
+    "countryCodes": [
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.481
+  },
+  {
+    "id": "Q3657764",
+    "name": "Stelios Halkias",
+    "countryCodes": [
+      "gr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.644
+  },
+  {
+    "id": "Q3657800",
+    "name": "Luben Popow",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.682
+  },
+  {
+    "id": "Q3659234",
+    "name": "Carlo D'Amore",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.556
+  },
+  {
+    "id": "Q3659625",
+    "name": "Carlo Micheli",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q367277",
+    "name": "Fabiano Caruana",
+    "countryCodes": [
+      "it",
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.545
+  },
+  {
+    "id": "Q368004",
+    "name": "József Horváth",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.536
+  },
+  {
+    "id": "Q370989",
+    "name": "Boris Avrukh",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.662
+  },
+  {
+    "id": "Q371180",
+    "name": "Krishnan Sasikiran",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.549
+  },
+  {
+    "id": "Q372965",
+    "name": "Jean-Luc Seret",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.661
+  },
+  {
+    "id": "Q373570",
+    "name": "Adrian Mikhalchishin",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.351
+  },
+  {
+    "id": "Q377105",
+    "name": "Milan Matulović",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q3774327",
+    "name": "Zenón Franco Ocampos",
+    "countryCodes": [
+      "py"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.631
+  },
+  {
+    "id": "Q3774368",
+    "name": "Dmitry Svetushkin",
+    "countryCodes": [
+      "md"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.704
+  },
+  {
+    "id": "Q377866",
+    "name": "Yu Yangyi",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.549
+  },
+  {
+    "id": "Q378734",
+    "name": "Alexander Onyschuk",
+    "countryCodes": [
+      "ua",
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.495
+  },
+  {
+    "id": "Q380839",
+    "name": "Vladimir Akopian",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.402
+  },
+  {
+    "id": "Q3823030",
+    "name": "David García Ilundain",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.222
+  },
+  {
+    "id": "Q3824586",
+    "name": "Jordi Magem Badals",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.424
+  },
+  {
+    "id": "Q3824620",
+    "name": "Lluís Comas i Fabregó",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.75
+  },
+  {
+    "id": "Q3846866",
+    "name": "Jaime Emma",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.708
+  },
+  {
+    "id": "Q3847863",
+    "name": "Raimundo García",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q385119",
+    "name": "Istvan Bilek",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q388220",
+    "name": "Nijat Abasov",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.536
+  },
+  {
+    "id": "Q390430",
+    "name": "Lajos Portisch",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.58
+  },
+  {
+    "id": "Q3917277",
+    "name": "Andrey Kavalyow",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q392661",
+    "name": "Luke McShane",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.494
+  },
+  {
+    "id": "Q4057362",
+    "name": "Jan Adamski",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.621
+  },
+  {
+    "id": "Q4068939",
+    "name": "Ardiansyah",
+    "countryCodes": [
+      "id"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.694
+  },
+  {
+    "id": "Q4074716",
+    "name": "Giorgi Bagaturov",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q4075848",
+    "name": "Yusnel Bacallao Alonso",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.733
+  },
+  {
+    "id": "Q4080610",
+    "name": "Jacek Bednarski",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.529
+  },
+  {
+    "id": "Q4088072",
+    "name": "Yaacov Bleiman",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q4089406",
+    "name": "Vlatko Bogdanovski",
+    "countryCodes": [
+      "mk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.687
+  },
+  {
+    "id": "Q4094089",
+    "name": "Jure Borišek",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.642
+  },
+  {
+    "id": "Q4094832",
+    "name": "Juan Borges Mateos",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.538
+  },
+  {
+    "id": "Q4102447",
+    "name": "Levente Vajda",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.741
+  },
+  {
+    "id": "Q4103242",
+    "name": "Wang Zili",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.605
+  },
+  {
+    "id": "Q4131618",
+    "name": "Grzegorz Gajewski",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.632
+  },
+  {
+    "id": "Q4135037",
+    "name": "Uzi Geller",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "",
+    "decisiveness": 0.737
+  },
+  {
+    "id": "Q4139059",
+    "name": "Theodor Ghițescu",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.508
+  },
+  {
+    "id": "Q4157722",
+    "name": "Anton Demchenko",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.75
+  },
+  {
+    "id": "Q4159881",
+    "name": "Lasha Janjgava",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q4161414",
+    "name": "Emir Dizdarević",
+    "countryCodes": [
+      "ba"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.512
+  },
+  {
+    "id": "Q4161709",
+    "name": "Vladimir Dimitrov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.8
+  },
+  {
+    "id": "Q4183732",
+    "name": "Sergey Zagrebelny",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.559
+  },
+  {
+    "id": "Q4184534",
+    "name": "Gennadi Zaichik",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.654
+  },
+  {
+    "id": "Q4199277",
+    "name": "Zlatko Ilinčić",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q4202750",
+    "name": "Constantin Ionescu",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.552
+  },
+  {
+    "id": "Q4207104",
+    "name": "Shimon Kagan",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.759
+  },
+  {
+    "id": "Q4217951",
+    "name": "Giorgi Kacheishvili",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.65
+  },
+  {
+    "id": "Q4225422",
+    "name": "Igor Kovalenko",
+    "countryCodes": [
+      "lv",
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.707
+  },
+  {
+    "id": "Q4225706",
+    "name": "Aleksandar Kovacevic",
+    "countryCodes": [
+      "yu",
+      "rs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.476
+  },
+  {
+    "id": "Q4235524",
+    "name": "Jerzy Kostro",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q4250038",
+    "name": "Robert Kuczyński",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.375
+  },
+  {
+    "id": "Q4261192",
+    "name": "Renato Naranja",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q427768",
+    "name": "Nikola Padevsky",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q4281305",
+    "name": "Sandro Mareco",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.592
+  },
+  {
+    "id": "Q4282096",
+    "name": "Miroslav Marković",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.857
+  },
+  {
+    "id": "Q4282611",
+    "name": "Saša Martinović",
+    "countryCodes": [
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q4302345",
+    "name": "Wojciech Moranda",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.444
+  },
+  {
+    "id": "Q4337114",
+    "name": "Isan Reynaldo Ortiz Suárez",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.659
+  },
+  {
+    "id": "Q434000",
+    "name": "Lev Polugaevsky",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.51
+  },
+  {
+    "id": "Q434364",
+    "name": "Ulf Andersson",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.383
+  },
+  {
+    "id": "Q4348358",
+    "name": "Roman Pelts",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q4368102",
+    "name": "Evgeniy Podolchenko",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.875
+  },
+  {
+    "id": "Q4386158",
+    "name": "Kacper Piorun",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.515
+  },
+  {
+    "id": "Q4390194",
+    "name": "Allan Stig Rasmussen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.784
+  },
+  {
+    "id": "Q439610",
+    "name": "Davit Shengelia",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.776
+  },
+  {
+    "id": "Q442544",
+    "name": "Evgeny Tomashevsky",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.35
+  },
+  {
+    "id": "Q4455415",
+    "name": "Samvel Ter-Sahakyan",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q4456514",
+    "name": "Vitaly Teterev",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.75
+  },
+  {
+    "id": "Q445661",
+    "name": "Wang Yue",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.519
+  },
+  {
+    "id": "Q4460949",
+    "name": "Román Torán Albero",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.524
+  },
+  {
+    "id": "Q4474884",
+    "name": "Mikhail Ulibin",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.333
+  },
+  {
+    "id": "Q4482094",
+    "name": "Vladimir Fedoseev",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q4494446",
+    "name": "Marek Hawełko",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.909
+  },
+  {
+    "id": "Q4502452",
+    "name": "Andreas Huss",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q450419",
+    "name": "John Nunn",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.626
+  },
+  {
+    "id": "Q4521047",
+    "name": "Heinz Schaufelberger",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q4521873",
+    "name": "Matej Šebenik",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.705
+  },
+  {
+    "id": "Q4525016",
+    "name": "Jure Škoberne",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.688
+  },
+  {
+    "id": "Q4525983",
+    "name": "Dragan Šolak",
+    "countryCodes": [
+      "yu",
+      "rs",
+      "tr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.405
+  },
+  {
+    "id": "Q4539867",
+    "name": "Dragoljub Jacimovic",
+    "countryCodes": [
+      "mk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.58
+  },
+  {
+    "id": "Q45747",
+    "name": "Viswanathan Anand",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.494
+  },
+  {
+    "id": "Q460020",
+    "name": "Sergei Movsesian",
+    "countryCodes": [
+      "sk",
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.438
+  },
+  {
+    "id": "Q465247",
+    "name": "Pal Charles Benko",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q465524",
+    "name": "David Navara",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.611
+  },
+  {
+    "id": "Q4667403",
+    "name": "Abhijit Kunte",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.583
+  },
+  {
+    "id": "Q470788",
+    "name": "Bu Xiangzhi",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.383
+  },
+  {
+    "id": "Q471084",
+    "name": "Hans Tikkanen",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.654
+  },
+  {
+    "id": "Q471374",
+    "name": "Karen Asrian",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.457
+  },
+  {
+    "id": "Q473184",
+    "name": "Valeri Filippov",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.583
+  },
+  {
+    "id": "Q47454056",
+    "name": "Mogens Moe",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q47543934",
+    "name": "Aydın Süleymanlı",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q47543951",
+    "name": "Marc Andria Maurizzi",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.65
+  },
+  {
+    "id": "Q4775756",
+    "name": "Anton Filippov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.724
+  },
+  {
+    "id": "Q4777556",
+    "name": "António Fernandes",
+    "countryCodes": [
+      "pt"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.741
+  },
+  {
+    "id": "Q4800779",
+    "name": "Rogelio Antonio Jr.",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q486592",
+    "name": "Alon Greenfeld",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.623
+  },
+  {
+    "id": "Q486778",
+    "name": "Boris Gelfand",
+    "countryCodes": [
+      "su",
+      "by",
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.33
+  },
+  {
+    "id": "Q487793",
+    "name": "Anatoly Lein",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q487995",
+    "name": "Tomáš Petrík",
+    "countryCodes": [
+      "sk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.662
+  },
+  {
+    "id": "Q488267",
+    "name": "Rafael Leitão",
+    "countryCodes": [
+      "br"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.479
+  },
+  {
+    "id": "Q489002",
+    "name": "Ralf Åkesson",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q489015",
+    "name": "Rustam Kasimdzhanov",
+    "countryCodes": [
+      "uz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.491
+  },
+  {
+    "id": "Q48963376",
+    "name": "Finn Petersen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "",
+    "decisiveness": 0.538
+  },
+  {
+    "id": "Q492441",
+    "name": "Daniël Stellwagen",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q495696",
+    "name": "Edvīns Ķeņģis",
+    "countryCodes": [
+      "lv"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.403
+  },
+  {
+    "id": "Q496191",
+    "name": "Miroslav Filip",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.417
+  },
+  {
+    "id": "Q496958",
+    "name": "Andreas Dückstein",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.659
+  },
+  {
+    "id": "Q4977065",
+    "name": "Bruce Amos",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q499615",
+    "name": "Jaan Ehlvest",
+    "countryCodes": [
+      "ee"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.447
+  },
+  {
+    "id": "Q500436",
+    "name": "Parimarjan Negi",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.474
+  },
+  {
+    "id": "Q502088",
+    "name": "Andrei Istrățescu",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.449
+  },
+  {
+    "id": "Q502570",
+    "name": "Andrei Sokolov",
+    "countryCodes": [
+      "su",
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q506421",
+    "name": "Leinier Domínguez",
+    "countryCodes": [
+      "cu",
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.517
+  },
+  {
+    "id": "Q506473",
+    "name": "Joël Lautier",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.608
+  },
+  {
+    "id": "Q520993",
+    "name": "André Lombard",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.583
+  },
+  {
+    "id": "Q521817",
+    "name": "Ian Nepomniachtchi",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.553
+  },
+  {
+    "id": "Q525731",
+    "name": "Ivan Cheparinov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.562
+  },
+  {
+    "id": "Q525884",
+    "name": "Lev Alburt",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q528959",
+    "name": "Tigran L. Petrosian",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q534057",
+    "name": "Larry Christiansen",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.551
+  },
+  {
+    "id": "Q535368",
+    "name": "Vasif Durarbayli",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q535460",
+    "name": "Ilya Smirin",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.583
+  },
+  {
+    "id": "Q5386660",
+    "name": "Eric Hansen",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q541729",
+    "name": "Gawain Jones",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.524
+  },
+  {
+    "id": "Q543241",
+    "name": "Alexey Dreev",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.477
+  },
+  {
+    "id": "Q543256",
+    "name": "Francisco Vallejo Pons",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.584
+  },
+  {
+    "id": "Q548946",
+    "name": "Anish Giri",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.524
+  },
+  {
+    "id": "Q550688",
+    "name": "Liviu-Dieter Nisipeanu",
+    "countryCodes": [
+      "ro",
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.394
+  },
+  {
+    "id": "Q55107014",
+    "name": "Douglas Hamilton",
+    "countryCodes": [
+      "au"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.706
+  },
+  {
+    "id": "Q551331",
+    "name": "Borislav Ivkov",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.444
+  },
+  {
+    "id": "Q551687",
+    "name": "Kirill Stupak",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q553397",
+    "name": "András Adorján",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.366
+  },
+  {
+    "id": "Q555232",
+    "name": "Pendyala Harikrishna",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.406
+  },
+  {
+    "id": "Q555598",
+    "name": "Nikita Vitiugov",
+    "countryCodes": [
+      "ru",
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.421
+  },
+  {
+    "id": "Q55759143",
+    "name": "Mahammad Muradli",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.591
+  },
+  {
+    "id": "Q56026072",
+    "name": "Gukesh D",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.781
+  },
+  {
+    "id": "Q56084845",
+    "name": "Velimir Ivić",
+    "countryCodes": [
+      "rs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4
+  },
+  {
+    "id": "Q562700",
+    "name": "Zakhar Yefymenko",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.615
+  },
+  {
+    "id": "Q5651719",
+    "name": "José Luis Vilela de Acuña",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q574962",
+    "name": "Rauf Mamedov",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.565
+  },
+  {
+    "id": "Q576461",
+    "name": "Mihail Marin",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.521
+  },
+  {
+    "id": "Q583139",
+    "name": "Walter Arencibia",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.525
+  },
+  {
+    "id": "Q585320",
+    "name": "Varuzhan Akobian",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.654
+  },
+  {
+    "id": "Q586778",
+    "name": "Vladimir Malaniuk",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.393
+  },
+  {
+    "id": "Q5888939",
+    "name": "Guillermo Soppe",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.375
+  },
+  {
+    "id": "Q591200",
+    "name": "Anton Korobov",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.681
+  },
+  {
+    "id": "Q59137809",
+    "name": "Hans Niemann",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.636
+  },
+  {
+    "id": "Q593192",
+    "name": "Lars Schandorff",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.478
+  },
+  {
+    "id": "Q5935233",
+    "name": "Jorge Gómez Baillo",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.444
+  },
+  {
+    "id": "Q5948354",
+    "name": "Juan Carlos Hase",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q599621",
+    "name": "Hein Donner",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.521
+  },
+  {
+    "id": "Q6029513",
+    "name": "Axel Ornstein",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q603418",
+    "name": "Albin Planinc",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q60598",
+    "name": "Artur Yusupov",
+    "countryCodes": [
+      "su",
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.402
+  },
+  {
+    "id": "Q60832229",
+    "name": "Ilkka Kanko",
+    "countryCodes": [
+      "fi"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q6109690",
+    "name": "Roberto Luis Debarnot",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.875
+  },
+  {
+    "id": "Q613427",
+    "name": "Krunoslav Hulak",
+    "countryCodes": [
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.583
+  },
+  {
+    "id": "Q613780",
+    "name": "Diego Flores",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.713
+  },
+  {
+    "id": "Q614941",
+    "name": "Karl Robatsch",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.532
+  },
+  {
+    "id": "Q61673",
+    "name": "Luděk Pachman",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.462
+  },
+  {
+    "id": "Q6167988",
+    "name": "Jayson Gonzales",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.636
+  },
+  {
+    "id": "Q6168791",
+    "name": "Lars-Åke Schneider",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.643
+  },
+  {
+    "id": "Q6170865",
+    "name": "Jean Hébert",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.66
+  },
+  {
+    "id": "Q61823",
+    "name": "Wolfgang Unzicker",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.362
+  },
+  {
+    "id": "Q61880",
+    "name": "Vlastimil Hort",
+    "countryCodes": [
+      "cs",
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.534
+  },
+  {
+    "id": "Q627186",
+    "name": "Román Hernández Onna",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.534
+  },
+  {
+    "id": "Q630437",
+    "name": "Neuris Delgado Ramírez",
+    "countryCodes": [
+      "cu",
+      "py"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.579
+  },
+  {
+    "id": "Q631301",
+    "name": "Normunds Miezis",
+    "countryCodes": [
+      "lv"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.679
+  },
+  {
+    "id": "Q63148997",
+    "name": "Andronico Yap",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.727
+  },
+  {
+    "id": "Q63303",
+    "name": "Wolfgang Uhlmann",
+    "countryCodes": [
+      "dd"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.474
+  },
+  {
+    "id": "Q63323",
+    "name": "Erik van den Doel",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.7
+  },
+  {
+    "id": "Q634634",
+    "name": "Matthew Sadler",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q634635",
+    "name": "Predrag Nikolić",
+    "countryCodes": [
+      "yu",
+      "ba"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.507
+  },
+  {
+    "id": "Q63752",
+    "name": "Klaus Darga",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q63926",
+    "name": "Lothar Schmid",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.593
+  },
+  {
+    "id": "Q64220",
+    "name": "Alexander Graf",
+    "countryCodes": [
+      "uz",
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q647494",
+    "name": "Vlad-Cristian Jianu",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.458
+  },
+  {
+    "id": "Q64754",
+    "name": "Christopher Lutz",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.406
+  },
+  {
+    "id": "Q650941",
+    "name": "Vladimir Tukmakov",
+    "countryCodes": [
+      "su"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.6
+  },
+  {
+    "id": "Q651846",
+    "name": "Olivier Renet",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.688
+  },
+  {
+    "id": "Q653351",
+    "name": "Miguel Quinteros",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.725
+  },
+  {
+    "id": "Q6539358",
+    "name": "Li Zunian",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q65461017",
+    "name": "Ivan Schitco",
+    "countryCodes": [
+      "md"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.3
+  },
+  {
+    "id": "Q65493830",
+    "name": "David Gavrilescu",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.556
+  },
+  {
+    "id": "Q6550102",
+    "name": "Lin Ta",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q658013",
+    "name": "Amador Rodríguez Céspedes",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.548
+  },
+  {
+    "id": "Q6627804",
+    "name": "Avrahams Kaldors",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.688
+  },
+  {
+    "id": "Q6653772",
+    "name": "Liu Wenzhe",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.892
+  },
+  {
+    "id": "Q665695",
+    "name": "Daniel Yanofsky",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.565
+  },
+  {
+    "id": "Q667067",
+    "name": "Vadim Milov",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.476
+  },
+  {
+    "id": "Q670159",
+    "name": "Emil Sutovsky",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.634
+  },
+  {
+    "id": "Q6706845",
+    "name": "Luís Santos",
+    "countryCodes": [
+      "pt"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.75
+  },
+  {
+    "id": "Q673962",
+    "name": "Christian Langeweg",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.542
+  },
+  {
+    "id": "Q674633",
+    "name": "Lubomir Kavalek",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.513
+  },
+  {
+    "id": "Q6769148",
+    "name": "Mark Paragua",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.769
+  },
+  {
+    "id": "Q676954",
+    "name": "Arman Pashikian",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q67746",
+    "name": "Rustem Dautov",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.519
+  },
+  {
+    "id": "Q67772",
+    "name": "Eric Lobron",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.598
+  },
+  {
+    "id": "Q679404",
+    "name": "Florian Jenni",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.632
+  },
+  {
+    "id": "Q682145",
+    "name": "Josef Klinger",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.588
+  },
+  {
+    "id": "Q685064",
+    "name": "Yannick Pelletier",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.465
+  },
+  {
+    "id": "Q685117",
+    "name": "Joseph Gallagher",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.523
+  },
+  {
+    "id": "Q685386",
+    "name": "Edwin Bhend",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q68610",
+    "name": "Thomas Luther",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.488
+  },
+  {
+    "id": "Q686383",
+    "name": "Robert Kempiński",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q68688",
+    "name": "Georg Meier",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.507
+  },
+  {
+    "id": "Q688382",
+    "name": "Markus Ragger",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.506
+  },
+  {
+    "id": "Q690938",
+    "name": "Nick de Firmian",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.529
+  },
+  {
+    "id": "Q692756",
+    "name": "Sergey Dolmatov",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.333
+  },
+  {
+    "id": "Q6968911",
+    "name": "Nathan Birnboim",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.615
+  },
+  {
+    "id": "Q69937",
+    "name": "Klaus Bischoff",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.574
+  },
+  {
+    "id": "Q702454",
+    "name": "Ye Rongguang",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.64
+  },
+  {
+    "id": "Q706149",
+    "name": "Artashes Minasian",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q706264",
+    "name": "Héctor Rossetto",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q706461",
+    "name": "Igor Ivanov",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q707111",
+    "name": "Gyula Sax",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.561
+  },
+  {
+    "id": "Q70779",
+    "name": "Igor Khenkin",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.333
+  },
+  {
+    "id": "Q70780",
+    "name": "Jan Gustafsson",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.4
+  },
+  {
+    "id": "Q708045",
+    "name": "Włodzimierz Schmidt",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.469
+  },
+  {
+    "id": "Q708680",
+    "name": "Arthur Bisguier",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.375
+  },
+  {
+    "id": "Q708938",
+    "name": "Evgeny Alekseev",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.333
+  },
+  {
+    "id": "Q708943",
+    "name": "Peter Heine Nielsen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.493
+  },
+  {
+    "id": "Q709256",
+    "name": "Baadur Jobava",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.688
+  },
+  {
+    "id": "Q709548",
+    "name": "Ivan Sokolov",
+    "countryCodes": [
+      "yu",
+      "ba",
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.492
+  },
+  {
+    "id": "Q709682",
+    "name": "Roman Dzindzichashvili",
+    "countryCodes": [
+      "il",
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.629
+  },
+  {
+    "id": "Q710938",
+    "name": "Sergej Tiviakov",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.443
+  },
+  {
+    "id": "Q71292057",
+    "name": "Juan Minaya Molano",
+    "countryCodes": [
+      "co"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q71292408",
+    "name": "Malkiel Peretz",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q71294171",
+    "name": "Thomas W. Ristoja",
+    "countryCodes": [
+      "fi"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.778
+  },
+  {
+    "id": "Q71294867",
+    "name": "Andrea Grinza",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.667
+  },
+  {
+    "id": "Q71300083",
+    "name": "Adrian Pacis",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.556
+  },
+  {
+    "id": "Q71319435",
+    "name": "Jan Šubelj",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q71319508",
+    "name": "Elham Amar",
+    "countryCodes": [
+      "no"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.75
+  },
+  {
+    "id": "Q715401",
+    "name": "Arturo Pomar",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.463
+  },
+  {
+    "id": "Q716035",
+    "name": "Vladislav Tkachiev",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.48
+  },
+  {
+    "id": "Q7162685",
+    "name": "Peng Xiaomin",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.532
+  },
+  {
+    "id": "Q716593",
+    "name": "Jacob Murey",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.774
+  },
+  {
+    "id": "Q717486",
+    "name": "Igor Štohl",
+    "countryCodes": [
+      "cs"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.397
+  },
+  {
+    "id": "Q718236",
+    "name": "Aleksander Delchev",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.59
+  },
+  {
+    "id": "Q718592",
+    "name": "Gabriel Sargissian",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.53
+  },
+  {
+    "id": "Q71977",
+    "name": "Helmut Pfleger",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.385
+  },
+  {
+    "id": "Q720934",
+    "name": "Levente Lengyel",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.417
+  },
+  {
+    "id": "Q722108",
+    "name": "Alexander Shabalov",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.646
+  },
+  {
+    "id": "Q722868",
+    "name": "Ashot Anastasian",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.813
+  },
+  {
+    "id": "Q723552",
+    "name": "Lev Psakhis",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.379
+  },
+  {
+    "id": "Q723715",
+    "name": "Tom Wedberg",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.518
+  },
+  {
+    "id": "Q724047",
+    "name": "Mateusz Bartel",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.647
+  },
+  {
+    "id": "Q724051",
+    "name": "Tomasz Markowski",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.619
+  },
+  {
+    "id": "Q724540",
+    "name": "Lars Bo Hansen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.508
+  },
+  {
+    "id": "Q72463",
+    "name": "Daniel Fridman",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.539
+  },
+  {
+    "id": "Q72473",
+    "name": "Lev Gutman",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.75
+  },
+  {
+    "id": "Q724807",
+    "name": "Sune Berg Hansen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.544
+  },
+  {
+    "id": "Q724979",
+    "name": "Vladimir Liberzon",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.419
+  },
+  {
+    "id": "Q725177",
+    "name": "Gadir Guseinov",
+    "countryCodes": [
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.642
+  },
+  {
+    "id": "Q725279",
+    "name": "Constantin Lupulescu",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.494
+  },
+  {
+    "id": "Q725606",
+    "name": "Kiril Georgiev",
+    "countryCodes": [
+      "bg",
+      "mk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.56
+  },
+  {
+    "id": "Q725629",
+    "name": "Larry Evans",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.591
+  },
+  {
+    "id": "Q726187",
+    "name": "Zurab Azmaiparashvili",
+    "countryCodes": [
+      "ge"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.564
+  },
+  {
+    "id": "Q7267581",
+    "name": "Qi Jingxuan",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.708
+  },
+  {
+    "id": "Q726996",
+    "name": "William Hartston",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.58
+  },
+  {
+    "id": "Q727947",
+    "name": "Sergei Rublevsky",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.559
+  },
+  {
+    "id": "Q728133",
+    "name": "Tiger Hillarp Persson",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.642
+  },
+  {
+    "id": "Q728142",
+    "name": "Julio Granda",
+    "countryCodes": [
+      "pe"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.647
+  },
+  {
+    "id": "Q728179",
+    "name": "Victor Bologan",
+    "countryCodes": [
+      "md"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.62
+  },
+  {
+    "id": "Q72822",
+    "name": "Hans-Joachim Hecht",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.545
+  },
+  {
+    "id": "Q729383",
+    "name": "Stellan Brynell",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.697
+  },
+  {
+    "id": "Q730058",
+    "name": "Jorge Cori",
+    "countryCodes": [
+      "pe"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.795
+  },
+  {
+    "id": "Q730478",
+    "name": "Pontus Carlsson",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.8
+  },
+  {
+    "id": "Q7332271",
+    "name": "Rico Mascariñas",
+    "countryCodes": [
+      "ph"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.463
+  },
+  {
+    "id": "Q734168",
+    "name": "Lê Quang Liêm",
+    "countryCodes": [
+      "vn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.536
+  },
+  {
+    "id": "Q735789",
+    "name": "Walter Browne",
+    "countryCodes": [
+      "au",
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.64
+  },
+  {
+    "id": "Q73631",
+    "name": "Paul van der Sterren",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.507
+  },
+  {
+    "id": "Q738034",
+    "name": "Smbat Lputian",
+    "countryCodes": [
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.558
+  },
+  {
+    "id": "Q738665",
+    "name": "Rafael Vaganian",
+    "countryCodes": [
+      "su",
+      "am"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.484
+  },
+  {
+    "id": "Q741364",
+    "name": "Aleksandar Matanović",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.471
+  },
+  {
+    "id": "Q743690",
+    "name": "Jiří Štoček",
+    "countryCodes": [
+      "cz"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.719
+  },
+  {
+    "id": "Q76254",
+    "name": "Rainer Knaak",
+    "countryCodes": [
+      "dd"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.618
+  },
+  {
+    "id": "Q768198",
+    "name": "Lars Karlsson",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.613
+  },
+  {
+    "id": "Q77224",
+    "name": "Arkadij Naiditsch",
+    "countryCodes": [
+      "de",
+      "az"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.633
+  },
+  {
+    "id": "Q77389",
+    "name": "Robert Hübner",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.464
+  },
+  {
+    "id": "Q780927",
+    "name": "Luka Lenič",
+    "countryCodes": [
+      "si"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.574
+  },
+  {
+    "id": "Q786107",
+    "name": "Ján Markoš",
+    "countryCodes": [
+      "sk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.58
+  },
+  {
+    "id": "Q786173",
+    "name": "Sabino Brunello",
+    "countryCodes": [
+      "it"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.659
+  },
+  {
+    "id": "Q786798",
+    "name": "Harry Schüssler",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.42
+  },
+  {
+    "id": "Q789568",
+    "name": "Csaba Balogh",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.477
+  },
+  {
+    "id": "Q793526",
+    "name": "Ferenc Berkes",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q795182",
+    "name": "Adhiban Baskaran",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.452
+  },
+  {
+    "id": "Q8038983",
+    "name": "Wu Wenjin",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.75
+  },
+  {
+    "id": "Q809574",
+    "name": "Bartosz Soćko",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.534
+  },
+  {
+    "id": "Q809621",
+    "name": "Bartłomiej Macieja",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.456
+  },
+  {
+    "id": "Q813100",
+    "name": "Beat Züger",
+    "countryCodes": [
+      "ch"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.538
+  },
+  {
+    "id": "Q83732440",
+    "name": "Yağız Kaan Erdoğmuş",
+    "countryCodes": [
+      "tr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.714
+  },
+  {
+    "id": "Q874008",
+    "name": "István Csom",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.542
+  },
+  {
+    "id": "Q88780",
+    "name": "Heinz Liebert",
+    "countryCodes": [
+      "dd"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.583
+  },
+  {
+    "id": "Q891144",
+    "name": "Bojan Kurajica",
+    "countryCodes": [
+      "yu",
+      "ba"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.485
+  },
+  {
+    "id": "Q893618",
+    "name": "Boris Alterman",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.548
+  },
+  {
+    "id": "Q893658",
+    "name": "Boris Gulko",
+    "countryCodes": [
+      "su",
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.425
+  },
+  {
+    "id": "Q898663",
+    "name": "Branko Damljanovic",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.633
+  },
+  {
+    "id": "Q90505",
+    "name": "Gerald Hertneck",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.55
+  },
+  {
+    "id": "Q9054021",
+    "name": "Pablo San Segundo Carrillo",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.375
+  },
+  {
+    "id": "Q90555",
+    "name": "Uwe Bönsch",
+    "countryCodes": [
+      "dd"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q9077450",
+    "name": "Silvino García Martínez",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.533
+  },
+  {
+    "id": "Q910231",
+    "name": "Vadim Zviagintsev",
+    "countryCodes": [
+      "ru"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.333
+  },
+  {
+    "id": "Q91150",
+    "name": "Artur Hennings",
+    "countryCodes": [
+      "dd"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.533
+  },
+  {
+    "id": "Q9158182",
+    "name": "António Antunes",
+    "countryCodes": [
+      "pt"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q9160773",
+    "name": "Artur Sygulski",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.429
+  },
+  {
+    "id": "Q9182996",
+    "name": "Börje Jansson",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "FM",
+    "decisiveness": 0.712
+  },
+  {
+    "id": "Q92207",
+    "name": "Jörg Hickl",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.657
+  },
+  {
+    "id": "Q92291",
+    "name": "Burkhard Malich",
+    "countryCodes": [
+      "dd"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.543
+  },
+  {
+    "id": "Q923453",
+    "name": "Olexandr Moiseenko",
+    "countryCodes": [
+      "ua"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.651
+  },
+  {
+    "id": "Q923807",
+    "name": "Jóhann Hjartarson",
+    "countryCodes": [
+      "is"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.597
+  },
+  {
+    "id": "Q924753",
+    "name": "Yuniesky Quezada",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.591
+  },
+  {
+    "id": "Q9253565",
+    "name": "Emil Ungureanu",
+    "countryCodes": [
+      "ro"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.609
+  },
+  {
+    "id": "Q9254639",
+    "name": "Erling Mortensen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.568
+  },
+  {
+    "id": "Q9266681",
+    "name": "Geetha Narayanan Gopal",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.471
+  },
+  {
+    "id": "Q9291551",
+    "name": "Herman Claudius van Riemsdijk",
+    "countryCodes": [
+      "br"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.556
+  },
+  {
+    "id": "Q932307",
+    "name": "Lázaro Bruzón",
+    "countryCodes": [
+      "cu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.622
+  },
+  {
+    "id": "Q93674",
+    "name": "Bassem Amin",
+    "countryCodes": [
+      "eg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.718
+  },
+  {
+    "id": "Q9370712",
+    "name": "Walter Wittmann",
+    "countryCodes": [
+      "at"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.543
+  },
+  {
+    "id": "Q937577",
+    "name": "Sanan Sjugirov",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.571
+  },
+  {
+    "id": "Q9383570",
+    "name": "Yu Shaoteng",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.5
+  },
+  {
+    "id": "Q93883",
+    "name": "Ahmed Adly",
+    "countryCodes": [
+      "eg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.759
+  },
+  {
+    "id": "Q942782",
+    "name": "Peter Biyiasas",
+    "countryCodes": [
+      "ca"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.648
+  },
+  {
+    "id": "Q943533",
+    "name": "Jeroen Piket",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.507
+  },
+  {
+    "id": "Q945565",
+    "name": "Richárd Rapport",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.556
+  },
+  {
+    "id": "Q946506",
+    "name": "Raymond Keene",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.455
+  },
+  {
+    "id": "Q946534",
+    "name": "Olav Sepp",
+    "countryCodes": [
+      "ee"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.676
+  },
+  {
+    "id": "Q947095",
+    "name": "Jonathan Penrose",
+    "countryCodes": [
+      "gb-eng"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.526
+  },
+  {
+    "id": "Q947253",
+    "name": "Curt Hansen",
+    "countryCodes": [
+      "dk"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.403
+  },
+  {
+    "id": "Q948740",
+    "name": "Leonid Yudasin",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.462
+  },
+  {
+    "id": "Q952098",
+    "name": "Surya Shekhar Ganguly",
+    "countryCodes": [
+      "in"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.587
+  },
+  {
+    "id": "Q952411",
+    "name": "Yair Kraidman",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.509
+  },
+  {
+    "id": "Q955831",
+    "name": "Alex Yermolinsky",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.44
+  },
+  {
+    "id": "Q956390",
+    "name": "Loek van Wely",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q957014",
+    "name": "Alexander Chernin",
+    "countryCodes": [
+      "hu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.385
+  },
+  {
+    "id": "Q9602520",
+    "name": "Alexandru Segal",
+    "countryCodes": [
+      "br"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.563
+  },
+  {
+    "id": "Q961003",
+    "name": "Robert Eugene Byrne",
+    "countryCodes": [
+      "us"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.479
+  },
+  {
+    "id": "Q961090",
+    "name": "Michał Krasenkow",
+    "countryCodes": [
+      "pl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.611
+  },
+  {
+    "id": "Q96129",
+    "name": "Lothar Vogt",
+    "countryCodes": [
+      "dd"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.586
+  },
+  {
+    "id": "Q961633",
+    "name": "Gennadi Sosonko",
+    "countryCodes": [
+      "nl"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.333
+  },
+  {
+    "id": "Q961715",
+    "name": "Georgi Tringov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.465
+  },
+  {
+    "id": "Q9619152",
+    "name": "António Frois",
+    "countryCodes": [
+      "pt"
+    ],
+    "maxTitle": "IM",
+    "decisiveness": 0.818
+  },
+  {
+    "id": "Q96227",
+    "name": "Ralf Lau",
+    "countryCodes": [
+      "de"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.696
+  },
+  {
+    "id": "Q964563",
+    "name": "Vasil Spasov",
+    "countryCodes": [
+      "bg"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.488
+  },
+  {
+    "id": "Q964655",
+    "name": "Bruno Parma",
+    "countryCodes": [
+      "yu"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.357
+  },
+  {
+    "id": "Q964813",
+    "name": "Lembit Oll",
+    "countryCodes": [
+      "ee"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.362
+  },
+  {
+    "id": "Q964913",
+    "name": "Wang Hao",
+    "countryCodes": [
+      "cn"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.531
+  },
+  {
+    "id": "Q968844",
+    "name": "Romain Édouard",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.444
+  },
+  {
+    "id": "Q969892",
+    "name": "Jean-Marc Degraeve",
+    "countryCodes": [
+      "fr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.586
+  },
+  {
+    "id": "Q969913",
+    "name": "Evgeny Postny",
+    "countryCodes": [
+      "il"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.625
+  },
+  {
+    "id": "Q973792",
+    "name": "Alfonso Romero Holmes",
+    "countryCodes": [
+      "es"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.9
+  },
+  {
+    "id": "Q975861",
+    "name": "Evgeny Agrest",
+    "countryCodes": [
+      "se"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.427
+  },
+  {
+    "id": "Q977595",
+    "name": "Sergei Azarov",
+    "countryCodes": [
+      "by"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.643
+  },
+  {
+    "id": "Q981325",
+    "name": "Rubén Felgaer",
+    "countryCodes": [
+      "ar"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.561
+  },
+  {
+    "id": "Q989820",
+    "name": "Vasile Sănduleac",
+    "countryCodes": [
+      "md"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.474
+  },
+  {
+    "id": "Q993350",
+    "name": "Ivan Šarić",
+    "countryCodes": [
+      "hr"
+    ],
+    "maxTitle": "GM",
+    "decisiveness": 0.479
+  }
+]

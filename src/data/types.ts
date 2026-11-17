@@ -55,8 +55,9 @@ export interface PlayerCard {
   /**
    * Opening book (GDD §7.1), relative to the dataset root: the card's own
    * book (`books/{cardId}.bin`) or its decade's (`books/decade-1970.bin`).
+   * `null`: no book yet (dataset v1); the engine plays from move 1.
    */
-  bookFile: string;
+  bookFile: string | null;
 }
 
 /** `index.json` */

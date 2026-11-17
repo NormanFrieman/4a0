@@ -100,7 +100,7 @@ function sideFor(ds: Dataset, cardId: string, books?: BookSet): GameSide {
   const person = ds.person(card.personId);
   const p = toEngineParams(card.strength, person.decisiveness);
   let book: Uint8Array | undefined;
-  if (books) {
+  if (books && card.bookFile !== null) {
     book = books.get(card.bookFile);
     if (!book) throw new Error(`Opening book not loaded: ${card.bookFile} (card ${cardId})`);
   }
@@ -115,7 +115,8 @@ function sideFor(ds: Dataset, cardId: string, books?: BookSet): GameSide {
 
 /**
  * Engine job for one of the user's games (GDD §8). With `books`, each side
- * opens from its card's book (GDD §7.1); without, the engine plays from move 1.
+ * opens from its card's book (GDD §7.1); without (or for a card whose
+ * `bookFile` is null), the engine plays from move 1.
  */
 export function gameJobFor(
   ds: Dataset,

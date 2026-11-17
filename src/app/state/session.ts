@@ -134,7 +134,7 @@ export const useSession = create<SessionState>()((set, get) => ({
     writeUrl(seed, fastMode);
     set({ seed, fastMode });
     try {
-      const dataset = await loadDataset("sample");
+      const dataset = await loadDataset("v1");
       set({ dataset, phase: "home" });
     } catch (err) {
       set({ phase: "error", error: err instanceof Error ? err.message : String(err) });
@@ -173,7 +173,7 @@ export const useSession = create<SessionState>()((set, get) => ({
       dataset,
       seed,
       draft.slots as string[],
-      balance.sampleTournament.fieldSize,
+      balance.tournament.fieldSize,
       balance.tournament.rounds,
     );
     // Books are only needed for engine games (GDD §9.3: before the tournament).

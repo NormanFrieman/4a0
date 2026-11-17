@@ -58,8 +58,9 @@ export const balance = {
   },
 
   /**
-   * Tournament with the hand-written sample dataset (public/data/sample):
-   * 7 field teams + the user = 8 teams; 7 rounds = everyone meets once.
+   * Tournament with the hand-written sample dataset (public/data/sample),
+   * used by the tests only: 7 field teams + the user = 8 teams; 7 rounds =
+   * everyone meets once.
    */
   sampleTournament: {
     fieldSize: 7,

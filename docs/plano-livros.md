@@ -1,6 +1,6 @@
 # Plano: livros de abertura a partir do Lichess
 
-**Situação:** planejado em 2026-11-16. Troca a fonte provisória (PGN Mentor, GDD §7.1 e §14.1), cuja licença não está declarada.
+**Situação:** planejado em 2026-11-16; **adiado** pelo usuário no mesmo dia. Os dados `v1` saem sem livros (`bookFile: null`) e o Maia joga desde o primeiro lance. Troca a fonte provisória (PGN Mentor, GDD §7.1 e §14.1), cuja licença não está declarada.
 
 ## Decisão do usuário (2026-11-16)
 

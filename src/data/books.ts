@@ -3,9 +3,10 @@ import type { Dataset } from "./dataset.ts";
 /** Opening book bytes by `PlayerCard.bookFile` (GDD §7.1). */
 export type BookSet = ReadonlyMap<string, Uint8Array>;
 
-/** Distinct book files of the given cards. */
+/** Distinct book files of the given cards (cards without a book are skipped). */
 export function bookFilesFor(ds: Dataset, cardIds: Iterable<string>): string[] {
-  return [...new Set([...cardIds].map((id) => ds.card(id).bookFile))].sort();
+  const files = [...cardIds].map((id) => ds.card(id).bookFile);
+  return [...new Set(files.filter((f): f is string => f !== null))].sort();
 }
 
 /**

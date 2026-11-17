@@ -11,6 +11,8 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 export const CACHE_DIR = resolve(HERE, "../cache");
 export const SOURCES_FILE = join(HERE, "sources.json");
 export const OUT_DIR = join(HERE, "out");
+/** Published dataset (`pnpm data:olympiads --publish`). */
+export const PUBLISH_DIR = resolve(HERE, "../../../public/data/v1");
 export const REPORT_FILE = join(HERE, "report.md");
 
 export const lineupsPage = (year: number) => `Mannschaftsaufstellungen der Schacholympiade ${year}`;

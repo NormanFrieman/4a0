@@ -210,6 +210,7 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 - Formato: arquivo binário Polyglot por carta (chave = hash Zobrist da posição), carregado antes do torneio.
 - **Fonte provisória:** coleções PGN públicas por jogador (PGN Mentor), só para desenvolvimento. Ver 14.1.
 - **DECIDIDO (2026-11-16): os livros vêm do Lichess** (explorador "masters"), substituindo o PGN Mentor. O Lichess não filtra partidas de mestres por jogador; o livro por carta está em aberto (§14.2). Plano: [plano-livros.md](plano-livros.md).
+- **Provisório (2026-11-16, decisão do usuário):** os dados `v1` saem **sem livros** (`bookFile: null`) e o Maia joga desde o primeiro lance. Os livros ficam para depois.
 
 ### 7.2 Estilo (MVP)
 

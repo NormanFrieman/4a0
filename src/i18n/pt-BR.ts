@@ -22,11 +22,11 @@ export const ptBR = {
     back: "Voltar",
     data: {
       title: "Dados",
-      body: "Esta versão usa dados de teste: as escalações são de seleções reais das Olimpíadas de 1970 a 1984, mas ratings, pontuações e colocações são aproximados. Os dados definitivos virão da Wikipedia (CC BY-SA 4.0) e do Wikidata (CC0).",
+      body: "As escalações, colocações e pontuações das 20 primeiras seleções de cada Olimpíada, de 1970 a 2026, vêm da Wikipedia em alemão (CC BY-SA 4.0); nomes, títulos e ratings FIDE vêm do Wikidata (CC0). A performance de cada jogador é aproximada. Seleções com algum jogador sem rating conhecido ficam de fora por enquanto. Os dados do jogo são publicados sob CC BY-SA 4.0.",
     },
     books: {
       title: "Livros de abertura",
-      body: "Cada jogador abre as partidas com um livro de aberturas da sua carreira ou da sua década. Nesta versão de teste, os livros são gerados de coleções públicas de partidas; os definitivos virão da base de mestres do Lichess.",
+      body: "Nesta versão, as partidas ainda não usam livros de aberturas: o Maia escolhe os lances desde o primeiro. Os livros virão da base de mestres do Lichess.",
     },
     engine: {
       title: "Quem joga as partidas",
