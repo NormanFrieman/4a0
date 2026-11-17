@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { PolyglotBook } from "../../../src/engine/book/polyglotBook.ts";
 import { gameJobFor } from "../../../src/sim/match.ts";
@@ -6,6 +6,9 @@ import { bookFilesFor, loadBooks } from "../../../src/data/books.ts";
 import { sampleDataset } from "../../../src/data/testing.ts";
 
 const ds = sampleDataset();
+/** The books are built locally (`pnpm data:pgn && pnpm data:sample`) and kept out of git, so CI skips these. */
+const hasBooks = existsSync(new URL("../../../public/data/sample/books/", import.meta.url));
+const itWithBooks = it.skipIf(!hasBooks);
 const START = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
 /** Serves files from public/data/sample/. */
@@ -23,7 +26,7 @@ const fakeFetch = (async (url: string | URL | Request) => {
 describe("sample opening books", () => {
   const allCards = ds.teams.flatMap((t) => t.cardIds);
 
-  it("every card points to a published, readable book", () => {
+  itWithBooks("every card points to a published, readable book", () => {
     for (const file of bookFilesFor(ds, allCards)) {
       const book = new PolyglotBook(
         new Uint8Array(
@@ -35,7 +38,7 @@ describe("sample opening books", () => {
     }
   });
 
-  it("loads each distinct file once", async () => {
+  itWithBooks("loads each distinct file once", async () => {
     const files = bookFilesFor(ds, allCards);
     expect(new Set(files).size).toBe(files.length);
     const books = await loadBooks(ds, allCards, fakeFetch);
@@ -52,7 +55,7 @@ describe("gameJobFor with books", () => {
   const [a, b] = ds.teams[0]!.cardIds;
   const game = { board: 1, whiteCardId: a!, blackCardId: b! };
 
-  it("gives each side its card's book", async () => {
+  itWithBooks("gives each side its card's book", async () => {
     const books = await loadBooks(ds, [a!, b!], fakeFetch);
     const job = gameJobFor(ds, "s", 1, game, books);
     expect(job.white.book).toBe(books.get(ds.card(a!).bookFile!));
