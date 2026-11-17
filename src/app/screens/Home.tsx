@@ -15,23 +15,25 @@ export function Home() {
       )}
       {fastMode && <p className="mt-3 text-sm text-accent italic">{t("home.fastNote")}</p>}
       <Rule className="my-8" />
-      <div role="group" aria-label={t("home.mode")} className="inline-flex">
-        {(["classic", "almanac"] as const).map((m) => (
-          <Button
-            key={m}
-            variant="toggle"
-            aria-pressed={m === mode}
-            className="px-5 py-1.5"
-            onClick={() => setMode(m)}
-          >
-            {t(`home.mode_${m}`)}
-          </Button>
-        ))}
+      <div className="flex flex-col items-center">
+        <Button variant="primary" className="px-8 py-3 text-lg" onClick={startDraft}>
+          {t("home.play")}
+        </Button>
+        <div role="group" aria-label={t("home.mode")} className="mt-6 flex">
+          {(["classic", "almanac"] as const).map((m) => (
+            <Button
+              key={m}
+              variant="toggle"
+              aria-pressed={m === mode}
+              className="px-5 py-1.5"
+              onClick={() => setMode(m)}
+            >
+              {t(`home.mode_${m}`)}
+            </Button>
+          ))}
+        </div>
+        <p className="mt-2 text-sm text-muted italic">{t(`home.hint_${mode}`)}</p>
       </div>
-      <p className="mt-2 text-sm text-muted italic">{t(`home.hint_${mode}`)}</p>
-      <Button variant="primary" className="mt-6 px-8 py-3 text-lg" onClick={startDraft}>
-        {t("home.play")}
-      </Button>
       <div className="mt-6">
         <Button variant="link" onClick={openAbout}>
           {t("home.about")}
