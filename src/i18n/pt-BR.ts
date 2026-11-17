@@ -140,7 +140,6 @@ export const ptBR = {
   },
   replay: {
     section: "Rodada {{round}} · Mesa {{board}}",
-    open: "Rever a partida",
     openBoard: "Rever a partida da mesa {{n}}",
     start: "Início",
     prev: "Anterior",

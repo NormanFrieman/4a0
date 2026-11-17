@@ -24,9 +24,21 @@ export function BoardFrame({
   const el = useRef<HTMLDivElement>(null);
   const api = useRef<ReturnType<typeof Chessground> | null>(null);
 
+  // Latest position, read when the board is (re)created so it starts there
+  // instead of animating from the initial position (e.g. back from the Replay).
+  const position = useRef({ fen, lastMove });
+  position.current = { fen, lastMove };
+
   useEffect(() => {
     if (!el.current) return;
-    api.current = Chessground(el.current, { viewOnly: true, coordinates, orientation });
+    const { fen: startFen, lastMove: startMove } = position.current;
+    api.current = Chessground(el.current, {
+      viewOnly: true,
+      coordinates,
+      orientation,
+      fen: startFen,
+      ...(startMove ? { lastMove: startMove as unknown as Key[] } : {}),
+    });
     return () => {
       api.current?.destroy();
       api.current = null;

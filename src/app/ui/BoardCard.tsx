@@ -1,5 +1,4 @@
 import { BoardFrame } from "./BoardFrame.tsx";
-import { Button } from "./Button.tsx";
 import { Kicker } from "./Masthead.tsx";
 import { ResultBadge } from "./ResultBadge.tsx";
 import type { Outcome } from "./format.ts";
@@ -37,30 +36,26 @@ export function BoardCard({
   lastMove?: readonly [string, string];
   white: BoardCardPlayer;
   black: BoardCardPlayer;
-  /** Opens the game's replay; shows a link beside the top player when given. */
+  /** Opens the game's replay: the board becomes clickable when given. */
   onOpen?: () => void;
-  /** Text of that link (i18n). */
+  /** Accessible name of the clickable board (i18n). */
   openLabel?: string;
   /** Extra classes, e.g. a width cap so the board fits the viewport height. */
   className?: string;
 }) {
   const userIsBlack = black.isUser;
-  const line = (p: BoardCardPlayer, color: "white" | "black", action = false) => (
-    <div className="flex items-baseline gap-2">
-      <div className="min-w-0 flex-1 truncate">
-        <span
-          aria-hidden
-          className={`mr-1 inline-block size-2.5 border border-ink align-middle ${color === "white" ? "bg-white" : "bg-ink"}`}
-        />
-        <span className={p.isUser ? "font-bold" : "italic"}>{p.name}</span>{" "}
-        {p.strength !== null && <span className="text-muted tabular-nums">{p.strength}</span>}
-      </div>
-      {action && onOpen && (
-        <Button variant="link" className="shrink-0 py-0 text-xs" onClick={onOpen}>
-          {openLabel}
-        </Button>
-      )}
+  const line = (p: BoardCardPlayer, color: "white" | "black") => (
+    <div className="truncate">
+      <span
+        aria-hidden
+        className={`mr-1 inline-block size-2.5 border border-ink align-middle ${color === "white" ? "bg-white" : "bg-ink"}`}
+      />
+      <span className={p.isUser ? "font-bold" : "italic"}>{p.name}</span>{" "}
+      {p.strength !== null && <span className="text-muted tabular-nums">{p.strength}</span>}
     </div>
+  );
+  const board = (
+    <BoardFrame fen={fen} lastMove={lastMove} orientation={userIsBlack ? "black" : "white"} />
   );
   return (
     <figure className={`min-w-0 ${className}`}>
@@ -70,9 +65,28 @@ export function BoardCard({
           {status}
         </ResultBadge>
       </div>
-      <BoardFrame fen={fen} lastMove={lastMove} orientation={userIsBlack ? "black" : "white"} />
+      {onOpen ? (
+        // A div, not a <button>: the board is block content.
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label={openLabel}
+          title={openLabel}
+          onClick={onOpen}
+          onKeyDown={(e) => {
+            if (e.key !== "Enter" && e.key !== " ") return;
+            e.preventDefault();
+            onOpen();
+          }}
+          className="cursor-pointer transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        >
+          {board}
+        </div>
+      ) : (
+        board
+      )}
       <figcaption className="mt-1.5 text-sm leading-snug">
-        {userIsBlack ? line(white, "white", true) : line(black, "black", true)}
+        {userIsBlack ? line(white, "white") : line(black, "black")}
         {userIsBlack ? line(black, "black") : line(white, "white")}
       </figcaption>
     </figure>

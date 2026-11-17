@@ -186,7 +186,7 @@ export function Round() {
               {...(done && games[archiveKey(live.round, b.game.board)]
                 ? {
                     onOpen: () => openReplay(live.round, b.game.board),
-                    openLabel: t("replay.open"),
+                    openLabel: t("replay.openBoard", { n: b.game.board }),
                   }
                 : {})}
               className="lg:mx-auto lg:w-[min(100%,calc(100cqh-5rem))]"
