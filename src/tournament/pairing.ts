@@ -2,7 +2,9 @@
  * Swiss pairing (GDD §5.2). Round 1: by strength, top half vs bottom half.
  * Later rounds: score groups, top half vs bottom half inside the group, with
  * backtracking so a pairing without repeats is always found when one exists
- * (a greedy Swiss can get stuck, e.g. 8 teams over 7 rounds). Deterministic.
+ * (a greedy Swiss can get stuck, e.g. 8 teams over 7 rounds). Among the
+ * pairings without repeats, the one with the fewest floaters (counted in
+ * score groups crossed) wins. Deterministic.
  */
 import type { Pairing } from "./types.ts";
 
@@ -14,6 +16,12 @@ export interface PairingTeam {
   /** Times listed first (white on boards 1 and 3) so far. */
   firstCount: number;
 }
+
+/**
+ * Search steps per cost budget. Not a balancing number: it only bounds the
+ * time, and the result is still deterministic.
+ */
+const PAIRING_NODE_LIMIT = 20_000;
 
 const key = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
 
@@ -65,24 +73,51 @@ export function pairRound(
   );
   const half = sorted.length / 2;
 
+  /**
+   * Score group of each team, as an index over the distinct match-point
+   * levels (0 = top). Round 1 has a single group.
+   */
+  const levels = [...new Set(sorted.map((t) => (round === 1 ? 0 : t.matchPoints)))];
+  const level = sorted.map((t) => levels.indexOf(round === 1 ? 0 : t.matchPoints));
+  /** Cost of a pair: how many score groups apart the two teams are. */
+  const cost = (i: number, j: number) => Math.abs(level[i]! - level[j]!);
+  /**
+   * Lower bound of the cost of pairing `free` (in seed order): every time
+   * the teams above a group boundary are odd in number, one of them has to
+   * float across it.
+   */
+  const minCost = (free: readonly number[]): number => {
+    let c = 0;
+    for (let k = 0; k + 1 < free.length; k++)
+      if (k % 2 === 0) c += level[free[k + 1]!]! - level[free[k]!]!;
+    return c;
+  };
+
   /** Preferred opponents of sorted[i] among the free ones. */
   const candidates = (i: number, free: number[]): number[] => {
     if (round === 1) {
       // Top half vs bottom half: i meets i + half first.
       return [...free].sort((x, y) => Math.abs(x - i - half) - Math.abs(y - i - half) || x - y);
     }
-    const mp = sorted[i]!.matchPoints;
-    const group = free.filter((j) => sorted[j]!.matchPoints === mp);
+    const group = free.filter((j) => level[j] === level[i]);
     const mid = Math.floor((group.length + 1) / 2);
     const bottomHalf = group.slice(mid - 1);
     const topHalf = group.slice(0, mid - 1);
-    const below = free.filter((j) => !group.includes(j));
+    const below = free.filter((j) => level[j] !== level[i]);
     return [...bottomHalf, ...topHalf, ...below];
   };
 
   const pairs: Array<[number, number]> = [];
   const ids = sorted.map((t) => t.id);
-  const solve = (free: number[]): boolean => {
+  let nodes = 0;
+  let nodeLimit = PAIRING_NODE_LIMIT;
+  /**
+   * First pairing in preference order whose total cost fits `budget`. Gives
+   * up after `nodeLimit` steps, so a budget that repeats make
+   * impossible does not explore every pairing.
+   */
+  const solve = (free: number[], budget: number): boolean => {
+    if (++nodes > nodeLimit) return false;
     if (free.length === 0) {
       const now = pairs.map(([i, j]) => key(sorted[i]!.id, sorted[j]!.id));
       return completable(ids, new Set([...played, ...now]), roundsAfter);
@@ -90,13 +125,28 @@ export function pairRound(
     const [i, ...rest] = free as [number, ...number[]];
     for (const j of candidates(i, rest)) {
       if (played.has(key(sorted[i]!.id, sorted[j]!.id))) continue;
+      const left = rest.filter((x) => x !== j);
+      const spend = cost(i, j);
+      if (spend + minCost(left) > budget) continue;
       pairs.push([i, j]);
-      if (solve(rest.filter((x) => x !== j))) return true;
+      if (solve(left, budget - spend)) return true;
       pairs.pop();
     }
     return false;
   };
-  if (!solve(sorted.map((_, i) => i)))
+  // Score groups first (GDD §5.2): the cheapest pairing in floaters, raising
+  // the budget only when repeats leave no cheaper one.
+  const all = sorted.map((_, i) => i);
+  const maxCost = (levels.length - 1) * half;
+  const tryBudget = (budget: number, limit: number) => {
+    nodes = 0;
+    nodeLimit = limit;
+    return solve(all, budget);
+  };
+  let found = false;
+  for (let b = minCost(all); b < maxCost && !found; b++) found = tryBudget(b, PAIRING_NODE_LIMIT);
+  // Last resort: any pairing without repeats, with no step limit.
+  if (!found && !tryBudget(maxCost, Infinity))
     throw new Error(`Pairing: no valid pairing in round ${round}`);
 
   return pairs.map(([i, j]) => {
