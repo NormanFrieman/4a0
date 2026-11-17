@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://4a0chess.com.br/sitemap.xml

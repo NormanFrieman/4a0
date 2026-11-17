@@ -25,7 +25,8 @@
     "data:pgn": "tsx tools/data/fetchPgn.ts",
     "data:fetch": "tsx tools/data/olympiads/fetch.ts",
     "data:olympiads": "tsx tools/data/olympiads/build.ts",
-    "engine:endrules": "tsx tools/engine/cli/endrules.ts"
+    "engine:endrules": "tsx tools/engine/cli/endrules.ts",
+    "seo:images": "tsx tools/seo/render.ts"
   },
   "dependencies": {
     "@fontsource/fraunces": "^5.3.0",

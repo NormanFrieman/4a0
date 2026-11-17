@@ -5,7 +5,7 @@
 
 Jogo de navegador, gratuito e de código aberto: você monta uma equipe com enxadristas históricos, sorteados de seleções reais das Olimpíadas de Xadrez, e disputa um torneio contra outras seleções de várias épocas. As partidas são jogadas lance a lance pelo [Maia-3](https://github.com/CSSLab), uma rede neural treinada para jogar como pessoas de cada nível.
 
-**[▶ Jogar agora](https://4a0.ezequiel-d-s.workers.dev/)**: roda inteiro no navegador, sem conta, sem anúncios.
+**[▶ Jogar agora](https://4a0chess.com.br/)**: roda inteiro no navegador, sem conta, sem anúncios.
 
 <p align="center">
   <img src="docs/img/readme/rodada.png" alt="Rodada ao vivo: os quatro tabuleiros do match sendo jogados pelo Maia-3" width="820">

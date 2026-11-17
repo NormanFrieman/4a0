@@ -1,0 +1,90 @@
+<!doctype html>
+<!--
+  Source of public/og-image.png (1200 × 630, Open Graph / Twitter card).
+  Regenerate with `pnpm seo:images`. Colours mirror the design tokens in
+  src/app/styles.css (this page is a build tool, not part of the app).
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @font-face {
+        font-family: "Fraunces";
+        font-weight: 400;
+        font-style: italic;
+        src: url("../../node_modules/@fontsource/fraunces/files/fraunces-latin-400-italic.woff2");
+      }
+      @font-face {
+        font-family: "Fraunces";
+        font-weight: 400;
+        src: url("../../node_modules/@fontsource/fraunces/files/fraunces-latin-400-normal.woff2");
+      }
+      @font-face {
+        font-family: "Fraunces";
+        font-weight: 900;
+        src: url("../../node_modules/@fontsource/fraunces/files/fraunces-latin-900-normal.woff2");
+      }
+      :root {
+        --paper: #f3ead7;
+        --ink: #2b2118;
+        --muted: #6e5d49;
+        --accent: #7a2e1f;
+        --line: #cdbb9b;
+      }
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Fraunces", Georgia, serif;
+        font-variant-numeric: lining-nums;
+        padding: 0 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+      .kicker {
+        font-size: 20px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      h1 {
+        font-size: 112px;
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        margin-top: 6px;
+        padding-bottom: 14px;
+        border-bottom: 8px double var(--ink);
+      }
+      .tagline {
+        margin-top: 16px;
+        font-size: 30px;
+        font-style: italic;
+        color: var(--accent);
+      }
+      .boards {
+        margin-top: 28px;
+        height: 262px;
+        background: url("../../docs/img/readme/rodada.png") no-repeat;
+        /* Crop to the row of four boards (y ≈ 185–455 in the 1160 × 520 shot),
+           leaving out the player names below them. */
+        background-size: 1120px auto;
+        background-position: center -178px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kicker">Olimpíadas de Xadrez</div>
+    <h1>4 a 0</h1>
+    <p class="tagline">Monte sua seleção com lendas do xadrez e dispute a Olimpíada</p>
+    <div class="boards"></div>
+  </body>
+</html>
