@@ -109,8 +109,6 @@ export const ptBR = {
     speed1: "1×",
     speed4: "4×",
     instant: "Sem pausa",
-    skip: "Pular para a classificação",
-    skipping: "Calculando as partidas… a classificação abre assim que elas terminarem.",
     others: "Outros resultados",
     standings: "Ver a classificação",
     outcome_win: "vitória",

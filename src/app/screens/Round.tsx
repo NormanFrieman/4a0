@@ -35,7 +35,6 @@ export function Round() {
     games,
     speed,
     setSpeed,
-    skip,
     tick,
     finishRound,
     openReplay,
@@ -72,8 +71,6 @@ export function Round() {
             <Button variant="primary" className="px-6 py-2" onClick={finishRound}>
               {t("round.standings")}
             </Button>
-          ) : live.skipping ? (
-            <p className="text-muted italic">{t("round.skipping")}</p>
           ) : (
             <>
               {(["normal", "fast", "instant"] as const).map((sp) => (
@@ -92,9 +89,6 @@ export function Round() {
                   )}
                 </Button>
               ))}
-              <Button variant="link" onClick={skip}>
-                {t("round.skip")}
-              </Button>
             </>
           )}
         </div>

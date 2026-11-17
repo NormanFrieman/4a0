@@ -72,8 +72,6 @@ export interface LiveRound {
   boards: LiveBoard[];
   userMatch: MatchResult | null;
   field: MatchResult[];
-  /** "Skip to the result": go to the standings as soon as every game ends. */
-  skipping: boolean;
 }
 
 interface SessionState {
@@ -106,7 +104,6 @@ interface SessionState {
   startRound(): void;
   playRound(): void;
   setSpeed(speed: Speed): void;
-  skip(): void;
   tick(): void;
   finishRound(): void;
   next(): void;
@@ -247,7 +244,7 @@ export const useSession = create<SessionState>()((set, get) => ({
         boards.map((b) => b.result),
       );
       set({
-        live: { round, pairing, boards, userMatch, field, skipping: false },
+        live: { round, pairing, boards, userMatch, field },
         phase: "playing",
       });
       return;
@@ -269,7 +266,6 @@ export const useSession = create<SessionState>()((set, get) => ({
         })),
         userMatch: null,
         field,
-        skipping: false,
       },
       phase: "playing",
     });
@@ -325,11 +321,6 @@ export const useSession = create<SessionState>()((set, get) => ({
     if (speed === "instant") get().tick();
   },
 
-  skip() {
-    set((s) => (s.live ? { live: { ...s.live, skipping: true }, speed: "instant" } : {}));
-    get().tick();
-  },
-
   tick() {
     set((s) => {
       if (!s.live) return {};
@@ -339,8 +330,6 @@ export const useSession = create<SessionState>()((set, get) => ({
       );
       return { live: { ...s.live, boards } };
     });
-    const { live } = get();
-    if (live?.skipping && roundDone(live)) get().finishRound();
   },
 
   finishRound() {
