@@ -1,5 +1,5 @@
 import { BoardFrame } from "./BoardFrame.tsx";
-import { ChampionMark } from "./ChampionMark.tsx";
+import { ChampionName } from "./ChampionName.tsx";
 import { Kicker } from "./Masthead.tsx";
 import { ResultBadge } from "./ResultBadge.tsx";
 import type { Outcome } from "./format.ts";
@@ -53,12 +53,11 @@ export function BoardCard({
         aria-hidden
         className={`mr-1 inline-block size-2.5 border border-ink align-middle ${color === "white" ? "bg-white" : "bg-ink"}`}
       />
-      <span className={p.isUser ? "font-bold" : "italic"}>{p.name}</span>{" "}
-      {p.champion && (
-        <>
-          <ChampionMark label={p.champion} />{" "}
-        </>
-      )}
+      <ChampionName
+        name={p.name}
+        champion={p.champion}
+        className={p.isUser ? "font-bold" : "italic"}
+      />{" "}
       {p.strength !== null && <span className="text-muted tabular-nums">{p.strength}</span>}
     </div>
   );

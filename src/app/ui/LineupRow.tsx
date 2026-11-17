@@ -1,3 +1,4 @@
+import { ChampionName } from "./ChampionName.tsx";
 import { StyleTrait, type Trait } from "./StyleTrait.tsx";
 
 /**
@@ -42,13 +43,12 @@ export function LineupRow({
     >
       <span className="text-sm tabular-nums opacity-70">{boardLabel}</span>
       <span className="min-w-0">
-        <span
-          className={`text-lg font-bold ${champion && !selected ? "text-champion" : ""}`}
-          title={champion}
-        >
-          {name}
-          {champion && <span className="sr-only"> ({champion})</span>}
-        </span>{" "}
+        <ChampionName
+          name={name}
+          champion={champion}
+          inherit={selected}
+          className="text-lg font-bold"
+        />{" "}
         <span className="text-xs tracking-widest uppercase opacity-70">{title}</span>
         <span className="block text-sm opacity-80">
           <StyleTrait trait={trait} label={traitLabel} />

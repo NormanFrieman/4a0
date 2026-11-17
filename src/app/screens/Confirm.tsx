@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { avgStrength } from "../../data/cardStrength.ts";
 import {
   Button,
-  ChampionMark,
+  ChampionName,
   Flag,
   Kicker,
   Masthead,
@@ -59,8 +59,11 @@ export function Confirm() {
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
                   <Flag code={v.team.countryCode} label={v.team.countryName} className="w-5" />
-                  <span className="truncate text-lg font-bold">{v.name}</span>
-                  {v.champion && <ChampionMark label={t("champion.label")} />}
+                  <ChampionName
+                    name={v.name}
+                    champion={v.champion ? t("champion.label") : undefined}
+                    className="truncate text-lg font-bold"
+                  />
                   <span className="text-sm text-muted italic">{v.team.year}</span>
                 </div>
                 <div className="text-sm">

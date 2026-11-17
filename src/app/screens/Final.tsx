@@ -7,7 +7,7 @@ import { boardPrizes } from "../../tournament/boardPrizes.ts";
 import { USER_ID, currentStandings, entrant } from "../../tournament/tournament.ts";
 import {
   Button,
-  ChampionMark,
+  ChampionName,
   Flag,
   Kicker,
   Masthead,
@@ -141,7 +141,10 @@ function BoardPrizes() {
                     code={v.team.countryCode}
                     className="mr-1.5 inline-block w-4 align-baseline"
                   />
-                  {v.name} {v.champion && <ChampionMark label={t("champion.label")} />}
+                  <ChampionName
+                    name={v.name}
+                    champion={v.champion ? t("champion.label") : undefined}
+                  />
                 </span>
                 <span className="block text-xs text-muted italic">
                   {team.name} · {t("final.prizePerformance", { perf: p.performance })}
@@ -299,9 +302,11 @@ export function Final() {
                   <span className="w-16 shrink-0">
                     <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
                   </span>
-                  <span className={id === best ? "font-bold" : ""}>
-                    {v.name} {v.champion && <ChampionMark label={t("champion.label")} />}
-                  </span>
+                  <ChampionName
+                    name={v.name}
+                    champion={v.champion ? t("champion.label") : undefined}
+                    className={id === best ? "font-bold" : ""}
+                  />
                   <span className="text-muted tabular-nums">{v.card.strength}</span>
                   <span className="flex-1 border-b border-dotted border-line" />
                   <span className="tabular-nums">

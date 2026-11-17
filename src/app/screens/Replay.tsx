@@ -6,7 +6,7 @@ import { USER_ID } from "../../tournament/tournament.ts";
 import {
   BoardFrame,
   Button,
-  ChampionMark,
+  ChampionName,
   Masthead,
   ResultBadge,
   Rule,
@@ -69,8 +69,11 @@ export function Replay() {
           aria-hidden
           className={`inline-block size-2.5 border border-ink ${color === "white" ? "bg-white" : "bg-ink"}`}
         />
-        <span className={team.isUser ? "font-bold" : "italic"}>{v.name}</span>
-        {v.champion && <ChampionMark label={t("champion.label")} />}
+        <ChampionName
+          name={v.name}
+          champion={v.champion ? t("champion.label") : undefined}
+          className={team.isUser ? "font-bold" : "italic"}
+        />
         {show && <span className="text-muted tabular-nums">{v.card.strength}</span>}
         <StyleTrait trait={v.trait} label={t(`trait.${v.trait}`)} />
         <span className="w-full pl-4.5 text-sm text-muted">

@@ -10,7 +10,7 @@ import {
 } from "../../tournament/tournament.ts";
 import {
   Button,
-  ChampionMark,
+  ChampionName,
   Flag,
   Kicker,
   Masthead,
@@ -104,9 +104,11 @@ function LineupList({
             <li key={id} className="grid grid-cols-[4.5rem_1fr_auto] items-center gap-2 py-2">
               <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
               <span className="min-w-0">
-                <span className="block truncate font-bold">
-                  {v.name} {v.champion && <ChampionMark label={t("champion.label")} />}
-                </span>
+                <ChampionName
+                  name={v.name}
+                  champion={v.champion ? t("champion.label") : undefined}
+                  className="block truncate font-bold"
+                />
                 <span className="text-sm">
                   <StyleTrait trait={v.trait} label={t(`trait.${v.trait}`)} />
                 </span>

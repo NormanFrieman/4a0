@@ -344,7 +344,7 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 
 O tabuleiro usa chessground. As cartas mostram nome, país, ano, título, força (exceto no modo Mestre), traço de estilo e campanha real. Não usar fotos de jogadores reais.
 
-**Campeões mundiais (DECIDIDO, 2026-11-17):** as cartas de quem foi campeão mundial da linha clássica/unificada (Smyslov, Tal, Petrosian, Spassky, Karpov, Kasparov, Kramnik, Anand, Carlsen, Ding, Gukesh) têm destaque em todo o jogo: draft, confirmação, rodada, replay, Resultado final e imagem compartilhada. O destaque vale para todas as cartas da pessoa, inclusive as de antes do título, e aparece também no modo Mestre, porque é um fato histórico, não a força. Os campeões FIDE por eliminatória (Khalifman, Ponomariov, Kasimdzhanov, Topalov) ficam de fora. A lista está em `tools/data/olympiads/worldChampions.ts`.
+**Campeões mundiais (DECIDIDO, 2026-11-17):** as cartas de quem foi campeão mundial da linha clássica/unificada (Smyslov, Tal, Petrosian, Spassky, Karpov, Kasparov, Kramnik, Anand, Carlsen, Ding, Gukesh) têm o nome em dourado em todo o jogo: draft, confirmação, rodada, replay, Resultado final e imagem compartilhada. O destaque vale para todas as cartas da pessoa, inclusive as de antes do título, e aparece também no modo Mestre, porque é um fato histórico, não a força. Os campeões FIDE por eliminatória (Khalifman, Ponomariov, Kasimdzhanov, Topalov) ficam de fora. A lista está em `tools/data/olympiads/worldChampions.ts`.
 
 ### 10.1 Direção visual (DECIDIDO)
 

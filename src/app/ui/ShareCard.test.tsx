@@ -90,7 +90,8 @@ describe("ShareCard", () => {
       />,
     );
     // Karpov is the only world champion of the summary.
-    expect(html.match(/aria-label="Campeão mundial"/g)).toHaveLength(1);
+    expect(html.match(/text-champion/g)).toHaveLength(1);
+    expect(html).toContain('title="Campeão mundial"');
   });
 
   it("shows the place without a medal", () => {
