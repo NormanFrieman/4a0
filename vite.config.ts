@@ -70,7 +70,7 @@ function serveStockfish(): Plugin {
 const sourceUrl = process.env.SOURCE_URL ?? "https://github.com/NormanFrieman/4a0";
 
 function currentCommit(): string {
-  const fromCi = process.env.CF_PAGES_COMMIT_SHA;
+  const fromCi = process.env.CF_PAGES_COMMIT_SHA ?? process.env.WORKERS_CI_COMMIT_SHA;
   if (fromCi) return fromCi;
   try {
     return execSync("git rev-parse HEAD", { encoding: "utf8" }).trim();
