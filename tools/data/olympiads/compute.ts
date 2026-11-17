@@ -5,11 +5,36 @@
 import { dp } from "./dp.ts";
 import { TITLE_RANK, type EloEntry, type TitleEntry } from "./wikidata.ts";
 
-/** Latest FIDE list dated on or before `date` (ISO), or null. */
-export function eloAt(elo: readonly EloEntry[], date: string): EloEntry | null {
-  let best: EloEntry | null = null;
-  for (const e of elo) if (e.date <= date && (!best || e.date > best.date)) best = e;
-  return best;
+/**
+ * Window around the edition for the card's FIDE list (user decision,
+ * 2026-11-16): Wikidata's lists start in July 1971, and some players have
+ * gaps. A data-source rule, not a game balance number.
+ */
+export const ELO_WINDOW_MONTHS = 24;
+
+/** ISO date (first of the month) `months` after `date`; negative goes back. */
+export function addMonths(date: string, months: number): string {
+  const [y, m] = date.split("-").map(Number) as [number, number];
+  const total = y * 12 + (m - 1) + months;
+  return `${Math.floor(total / 12)}-${String((total % 12) + 1).padStart(2, "0")}-01`;
+}
+
+/**
+ * FIDE list of a card: the latest one on or before `start` (ISO) if it is at
+ * most `ELO_WINDOW_MONTHS` old; otherwise the first one at most that many
+ * months after; otherwise null.
+ */
+export function eloAt(elo: readonly EloEntry[], start: string): EloEntry | null {
+  const oldest = addMonths(start, -ELO_WINDOW_MONTHS);
+  const newest = addMonths(start, ELO_WINDOW_MONTHS);
+  let before: EloEntry | null = null;
+  let after: EloEntry | null = null;
+  for (const e of elo) {
+    if (e.date <= start) {
+      if (e.date >= oldest && (!before || e.date > before.date)) before = e;
+    } else if (e.date <= newest && (!after || e.date < after.date)) after = e;
+  }
+  return before ?? after;
 }
 
 const titleRank = (qid: string) => TITLE_RANK.findIndex((t) => t.qid === qid);

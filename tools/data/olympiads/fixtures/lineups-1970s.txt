@@ -1,0 +1,69 @@
+=== 1. Sowjetunion ===
+{| class="wikitable"
+|-
+! Platz !! Land !! G !! R !! V !! Brettp. !! Mannschaftsp. 
+|-
+| rowspan="2" | 1 (A) || rowspan="2" |{{SUN-1955}} || 9 || 0 || 0 ||- style="text-align:center;" | 31 ||- style="text-align:center;" | 18
+|-
+| 7 || 4 || 0 ||- style="text-align:center;" | 27,5 ||- style="text-align:center;" | 18
+|-
+! Brett !! Spieler !! G !! R !! V !! Punkte !! Partien 
+|-
+| 1 || [[Boris Wassiljewitsch Spasski|Boris Spasski]] || 7 || 5 || 0 ||- style="text-align:center;" | 9,5 ||- style="text-align:center;" | 12
+|-
+| 2 || [[Tigran Petrosjan]] || 6 || 8 || 0 ||- style="text-align:center;" | 10 ||- style="text-align:center;" | 14
+|-
+| 3 || [[Viktor Kortschnoi]] || 8 || 6 || 1 ||- style="text-align:center;" | 11 ||- style="text-align:center;" | 15
+|-
+| 4 || [[Lew Abramowitsch Polugajewski|Lew Polugajewski]] || 7 || 4 || 1 ||- style="text-align:center;" | 9 ||- style="text-align:center;" | 12
+|-
+| R || [[Wassili Wassiljewitsch Smyslow|Wassili Smyslow]] || 5 || 6 || 0 ||- style="text-align:center;" | 8 ||- style="text-align:center;" | 11
+|-
+| R || [[Efim Geller]] || 6 || 4 || 2 ||- style="text-align:center;" | 8 ||- style="text-align:center;" | 12
+|}
+
+===  Albanien ===
+{| class="wikitable"
+|-
+! Platz !! Land !! G !! R !! V !! Brettp. !! Mannschaftsp. 
+|-
+| rowspan="2" | - (B) || rowspan="2" |{{ALB-1946}} || 5 || 1 || 1 ||- style="text-align:center;" | 19,5 ||- style="text-align:center;" | 11
+|-
+| 4 || 1 || 5 ||- style="text-align:center;" | (19) ||- style="text-align:center;" | (9)
+|-
+! Brett !! Spieler !! G !! R !! V !! Punkte !! Partien 
+|-
+| 1 || [[Ylvi Pustina]] || 3 || 9 || 4 ||- style="text-align:center;" | 7,5 ||- style="text-align:center;" | 16
+|-
+| 2 || [[Floran Vila]] || 5 || 6 || 5 ||- style="text-align:center;" | 8 ||- style="text-align:center;" | 16
+|-
+| 3 || [[Vangjel Adhami]] || 5 || 6 || 3 ||- style="text-align:center;" | 8 ||- style="text-align:center;" | 14
+|-
+| 4 || [[Fatos Muço]] || 9 || 5 || 1 ||- style="text-align:center;" | 11,5 ||- style="text-align:center;" | 15
+|-
+| R || [[Fatos Omari]] || 1 || 1 || 1 ||- style="text-align:center;" | 1,5 ||- style="text-align:center;" | 3
+|-
+| R || [[Aldo Zadrima]] || 0 || 4 || 0 ||- style="text-align:center;" | 2 ||- style="text-align:center;" | 4
+|}
+
+=== 88. Palästina ===
+{| class="wikitable"
+|-
+! Platz !! Land !! G !! R !! V !! Brettp. !! Mannschaftsp. 
+|-
+| 88 || [[Datei:Flag of Palestine - short triangle.svg|20px]] [[Palästina (Region)|Palästina]] || 1 || 1 || 12 ||- style="text-align:center;" | 13 ||- style="text-align:center;" | 3
+|-
+! Brett !! Spieler !! G !! R !! V !! Punkte !! Partien 
+|-
+| 1 || Mahmoud Said || 3 || 2 || {{0}}9 ||- style="text-align:center;" | 4 ||- style="text-align:center;" | 14
+|-
+| 2 || Safud Abdul Hafiz || 0 || 2 || {{0}}7 ||- style="text-align:center;" | 1 ||- style="text-align:center;" | 9
+|-
+| 3 || Nabil Hamzeh || 3 || 4 || {{0}}7 ||- style="text-align:center;" | 5 ||- style="text-align:center;" | 14
+|-
+| 4 || Mohamad Al-Laham || 2 || 2 || {{0}}8 ||- style="text-align:center;" | 3 ||- style="text-align:center;" | 12
+|-
+| R || Jamal Al-Nabhani || 0 || 0 || {{0}}3 ||- style="text-align:center;" | 0 ||- style="text-align:center;" | 3
+|-
+| R || J. Abdul Al-Karim || 0 || 0 || {{0}}4 ||- style="text-align:center;" | 0 ||- style="text-align:center;" | 4
+|}

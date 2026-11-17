@@ -43,12 +43,6 @@ import { overrideFor } from "./overrides.ts";
 import { renderReport } from "./report.ts";
 import { TITLE_RANK, type EloEntry, type PersonEntity } from "./wikidata.ts";
 
-/**
- * A QID found by name search is taken only if the person has a FIDE list
- * at most this many months before the edition (guards against namesakes).
- */
-const SEARCH_MAX_ELO_AGE_MONTHS = 72;
-
 export type QidSource = "link" | "override" | "search";
 
 export interface ResolvedPlayer extends LineupPlayer {
@@ -118,13 +112,6 @@ function entity(qid: string): PersonEntity {
   return e;
 }
 
-/** ISO date `months` before `date`. */
-function monthsBefore(date: string, months: number): string {
-  const [y, m] = date.split("-").map(Number) as [number, number];
-  const total = y * 12 + (m - 1) - months;
-  return `${Math.floor(total / 12)}-${String((total % 12) + 1).padStart(2, "0")}-01`;
-}
-
 function resolveQid(
   year: number,
   start: string,
@@ -138,11 +125,9 @@ function resolveQid(
   if (linked) return { qid: linked, qidSource: "link", candidates: [] };
   if (!searchable) return { qid: null, qidSource: null, candidates: [] };
   const found = (searchCache ??= readSearch())[p.name] ?? [];
-  const oldest = monthsBefore(start, SEARCH_MAX_ELO_AGE_MONTHS);
-  const inEra = found.filter((q) => {
-    const elo = eloAt(entity(q).elo, start);
-    return elo !== null && elo.date >= oldest;
-  });
+  // Taken only if the person has a FIDE list in the edition's window
+  // (guards against namesakes from another era).
+  const inEra = found.filter((q) => eloAt(entity(q).elo, start) !== null);
   if (inEra.length === 1) return { qid: inEra[0]!, qidSource: "search", candidates: [] };
   return { qid: null, qidSource: null, candidates: found };
 }
@@ -227,6 +212,7 @@ export function buildEdition(year: number): EditionResult {
   const ranked = topTeams(teams);
 
   const top = ranked.map((t): TeamResult => {
+    if (!t.countryTemplate) throw new Error(`${year}: top team "${t.name}" has no flag template`);
     const country = countryOf(t.countryTemplate, year, teamSuffix(t.name));
     const suffix = teamSuffix(t.name);
     const teamId = `${country.code}${suffix ? { B: "2", C: "3" }[suffix] : ""}-${year}`;
@@ -253,8 +239,11 @@ export function buildEdition(year: number): EditionResult {
           return r === null ? [] : [r];
         });
       } else {
+        // No progress table: no performance, strength = FIDE rating
+        // (user decision, 2026-11-16; the field mean would bias strong
+        // players down).
         rounds = 0;
-        ratings = [fieldMean];
+        ratings = [];
       }
       const performance = approxPerformance(ratings, p.points, p.games);
       const fide = p.elo?.rating ?? null;

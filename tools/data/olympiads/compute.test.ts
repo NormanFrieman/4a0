@@ -14,7 +14,15 @@ describe("eloAt", () => {
   it("takes the latest list on or before the start", () => {
     expect(eloAt(elo, "1980-11-20")).toEqual({ date: "1980-07-01", rating: 2725 });
     expect(eloAt(elo, "1981-01-01")!.rating).toBe(2690);
-    expect(eloAt(elo, "1979-12-31")).toBeNull();
+  });
+  it("without one in the 24 months before, the first one up to 24 months after", () => {
+    // 1970: the first list in Wikidata is July 1971.
+    expect(eloAt([{ date: "1971-07-01", rating: 2690 }], "1970-09-05")!.rating).toBe(2690);
+    expect(eloAt(elo, "1979-12-31")!.date).toBe("1980-01-01");
+    expect(eloAt(elo, "1977-12-31")).toBeNull();
+    // Whole months: the window of a start in January 1983 opens in January 1981.
+    expect(eloAt(elo, "1983-01-15")!.date).toBe("1981-01-01");
+    expect(eloAt(elo, "1983-02-01")).toBeNull();
   });
 });
 

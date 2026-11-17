@@ -10,6 +10,7 @@ import {
   parseGermanNumber,
   parseTables,
   plainText,
+  type WikiRow,
 } from "./wikitext.ts";
 
 export type Board = 1 | 2 | 3 | 4 | 5 | 6 | "R";
@@ -34,8 +35,12 @@ export interface LineupTeam {
   name: string;
   /** Final rank; null for teams out of competition. */
   rank: number | null;
-  /** Flag template without the year suffix, e.g. "SUN" from `{{SUN-1980}}`. */
-  countryTemplate: string;
+  /**
+   * Flag template without the year suffix, e.g. "SUN" from `{{SUN-1980}}`;
+   * null for teams without a flag (e.g. Palestine, IBCA, ICSC, IPCA).
+   */
+  countryTemplate: string | null;
+  /** Board points; 1970–1974: preliminaries + final, which repeat carried-over matches. */
   boardPoints: number;
   players: LineupPlayer[];
 }
@@ -66,6 +71,10 @@ export function topTeams<T extends { rank: number | null; order: number }>(teams
 /** Card players of a team: boards 1–4 (GDD §4: reserves stay out). */
 export const isCardBoard = (board: Board) => board !== "R" && board <= 4;
 
+function playerHeaderIdxOf(rows: WikiRow[], teamHeaderIdx: number): number {
+  return rows.findIndex((r, i) => i > teamHeaderIdx && r[0]?.header);
+}
+
 export function parseLineups(text: string): LineupTeam[] {
   const headings = [...text.matchAll(/^===\s*(.+?)\s*===\s*$/gm)].map((m) => ({
     offset: m.index,
@@ -85,12 +94,24 @@ export function parseLineups(text: string): LineupTeam[] {
     const headerIdx = table.rows.findIndex((r) => r[0]?.header);
     const teamHeaders = table.rows[headerIdx]!.map((c) => plainText(c.raw));
     const teamRow = table.rows[headerIdx + 1]!.map((c) => c.raw);
-    const playerHeaderIdx = table.rows.findIndex((r, i) => i > headerIdx && r[0]?.header);
+    // 1970–1974: a second row with the final stage (rowspan cells left out).
+    const finalRow =
+      playerHeaderIdxOf(table.rows, headerIdx) === headerIdx + 3
+        ? table.rows[headerIdx + 2]!.map((c) => c.raw)
+        : null;
+    const playerHeaderIdx = playerHeaderIdxOf(table.rows, headerIdx);
     const playerHeaders = table.rows[playerHeaderIdx]!.map((c) => plainText(c.raw));
 
     const tpl = firstTemplate(teamRow[columnIndex(teamHeaders, "Land")]!);
-    if (!tpl) throw new Error(`${where}: no flag template`);
-    const rank = parseGermanNumber(teamRow[columnIndex(teamHeaders, "Platz")] ?? "");
+    // "1" or, 1970–1974, "1 (A)" (rank and final group).
+    const rankMatch = /^(\d+)/.exec(plainText(teamRow[columnIndex(teamHeaders, "Platz")] ?? ""));
+    const rank = rankMatch ? Number(rankMatch[1]) : null;
+    const bp = columnIndex(teamHeaders, "Brettp.");
+    let boardPoints = num(teamRow[bp], `${where} Brettp.`);
+    // The final row lacks the two rowspan cells (Platz, Land).
+    // 1972–1974 put some final-stage points in parentheses: "(19)".
+    if (finalRow)
+      boardPoints += num(finalRow[bp - 2]?.replace(/[()]/g, ""), `${where} Brettp. (final)`);
 
     const col = {
       board: columnIndex(playerHeaders, "Brett"),
@@ -125,8 +146,8 @@ export function parseLineups(text: string): LineupTeam[] {
       order: teams.length + 1,
       name,
       rank,
-      countryTemplate: tpl.name.replace(/-\d{4}$/, ""),
-      boardPoints: num(teamRow[columnIndex(teamHeaders, "Brettp.")], `${where} Brettp.`),
+      countryTemplate: tpl ? tpl.name.replace(/-\d{4}$/, "") : null,
+      boardPoints,
       players,
     });
   });

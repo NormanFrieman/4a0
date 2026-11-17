@@ -1,6 +1,6 @@
 # Plano: dados completos (20 melhores seleções de cada Olimpíada)
 
-**Situação:** planejado em 2026-11-16; passos 1 e 2 (prova de conceito com 1980 e 2024) feitos. Antecipa parte da Fase 2 do GDD (§13) a pedido do usuário. Substitui a dependência do OlimpBase (§9.1, §14.2).
+**Situação:** planejado em 2026-11-16; passos 1 e 2 feitos; passo 3 rodado nas 28 edições, faltam as correções manuais. Antecipa parte da Fase 2 do GDD (§13) a pedido do usuário. Substitui a dependência do OlimpBase (§9.1, §14.2).
 
 ## Decisões do usuário (2026-11-16)
 
@@ -77,7 +77,7 @@ Correções manuais (nome errado, QID ausente, mesa trocada) ficam em `tools/dat
 
 1. ✅ Registrar as decisões no GDD (§9.1, §14.1, §14.2) e esta fonte.
 2. ✅ Prova de conceito com 1980 e 2024: parser, QIDs, Elo e performance. Conferir à mão as 4 primeiras seleções contra a amostra atual. Resultado abaixo.
-3. Rodar as 28 edições e revisar o relatório de validação. Antes: digitar as 26 edições restantes em `editions.ts` e resolver as pendências da prova de conceito.
+3. 🟡 Rodar as 28 edições e revisar o relatório de validação: rodado e revisado (resultado abaixo). Falta corrigir à mão as cartas sem QID ou sem Elo (`overrides.ts`).
 4. Publicar `v1`, trocar o app e rodar `pnpm test`, `pnpm typecheck` e `pnpm lint`.
 5. Jogar 3 sessões com sementes diferentes e conferir nomes, bandeiras, mesas e forças.
 
@@ -100,13 +100,37 @@ Código em `tools/data/olympiads/`: `pnpm data:fetch --years 1980,2024` baixa as
 
 **Pendências para o passo 3**
 
-- **Três cartas sem QID:** Milan Vukadinov (Canadá 1980), John Cooper (País de Gales 1980) e Luka Paichadse (Geórgia 2024; a de.wikipedia translitera "Paichadze"). A correção vai em `overrides.ts` (não feita: a API do Wikidata bloqueou temporariamente as consultas).
-- **Limite de requisições da Wikimedia:** com 1 requisição por segundo, o Wikidata responde 429 a cada ~5 buscas. As 31 buscas da prova de conceito levaram 6 minutos; as 28 edições (~400 nomes) devem levar cerca de 1 h, uma vez só, graças ao cache. Quando o repositório for público, pôr a URL dele no User-Agent como contato, como pede a política da Wikimedia (decisão do usuário).
+- ✅ **Limite de requisições da Wikimedia:** resolvido no passo 3 com a URL do repositório no User-Agent (decisão do usuário). Parte dos 429 vinha de um processo órfão da primeira busca, que continuava rodando.
 - **Rating dos adversários:** só quem tem QID entra na média, e a busca de nome não cobre os adversários (só as cartas). Em 1980, 88% das rodadas têm adversário com rating; em 2024, 79%. O efeito na força é pequeno (`performanceWeight` = 0,25).
 - **Brettp. ≠ soma das mesas:** Romênia 1980 (31,5 contra 29,5), por um 2:2 por W.O. que a própria página explica. É um aviso, não um erro.
 - **Medalhas individuais:** ainda não lidas (`medals: []`); falta o parser da en.wikipedia ou a digitação manual.
 - **Sem rating:** `PlayerCard.fideRating` é `number`; a saída usa 0. Decidir na publicação (passo 4) se o tipo passa a aceitar `null`.
 - **Wikidata sem versão fixa:** o `lastrevid` de cada entidade fica só no cache; a reprodutibilidade completa exige gravá-lo em `sources.json`.
+
+## Execução das 28 edições (passo 3, 2026-11-16)
+
+`pnpm data:fetch` (todas as edições) e depois `pnpm data:olympiads`. Com o contato no User-Agent: 52 páginas em ~30 s e as buscas sem nenhum 429.
+
+**Ajustes**
+
+- `editions.ts` com as 28 edições, conferidas nas páginas `Schacholympiade {ano}` (datas, cidade) e na introdução das escalações (equipes, rodadas). A memória errou em vários pontos: 2026 foi em Samarcanda, 2022 em Mamallapuram, e 1976, 2000, 2010 e 2024 começaram em outros dias.
+- **1970–1974** (preliminares e finais): a colocação vem como "1 (A)" e há duas linhas de pontos por seleção (`boardPoints` soma as duas, por isso não bate com a soma das mesas). `rounds` = o maior número de partidas de um jogador (19, 22, 22).
+- Seleções sem predefinição de bandeira (Palestina, IBCA, ICSC, IPCA) são lidas com `countryTemplate: null`; nenhuma está no top 20.
+- **Edições sem `/Tabelle`** (1970–1978, 1994–2006): força = Elo, sem performance (decisão do usuário; a média do campo puxaria os fortes para baixo).
+- **Lista FIDE (decisão do usuário):** a mais recente até o início, até 24 meses antes; sem ela, a primeira até 24 meses depois. As listas do Wikidata começam em julho de 1971, então 1970 usa a de julho de 1971. A busca de nome aceita quem tiver lista nessa janela.
+- Os países do top 20 de todas as edições estão em `countries.ts` (FRG/GDR em 1970, SCG em 2004).
+
+**Resultado**
+
+- 2 240 cartas: 99% com QID, 98% com Elo e 95% com título. 798 pessoas.
+- **30 das 560 seleções excluídas** (GDD §4.1: alguma carta sem Elo nem performance): 1970: 6, 1972: 5, 1974: 8, 1976: 7, 1978: 1, 1994: 1, 1996: 1, 2000: 1.
+- A força média por década sobe de 2473 (anos 1970) para ~2650 (anos 2010–2020). As maiores: Caruana 2018 (2842), Carlsen 2016 (2841), Kasparov 2002 (2836), Gukesh 2024 (2834).
+
+**Pendências**
+
+- **34 cartas sem Elo** que excluem a seleção: 13 têm QID, mas o Wikidata não traz o histórico de Elo (Najdorf, Reshevsky, Bolbochán…); 21 não têm QID.
+- **12 cartas sem rating nas edições com tabela** ficam com 2200 (`unratedCap`), embora tenham performance de 2640 a 2875 (ex.: Paichadse 2024, Jan Malek 2026). São enxadristas com rating cujo QID não foi achado.
+- A correção das duas listas acima vai em `overrides.ts` (QID, e Elo quando o Wikidata não tiver). Para o Elo, falta escolher uma fonte livre.
 
 ## Fora deste plano
 

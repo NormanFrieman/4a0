@@ -101,7 +101,7 @@ function editionSection(r: EditionResult): string {
 - Fontes: ${pageLink(lineupsPage(year), r.revids.lineups)}; ${
     r.crosstableFound
       ? pageLink(crosstablePage(year), r.revids.crosstable)
-      : `**${crosstablePage(year)} não existe**: performance pela média do campo`
+      : `**${crosstablePage(year)} não existe**: sem performance, força = Elo`
   }
 - Seleções lidas: ${r.teamsParsed}. Início: ${start}. Média de rating do campo (mesas 1 a 4 com Elo): ${r.fieldMean}.
 - Rodadas com adversário de rating conhecido: ${ratedTotal}/${roundsTotal}${

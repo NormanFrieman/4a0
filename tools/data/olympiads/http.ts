@@ -1,11 +1,12 @@
 /**
  * Polite JSON GET for the Wikimedia APIs: one request at a time, a short gap
- * between requests, `Retry-After` honoured on 429/503. Generic User-Agent,
- * without personal data.
+ * between requests, `Retry-After` honoured on 429/503. The User-Agent names
+ * the project repository as contact, as the Wikimedia User-Agent policy asks
+ * (clients without a contact are throttled much harder).
  */
-const USER_AGENT = "4a0-data-pipeline/0.1 (open-source chess game; offline data tool)";
+const USER_AGENT = "4a0-data-pipeline/0.1 (+https://github.com/NormanFrieman/4a0)";
 const GAP_MS = 1000;
-const MAX_TRIES = 5;
+const MAX_TRIES = 10;
 
 let last = 0;
 let requests = 0;

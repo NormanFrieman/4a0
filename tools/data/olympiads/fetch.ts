@@ -6,6 +6,7 @@
  *
  *   --years 1980,2024  only these editions (default: all in editions.ts)
  *   --force            download again what is already cached
+ *   --pages-only       stop after the de.wikipedia pages
  *   --update           take the latest page revisions instead of the ones
  *                      pinned in sources.json (and pin the new ones)
  *
@@ -14,6 +15,7 @@
 import { fileURLToPath } from "node:url";
 import {
   crosstablePage,
+  editionPage,
   lineupsPage,
   readEntity,
   readPage,
@@ -175,6 +177,13 @@ async function main() {
   for (const year of years) {
     await fetchPage(lineupsPage(year), opts);
     await fetchPage(crosstablePage(year), opts);
+    await fetchPage(editionPage(year), opts);
+  }
+  if (argv.includes("--pages-only")) {
+    console.log(`done: ${requestCount()} requests`);
+    return;
+  }
+  for (const year of years) {
     const page = readPage(lineupsPage(year));
     if (!page?.content) throw new Error(`${year}: no lineup page`);
     const teams = parseLineups(page.content);

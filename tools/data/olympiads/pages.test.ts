@@ -41,6 +41,26 @@ describe("parseLineups", () => {
   });
 });
 
+describe("parseLineups, 1970s and teams without a flag", () => {
+  const [urs, alb, pal] = parseLineups(fixture("lineups-1970s.txt"));
+
+  it("1970: rank and final group, preliminary + final board points", () => {
+    expect(urs).toMatchObject({ rank: 1, name: "Sowjetunion", countryTemplate: "SUN" });
+    expect(urs!.boardPoints).toBe(31 + 27.5);
+    expect(urs!.players[0]).toMatchObject({ name: "Boris Spasski", points: 9.5, games: 12 });
+  });
+
+  it("1972: a team without a final rank, final points in parentheses", () => {
+    expect(alb).toMatchObject({ rank: null, name: "Albanien", countryTemplate: "ALB" });
+    expect(alb!.boardPoints).toBe(19.5 + 19);
+  });
+
+  it("a team with a flag image instead of a template", () => {
+    expect(pal).toMatchObject({ rank: 88, name: "Palästina", countryTemplate: null });
+    expect(pal!.players).toHaveLength(6);
+  });
+});
+
 describe("parseCrosstable", () => {
   it("1980: opponent codes per round, unranked host team", () => {
     const [urs, mlt2] = parseCrosstable(fixture("crosstable-1980.txt"));

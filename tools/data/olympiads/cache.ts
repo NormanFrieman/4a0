@@ -15,6 +15,8 @@ export const REPORT_FILE = join(HERE, "report.md");
 
 export const lineupsPage = (year: number) => `Mannschaftsaufstellungen der Schacholympiade ${year}`;
 export const crosstablePage = (year: number) => `Schacholympiade ${year}/Tabelle`;
+/** Main page of an edition: dates, city, rounds (source of editions.ts). */
+export const editionPage = (year: number) => `Schacholympiade ${year}`;
 
 export interface CachedPage {
   title: string;

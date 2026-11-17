@@ -160,6 +160,7 @@ Onde R é o rating FIDE do jogador naquela edição, P é a performance dele na 
 - Sem rating FIDE (comum em seleções pequenas): usar a performance com k = 1, limitada por `unratedCap`.
 - Edições anteriores a 1970 (sem Elo FIDE) ficam fora do MVP. Depois, usar estimativas históricas, a definir.
 - A força é calculada no pipeline de dados (seção 9), não no navegador.
+- **Fontes livres (2026-11-16, [plano-dados.md](plano-dados.md)):** P é **aproximada**: média do rating dos adversários da mesma mesa, rodada a rodada, + dp(pontuação). Nas edições sem tabela de progresso (1970–1978, 1994–2006), não há P e a força é o próprio R. R é a lista FIDE do Wikidata mais recente até o início, até 24 meses antes; sem ela, a primeira até 24 meses depois (as listas do Wikidata começam em julho de 1971).
 
 ### 6.2 Conversão para o Elo do Maia
 

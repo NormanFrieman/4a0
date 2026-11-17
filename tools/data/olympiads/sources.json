@@ -1,16 +1,220 @@
 {
   "dewiki": {
+    "Mannschaftsaufstellungen der Schacholympiade 1970": {
+      "revid": 270901005
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1972": {
+      "revid": 269835603
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1974": {
+      "revid": 265365946
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1976": {
+      "revid": 271281614
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1978": {
+      "revid": 270082025
+    },
     "Mannschaftsaufstellungen der Schacholympiade 1980": {
       "revid": 265422482
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1982": {
+      "revid": 266180827
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1984": {
+      "revid": 266627287
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1986": {
+      "revid": 266627283
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1988": {
+      "revid": 266627282
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1990": {
+      "revid": 268266667
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1992": {
+      "revid": 266627274
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1994": {
+      "revid": 271029961
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1996": {
+      "revid": 268266682
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 1998": {
+      "revid": 269632556
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2000": {
+      "revid": 271802238
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2002": {
+      "revid": 266627251
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2004": {
+      "revid": 269698185
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2006": {
+      "revid": 271074732
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2008": {
+      "revid": 267785255
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2010": {
+      "revid": 269226790
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2012": {
+      "revid": 267785296
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2014": {
+      "revid": 266538530
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2016": {
+      "revid": 266538570
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2018": {
+      "revid": 266627234
+    },
+    "Mannschaftsaufstellungen der Schacholympiade 2022": {
+      "revid": 270874165
     },
     "Mannschaftsaufstellungen der Schacholympiade 2024": {
       "revid": 270899278
     },
+    "Mannschaftsaufstellungen der Schacholympiade 2026": {
+      "revid": 271745736
+    },
+    "Schacholympiade 1970": {
+      "revid": 265349474
+    },
+    "Schacholympiade 1972": {
+      "revid": 230019765
+    },
+    "Schacholympiade 1974": {
+      "revid": 230019771
+    },
+    "Schacholympiade 1976": {
+      "revid": 265308200
+    },
+    "Schacholympiade 1978": {
+      "revid": 263131642
+    },
+    "Schacholympiade 1980": {
+      "revid": 270870318
+    },
     "Schacholympiade 1980/Tabelle": {
       "revid": 241520991
     },
+    "Schacholympiade 1982": {
+      "revid": 270863325
+    },
+    "Schacholympiade 1982/Tabelle": {
+      "revid": 241521007
+    },
+    "Schacholympiade 1984": {
+      "revid": 270837489
+    },
+    "Schacholympiade 1984/Tabelle": {
+      "revid": 241521018
+    },
+    "Schacholympiade 1986": {
+      "revid": 261809308
+    },
+    "Schacholympiade 1986/Tabelle": {
+      "revid": 241521029
+    },
+    "Schacholympiade 1988": {
+      "revid": 270876181
+    },
+    "Schacholympiade 1988/Tabelle": {
+      "revid": 241521045
+    },
+    "Schacholympiade 1990": {
+      "revid": 270878864
+    },
+    "Schacholympiade 1990/Tabelle": {
+      "revid": 241521062
+    },
+    "Schacholympiade 1992": {
+      "revid": 230019489
+    },
+    "Schacholympiade 1992/Tabelle": {
+      "revid": 241521081
+    },
+    "Schacholympiade 1994": {
+      "revid": 250335328
+    },
+    "Schacholympiade 1996": {
+      "revid": 230050199
+    },
+    "Schacholympiade 1998": {
+      "revid": 271382242
+    },
+    "Schacholympiade 2000": {
+      "revid": 230050355
+    },
+    "Schacholympiade 2002": {
+      "revid": 271557990
+    },
+    "Schacholympiade 2004": {
+      "revid": 257445630
+    },
+    "Schacholympiade 2006": {
+      "revid": 251852452
+    },
+    "Schacholympiade 2008": {
+      "revid": 258376994
+    },
+    "Schacholympiade 2008/Tabelle": {
+      "revid": 241521138
+    },
+    "Schacholympiade 2010": {
+      "revid": 244673249
+    },
+    "Schacholympiade 2010/Tabelle": {
+      "revid": 241521149
+    },
+    "Schacholympiade 2012": {
+      "revid": 268109796
+    },
+    "Schacholympiade 2012/Tabelle": {
+      "revid": 241521162
+    },
+    "Schacholympiade 2014": {
+      "revid": 271028019
+    },
+    "Schacholympiade 2014/Tabelle": {
+      "revid": 241521174
+    },
+    "Schacholympiade 2016": {
+      "revid": 262777397
+    },
+    "Schacholympiade 2016/Tabelle": {
+      "revid": 242227120
+    },
+    "Schacholympiade 2018": {
+      "revid": 261488311
+    },
+    "Schacholympiade 2018/Tabelle": {
+      "revid": 259566539
+    },
+    "Schacholympiade 2022": {
+      "revid": 267758551
+    },
+    "Schacholympiade 2022/Tabelle": {
+      "revid": 259508273
+    },
+    "Schacholympiade 2024": {
+      "revid": 270831711
+    },
     "Schacholympiade 2024/Tabelle": {
       "revid": 266166542
+    },
+    "Schacholympiade 2026": {
+      "revid": 271724741
+    },
+    "Schacholympiade 2026/Tabelle": {
+      "revid": 270828054
     }
   }
 }
