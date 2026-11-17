@@ -17,7 +17,7 @@
 | 1   | [Código aberto e jogo gratuito](plano-codigo-aberto.md)       | —                                                                  |
 | 2   | [Dados: 20 melhores seleções](plano-dados.md)                 | —                                                                  |
 | 3   | [Livros de abertura do Lichess](plano-livros.md)              | 2 (anos das edições); **decisão pendente sobre o livro por carta** |
-| 4   | [Campo por faixas de força](plano-mvp-campo-faixas.md)        | 2                                                                  |
+| 4   | ✅ [Campo por faixas de força](plano-mvp-campo-faixas.md)     | 2                                                                  |
 | 5   | [Replay e PGN](plano-mvp-replay-pgn.md)                       | —                                                                  |
 | 6   | [Retomar sessão e histórico local](plano-mvp-persistencia.md) | 5 (as partidas entram no salvamento)                               |
 | 7   | [Modo Almanaque](plano-mvp-modo-almanaque.md)                 | —                                                                  |

@@ -13,6 +13,7 @@ import {
   startTournament,
   userPairing,
 } from "../tournament/tournament.ts";
+import { buildField, fieldConfig, fieldSizeOf, tiersOf } from "../tournament/field.ts";
 import index from "../../public/data/v1/index.json";
 import persons from "../../public/data/v1/persons.json";
 import { bookFilesFor } from "./books.ts";
@@ -55,10 +56,11 @@ describe("dataset v1", () => {
 
   it("plays a full tournament with the configured field", () => {
     const { fieldSize, rounds } = balance.tournament;
+    expect(fieldSizeOf(fieldConfig())).toBe(fieldSize);
     for (const seed of ["a", "b", "c"]) {
       let d = createDraft(ds, seed);
       while (!isDraftComplete(d)) d = pick(ds, d, pickableCards(ds, d)[0]!, d.slots.indexOf(null));
-      let t = startTournament(ds, seed, d.slots as string[], fieldSize, rounds);
+      let t = startTournament(ds, seed, d.slots as string[], fieldConfig(), rounds);
       expect(t.entrants).toHaveLength(fieldSize + 1);
       while (!isFinished(t)) {
         t = pairNextRound(t);
@@ -75,6 +77,24 @@ describe("dataset v1", () => {
         t = recordRound(t, [user, ...fieldResults(ds, t)]);
       }
       expect(currentStandings(t)).toHaveLength(fieldSize + 1);
+    }
+  });
+
+  it("draws the field by tiers, champions and country (GDD §5.1, §13.2)", () => {
+    const cfg = fieldConfig();
+    const tierOf = new Map<string, string>();
+    for (const [tier, teams] of Object.entries(tiersOf(ds.teams, cfg.tierQuantiles)))
+      for (const t of teams) tierOf.set(t.id, tier);
+    for (let i = 0; i < 1000; i++) {
+      const f = buildField(ds, `field-${i}`, cfg).map((e) => ds.team(e.id));
+      expect(new Set(f.map((t) => t.id)).size).toBe(balance.tournament.fieldSize);
+      for (const tier of ["elite", "middle", "weak"] as const)
+        expect(f.filter((t) => tierOf.get(t.id) === tier)).toHaveLength(cfg.tiers[tier]);
+      const champions = f.filter((t) => tierOf.get(t.id) === "elite" && t.finalRank === 1);
+      expect(champions.length).toBeGreaterThanOrEqual(cfg.minChampions);
+      const per = new Map<string, number>();
+      for (const t of f) per.set(t.countryCode, (per.get(t.countryCode) ?? 0) + 1);
+      expect(Math.max(...per.values())).toBeLessThanOrEqual(cfg.maxPerCountry);
     }
   });
 });

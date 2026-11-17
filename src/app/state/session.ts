@@ -30,6 +30,7 @@ import {
   userPairing,
   type TournamentState,
 } from "../../tournament/tournament.ts";
+import { fieldConfig } from "../../tournament/field.ts";
 import type { BoardResult, MatchResult, Pairing } from "../../tournament/types.ts";
 import { enginePool, loadEngine, type EngineStatus } from "./engine.ts";
 
@@ -173,7 +174,7 @@ export const useSession = create<SessionState>()((set, get) => ({
       dataset,
       seed,
       draft.slots as string[],
-      balance.tournament.fieldSize,
+      fieldConfig(),
       balance.tournament.rounds,
     );
     // Books are only needed for engine games (GDD §9.3: before the tournament).

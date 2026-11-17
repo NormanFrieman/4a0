@@ -6,7 +6,7 @@
 import { avgStrength } from "../data/cardStrength.ts";
 import type { Dataset } from "../data/dataset.ts";
 import { quickMatch } from "../sim/match.ts";
-import { buildField } from "./field.ts";
+import { buildField, fieldSizeOf, type FieldConfig } from "./field.ts";
 import { pairRound, playedKey } from "./pairing.ts";
 import { standings, type StandingRow } from "./standings.ts";
 import type { Entrant, MatchResult, Pairing } from "./types.ts";
@@ -31,10 +31,10 @@ export function startTournament(
   ds: Dataset,
   seed: string,
   userCardIds: readonly string[],
-  fieldSize: number,
+  field: FieldConfig,
   totalRounds: number,
 ): TournamentState {
-  if (totalRounds > fieldSize) throw new Error("Tournament: more rounds than opponents");
+  if (totalRounds > fieldSizeOf(field)) throw new Error("Tournament: more rounds than opponents");
   const user: Entrant = {
     id: USER_ID,
     isUser: true,
@@ -44,7 +44,7 @@ export function startTournament(
   return {
     seed,
     totalRounds,
-    entrants: [user, ...buildField(ds, seed, fieldSize)],
+    entrants: [user, ...buildField(ds, seed, field)],
     rounds: [],
   };
 }

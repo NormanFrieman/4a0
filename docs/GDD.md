@@ -111,7 +111,8 @@ O torneio é um suíço por pontos de match, como a Olimpíada real, encurtado p
 ### 5.1 Montagem do campo
 
 - O campo é sorteado com a semente da sessão, em três faixas de força média: `fieldTiers` define quantas seleções de elite, intermediárias e mais fracas entram.
-- A faixa de elite sempre inclui pelo menos `fieldMinChampions` seleções campeãs da sua edição.
+- As faixas são os terços do conjunto ordenado por força média (`fieldTierQuantiles`); dentro de cada faixa o sorteio é uniforme.
+- A faixa de elite sempre inclui pelo menos `fieldMinChampions` seleções campeãs da sua edição. Só contam as campeãs que estão na elite; uma campeã de faixa mais baixa pode sair pelo sorteio normal da faixa dela.
 - No máximo `fieldMaxPerCountry` seleções do mesmo país (ex.: URSS 1980 e URSS 1970 podem coexistir; três URSS não).
 - **Jogador escolhido pelo usuário (DECIDIDO, nov/2026):** se a pessoa estiver numa seleção do campo, essa seleção continua com ela. A mesma carta pode jogar pelos dois lados; por isso o lado de cada partida é identificado pela mesa, nunca pela carta.
 - Cada seleção do campo usa suas 4 mesas reais, na ordem real, em todas as rodadas.
@@ -141,6 +142,7 @@ O torneio é um suíço por pontos de match, como a Olimpíada real, encurtado p
 | `rounds` | 7 |
 | `fieldSize` | 23 (+ usuário = 24) |
 | `fieldTiers` | 6 elite, 9 intermediárias, 8 mais fracas |
+| `fieldTierQuantiles` | terços (1/3, 2/3) do conjunto ordenado por força média |
 | `fieldMinChampions` | 3 |
 | `fieldMaxPerCountry` | 2 |
 | `matchPoints` | vitória 2, empate 1, derrota 0 |
@@ -454,7 +456,7 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 - [ ] Um draft completo tem 4 sorteios, permite até 3 re-sorteios e impede a mesma pessoa duas vezes.
 - [ ] O sorteio respeita os pesos e nunca repete país + edição no mesmo draft.
 - [ ] O modo Almanaque oculta a força em todas as telas até o fim do torneio.
-- [ ] O campo tem 23 seleções nas faixas configuradas, com pelo menos 3 campeãs e no máximo 2 por país.
+- [x] O campo tem 23 seleções nas faixas configuradas, com pelo menos 3 campeãs e no máximo 2 por país.
 - [ ] O emparelhamento nunca repete confrontos e segue os grupos de pontuação.
 - [ ] Cada carta só ocupa a mesa em que jogou e joga nela todas as rodadas (4.3).
 - [ ] As partidas do usuário são jogadas pelo Maia-3 no worker, usando livro quando disponível.

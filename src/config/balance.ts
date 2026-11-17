@@ -49,7 +49,11 @@ export const balance = {
     rounds: 7,
     /** Historical teams besides the user's. */
     fieldSize: 23,
+    /** Teams per strength tier (sum = fieldSize). */
     fieldTiers: { elite: 6, middle: 9, weak: 8 },
+    /** Cuts elite/middle and middle/weak, as fractions of all teams sorted by strength. */
+    fieldTierQuantiles: [1 / 3, 2 / 3],
+    /** Edition winners guaranteed in the elite tier. */
     fieldMinChampions: 3,
     fieldMaxPerCountry: 2,
     matchPoints: { win: 2, draw: 1, loss: 0 },
@@ -64,6 +68,8 @@ export const balance = {
    */
   sampleTournament: {
     fieldSize: 7,
+    fieldTiers: { elite: 2, middle: 3, weak: 2 },
+    fieldMinChampions: 1,
   },
 
   // GDD §6.1 — card strength

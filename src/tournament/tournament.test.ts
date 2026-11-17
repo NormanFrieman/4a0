@@ -5,7 +5,7 @@ import { createDraft, isDraftComplete, pick, pickableCards } from "../draft/draf
 import { UniformAI } from "../engine/testing/fakeAi.ts";
 import { LocalGameSimulator } from "../engine/localSimulator.ts";
 import { boardsFor, gameJobFor, matchFromBoards, quickMatch, scoreOf } from "../sim/match.ts";
-import { buildField } from "./field.ts";
+import { buildField, fieldConfig, fieldSizeOf, tiersOf, type FieldConfig } from "./field.ts";
 import { pairRound, playedKey } from "./pairing.ts";
 import { matchPointsFor, standings } from "./standings.ts";
 import {
@@ -24,7 +24,8 @@ import {
 import type { MatchResult } from "./types.ts";
 
 const ds = sampleDataset();
-const { fieldSize } = balance.sampleTournament;
+const field = fieldConfig({ ...balance.tournament, ...balance.sampleTournament });
+const fieldSize = fieldSizeOf(field);
 const rounds = balance.tournament.rounds;
 
 function userTeam(seed: string): string[] {
@@ -35,7 +36,7 @@ function userTeam(seed: string): string[] {
 
 /** Plays a whole tournament; the user's match by quick simulation too. */
 function playAll(seed: string): TournamentState {
-  let t = startTournament(ds, seed, userTeam(seed), fieldSize, rounds);
+  let t = startTournament(ds, seed, userTeam(seed), field, rounds);
   while (!isFinished(t)) {
     t = pairNextRound(t);
     const p = userPairing(t);
@@ -48,7 +49,7 @@ function playAll(seed: string): TournamentState {
 
 describe("field", () => {
   it("has the configured size, distinct teams, max per country", () => {
-    const f = buildField(ds, "f", fieldSize);
+    const f = buildField(ds, "f", field);
     expect(f).toHaveLength(fieldSize);
     expect(new Set(f.map((e) => e.id)).size).toBe(fieldSize);
     const per = new Map<string, number>();
@@ -59,9 +60,38 @@ describe("field", () => {
     expect(Math.max(...per.values())).toBeLessThanOrEqual(balance.tournament.fieldMaxPerCountry);
   });
 
+  it("fills each tier and the minimum of elite champions", () => {
+    const tiers = tiersOf(ds.teams, field.tierQuantiles);
+    for (let i = 0; i < 50; i++) {
+      const ids = new Set(buildField(ds, `tier-${i}`, field).map((e) => e.id));
+      for (const tier of ["elite", "middle", "weak"] as const)
+        expect(tiers[tier].filter((t) => ids.has(t.id))).toHaveLength(field.tiers[tier]);
+      const champions = tiers.elite.filter((t) => ids.has(t.id) && t.finalRank === 1);
+      expect(champions.length).toBeGreaterThanOrEqual(field.minChampions);
+    }
+  });
+
+  it("is reproducible by seed", () => {
+    const ids = (seed: string) => buildField(ds, seed, field).map((e) => e.id);
+    expect(ids("same")).toEqual(ids("same"));
+    const draws = new Set(Array.from({ length: 20 }, (_, i) => ids(`s${i}`).sort().join()));
+    expect(draws.size).toBeGreaterThan(1);
+  });
+
+  it("borrows from a neighbour tier when one runs short", () => {
+    // The sample's elite has 3 teams; ask for 5.
+    const short: FieldConfig = { ...field, tiers: { elite: 5, middle: 1, weak: 1 } };
+    const f = buildField(ds, "short", short);
+    expect(f).toHaveLength(7);
+    expect(new Set(f.map((e) => e.id)).size).toBe(7);
+  });
+
   it("keeps a person picked by the user in their real team (GDD §5.1)", () => {
     const user = userTeam("dup");
-    const t = startTournament(ds, "dup", user, ds.teams.length, rounds);
+    // Every sample team in the field: tiers of 3/3/4 at the thirds.
+    const all: FieldConfig = { ...field, tiers: { elite: 3, middle: 3, weak: 4 }, minChampions: 0 };
+    const t = startTournament(ds, "dup", user, all, rounds);
+    expect(t.entrants).toHaveLength(ds.teams.length + 1);
     for (const e of t.entrants.slice(1)) expect(e.cardIds).toEqual(ds.team(e.id).cardIds);
     const fieldCards = new Set(t.entrants.slice(1).flatMap((e) => e.cardIds));
     expect(user.some((id) => fieldCards.has(id))).toBe(true);
@@ -153,7 +183,7 @@ describe("full tournament", () => {
 
   it("plays the user's games through a GameSimulator", async () => {
     const sim = new LocalGameSimulator(new UniformAI());
-    let t = startTournament(ds, "engine", userTeam("engine"), fieldSize, rounds);
+    let t = startTournament(ds, "engine", userTeam("engine"), field, rounds);
     t = pairNextRound(t);
     const p = userPairing(t);
     const l = lineups(t, p);
