@@ -116,18 +116,9 @@ function newSeed(): string {
   return crypto.getRandomValues(new Uint32Array(1))[0]!.toString(36);
 }
 
-/**
- * Keep only `?rapido=` in the address bar. An incoming `?seed=` and
- * `?modo=` are read once by `init` and then dropped, so a reload starts a
- * fresh session. Only the share link carries them (`sessionUrl`).
- */
-function cleanUrl(fast: boolean) {
-  const p = new URLSearchParams(location.search);
-  p.delete("seed");
-  p.delete("modo");
-  if (fast) p.set("rapido", "1");
-  const q = p.toString();
-  history.replaceState(null, "", q ? `${location.pathname}?${q}` : location.pathname);
+/** The address bar stays clean: `init` reads the query once and drops it. */
+function cleanUrl() {
+  history.replaceState(null, "", location.pathname);
 }
 
 /** Bumped on every new round/session so late worker callbacks are ignored. */
@@ -157,7 +148,7 @@ export const useSession = create<SessionState>()((set, get) => ({
     const seed = p.get("seed") || newSeed();
     const fastMode = p.get("rapido") === "1";
     const mode = parseMode(p.get("modo"));
-    cleanUrl(fastMode);
+    cleanUrl();
     set({ seed, fastMode, mode });
     try {
       const dataset = await loadDataset("v1");
