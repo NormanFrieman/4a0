@@ -248,8 +248,11 @@ export function buildEdition(year: number): EditionResult {
       const performance = approxPerformance(ratings, p.points, p.games);
       const fide = p.elo?.rating ?? null;
       if (p.games <= 0) problems.push(`${p.name}: sem partidas`);
-      if (performance === null && fide === null)
-        problems.push(`${p.name}: sem Elo nem performance`);
+      // A card without a FIDE rating leaves its team out (user decision,
+      // 2026-11-16), instead of the GDD §6.1 performance capped at
+      // unratedCap: these are rated players the sources failed to match.
+      // Listed in the report for a later fix in overrides.ts.
+      if (fide === null) problems.push(`${p.name}: sem Elo`);
       const strength = cardStrength(fide, performance ?? fide ?? 0);
 
       const card: PlayerCard = {

@@ -158,6 +158,7 @@ O torneio é um suíço por pontos de match, como a Olimpíada real, encurtado p
 Onde R é o rating FIDE do jogador naquela edição, P é a performance dele na edição e k = `performanceWeight` (0,25 inicial). Assim, uma campanha histórica rende um pouco mais de força, sem apagar o rating.
 
 - Sem rating FIDE (comum em seleções pequenas): usar a performance com k = 1, limitada por `unratedCap`.
+  - **Nos dados olímpicos (decisão do usuário, 2026-11-16):** uma carta do top 20 sem rating deixa a seleção de fora, em vez de usar a performance limitada. Quase sempre é um jogador com rating que as fontes não identificaram. Os casos ficam listados em "Correções pendentes" no relatório (`tools/data/olympiads/report.md`), para corrigir depois em `overrides.ts`.
 - Edições anteriores a 1970 (sem Elo FIDE) ficam fora do MVP. Depois, usar estimativas históricas, a definir.
 - A força é calculada no pipeline de dados (seção 9), não no navegador.
 - **Fontes livres (2026-11-16, [plano-dados.md](plano-dados.md)):** P é **aproximada**: média do rating dos adversários da mesma mesa, rodada a rodada, + dp(pontuação). Nas edições sem tabela de progresso (1970–1978, 1994–2006), não há P e a força é o próprio R. R é a lista FIDE do Wikidata mais recente até o início, até 24 meses antes; sem ela, a primeira até 24 meses depois (as listas do Wikidata começam em julho de 1971).

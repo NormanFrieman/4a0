@@ -110,7 +110,7 @@ function editionSection(r: EditionResult): string {
 
 ### Verificações
 
-${list("Seleções no top 20 excluídas (GDD §4.1)", excluded)}${list("Soma dos pontos ≠ Brettp.", sums)}${list(
+${list("Seleções no top 20 excluídas (carta sem Elo ou sem partidas)", excluded)}${list("Soma dos pontos ≠ Brettp.", sums)}${list(
     `Partidas > ${rounds} rodadas ou V+E+D ≠ partidas`,
     tooMany,
   )}${list("QID achado pela busca de nome (conferir)", bySearch)}${list("Cartas sem QID", noQid)}${list(
@@ -157,6 +157,37 @@ function sampleComparison(results: EditionResult[], persons: Person[]): string {
   return out.length ? out.join("\n") : "Nenhuma seleção da amostra nestas edições.\n";
 }
 
+/**
+ * Every card without a FIDE rating: each one leaves its team out of the
+ * dataset until fixed in overrides.ts (user decision, 2026-11-16).
+ */
+function pendingFixes(results: EditionResult[]): string {
+  const wd = (q: string) => `[${q}](https://www.wikidata.org/wiki/${q})`;
+  const rows = results.flatMap((r) =>
+    r.top.flatMap((t) =>
+      t.cards
+        .filter((c) => !c.player.elo)
+        .map(({ card, player: p }) => {
+          const why = !p.qid
+            ? p.candidates.length
+              ? `sem QID; busca: ${p.candidates.map(wd).join(", ")} (nenhum com lista na janela, ou mais de um)`
+              : "sem QID; busca sem enxadrista"
+            : p.entity!.elo.length
+              ? `${wd(p.qid)}: nenhuma lista FIDE na janela de 24 meses`
+              : `${wd(p.qid)}: o Wikidata não tem o histórico de Elo`;
+          return `| ${r.edition.year} | ${teamLabel(t)} | ${card.board} | ${p.name} | ${why} |`;
+        }),
+    ),
+  );
+  if (rows.length === 0) return "Nenhuma.\n";
+  return `${rows.length} cartas sem Elo; cada uma deixa a sua seleção de fora. Corrigir em \`overrides.ts\` (QID, ou o Elo de uma fonte livre).
+
+| Edição | Seleção | Mesa | Jogador | Situação |
+| --- | --- | --- | --- | --- |
+${rows.join("\n")}
+`;
+}
+
 export function renderReport(results: EditionResult[], persons: Person[]): string {
   const unknown = [...new Set(results.flatMap((r) => r.unknownTitles))];
   const cards = results.flatMap((r) => r.top.flatMap((t) => t.cards));
@@ -172,10 +203,15 @@ Gerado por \`pnpm data:olympiads\` a partir do cache de \`pnpm data:fetch\`. Nã
     cards.filter((c) => c.card.title).length,
   )}. **Pessoas:** ${persons.length}.
 
-**Identidade:** o QID vem do link da de.wikipedia; sem link (ou link vermelho), de uma busca do nome no Wikidata, aceita só se exatamente um enxadrista (P106) dos resultados tiver lista FIDE dos 6 anos anteriores à edição.
+**Identidade:** o QID vem do link da de.wikipedia; sem link (ou link vermelho), de uma busca do nome no Wikidata, aceita só se exatamente um enxadrista (P106) dos resultados tiver lista FIDE na janela da edição.
+
+**Elo:** a lista FIDE do Wikidata mais recente até o início, até 24 meses antes; sem ela, a primeira até 24 meses depois. **Carta sem Elo deixa a seleção de fora** (ver "Correções pendentes"). Sem tabela de progresso, não há performance e a força é o Elo.
 
 **Performance aproximada:** média, rodada a rodada, do rating do adversário na mesma mesa (ou da média das mesas com Elo da seleção adversária, se esse não tiver Elo) + dp(pontuação). Inclui as rodadas em que o jogador descansou, que a fonte não identifica.
 
+## Correções pendentes
+
+${pendingFixes(results)}
 ${results.map(editionSection).join("\n")}
 ## Títulos do Wikidata não reconhecidos (P2962)
 

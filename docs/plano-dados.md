@@ -104,7 +104,7 @@ Código em `tools/data/olympiads/`: `pnpm data:fetch --years 1980,2024` baixa as
 - **Rating dos adversários:** só quem tem QID entra na média, e a busca de nome não cobre os adversários (só as cartas). Em 1980, 88% das rodadas têm adversário com rating; em 2024, 79%. O efeito na força é pequeno (`performanceWeight` = 0,25).
 - **Brettp. ≠ soma das mesas:** Romênia 1980 (31,5 contra 29,5), por um 2:2 por W.O. que a própria página explica. É um aviso, não um erro.
 - **Medalhas individuais:** ainda não lidas (`medals: []`); falta o parser da en.wikipedia ou a digitação manual.
-- **Sem rating:** `PlayerCard.fideRating` é `number`; a saída usa 0. Decidir na publicação (passo 4) se o tipo passa a aceitar `null`.
+- ✅ **Sem rating:** resolvido no passo 3. Carta sem Elo deixa a seleção de fora, então nenhuma carta publicada tem `fideRating` vazio.
 - **Wikidata sem versão fixa:** o `lastrevid` de cada entidade fica só no cache; a reprodutibilidade completa exige gravá-lo em `sources.json`.
 
 ## Execução das 28 edições (passo 3, 2026-11-16)
@@ -122,15 +122,16 @@ Código em `tools/data/olympiads/`: `pnpm data:fetch --years 1980,2024` baixa as
 
 **Resultado**
 
-- 2 240 cartas: 99% com QID, 98% com Elo e 95% com título. 798 pessoas.
-- **30 das 560 seleções excluídas** (GDD §4.1: alguma carta sem Elo nem performance): 1970: 6, 1972: 5, 1974: 8, 1976: 7, 1978: 1, 1994: 1, 1996: 1, 2000: 1.
+- 2 240 cartas: 99% com QID, 98% com Elo e 95% com título.
+- **Carta sem Elo deixa a seleção de fora** (decisão do usuário), inclusive nas edições com tabela, em vez da performance limitada por `unratedCap` (GDD §6.1). Resultado: **42 das 560 seleções excluídas**, 769 pessoas. Por edição: 1970: 6, 1972: 5, 1974: 8, 1976: 7, 1978: 1, 1980: 2, 1986: 2, 1990: 1, 1992: 1, 1994: 1, 1996: 1, 2000: 1, 2010: 1, 2012: 1, 2022: 2, 2024: 1, 2026: 1.
 - A força média por década sobe de 2473 (anos 1970) para ~2650 (anos 2010–2020). As maiores: Caruana 2018 (2842), Carlsen 2016 (2841), Kasparov 2002 (2836), Gukesh 2024 (2834).
 
-**Pendências**
+**Pendências (correção futura)**
 
-- **34 cartas sem Elo** que excluem a seleção: 13 têm QID, mas o Wikidata não traz o histórico de Elo (Najdorf, Reshevsky, Bolbochán…); 21 não têm QID.
-- **12 cartas sem rating nas edições com tabela** ficam com 2200 (`unratedCap`), embora tenham performance de 2640 a 2875 (ex.: Paichadse 2024, Jan Malek 2026). São enxadristas com rating cujo QID não foi achado.
-- A correção das duas listas acima vai em `overrides.ts` (QID, e Elo quando o Wikidata não tiver). Para o Elo, falta escolher uma fonte livre.
+- **46 cartas sem Elo**, listadas em "Correções pendentes" no [relatório](../tools/data/olympiads/report.md), com o motivo de cada uma:
+  - têm QID, mas o Wikidata não traz o histórico de Elo (Najdorf, Reshevsky, Bolbochán…);
+  - não têm QID: a busca não achou nenhum enxadrista, ou achou candidatos sem lista na janela (Paichadse 2024, Jan Malek 2026…).
+- A correção vai em `overrides.ts`: o QID e, quando o Wikidata não tiver, o Elo. Para o Elo, falta escolher uma fonte livre. Cada carta corrigida devolve a sua seleção aos dados.
 
 ## Fora deste plano
 

@@ -2,11 +2,66 @@
 
 Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não editar à mão.
 
-**Edições:** 1970, 1972, 1974, 1976, 1978, 1980, 1982, 1984, 1986, 1988, 1990, 1992, 1994, 1996, 1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2022, 2024, 2026. **Cartas:** 2240. Com QID: 2208/2240 (99%). Com Elo: 2194/2240 (98%). Com título: 2118/2240 (95%). **Pessoas:** 798.
+**Edições:** 1970, 1972, 1974, 1976, 1978, 1980, 1982, 1984, 1986, 1988, 1990, 1992, 1994, 1996, 1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2022, 2024, 2026. **Cartas:** 2240. Com QID: 2208/2240 (99%). Com Elo: 2194/2240 (98%). Com título: 2118/2240 (95%). **Pessoas:** 769.
 
-**Identidade:** o QID vem do link da de.wikipedia; sem link (ou link vermelho), de uma busca do nome no Wikidata, aceita só se exatamente um enxadrista (P106) dos resultados tiver lista FIDE dos 6 anos anteriores à edição.
+**Identidade:** o QID vem do link da de.wikipedia; sem link (ou link vermelho), de uma busca do nome no Wikidata, aceita só se exatamente um enxadrista (P106) dos resultados tiver lista FIDE na janela da edição.
+
+**Elo:** a lista FIDE do Wikidata mais recente até o início, até 24 meses antes; sem ela, a primeira até 24 meses depois. **Carta sem Elo deixa a seleção de fora** (ver "Correções pendentes"). Sem tabela de progresso, não há performance e a força é o Elo.
 
 **Performance aproximada:** média, rodada a rodada, do rating do adversário na mesma mesa (ou da média das mesas com Elo da seleção adversária, se esse não tiver Elo) + dp(pontuação). Inclui as rodadas em que o jogador descansou, que a fonte não identifica.
+
+## Correções pendentes
+
+46 cartas sem Elo; cada uma deixa a sua seleção de fora. Corrigir em `overrides.ts` (QID, ou o Elo de uma fonte livre).
+
+| Edição | Seleção | Mesa | Jogador | Situação |
+| --- | --- | --- | --- | --- |
+| 1970 | 4. Estados Unidos | 2 | Samuel Reshevsky | [Q311737](https://www.wikidata.org/wiki/Q311737): o Wikidata não tem o histórico de Elo |
+| 1970 | 8. Argentina | 1 | Miguel Najdorf | [Q310532](https://www.wikidata.org/wiki/Q310532): o Wikidata não tem o histórico de Elo |
+| 1970 | 8. Argentina | 3 | Julio Bolbochán | [Q675514](https://www.wikidata.org/wiki/Q675514): o Wikidata não tem o histórico de Elo |
+| 1970 | 12. Espanha | 4 | Antonio Medina García | [Q2667070](https://www.wikidata.org/wiki/Q2667070): o Wikidata não tem o histórico de Elo |
+| 1970 | 16. Mongólia | 2 | Tudev Ujtumen | sem QID; busca: [Q2086873](https://www.wikidata.org/wiki/Q2086873) (nenhum com lista na janela, ou mais de um) |
+| 1970 | 16. Mongólia | 4 | Damdzinhav Zorigt | sem QID; busca sem enxadrista |
+| 1970 | 17. Suécia | 4 | Lennart Liljedahl | sem QID; busca: [Q48964352](https://www.wikidata.org/wiki/Q48964352) (nenhum com lista na janela, ou mais de um) |
+| 1970 | 20. Finlândia | 4 | Heikki Koskinen | sem QID; busca: [Q60834532](https://www.wikidata.org/wiki/Q60834532) (nenhum com lista na janela, ou mais de um) |
+| 1972 | 11. Espanha | 3 | Antonio Medina García | [Q2667070](https://www.wikidata.org/wiki/Q2667070): o Wikidata não tem o histórico de Elo |
+| 1972 | 13. Dinamarca | 2 | Ole Jacobsen | sem QID; busca sem enxadrista |
+| 1972 | 15. Suécia | 4 | Lennart Liljedahl | sem QID; busca: [Q48964352](https://www.wikidata.org/wiki/Q48964352) (nenhum com lista na janela, ou mais de um) |
+| 1972 | 17. Inglaterra | 3 | Robert Graham Wade | [Q722263](https://www.wikidata.org/wiki/Q722263): o Wikidata não tem o histórico de Elo |
+| 1972 | 20. Filipinas | 4 | Edgar de Castro | sem QID; busca: [Q97316232](https://www.wikidata.org/wiki/Q97316232) (nenhum com lista na janela, ou mais de um) |
+| 1974 | 3. Estados Unidos | 4 | Samuel Reshevsky | [Q311737](https://www.wikidata.org/wiki/Q311737): o Wikidata não tem o histórico de Elo |
+| 1974 | 13. Suécia | 4 | Lennart Liljedahl | sem QID; busca: [Q48964352](https://www.wikidata.org/wiki/Q48964352) (nenhum com lista na janela, ou mais de um) |
+| 1974 | 14. Argentina | 3 | Miguel Najdorf | [Q310532](https://www.wikidata.org/wiki/Q310532): o Wikidata não tem o histórico de Elo |
+| 1974 | 16. País de Gales | 4 | John Cooper | sem QID; busca sem enxadrista |
+| 1974 | 17. Israel | 3 | Moshe Czerniak | [Q1591784](https://www.wikidata.org/wiki/Q1591784): o Wikidata não tem o histórico de Elo |
+| 1974 | 18. Áustria | 3 | Alexander Prameshuber | [Q60829058](https://www.wikidata.org/wiki/Q60829058): o Wikidata não tem o histórico de Elo |
+| 1974 | 19. Itália | 4 | Roberto Cosulich | sem QID; busca: [Q3938725](https://www.wikidata.org/wiki/Q3938725) (nenhum com lista na janela, ou mais de um) |
+| 1974 | 20. Colômbia | 3 | Javier Alzate | sem QID; busca sem enxadrista |
+| 1976 | 4. Argentina | 1 | Miguel Najdorf | [Q310532](https://www.wikidata.org/wiki/Q310532): o Wikidata não tem o histórico de Elo |
+| 1976 | 9. Espanha | 4 | Antonio Medina García | [Q2667070](https://www.wikidata.org/wiki/Q2667070): o Wikidata não tem o histórico de Elo |
+| 1976 | 11. Noruega | 4 | Øystein Hjertenes | sem QID; busca sem enxadrista |
+| 1976 | 14. País de Gales | 4 | John Cooper | sem QID; busca sem enxadrista |
+| 1976 | 15. Paraguai | 2 | Carlos Gamarra Cáceres | sem QID; busca sem enxadrista |
+| 1976 | 15. Paraguai | 3 | Alejandro Bogda | sem QID; busca: [Q85858443](https://www.wikidata.org/wiki/Q85858443) (nenhum com lista na janela, ou mais de um) |
+| 1976 | 16. Chile | 2 | Pedro Donoso Velasco | sem QID; busca: [Q6068613](https://www.wikidata.org/wiki/Q6068613) (nenhum com lista na janela, ou mais de um) |
+| 1976 | 17. Austrália | 1 | Robert Jamieson | sem QID; busca sem enxadrista |
+| 1976 | 17. Austrália | 4 | Serge Rubinraut | sem QID; busca sem enxadrista |
+| 1978 | 19. Áustria | 3 | Franz Stoppel | sem QID; busca: [Q60829847](https://www.wikidata.org/wiki/Q60829847) (nenhum com lista na janela, ou mais de um) |
+| 1980 | 9. Canadá | 4 | Milan Vukadinov | sem QID; busca: [Q77656157](https://www.wikidata.org/wiki/Q77656157) (nenhum com lista na janela, ou mais de um) |
+| 1980 | 18. País de Gales | 2 | John Cooper | sem QID; busca sem enxadrista |
+| 1986 | 7. China | 4 | Yang Xian | sem QID; busca sem enxadrista |
+| 1986 | 12. Peru | 4 | Javier García | sem QID; busca sem enxadrista |
+| 1990 | 19. México | 3 | Rafael Espinosa Flores | sem QID; busca sem enxadrista |
+| 1992 | 5. Letônia | 4 | Vladimirs Bagirovs | [Q944442](https://www.wikidata.org/wiki/Q944442): o Wikidata não tem o histórico de Elo |
+| 1994 | 19. Letônia | 4 | Andrejs Sokolovs | sem QID; busca: [Q2438711](https://www.wikidata.org/wiki/Q2438711), [Q502570](https://www.wikidata.org/wiki/Q502570) (nenhum com lista na janela, ou mais de um) |
+| 1996 | 20. Letônia | 3 | Wladimir Bagirow | [Q944442](https://www.wikidata.org/wiki/Q944442): o Wikidata não tem o histórico de Elo |
+| 2000 | 19. Filipinas | 4 | Barlo Nadera | sem QID; busca sem enxadrista |
+| 2010 | 13. Rússia 3 | 4 | Alexei Pridoroschny | sem QID; busca sem enxadrista |
+| 2012 | 19. Moldávia | 4 | Serghej Vedmediuc | sem QID; busca sem enxadrista |
+| 2022 | 17. Cazaquistão | 4 | Aristanbek Urasajew | sem QID; busca sem enxadrista |
+| 2022 | 19. Cuba | 1 | Yaser Quesada Pérez | sem QID; busca sem enxadrista |
+| 2024 | 19. Geórgia | 3 | Luka Paichadse | sem QID; busca sem enxadrista |
+| 2026 | 14. Polônia | 3 | Jan Malek | sem QID; busca sem enxadrista |
 
 ## 1970 — Siegen
 
@@ -16,13 +71,13 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): **6**
-  - 4. Estados Unidos: Samuel Reshevsky: sem Elo nem performance
-  - 8. Argentina: Miguel Najdorf: sem Elo nem performance; Julio Bolbochán: sem Elo nem performance
-  - 12. Espanha: Antonio Medina García: sem Elo nem performance
-  - 16. Mongólia: Tudev Ujtumen: sem Elo nem performance; Damdzinhav Zorigt: sem Elo nem performance
-  - 17. Suécia: Lennart Liljedahl: sem Elo nem performance
-  - 20. Finlândia: Heikki Koskinen: sem Elo nem performance
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **6**
+  - 4. Estados Unidos: Samuel Reshevsky: sem Elo
+  - 8. Argentina: Miguel Najdorf: sem Elo; Julio Bolbochán: sem Elo
+  - 12. Espanha: Antonio Medina García: sem Elo
+  - 16. Mongólia: Tudev Ujtumen: sem Elo; Damdzinhav Zorigt: sem Elo
+  - 17. Suécia: Lennart Liljedahl: sem Elo
+  - 20. Finlândia: Heikki Koskinen: sem Elo
 - Soma dos pontos ≠ Brettp.: **20**
   - 1. URSS: soma 55,5, Brettp. 58,5
   - 2. Hungria: soma 50, Brettp. 52,5
@@ -185,12 +240,12 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): **5**
-  - 11. Espanha: Antonio Medina García: sem Elo nem performance
-  - 13. Dinamarca: Ole Jacobsen: sem Elo nem performance
-  - 15. Suécia: Lennart Liljedahl: sem Elo nem performance
-  - 17. Inglaterra: Robert Graham Wade: sem Elo nem performance
-  - 20. Filipinas: Edgar de Castro: sem Elo nem performance
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **5**
+  - 11. Espanha: Antonio Medina García: sem Elo
+  - 13. Dinamarca: Ole Jacobsen: sem Elo
+  - 15. Suécia: Lennart Liljedahl: sem Elo
+  - 17. Inglaterra: Robert Graham Wade: sem Elo
+  - 20. Filipinas: Edgar de Castro: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 22 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **18**
@@ -332,15 +387,15 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): **8**
-  - 3. Estados Unidos: Samuel Reshevsky: sem Elo nem performance
-  - 13. Suécia: Lennart Liljedahl: sem Elo nem performance
-  - 14. Argentina: Miguel Najdorf: sem Elo nem performance
-  - 16. País de Gales: John Cooper: sem Elo nem performance
-  - 17. Israel: Moshe Czerniak: sem Elo nem performance
-  - 18. Áustria: Alexander Prameshuber: sem Elo nem performance
-  - 19. Itália: Roberto Cosulich: sem Elo nem performance
-  - 20. Colômbia: Javier Alzate: sem Elo nem performance
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **8**
+  - 3. Estados Unidos: Samuel Reshevsky: sem Elo
+  - 13. Suécia: Lennart Liljedahl: sem Elo
+  - 14. Argentina: Miguel Najdorf: sem Elo
+  - 16. País de Gales: John Cooper: sem Elo
+  - 17. Israel: Moshe Czerniak: sem Elo
+  - 18. Áustria: Alexander Prameshuber: sem Elo
+  - 19. Itália: Roberto Cosulich: sem Elo
+  - 20. Colômbia: Javier Alzate: sem Elo
 - Soma dos pontos ≠ Brettp.: **19**
   - 1. URSS: soma 71, Brettp. 75
   - 2. Iugoslávia: soma 61, Brettp. 63
@@ -501,14 +556,14 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): **7**
-  - 4. Argentina: Miguel Najdorf: sem Elo nem performance
-  - 9. Espanha: Antonio Medina García: sem Elo nem performance
-  - 11. Noruega: Øystein Hjertenes: sem Elo nem performance
-  - 14. País de Gales: John Cooper: sem Elo nem performance
-  - 15. Paraguai: Carlos Gamarra Cáceres: sem Elo nem performance; Alejandro Bogda: sem Elo nem performance
-  - 16. Chile: Pedro Donoso Velasco: sem Elo nem performance
-  - 17. Austrália: Robert Jamieson: sem Elo nem performance; Serge Rubinraut: sem Elo nem performance
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **7**
+  - 4. Argentina: Miguel Najdorf: sem Elo
+  - 9. Espanha: Antonio Medina García: sem Elo
+  - 11. Noruega: Øystein Hjertenes: sem Elo
+  - 14. País de Gales: John Cooper: sem Elo
+  - 15. Paraguai: Carlos Gamarra Cáceres: sem Elo; Alejandro Bogda: sem Elo
+  - 16. Chile: Pedro Donoso Velasco: sem Elo
+  - 17. Austrália: Robert Jamieson: sem Elo; Serge Rubinraut: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 13 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **27**
@@ -668,8 +723,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): **1**
-  - 19. Áustria: Franz Stoppel: sem Elo nem performance
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 19. Áustria: Franz Stoppel: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **22**
@@ -807,7 +862,9 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **2**
+  - 9. Canadá: Milan Vukadinov: sem Elo
+  - 18. País de Gales: John Cooper: sem Elo
 - Soma dos pontos ≠ Brettp.: **1**
   - 11. Romênia: soma 29,5, Brettp. 31,5
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
@@ -944,7 +1001,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **22**
@@ -1073,7 +1130,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **18**
@@ -1196,7 +1253,9 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **2**
+  - 7. China: Yang Xian: sem Elo
+  - 12. Peru: Javier García: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **15**
@@ -1317,7 +1376,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **15**
@@ -1438,7 +1497,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 19. México: Rafael Espinosa Flores: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **13**
@@ -1556,7 +1616,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 5. Letônia: Vladimirs Bagirovs: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **8**
@@ -1671,8 +1732,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): **1**
-  - 19. Letônia: Andrejs Sokolovs: sem Elo nem performance
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 19. Letônia: Andrejs Sokolovs: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **9**
@@ -1785,8 +1846,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): **1**
-  - 20. Letônia: Wladimir Bagirow: sem Elo nem performance
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 20. Letônia: Wladimir Bagirow: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **7**
@@ -1897,7 +1958,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 13 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **6**
@@ -2006,8 +2067,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): **1**
-  - 19. Filipinas: Barlo Nadera: sem Elo nem performance
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 19. Filipinas: Barlo Nadera: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **8**
@@ -2119,7 +2180,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **4**
@@ -2226,7 +2287,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 14 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **5**
@@ -2334,7 +2395,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 13 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **2**
@@ -2439,7 +2500,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 11 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **3**
@@ -2545,7 +2606,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 13. Rússia 3: Alexei Pridoroschny: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 11 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **5**
@@ -2655,7 +2717,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 19. Moldávia: Serghej Vedmediuc: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 11 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **2**
@@ -2761,7 +2824,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 11 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **3**
@@ -2867,7 +2930,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 11 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **1**
@@ -2972,7 +3035,7 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): nenhum
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 11 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **5**
@@ -3080,7 +3143,9 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **2**
+  - 17. Cazaquistão: Aristanbek Urasajew: sem Elo
+  - 19. Cuba: Yaser Quesada Pérez: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 11 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **12**
@@ -3197,7 +3262,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 19. Geórgia: Luka Paichadse: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 11 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **4**
@@ -3306,7 +3372,8 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 
 ### Verificações
 
-- Seleções no top 20 excluídas (GDD §4.1): nenhum
+- Seleções no top 20 excluídas (carta sem Elo ou sem partidas): **1**
+  - 14. Polônia: Jan Malek: sem Elo
 - Soma dos pontos ≠ Brettp.: nenhum
 - Partidas > 11 rodadas ou V+E+D ≠ partidas: nenhum
 - QID achado pela busca de nome (conferir): **19**
