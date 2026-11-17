@@ -1,6 +1,6 @@
 # Plano: desempenho no celular
 
-**Status:** tarefa futura, não iniciada (anotada em 2026-11-17).
+**Status:** tarefa futura, não iniciada (anotada em 2026-11-17). **Despriorizada pelo usuário em 2026-11-17:** fica atrás das outras pendências de [plano-lancamento.md](plano-lancamento.md).
 
 ## Problema
 
