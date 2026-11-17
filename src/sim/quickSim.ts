@@ -27,7 +27,7 @@ export function outcomeProbabilities(
 ): Outcome {
   const e = expectedScore(white + cfg.whiteAdvantage, black);
   const avg = (white + black) / 2;
-  const base = cfg.drawBase + (cfg.drawSlope * (avg - 2000)) / 100;
+  const base = cfg.drawBase + (cfg.drawSlope * (avg - cfg.drawPivot)) / 100;
   const draw = Math.min(Math.max(base, cfg.drawMin), cfg.drawMax, 2 * Math.min(e, 1 - e));
   const whiteWin = e - draw / 2;
   return { whiteWin, draw, blackWin: 1 - whiteWin - draw };

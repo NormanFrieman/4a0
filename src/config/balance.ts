@@ -96,8 +96,10 @@ export const balance = {
   // GDD §6.3 — quick simulation (field matches)
   quickSim: {
     whiteAdvantage: 35,
+    /** Draw rate at `drawPivot` mean strength, and its change per 100 points. */
     drawBase: 0.3,
     drawSlope: 0.03,
+    drawPivot: 2000,
     drawMin: 0.1,
     drawMax: 0.6,
   },
