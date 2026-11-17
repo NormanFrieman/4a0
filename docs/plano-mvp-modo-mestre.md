@@ -6,7 +6,7 @@ Chamado de "Almanaque" até 2026-11-17, quando o usuário o renomeou para **Mest
 
 ## Como ficou
 
-- `src/app/state/mode.ts`: `Mode = "classic" | "master"`, `?modo=mestre` e a regra única `showStrength(mode, phase, replayFrom)`. O `daily` entra com o plano do Desafio diário.
+- `src/app/state/mode.ts`: `Mode = "classic" | "master"`, `?modo=mestre` e a regra única `showStrength(mode, phase, replayFrom)`.
 - `useShowStrength()` (`session.ts`) é usado por todas as telas; a força volta no Resultado final e no Replay aberto a partir dele. No Clássico, o Final também mostra a força das cartas e a média de cada adversário.
 - Campo: no modo Mestre, a lista sai por ano e país, não pela ordem das faixas.
 - Teste sem dependência nova: `src/app/screens/masterMode.test.tsx` renderiza Draft, Confirmação, Campo, Pré-rodada e Rodada com `react-dom/server` e procura cada número de força no HTML (com controle no Clássico).
@@ -17,7 +17,7 @@ A **direção visual** "Almanaque histórico" (§10.1) é outra coisa e vale par
 
 ## Regras
 
-- O usuário escolhe no Início: **Clássico** (força visível) ou **Mestre** (força oculta). O Desafio diário sempre usa o modo Mestre (§11).
+- O usuário escolhe no Início: **Clássico** (força visível) ou **Mestre** (força oculta).
 - Fica oculto: a força de cada carta e a força média das seleções (draft, confirmação, campo, pré-rodada, rodada).
 - Fica visível: nome, país, ano, título, mesa, pontuação real na edição, medalhas, colocação final da seleção e traço de estilo. São dados históricos, não a força do jogo.
 - No Resultado final, a força aparece: a revelação é parte da graça.
@@ -28,8 +28,8 @@ A força aparece em `Draft`, `Confirm`, `Field`, `PreRound`, `Round`, `LineupRow
 
 ## Passos
 
-1. **Modo na sessão:** `mode: "classic" | "master" | "daily"` em `session.ts`, gravado na URL (`?modo=mestre`) para que `?seed=` continue reproduzindo a sessão.
-2. **Uma regra só:** um hook `useShowStrength()` que devolve `false` quando o modo é `master` ou `daily` e o torneio não terminou. Os componentes de `src/app/ui/` (`LineupRow`, `BoardCard`) recebem `showStrength`; as telas não decidem por conta própria.
+1. **Modo na sessão:** `mode: "classic" | "master"` em `session.ts`, gravado na URL (`?modo=mestre`) para que `?seed=` continue reproduzindo a sessão.
+2. **Uma regra só:** um hook `useShowStrength()` que devolve `false` quando o modo é `master` e o torneio não terminou. Os componentes de `src/app/ui/` (`LineupRow`, `BoardCard`) recebem `showStrength`; as telas não decidem por conta própria.
 3. **Ordem das listas:** onde a ordem entrega a força (lista do campo ordenada por `avgStrength`), ordenar por ano e país no modo Mestre. A lógica interna (emparelhamento por força, §5.2) não muda.
 4. **Início:** um seletor com duas opções, Clássico e Mestre, com uma linha explicando o modo escolhido, e um único botão Jogar. Textos via i18n.
 5. **Final:** coluna de força revelada na campanha e nas escalações.

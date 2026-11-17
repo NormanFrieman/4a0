@@ -10,7 +10,7 @@
 4. Um plano para cada parte que falta.
 5. **Código aberto, jogo gratuito.**
 
-**Removido do roadmap (2026-11-17):** retomar sessão e histórico local de campanhas. O usuário considerou a funcionalidade não importante.
+**Removido do roadmap (2026-11-17):** retomar sessão e histórico local de campanhas, e o Desafio diário. O usuário considerou essas funcionalidades desnecessárias.
 
 ## Planos e ordem sugerida
 
@@ -22,9 +22,8 @@
 | 4   | ✅ [Campo por faixas de força](plano-mvp-campo-faixas.md) | 2                                                                  |
 | 5   | ✅ [Replay e PGN](plano-mvp-replay-pgn.md)                | —                                                                  |
 | 6   | ✅ [Modo Mestre](plano-mvp-modo-mestre.md)                | —                                                                  |
-| 7   | [Desafio diário](plano-mvp-desafio-diario.md)             | 6                                                                  |
-| 8   | [Compartilhamento](plano-mvp-compartilhamento.md)         | 7 (texto do diário)                                                |
-| 9   | [Calibração, fases B e C](plano-calibracao.md)            | 2, 3 (a escala precisa da faixa real de forças)                    |
+| 7   | [Compartilhamento](plano-mvp-compartilhamento.md)         | —                                                                  |
+| 8   | [Calibração, fases B e C](plano-calibracao.md)            | 2, 3 (a escala precisa da faixa real de forças)                    |
 
 Os itens 5 e 6 não dependem dos dados e podem andar em paralelo com 2 e 3.
 

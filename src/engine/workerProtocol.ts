@@ -7,7 +7,8 @@ export interface InitOptions {
   variant: MaiaVariant;
   /**
    * WASM only, no WebGPU: small numeric differences between backends can
-   * change a move, so the Daily Challenge forces WASM (GDD §8.4).
+   * change a move, so the app forces WASM to keep `?seed=` reproducible
+   * (GDD §8.4).
    */
   forceWasm: boolean;
   /**

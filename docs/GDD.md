@@ -27,7 +27,7 @@ Este documento é a fonte de verdade do projeto para o Claude Code. Exporte como
 2. **História real.** Jogadores, escalações e seleções vêm de Olimpíadas reais.
 3. **Partidas de verdade, não dados.** Os resultados saem de partidas jogadas pelo Maia, que podem ser assistidas e revistas.
 4. **Decisões que importam:** quem escolher em cada sorteio, sabendo que cada jogador só ocupa a mesa em que jogou.
-5. **Feito para compartilhar.** Desafio diário igual para todos e imagem de resultado.
+5. **Feito para compartilhar.** Texto e imagem de resultado, e `?seed=` para um amigo tentar a mesma sessão.
 
 **Fora do escopo (DECIDIDO):** cidade, economia, recursos, contas de usuário obrigatórias e multiplayer em tempo real.
 
@@ -56,7 +56,7 @@ Este documento é a fonte de verdade do projeto para o Claude Code. Exporte como
 
 Uma sessão vai do primeiro sorteio à medalha, sem interrupção, em cerca de 15 minutos.
 
-1. **Início:** o usuário escolhe o modo (Clássico ou Desafio diário). O jogo gera a semente da sessão.
+1. **Início:** o usuário escolhe o modo (Clássico ou Mestre). O jogo gera a semente da sessão.
 2. **Draft (4 sorteios):** a cada sorteio aparece uma seleção histórica; o usuário escolhe um jogador, que vai para a vaga da mesa em que jogou na edição real.
 3. **Confirmação:** revisão das mesas e confirmação da equipe.
 4. **Sorteio do campo:** o jogo monta as seleções adversárias e mostra a lista de participantes.
@@ -94,7 +94,6 @@ O usuário monta uma equipe de 4 cartas em 4 sorteios, uma por mesa (1 a 4).
 ### 4.4 Re-sorteios
 
 - O usuário pode descartar um sorteio e pedir outro, até `rerollsPerDraft` vezes por draft.
-- No Desafio diário não há re-sorteios.
 
 ### 4.5 Configuração inicial
 
@@ -274,7 +273,7 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 
 - Semente de cada partida = hash(semente da sessão, rodada, mesa).
 - Mesma semente + mesma versão de dados + mesma versão do modelo = mesmas partidas. A versão do modelo e dos dados é salva com cada sessão.
-- Pequenas diferenças numéricas entre navegadores (WebGPU vs WASM) podem mudar um lance. Para o Desafio diário, forçar o backend WASM.
+- Pequenas diferenças numéricas entre navegadores (WebGPU vs WASM) podem mudar um lance. O app sempre força o backend WASM, para que `?seed=` reproduza as partidas em qualquer máquina.
 
 ### 8.5 Configuração inicial
 
@@ -334,7 +333,7 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 
 | Tela | Conteúdo | Ações |
 | --- | --- | --- |
-| Início | Nome do jogo, modos | Jogar (Clássico ou Mestre), Desafio diário, Como jogar |
+| Início | Nome do jogo, modos | Jogar (Clássico ou Mestre), Como jogar |
 | Draft | Cartão do sorteio (bandeira, ano, sede, colocação), escalação com as cartas, as 4 vagas, contador de re-sorteios | Escolher carta, escolher vaga, re-sortear |
 | Confirmação | As 4 cartas na ordem, força média, traços de estilo | Confirmar |
 | Rodada | As duas escalações, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Jogar, mudar velocidade, pular |
@@ -351,16 +350,12 @@ O tabuleiro usa chessground. As cartas mostram nome, país, ano, título, força
 - **Rodada:** os 4 tabuleiros têm o mesmo tamanho, para o usuário acompanhar todos os resultados ao mesmo tempo (4 em linha no desktop, 2 × 2 no celular). Não há mesa ampliada.
 - Escolhida entre 5 direções comparadas num protótipo (Almanaque, Transmissão esportiva, Draft viral, Construtivismo soviético, Pixel art), guardado no branch `prototype/design-system`.
 
-## 11. Desafio diário e compartilhamento
+## 11. Compartilhamento
 
-O Desafio diário dá a todos os usuários os mesmos sorteios e o mesmo campo no mesmo dia, para que os resultados sejam comparáveis.
+**DECIDIDO (2026-11-17): sem Desafio diário.** O usuário removeu o diário do roadmap.
 
-- **Semente do dia** = hash(data em UTC, versão dos dados). Um desafio por dia, numerado a partir do lançamento.
-- **Regras do diário:** modo Mestre (força oculta) e sem re-sorteios.
-- **Uma tentativa por dia** por navegador (guardado em `localStorage`; sem contas no MVP).
-- **Texto para compartilhar**, no estilo Wordle: número do desafio, medalha e uma linha por rodada (vitória, empate ou derrota), mais o link do jogo.
+- **Texto para compartilhar**, no estilo Wordle: modo, medalha e uma linha por rodada (vitória, empate ou derrota), mais o link com `?seed=` para um amigo tentar a mesma sessão.
 - **Imagem para compartilhar:** a equipe escolhida, a colocação e o placar de cada rodada, gerada no navegador.
-- **Pós-MVP:** ranking global do dia, que exigirá um backend mínimo para receber resultados e validar a semente.
 
 ## 12. Arquitetura técnica
 
@@ -431,7 +426,7 @@ interface QuickSimulator {
 ### 12.4 Persistência
 
 - **DECIDIDO (2026-11-17): sem retomar sessão e sem histórico de campanhas.** Fechar a aba encerra a campanha; `?seed=` continua reproduzindo a sessão do início.
-- O único dado no `localStorage` é o registro do Desafio diário (uma tentativa por dia, §11), com try/catch (pode estar indisponível).
+- O jogo não guarda nada no `localStorage`.
 
 ## 13. MVP, fases e critérios de aceite
 
@@ -440,9 +435,9 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 | Fase | Conteúdo | Sai quando |
 | --- | --- | --- |
 | 0. Fundação | Projeto Vite, worker com Maia-3, IA falsa para testes, conjunto de amostra de dados, benchmark e calibração | Uma rodada roda no navegador dentro da meta de desempenho; curva de calibração definida |
-| 1. MVP | Draft, torneio suíço, simulação, livros e estilo, 7 telas, Desafio diário, compartilhamento | Critérios de aceite abaixo |
+| 1. MVP | Draft, torneio suíço, simulação, livros e estilo, 7 telas, compartilhamento | Critérios de aceite abaixo |
 | 2. Dados completos | Pipeline com a fonte autorizada, todas as edições desde 1970 | Permissão obtida e relatório de validação limpo |
-| 3. Expansão | Olimpíadas femininas, edições anteriores a 1970, relógios simulados, ranking do diário, modo "jogar uma mesa" | A definir |
+| 3. Expansão | Olimpíadas femininas, edições anteriores a 1970, relógios simulados, modo "jogar uma mesa" | A definir |
 
 ### 13.1 Calibração da fase 0
 
@@ -461,7 +456,6 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 - [ ] As partidas do usuário são jogadas pelo Maia-3 no worker, usando livro quando disponível.
 - [ ] A mesma semente reproduz exatamente o mesmo draft, campo, emparelhamentos e partidas (backend WASM).
 - [ ] Classificação, desempates e medalhas estão corretos (testes com torneios de exemplo).
-- [ ] O Desafio diário gera o mesmo conteúdo para todos no mesmo dia e permite uma tentativa.
 - [ ] Texto e imagem de compartilhamento são gerados no navegador.
 - [x] Qualquer partida pode ser revista e baixada em PGN.
 - [ ] Todos os valores de balanceamento vêm de `balance.ts`.
