@@ -2,7 +2,6 @@
  * Card numbers from the parsed sources (plano-dados.md, "Força de jogo sem
  * performance oficial" and "Decisividade"). Pure functions.
  */
-import { dp } from "./dp.ts";
 import { TITLE_RANK, type EloEntry, type TitleEntry } from "./wikidata.ts";
 
 /**
@@ -52,20 +51,6 @@ export function titleAt(titles: readonly TitleEntry[], year: number | null): str
     if (best < 0 || r < best) best = r;
   }
   return best < 0 ? "" : TITLE_RANK[best]!.title;
-}
-
-/**
- * Approximate performance: mean rating of the opponents + dp(score
- * fraction). null without games or without any rated opponent.
- */
-export function approxPerformance(
-  opponentRatings: readonly number[],
-  points: number,
-  games: number,
-): number | null {
-  if (games <= 0 || opponentRatings.length === 0) return null;
-  const mean = opponentRatings.reduce((a, b) => a + b, 0) / opponentRatings.length;
-  return Math.round(mean + dp(points / games));
 }
 
 /** GDD §7.2: 1 − draw rate. null without games. */

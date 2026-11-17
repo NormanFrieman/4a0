@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { cardStrength } from "../../../src/data/cardStrength.ts";
 import { balance } from "../../../src/config/balance.ts";
-import { approxPerformance, decisiveness, eloAt, opponentRating, titleAt } from "./compute.ts";
+import { approxPerformance } from "../../../src/sim/elo.ts";
+import { dp } from "../../../src/sim/dp.ts";
+import { decisiveness, eloAt, opponentRating, titleAt } from "./compute.ts";
 import { countryOf, teamSuffix } from "./countries.ts";
-import { dp } from "./dp.ts";
 
 describe("eloAt", () => {
   const elo = [

@@ -32,7 +32,8 @@ import {
   readQids,
   readSearch,
 } from "./cache.ts";
-import { approxPerformance, decisiveness, eloAt, opponentRating, titleAt } from "./compute.ts";
+import { approxPerformance } from "../../../src/sim/elo.ts";
+import { decisiveness, eloAt, opponentRating, titleAt } from "./compute.ts";
 import { countryOf, teamSuffix, type Country } from "./countries.ts";
 import { parseCrosstable, type CrosstableTeam } from "./crosstable.ts";
 import { edition, yearsFromArgs, type Edition } from "./editions.ts";

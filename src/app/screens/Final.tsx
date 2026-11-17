@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { renderShareImage, shareImage } from "../../share/image.ts";
 import { shareCardLabels, shareText } from "../../share/text.ts";
 import { archiveKey } from "../../sim/gameArchive.ts";
+import { boardPrizes } from "../../tournament/boardPrizes.ts";
 import { USER_ID, currentStandings, entrant } from "../../tournament/tournament.ts";
 import {
   Button,
@@ -111,6 +112,49 @@ function SharePanel() {
         </div>
       </div>
     </>
+  );
+}
+
+/** Individual prizes: the best performance on each board (GDD §5.3). */
+function BoardPrizes() {
+  const { t } = useTranslation();
+  const { dataset: ds, tournament } = useSession();
+  if (!ds || !tournament) return null;
+  const prizes = boardPrizes(ds, tournament);
+  if (prizes.length === 0) return null;
+  return (
+    <section>
+      <h3 className="font-display text-xl font-bold italic">{t("final.prizes")}</h3>
+      <ul className="mt-2 space-y-2 text-sm">
+        {prizes.map((p) => {
+          const v = cardView(ds, p.cardId);
+          const team = teamLabel(ds, p.entrantId, t("round.you"));
+          return (
+            <li key={p.board} className="flex items-baseline gap-2">
+              <span className="w-16 shrink-0">
+                <Kicker>{t("slots.board", { n: p.board })}</Kicker>
+              </span>
+              <span className="min-w-0">
+                <span className={team.isUser ? "font-bold text-accent" : ""}>
+                  <Flag
+                    code={v.team.countryCode}
+                    className="mr-1.5 inline-block w-4 align-baseline"
+                  />
+                  {v.name}
+                </span>
+                <span className="block text-xs text-muted italic">
+                  {team.name} · {t("final.prizePerformance", { perf: p.performance })}
+                </span>
+              </span>
+              <span className="flex-1 border-b border-dotted border-line" />
+              <span className="tabular-nums">
+                {formatPoints(p.points)}/{p.games}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 }
 
@@ -265,6 +309,7 @@ export function Final() {
             })}
           </ul>
         </section>
+        <BoardPrizes />
       </div>
     </ScreenLayout>
   );

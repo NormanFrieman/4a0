@@ -143,6 +143,8 @@ export const ptBR = {
     roundShort: "{{n}}ª",
     opponentAvg: "força média {{avg}}",
     boards: "Destaques por mesa",
+    prizes: "Melhores por mesa",
+    prizePerformance: "desempenho {{perf}}",
     playAgain: "Jogar de novo",
     games: "Partidas da rodada {{n}}",
   },

@@ -59,6 +59,8 @@ export const balance = {
     matchPoints: { win: 2, draw: 1, loss: 0 },
     /** Teams in a final standings that get a medal (gold, silver, bronze). */
     medalPlaces: 3,
+    /** Fewest games on a board to compete for its individual prize (GDD §5.3). */
+    boardPrizeMinGames: 5,
   },
 
   /**
