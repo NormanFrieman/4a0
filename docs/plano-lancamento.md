@@ -25,7 +25,7 @@
 | 7   | ✅ [Compartilhamento](plano-mvp-compartilhamento.md)                        | —                                                                  |
 | 8   | [Calibração, fases B e C](plano-calibracao.md)                              | 2, 3 (a escala precisa da faixa real de forças)                    |
 | 9   | ✅ [Fechar o MVP: critérios de aceite](plano-mvp-aceite.md)                 | —                                                                  |
-| 10  | [Desempenho no celular](plano-desempenho-celular.md) (tarefas 1 e 2 feitas) | —                                                                  |
+| 10  | [Desempenho no celular](plano-desempenho-celular.md) (pausado; parte feita) | —                                                                  |
 
 Os itens 5 e 6 não dependem dos dados e podem andar em paralelo com 2 e 3.
 
@@ -35,4 +35,4 @@ Os itens 5 e 6 não dependem dos dados e podem andar em paralelo com 2 e 3.
 - ✅ Nome definitivo: "4 a 0" (2026-11-16).
 - ✅ `pnpm test`, `pnpm typecheck`, `pnpm lint` e `pnpm build` passando (2026-11-17).
 - ✅ Publicado em <https://4a0chess.com.br/> (Cloudflare Worker com assets estáticos, 2026-11-17).
-- Meta de < 10 s por rodada no `/spike` (GDD §8.3): atingida no desktop a partir da 2ª rodada (7,9–8,2 s; 11,1 s na 1ª). Falta medir num notebook médio e num celular médio; no celular as partidas já se mostraram lentas ([plano-desempenho-celular.md](plano-desempenho-celular.md)).
+- Meta de < 10 s por rodada no `/spike` (GDD §8.3): atingida no desktop a partir da 2ª rodada (7,9–8,2 s; 11,1 s na 1ª). Falta medir num notebook médio. Num Android de 8 núcleos, a 1ª rodada leva ~52 s, quase o ritmo do replay a 1× ([plano-desempenho-celular.md](plano-desempenho-celular.md)).
