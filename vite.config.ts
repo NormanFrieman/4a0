@@ -1,14 +1,13 @@
 import { execSync } from "node:child_process";
 import { readFileSync } from "node:fs";
-import { createRequire } from "node:module";
-import { dirname, join } from "node:path";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 // Cross-origin isolation enables multi-threaded WASM in onnxruntime-web.
-// "credentialless" still lets us fetch the model (Hugging Face) and the
-// ORT wasm files (jsDelivr) via CORS.
+// "credentialless" still lets us fetch the ORT wasm files (jsDelivr) via CORS.
 const isolation = {
   "Cross-Origin-Opener-Policy": "same-origin",
   "Cross-Origin-Embedder-Policy": "credentialless",
@@ -29,38 +28,54 @@ function dropOrtWasm(): Plugin {
   };
 }
 
-// Stockfish (blunder check, GDD §8.1) runs as a classic Worker that finds its
-// .wasm next to its script, so both files are served as-is from /stockfish/
-// (same origin; the .wasm is ~7 MB, under the 25 MiB Pages limit).
-const stockfishDir = dirname(createRequire(import.meta.url).resolve("stockfish/package.json"));
-const stockfishFiles = ["stockfish-18-lite-single.js", "stockfish-18-lite-single.wasm"];
+// Engine files served as-is from our own origin (same origin, so no CORS or
+// third-party outage): Stockfish (blunder check, GDD §8.1) runs as a classic
+// Worker that finds its .wasm next to its script (~7 MB), and the Maia-3 5m
+// weights (~22 MB) ship inside maia3-js. All stay under the 25 MiB per-file
+// limit of Cloudflare static assets.
+// Both are direct dependencies, so pnpm links them at the top of
+// node_modules (maia3-js only exports ESM entry points, which `require.resolve`
+// can't find).
+const pkgDir = (name: string) => fileURLToPath(new URL(`./node_modules/${name}/`, import.meta.url));
+const staticFiles: Record<string, string> = {
+  "stockfish/stockfish-18-lite-single.js": join(
+    pkgDir("stockfish"),
+    "bin",
+    "stockfish-18-lite-single.js",
+  ),
+  "stockfish/stockfish-18-lite-single.wasm": join(
+    pkgDir("stockfish"),
+    "bin",
+    "stockfish-18-lite-single.wasm",
+  ),
+  "models/maia3_5m.onnx": join(pkgDir("maia3-js"), "models", "maia3_5m.onnx"),
+};
 
-function serveStockfish(): Plugin {
+const contentType = (name: string) =>
+  name.endsWith(".wasm")
+    ? "application/wasm"
+    : name.endsWith(".js")
+      ? "text/javascript"
+      : "application/octet-stream";
+
+function serveEngineFiles(): Plugin {
   return {
-    name: "serve-stockfish",
+    name: "serve-engine-files",
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        const name = req.url?.split("?")[0]?.replace(/^\/stockfish\//, "");
-        if (!req.url?.startsWith("/stockfish/") || !name || !stockfishFiles.includes(name)) {
-          return next();
-        }
+        const name = req.url?.split("?")[0]?.replace(/^\//, "");
+        const file = name ? staticFiles[name] : undefined;
+        if (!name || !file) return next();
         // Our middleware answers before Vite adds `server.headers`; a worker
         // started from an isolated page needs the same policy.
         for (const [k, v] of Object.entries(isolation)) res.setHeader(k, v);
-        res.setHeader(
-          "Content-Type",
-          name.endsWith(".wasm") ? "application/wasm" : "text/javascript",
-        );
-        res.end(readFileSync(join(stockfishDir, "bin", name)));
+        res.setHeader("Content-Type", contentType(name));
+        res.end(readFileSync(file));
       });
     },
     generateBundle() {
-      for (const name of stockfishFiles) {
-        this.emitFile({
-          type: "asset",
-          fileName: `stockfish/${name}`,
-          source: readFileSync(join(stockfishDir, "bin", name)),
-        });
+      for (const [fileName, file] of Object.entries(staticFiles)) {
+        this.emitFile({ type: "asset", fileName, source: readFileSync(file) });
       }
     },
   };
@@ -84,7 +99,7 @@ export default defineConfig({
     __SOURCE_URL__: JSON.stringify(sourceUrl),
     __COMMIT__: JSON.stringify(currentCommit()),
   },
-  plugins: [react(), tailwindcss(), dropOrtWasm(), serveStockfish()],
+  plugins: [react(), tailwindcss(), dropOrtWasm(), serveEngineFiles()],
   server: { headers: isolation },
   preview: { headers: isolation },
   optimizeDeps: { exclude: ["onnxruntime-web"] },

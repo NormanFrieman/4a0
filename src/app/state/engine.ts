@@ -6,7 +6,7 @@
 import { balance } from "../../config/balance.ts";
 import { MaiaWorkerPool } from "../../engine/workerPool.ts";
 import type { MaiaVariant } from "../../engine/workerProtocol.ts";
-import { stockfishUrl } from "./stockfishUrl.ts";
+import { modelUrl, stockfishUrl } from "./engineUrls.ts";
 
 const ORT_WASM_CDN = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.1/dist/";
 
@@ -22,12 +22,15 @@ let loading: Promise<MaiaWorkerPool> | null = null;
 export function loadEngine(onStatus: (s: EngineStatus) => void): Promise<MaiaWorkerPool> {
   if (loading) return loading;
   const p = new MaiaWorkerPool();
+  const variant = balance.game.maiaModelVariant as MaiaVariant;
+  const url = modelUrl(variant);
   onStatus({ state: "loading", progress: null });
   loading = p
     .init(
       // WASM for determinism across machines (GDD §8.4).
       {
-        variant: balance.game.maiaModelVariant as MaiaVariant,
+        variant,
+        ...(url ? { modelUrl: url } : {}),
         forceWasm: true,
         wasmPaths: ORT_WASM_CDN,
         stockfishUrl: stockfishUrl(),

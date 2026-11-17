@@ -25,6 +25,7 @@ async function init(options: InitOptions) {
   const t0 = performance.now();
   const bytes = await ensureModelWeb({
     variant: options.variant,
+    ...(options.modelUrl ? { url: options.modelUrl } : {}),
     onProgress: (loaded, total) => post({ type: "progress", loaded, total }),
   });
   const downloadMs = performance.now() - t0;

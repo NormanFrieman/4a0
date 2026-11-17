@@ -37,7 +37,7 @@ Fatia jogável da Fase 1 em `/`: draft → confirmação → campo (por faixas d
 - `pnpm test` — Vitest
 - `pnpm typecheck` / `pnpm lint`
 - `pnpm dev` — app (Vite); `/spike` é a página de teste da engine no navegador; `/dev/ui` é o catálogo do design system (as duas só existem no `dev`)
-- `pnpm build` — gera `dist/` para o Cloudflare Pages (cabeçalhos em `public/_headers`; o `.wasm` do ORT vem do jsDelivr e fica fora do build)
+- `pnpm build` — gera `dist/` para o Cloudflare Pages (cabeçalhos em `public/_headers`; o `.wasm` do ORT vem do jsDelivr e fica fora do build; o modelo Maia-3 5m e o Stockfish são servidos do próprio domínio, em `/models/` e `/stockfish/`)
 - `pnpm data:pgn` — baixa as coleções PGN de `tools/data/sample/pgnSources.ts` (PGN Mentor, só para desenvolvimento) para `tools/data/sample/pgn/`, fora do git
 - `pnpm data:sample` — gera `public/data/sample` a partir de `tools/data/sample/source.ts`, com os livros de abertura (precisa do `data:pgn` antes). Os livros (`public/data/sample/books/`) ficam fora do git: num clone novo, rode os dois comandos antes de jogar
 - `pnpm data:fetch [--years 1980,2024]` — baixa da de.wikipedia e do Wikidata as fontes dos dados olímpicos para `tools/data/cache/`, fora do git (`revid` fixados em `tools/data/olympiads/sources.json`; `--update` pega revisões novas)

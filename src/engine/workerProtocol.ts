@@ -5,6 +5,8 @@ export type MaiaVariant = "5m" | "23m";
 
 export interface InitOptions {
   variant: MaiaVariant;
+  /** Where to download the weights from (default: maia3-js's Hugging Face URL). */
+  modelUrl?: string;
   /**
    * WASM only, no WebGPU: small numeric differences between backends can
    * change a move, so the app forces WASM to keep `?seed=` reproducible

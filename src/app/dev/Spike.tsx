@@ -14,7 +14,7 @@ import type { MaiaVariant } from "../../engine/workerProtocol.ts";
 import { engineParamsForRating } from "../../engine/engineParams.ts";
 import { balance } from "../../config/balance.ts";
 import { hashSeed } from "../../rng/rng.ts";
-import { stockfishUrl } from "../state/stockfishUrl.ts";
+import { modelUrl, stockfishUrl } from "../state/engineUrls.ts";
 import "chessground/assets/chessground.base.css";
 import "chessground/assets/chessground.brown.css";
 import "chessground/assets/chessground.cburnett.css";
@@ -75,6 +75,7 @@ export function Spike() {
     const info = await client.current.init(
       {
         variant,
+        ...(modelUrl(variant) ? { modelUrl: modelUrl(variant) } : {}),
         forceWasm,
         wasmPaths: ORT_WASM_CDN,
         ...(blunderCheck ? { stockfishUrl: stockfishUrl() } : {}),
