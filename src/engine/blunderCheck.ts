@@ -74,12 +74,16 @@ export class BlunderCheckedAI implements ChessAI {
   }
 
   async chooseMove(req: MoveRequest): Promise<MoveResult> {
-    const res = await this.inner.chooseMove(req);
     const maxDrop = toleranceFor(req.selfElo, this.cfg);
-    if (maxDrop >= 2) return res;
+    if (maxDrop >= 2) return this.inner.chooseMove(req);
 
+    // Stockfish judges the position while Maia infers: both results are
+    // needed, they run on different threads, and neither depends on the other.
+    const rootP = this.analyse(req.fen);
+    rootP.catch(() => undefined); // surfaced by the await below
+    const res = await this.inner.chooseMove(req);
+    const root = await rootP;
     const k = this.cfg.winChanceK;
-    const root = await this.analyse(req.fen);
     const bestChances = winChances(root.score, k);
     const policy = { ...res.policy };
     let move = res.move;

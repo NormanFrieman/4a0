@@ -1,6 +1,6 @@
 # Plano: desempenho no celular
 
-**Status:** tarefas 1 e 2 feitas em 2026-11-17 (medição em [benchmarks.md](benchmarks.md), "Celular Android"). Próxima: tarefa 3.
+**Status:** pausado pelo usuário em 2026-11-17. Feitas as tarefas 1 e 2 (medição em [benchmarks.md](benchmarks.md), "Celular Android"), a Wake Lock da tarefa 5 e o Stockfish em paralelo com o Maia (ver "Resultado"). As tarefas 3, 4 e o "calculando…" da 5 ficam para quando o assunto voltar.
 
 ## Problema
 
@@ -26,8 +26,14 @@ O `?seed=` precisa reproduzir a mesma partida em qualquer aparelho, e a calibra�
 2. ✅ **Dimensionar o pool sem excesso de threads** (resultado: o padrão 4 × 2 já está certo; o `/spike` ganhou `?workers=` e `?threads=` para comparar configurações): contar o Stockfish no orçamento de núcleos e usar 1 thread do ORT por worker quando houver poucos núcleos ou não houver isolamento (por exemplo, 2 workers × 1 thread no celular). O determinismo com contagens de threads diferentes já foi conferido; repetir o hash dos PGNs.
 3. **Começar o cálculo antes:** iniciar as partidas assim que o emparelhamento for conhecido, enquanto o usuário ainda está na tela anterior.
 4. **Agrupar as atualizações da interface:** acumular os lances recebidos e aplicá-los no `tick` do replay, em vez de um `set` por lance.
-5. **Interface:** indicar "calculando…" no tabuleiro que espera lance e pedir a Wake Lock da tela durante a rodada.
+5. **Interface:** ✅ Wake Lock da tela enquanto a rodada não termina (`src/app/wakeLock.ts`, 2026-11-17). Falta indicar "calculando…" no tabuleiro que espera lance.
 
 Ordem sugerida: 1 e 2 primeiro (baratos; a medição diz quanto vale o resto).
 
-**Depois da medição:** num Android de 8 núcleos o cálculo sai a ~1,46 meio-lance/s por tabuleiro, praticamente o ritmo do replay a 1× (1,43/s). Não há folga, então a tarefa 3 (começar antes e formar um estoque de lances) é a que mais rende, seguida da 5 (indicar a espera).
+## Resultado (2026-11-17)
+
+- **Ritmo:** num Android de 8 núcleos, o cálculo sai a ~1,46 meio-lance/s por tabuleiro, praticamente o ritmo do replay a 1× (1,43/s). Sem folga, os tabuleiros param.
+- **10 s por rodada no celular não é alcançável sem mudar os lances.** No navegador, ~75–80% do tempo é a inferência do Maia em WASM. O filtro do Stockfish é só ~20–25% (tabela "Custo no navegador" em [benchmarks.md](benchmarks.md)), então baixar os nós rende pouco. A WebGPU está fora (GDD §8.4). A meta de 10 s do GDD §8.3 é para notebook.
+- **Feito:** o filtro de blunders analisa a posição com o Stockfish enquanto o Maia infere (`BlunderCheckedAI`). Mesmos lances (PGN idêntico com a semente 42 em Node), ~12% mais rápido por partida em Node (2,97–3,01 s contra 3,38–3,44 s). Não medido no celular.
+- **Feito:** Wake Lock da tela durante a rodada (`src/app/wakeLock.ts`).
+- **Ideias não testadas:** aquecer os workers durante o draft (a 1ª rodada no desktop leva ~30% a mais que as seguintes, mas a causa não foi medida; antes de implementar, rodar 3 rodadas seguidas no `/spike` do celular) e a tarefa 3, que esconde a espera em vez de reduzi-la.

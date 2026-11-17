@@ -16,6 +16,7 @@ import {
   outcomeOf,
 } from "../ui/index.ts";
 import { roundDone, useSession, useShowStrength, type LiveBoard } from "../state/session.ts";
+import { useWakeLock } from "../wakeLock.ts";
 import { cardView, teamLabel } from "./helpers.ts";
 
 const START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
@@ -49,6 +50,9 @@ export function Round() {
     const id = setInterval(tick, ms);
     return () => clearInterval(id);
   }, [speed, tick]);
+
+  // Screen on until every board is computed and shown (a sleeping phone freezes the workers).
+  useWakeLock(live !== null && !roundDone(live));
 
   if (!ds || !tournament || !live) return null;
   // By board, not by card: the same card can play for both teams (GDD §5.1).
