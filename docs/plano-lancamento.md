@@ -24,6 +24,7 @@
 | 6   | ✅ [Modo Mestre](plano-mvp-modo-mestre.md)                | —                                                                  |
 | 7   | ✅ [Compartilhamento](plano-mvp-compartilhamento.md)      | —                                                                  |
 | 8   | [Calibração, fases B e C](plano-calibracao.md)            | 2, 3 (a escala precisa da faixa real de forças)                    |
+| 9   | [Fechar o MVP: critérios de aceite](plano-mvp-aceite.md)  | —                                                                  |
 
 Os itens 5 e 6 não dependem dos dados e podem andar em paralelo com 2 e 3.
 
