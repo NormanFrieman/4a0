@@ -1,6 +1,7 @@
 /**
  * Session store (GDD §3): one session from the first roll to the medal.
  * Phases: home → draft → confirm → field → (preRound → playing → standings)×N → final.
+ * `replay` opens over `playing` or `final` and returns to it.
  * Game logic lives in src/draft, src/tournament and src/sim; this store only
  * sequences it and holds UI state. `?seed=` reproduces a session; `?rapido=1`
  * simulates the user's games instantly (test mode).
@@ -10,7 +11,8 @@ import { balance } from "../../config/balance.ts";
 import { loadBooks, type BookSet } from "../../data/books.ts";
 import { loadDataset, type Dataset } from "../../data/dataset.ts";
 import { createDraft, isDraftComplete, pick, reroll, type DraftState } from "../../draft/draft.ts";
-import type { PlayedMove } from "../../engine/game.ts";
+import type { PlayedMove, Termination } from "../../engine/game.ts";
+import { archiveGame, archiveKey, type ArchivedGame } from "../../sim/gameArchive.ts";
 import {
   boardsFor,
   gameJobFor,
@@ -45,7 +47,8 @@ export type Phase =
   | "preRound"
   | "playing"
   | "standings"
-  | "final";
+  | "final"
+  | "replay";
 
 export type Speed = "normal" | "fast" | "instant";
 
@@ -56,6 +59,7 @@ export interface LiveBoard {
   /** Moves shown on the board (playback position). */
   shown: number;
   result: BoardResult | null;
+  termination: Termination | null;
   /** Fast mode: no moves, result drawn by quick simulation. */
   simulated: boolean;
 }
@@ -80,6 +84,10 @@ interface SessionState {
   tournament: TournamentState | null;
   live: LiveRound | null;
   speed: Speed;
+  /** The user's games with moves, by `archiveKey` (empty in fast mode). */
+  games: Record<string, ArchivedGame>;
+  /** Game open in the Replay screen and the phase to return to. */
+  replay: { key: string; from: Phase } | null;
 
   init(): Promise<void>;
   startDraft(): void;
@@ -96,6 +104,8 @@ interface SessionState {
   finishRound(): void;
   next(): void;
   playAgain(): void;
+  openReplay(round: number, board: number): void;
+  closeReplay(): void;
 }
 
 function newSeed(): string {
@@ -127,6 +137,8 @@ export const useSession = create<SessionState>()((set, get) => ({
   tournament: null,
   live: null,
   speed: "normal",
+  games: {},
+  replay: null,
 
   async init() {
     const p = new URLSearchParams(location.search);
@@ -208,7 +220,7 @@ export const useSession = create<SessionState>()((set, get) => ({
     if (fastMode) {
       const boards = games.map((g) => {
         const result = quickGame(dataset, g, `user/r${round}/b${g.board}`, seed);
-        return { game: g, moves: [], shown: 0, result, simulated: true };
+        return { game: g, moves: [], shown: 0, result, termination: null, simulated: true };
       });
       const userMatch = matchFromBoards(
         round,
@@ -233,6 +245,7 @@ export const useSession = create<SessionState>()((set, get) => ({
           moves: [],
           shown: 0,
           result: null,
+          termination: null,
           simulated: false,
         })),
         userMatch: null,
@@ -268,7 +281,20 @@ export const useSession = create<SessionState>()((set, get) => ({
           .playGame(gameJobFor(dataset, seed, round, g, bookSet), (mv) =>
             update(i, (b) => ({ ...b, moves: [...b.moves, mv] })),
           )
-          .then((rec) => update(i, (b) => ({ ...b, result: { ...g, score: scoreOf(rec.result) } })))
+          .then((rec) => {
+            if (gen !== generation) return;
+            set((s) => ({
+              games: {
+                ...s.games,
+                [archiveKey(round, g.board)]: archiveGame(round, pairing, g, rec),
+              },
+            }));
+            update(i, (b) => ({
+              ...b,
+              result: { ...g, score: scoreOf(rec.result) },
+              termination: rec.termination,
+            }));
+          })
           .catch(fail);
       });
     }, fail);
@@ -314,11 +340,23 @@ export const useSession = create<SessionState>()((set, get) => ({
     if (get().phase === "about") set({ phase: "home" });
   },
 
+  openReplay(round, board) {
+    const { phase, games } = get();
+    const key = archiveKey(round, board);
+    if (phase === "replay" || !games[key]) return;
+    set({ replay: { key, from: phase }, phase: "replay" });
+  },
+
+  closeReplay() {
+    const { replay } = get();
+    if (replay) set({ phase: replay.from, replay: null });
+  },
+
   playAgain() {
     generation++;
     const seed = newSeed();
     writeUrl(seed, get().fastMode);
-    set({ seed, tournament: null, live: null, draft: null });
+    set({ seed, tournament: null, live: null, draft: null, games: {}, replay: null });
     get().startDraft();
   },
 }));

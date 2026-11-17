@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { balance } from "../../config/balance.ts";
 import { USER_ID } from "../../tournament/tournament.ts";
+import { archiveKey } from "../../sim/gameArchive.ts";
 import { firstIsWhite } from "../../sim/match.ts";
 import {
   BoardCard,
@@ -27,7 +28,17 @@ function userScore(b: LiveBoard, userWhite: boolean): number | null {
 
 export function Round() {
   const { t } = useTranslation();
-  const { dataset: ds, tournament, live, speed, setSpeed, tick, finishRound } = useSession();
+  const {
+    dataset: ds,
+    tournament,
+    live,
+    games,
+    speed,
+    setSpeed,
+    tick,
+    finishRound,
+    openReplay,
+  } = useSession();
 
   // Playback clock: one half-move per tick per board; tick is a no-op when the
   // board has shown everything computed so far.
@@ -172,6 +183,12 @@ export function Round() {
                 strength: black.card.strength,
                 isUser: !userWhite(b),
               }}
+              {...(done && games[archiveKey(live.round, b.game.board)]
+                ? {
+                    onOpen: () => openReplay(live.round, b.game.board),
+                    openLabel: t("replay.open"),
+                  }
+                : {})}
               className="lg:mx-auto lg:w-[min(100%,calc(100cqh-5rem))]"
             />
           );

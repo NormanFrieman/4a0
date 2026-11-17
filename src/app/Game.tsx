@@ -9,6 +9,7 @@ import { Field } from "./screens/Field.tsx";
 import { Final } from "./screens/Final.tsx";
 import { Home } from "./screens/Home.tsx";
 import { PreRound } from "./screens/PreRound.tsx";
+import { Replay } from "./screens/Replay.tsx";
 import { Round } from "./screens/Round.tsx";
 import { Standings } from "./screens/Standings.tsx";
 
@@ -45,6 +46,7 @@ export function Game() {
         {phase === "playing" && <Round />}
         {phase === "standings" && <Standings />}
         {phase === "final" && <Final />}
+        {phase === "replay" && <Replay />}
       </main>
       <footer className="py-3 text-center text-xs text-muted lg:shrink-0 lg:py-1.5">
         {seed && t("app.seed", { seed })}

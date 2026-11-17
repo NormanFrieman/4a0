@@ -1,4 +1,5 @@
 import { BoardFrame } from "./BoardFrame.tsx";
+import { Button } from "./Button.tsx";
 import { Kicker } from "./Masthead.tsx";
 import { ResultBadge } from "./ResultBadge.tsx";
 import type { Outcome } from "./format.ts";
@@ -23,6 +24,8 @@ export function BoardCard({
   lastMove,
   white,
   black,
+  onOpen,
+  openLabel,
   className = "",
 }: {
   boardLabel: string;
@@ -34,18 +37,29 @@ export function BoardCard({
   lastMove?: readonly [string, string];
   white: BoardCardPlayer;
   black: BoardCardPlayer;
+  /** Opens the game's replay; shows a link beside the top player when given. */
+  onOpen?: () => void;
+  /** Text of that link (i18n). */
+  openLabel?: string;
   /** Extra classes, e.g. a width cap so the board fits the viewport height. */
   className?: string;
 }) {
   const userIsBlack = black.isUser;
-  const line = (p: BoardCardPlayer, color: "white" | "black") => (
-    <div className="truncate">
-      <span
-        aria-hidden
-        className={`mr-1 inline-block size-2.5 border border-ink align-middle ${color === "white" ? "bg-white" : "bg-ink"}`}
-      />
-      <span className={p.isUser ? "font-bold" : "italic"}>{p.name}</span>{" "}
-      {p.strength !== null && <span className="text-muted tabular-nums">{p.strength}</span>}
+  const line = (p: BoardCardPlayer, color: "white" | "black", action = false) => (
+    <div className="flex items-baseline gap-2">
+      <div className="min-w-0 flex-1 truncate">
+        <span
+          aria-hidden
+          className={`mr-1 inline-block size-2.5 border border-ink align-middle ${color === "white" ? "bg-white" : "bg-ink"}`}
+        />
+        <span className={p.isUser ? "font-bold" : "italic"}>{p.name}</span>{" "}
+        {p.strength !== null && <span className="text-muted tabular-nums">{p.strength}</span>}
+      </div>
+      {action && onOpen && (
+        <Button variant="link" className="shrink-0 py-0 text-xs" onClick={onOpen}>
+          {openLabel}
+        </Button>
+      )}
     </div>
   );
   return (
@@ -58,7 +72,7 @@ export function BoardCard({
       </div>
       <BoardFrame fen={fen} lastMove={lastMove} orientation={userIsBlack ? "black" : "white"} />
       <figcaption className="mt-1.5 text-sm leading-snug">
-        {userIsBlack ? line(white, "white") : line(black, "black")}
+        {userIsBlack ? line(white, "white", true) : line(black, "black", true)}
         {userIsBlack ? line(black, "black") : line(white, "white")}
       </figcaption>
     </figure>

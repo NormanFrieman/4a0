@@ -1,5 +1,9 @@
 import { traitOf } from "../../data/cardStrength.ts";
+import type { TFunction } from "i18next";
 import type { Dataset } from "../../data/dataset.ts";
+import type { ArchivedGame } from "../../sim/gameArchive.ts";
+import { campaignPgn, gamePgn, type PgnContext } from "../../sim/pgn.ts";
+import { downloadText } from "../download.ts";
 import { firstIsWhite } from "../../sim/match.ts";
 import { USER_ID, type TournamentState } from "../../tournament/tournament.ts";
 import type { MatchResult } from "../../tournament/types.ts";
@@ -59,4 +63,41 @@ export function cardTotals(t: TournamentState): Map<string, { points: number; ga
       s.games++;
     }
   return totals;
+}
+
+/** PGN context of the session: texts from i18n, names from the dataset. */
+export function pgnContext(ds: Dataset, seed: string, t: TFunction): PgnContext {
+  return {
+    event: t("pgn.event"),
+    site: `${location.origin}${location.pathname}?seed=${encodeURIComponent(seed)}`,
+    date: new Date(),
+    seed,
+    playerName: (id) => {
+      const v = cardView(ds, id);
+      return `${v.name} (${v.team.year})`;
+    },
+    teamName: (id) => teamLabel(ds, id, t("round.you")).name,
+    terminationLabel: (x) => t(`termination.${x}`),
+    bookComment: t("pgn.book"),
+  };
+}
+
+/** The user's games in round and board order. */
+export const sortedGames = (games: Record<string, ArchivedGame>) =>
+  Object.values(games).sort((a, b) => a.round - b.round || a.board - b.board);
+
+export function downloadGame(ds: Dataset, seed: string, t: TFunction, g: ArchivedGame) {
+  downloadText(
+    `4a0-${seed}-r${g.round}-m${g.board}.pgn`,
+    `${gamePgn(g, pgnContext(ds, seed, t))}\n`,
+  );
+}
+
+export function downloadCampaign(
+  ds: Dataset,
+  seed: string,
+  t: TFunction,
+  games: Record<string, ArchivedGame>,
+) {
+  downloadText(`4a0-${seed}.pgn`, campaignPgn(sortedGames(games), pgnContext(ds, seed, t)));
 }

@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { archiveKey } from "../../sim/gameArchive.ts";
 import { USER_ID, currentStandings, entrant } from "../../tournament/tournament.ts";
 import {
   Button,
@@ -14,6 +15,7 @@ import { useSession } from "../state/session.ts";
 import {
   cardTotals,
   cardView,
+  downloadCampaign,
   opponentIn,
   teamLabel,
   userMatches,
@@ -28,11 +30,12 @@ const medalColor = {
 
 export function Final() {
   const { t } = useTranslation();
-  const { dataset: ds, tournament, playAgain } = useSession();
+  const { dataset: ds, tournament, seed, games, playAgain, openReplay } = useSession();
   if (!ds || !tournament) return null;
   const row = currentStandings(tournament).find((r) => r.teamId === USER_ID)!;
   const user = entrant(tournament, USER_ID);
   const totals = cardTotals(tournament);
+  const hasGames = Object.keys(games).length > 0;
   const best = [...totals.entries()]
     .filter(([, v]) => v.games > 0)
     .sort((a, b) => b[1].points / b[1].games - a[1].points / a[1].games)[0]?.[0];
@@ -51,10 +54,15 @@ export function Final() {
         />
       }
       footer={
-        <div className="mt-6 text-center lg:mt-3">
+        <div className="mt-6 flex flex-wrap justify-center gap-3 lg:mt-3">
           <Button variant="primary" onClick={playAgain}>
             {t("final.playAgain")}
           </Button>
+          {hasGames && (
+            <Button onClick={() => downloadCampaign(ds, seed, t, games)}>
+              {t("replay.downloadCampaign")}
+            </Button>
+          )}
         </div>
       }
     >
@@ -107,6 +115,36 @@ export function Final() {
                         {t(`round.outcome_${outcome}`)}
                       </ResultBadge>
                     </td>
+                    {hasGames && (
+                      <td className="py-1.5 pl-3 text-right whitespace-nowrap">
+                        <span
+                          role="group"
+                          aria-label={t("final.games", { n: m.round })}
+                          className="inline-flex gap-1"
+                        >
+                          {m.boards.map((b) => {
+                            const g = games[archiveKey(m.round, b.board)];
+                            if (!g) return null;
+                            const white = g.whiteTeamId === USER_ID;
+                            const o = outcomeOf(white ? b.score : 1 - b.score);
+                            return (
+                              <button
+                                key={b.board}
+                                type="button"
+                                title={t("replay.openBoard", { n: b.board })}
+                                aria-label={t("replay.openBoard", { n: b.board })}
+                                onClick={() => openReplay(m.round, b.board)}
+                                className="cursor-pointer border border-line px-1 text-xs hover:border-ink"
+                              >
+                                <ResultBadge outcome={o} className="font-normal">
+                                  {b.board}
+                                </ResultBadge>
+                              </button>
+                            );
+                          })}
+                        </span>
+                      </td>
+                    )}
                   </tr>
                 );
               })}
