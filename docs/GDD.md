@@ -207,6 +207,7 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 - Cartas com menos de `bookMinGames` partidas nesse recorte usam um livro genérico da década da edição. Enquanto não houver os PGNs das Olimpíadas (9.1), o livro da década é montado com todas as partidas coletadas daquela década, com os lances dos dois lados.
 - Formato: arquivo binário Polyglot por carta (chave = hash Zobrist da posição), carregado antes do torneio.
 - **Fonte provisória:** coleções PGN públicas por jogador (PGN Mentor), só para desenvolvimento. Ver 14.1.
+- **DECIDIDO (2026-11-16): os livros vêm do Lichess** (explorador "masters"), substituindo o PGN Mentor. O Lichess não filtra partidas de mestres por jogador; o livro por carta está em aberto (§14.2). Plano: [plano-livros.md](plano-livros.md).
 
 ### 7.2 Estilo (MVP)
 
@@ -291,8 +292,8 @@ Os dados históricos são processados offline por scripts e publicados como arqu
 
 - **MVP:** Olimpíadas abertas (open) de 1970 em diante, que têm rating FIDE.
 - **Depois:** Olimpíadas femininas (modo próprio) e edições de 1927 a 1968.
-- **Fonte principal candidata:** OlimpBase, que reúne resultados, escalações, ratings e PGNs de todas as edições, com nomes padronizados. **É preciso obter permissão** antes de usar os dados (seção 14).
-- Enquanto a permissão não vier, desenvolver com um **conjunto de amostra** pequeno, montado manualmente (3 a 4 edições), no mesmo formato.
+- **DECIDIDO (2026-11-16): as 20 primeiras seleções de cada edição**, de fontes gratuitas e de uso livre, sem o OlimpBase: escalações e resultados da de.wikipedia (CC BY-SA 4.0), identidade, Elo histórico e títulos do Wikidata (CC0). Antecipa parte da Fase 2 (§13). Plano: [plano-dados.md](plano-dados.md).
+- Até o pipeline ficar pronto, o app usa o **conjunto de amostra** montado manualmente, no mesmo formato.
 
 ### 9.2 Pipeline (`tools/data/`)
 
@@ -472,17 +473,20 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 | chessground | GPL-3.0 | O código do frontend distribuído fica sujeito à GPL |
 | chess.js | BSD-2 | Permissiva |
 | stockfish.js | GPL-3.0 | Distribuído ao navegador (filtro de blunders, §8.1); compatível com a GPL/AGPL já presentes |
-| Dados do OlimpBase | Projeto independente mantido por voluntários | Pedir permissão expressa antes de usar |
-| PGNs do PGN Mentor | Coleções gratuitas por jogador; licença não declarada | Só para desenvolvimento dos livros (7.1); confirmar ou trocar a fonte antes do lançamento |
+| Escalações e resultados (de.wikipedia) | CC BY-SA 4.0 | Os dados publicados herdam a CC BY-SA, com atribuição |
+| Pessoas, Elo e títulos (Wikidata) | CC0 | Atribuição por cortesia |
+| Livros de abertura (Lichess masters) | Estatística agregada de lances | Atribuição ao Lichess; a API exige token pessoal, usado só na ferramenta offline |
+| PGNs do PGN Mentor | Coleções gratuitas por jogador; licença não declarada | Só no desenvolvimento; sai quando os livros do Lichess entrarem (7.1) |
 | Nomes de jogadores reais | Pessoas reais, muitas vivas | Avaliar uso de nome em jogo, sobretudo se comercial; não usar fotos |
 
-Com AGPL e GPL na base, publicar o jogo como código aberto é o caminho mais simples. Antes de qualquer uso comercial, é necessária uma análise jurídica. Este documento não é aconselhamento jurídico.
+**DECIDIDO (2026-11-16): código aberto (AGPL-3.0-or-later) e jogo gratuito**, sem anúncios nem pagamentos. Plano: [plano-codigo-aberto.md](plano-codigo-aberto.md). Este documento não é aconselhamento jurídico.
 
 ### 14.2 Questões em aberto
 
 - [ ] **Nome definitivo.** "4 a 0" é provisório; verificar se já existe jogo ou marca com esse nome.
-- [ ] **Permissão de dados:** contatar o OlimpBase ou definir outra fonte.
-- [ ] **Fonte dos PGNs dos livros:** confirmar a licença do PGN Mentor ou definir outra fonte.
+- [x] **Permissão de dados:** resolvido em 2026-11-16 (Wikipedia + Wikidata, §9.1).
+- [x] **Fonte dos PGNs dos livros:** resolvido em 2026-11-16 (Lichess, §7.1).
+- [ ] **Livro por carta (§7.1):** o Lichess não filtra por jogador. Usar livro por edição, por década, ou outra fonte por jogador? Ver [plano-livros.md](plano-livros.md).
 - [ ] **Edições anteriores a 1970:** qual estimativa de força usar.
 - [ ] **Normalização entre épocas:** compensar a inflação de rating ao longo das décadas, ou usar o rating da época como está?
 - [ ] **Formato do torneio:** manter suíço puro ou testar grupos + mata-mata como alternativa.
