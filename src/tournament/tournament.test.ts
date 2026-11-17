@@ -171,6 +171,71 @@ describe("standings", () => {
   });
 });
 
+describe("standings tiebreaks, one at a time (GDD §5.3)", () => {
+  const m = (round: number, first: string, second: string, fp: number): MatchResult => ({
+    round,
+    first,
+    second,
+    boards: [],
+    firstPoints: fp,
+    secondPoints: 4 - fp,
+  });
+  const order = (ids: string[], rs: MatchResult[]) => standings(ids, rs).map((r) => r.teamId);
+
+  it("game points break a tie in match points", () => {
+    // Both win their match; z by more.
+    expect(order(["a", "b", "y", "z"], [m(1, "a", "b", 2.5), m(1, "z", "y", 3.5)])).toEqual([
+      "z",
+      "a",
+      "b",
+      "y",
+    ]);
+  });
+
+  it("Buchholz breaks a tie in match and game points", () => {
+    // a and z both win 3–1; z's opponent (c) then wins, a's (d) loses.
+    const rows = standings(
+      ["a", "c", "d", "e", "f", "z"],
+      [m(1, "a", "d", 3), m(1, "z", "c", 3), m(2, "c", "e", 3), m(2, "f", "d", 3)],
+    );
+    const z = rows.find((r) => r.teamId === "z")!;
+    const a = rows.find((r) => r.teamId === "a")!;
+    expect([z.matchPoints, z.gamePoints]).toEqual([a.matchPoints, a.gamePoints]);
+    expect(z.buchholz).toBeGreaterThan(a.buchholz);
+    expect(z.rank).toBeLessThan(a.rank);
+  });
+
+  it("head-to-head breaks a tie in match points, game points and Buchholz", () => {
+    const rows = standings(
+      ["a", "p", "q", "r", "s", "z"],
+      [
+        m(1, "z", "a", 2.5),
+        m(1, "p", "r", 3),
+        m(1, "s", "q", 4),
+        m(2, "a", "p", 2.5),
+        m(2, "q", "z", 2.5),
+      ],
+    );
+    const z = rows.find((r) => r.teamId === "z")!;
+    const a = rows.find((r) => r.teamId === "a")!;
+    expect([z.matchPoints, z.gamePoints, z.buchholz]).toEqual([
+      a.matchPoints,
+      a.gamePoints,
+      a.buchholz,
+    ]);
+    expect(z.rank).toBe(a.rank - 1);
+  });
+
+  it("gives gold, silver and bronze to the first three only", () => {
+    const rows = standings(
+      ["a", "b", "c", "d", "e", "f"],
+      [m(1, "a", "b", 4), m(1, "c", "d", 3), m(1, "e", "f", 2.5)],
+    );
+    expect(rows.map((r) => r.medal)).toEqual(["gold", "silver", "bronze", null, null, null]);
+    expect(rows.map((r) => r.rank)).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+});
+
 describe("full tournament", () => {
   it("is reproducible for a seed and ends with a full standings", () => {
     const a = playAll("same");
@@ -180,6 +245,64 @@ describe("full tournament", () => {
     expect(rows).toHaveLength(fieldSize + 1);
     expect(rows.every((r) => r.played === rounds)).toBe(true);
   });
+
+  it("plays every card on its real board in every round (GDD §4.3)", () => {
+    for (let i = 0; i < 20; i++) {
+      const t = playAll(`boards-${i}`);
+      const user = t.entrants.find((e) => e.isUser)!;
+      for (const r of t.rounds) {
+        expect(r.results.find((m) => m.first === USER_ID || m.second === USER_ID)).toBeDefined();
+        for (const m of r.results) {
+          const first = t.entrants.find((e) => e.id === m.first)!;
+          const second = t.entrants.find((e) => e.id === m.second)!;
+          expect(m.boards.map((b) => b.board)).toEqual([1, 2, 3, 4]);
+          for (const b of m.boards) {
+            const [own, other] = b.board % 2 === 1 ? [first, second] : [second, first];
+            expect(b.whiteCardId).toBe(own.cardIds[b.board - 1]);
+            expect(b.blackCardId).toBe(other.cardIds[b.board - 1]);
+            expect(ds.card(b.whiteCardId).board).toBe(b.board);
+            expect(ds.card(b.blackCardId).board).toBe(b.board);
+          }
+        }
+      }
+      expect(user.cardIds).toHaveLength(balance.draft.slots);
+    }
+  });
+
+  /**
+   * A whole session as the app runs it (src/app/state/session.ts): draft,
+   * field, then every round with the user's games on a GameSimulator and the
+   * rest by quick simulation. Returns everything a seed must reproduce.
+   */
+  async function session(seed: string) {
+    const sim = new LocalGameSimulator(new UniformAI());
+    const team = userTeam(seed);
+    let t = startTournament(ds, seed, team, field, rounds);
+    const pgns: string[] = [];
+    while (!isFinished(t)) {
+      t = pairNextRound(t);
+      const round = currentRound(t)!.round;
+      const p = userPairing(t);
+      const l = lineups(t, p);
+      const boards = [];
+      for (const g of boardsFor(l.first, l.second)) {
+        const rec = await sim.playGame({ ...gameJobFor(ds, seed, round, g), maxPlies: 16 });
+        pgns.push(rec.pgn);
+        boards.push({ ...g, score: scoreOf(rec.result) });
+      }
+      t = recordRound(t, [matchFromBoards(round, p, boards), ...fieldResults(ds, t)]);
+    }
+    return { team, entrants: t.entrants, rounds: t.rounds, pgns, standings: currentStandings(t) };
+  }
+
+  it("reproduces draft, field, pairings and games for the same seed (GDD §8.4)", async () => {
+    const a = await session("repro");
+    const b = await session("repro");
+    expect(b).toEqual(a);
+    expect(a.pgns).toHaveLength(rounds * 4);
+    const c = await session("other");
+    expect(c.pgns).not.toEqual(a.pgns);
+  }, 30_000);
 
   it("plays the user's games through a GameSimulator", async () => {
     const sim = new LocalGameSimulator(new UniformAI());

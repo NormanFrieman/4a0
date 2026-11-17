@@ -4,7 +4,7 @@
 export interface Entrant {
   id: string;
   isUser: boolean;
-  /** Card ids in fixed board order. User: 5 (4 play each round); field: the first 4 play. */
+  /** Card ids in fixed board order (boards 1–4); all of them play every round (GDD §4.3). */
   cardIds: string[];
   /** Mean strength of the 4 regular boards (round 1 pairing, tiebreak). */
   avgStrength: number;

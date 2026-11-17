@@ -20,7 +20,7 @@ describe("draft", () => {
     expect(createDraft(ds, "a").currentTeamId).toBeTruthy();
   });
 
-  it("fills 5 slots with 5 distinct persons and never repeats a team", () => {
+  it("fills every slot with distinct persons and never repeats a team", () => {
     for (let i = 0; i < 50; i++) {
       const s = autoDraft(`seed-${i}`);
       const persons = s.slots.map((c) => ds.card(c!).personId);

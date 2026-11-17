@@ -39,6 +39,63 @@ describe("dataset v1", () => {
     }
   });
 
+  it("has one team id per team; only host second teams share country and edition (GDD §4.1)", () => {
+    expect(new Set(ds.teams.map((t) => t.id)).size).toBe(ds.teams.length);
+    const byKey = new Map<string, string[]>();
+    for (const t of ds.teams) {
+      const k = `${t.countryCode}/${t.year}`;
+      byKey.set(k, [...(byKey.get(k) ?? []), t.countryName]);
+    }
+    for (const names of byKey.values())
+      if (names.length > 1) {
+        expect(names).toHaveLength(2);
+        expect(names.some((n) => / 2$/.test(n))).toBe(true);
+      }
+  });
+
+  it("never offers a person already on the team, even from another edition (GDD §4.3)", () => {
+    const editions = new Map<string, Set<number>>();
+    for (const t of ds.teams)
+      for (const id of t.cardIds) {
+        const p = ds.card(id).personId;
+        editions.set(p, (editions.get(p) ?? new Set()).add(t.year));
+      }
+    const multi = new Set([...editions].filter(([, y]) => y.size > 1).map(([p]) => p));
+    expect(multi.size).toBeGreaterThan(100);
+    let repeatsAvoided = 0;
+    for (let i = 0; i < 300; i++) {
+      let d = createDraft(ds, `person-${i}`);
+      while (!isDraftComplete(d)) {
+        const taken = new Set(d.slots.filter((c) => c !== null).map((c) => ds.card(c!).personId));
+        const pickable = pickableCards(ds, d);
+        for (const id of ds.team(d.currentTeamId!).cardIds)
+          if (taken.has(ds.card(id).personId)) {
+            expect(pickable).not.toContain(id);
+            repeatsAvoided++;
+          }
+        // Prefer people who played several editions, to provoke repeats.
+        const card = pickable.find((id) => multi.has(ds.card(id).personId)) ?? pickable[0]!;
+        d = pick(ds, d, card, ds.card(card).board - 1);
+      }
+    }
+    expect(repeatsAvoided).toBeGreaterThan(0);
+  });
+
+  it("rolls top teams by their weight (GDD §4.1)", () => {
+    const { rollWeightTop10, rollTopRank } = balance.draft;
+    const top = ds.teams.filter((t) => t.finalRank <= rollTopRank);
+    for (const t of ds.teams) expect(t.rollWeight).toBe(top.includes(t) ? rollWeightTop10 : 1);
+    const expected =
+      (top.length * rollWeightTop10) /
+      (top.length * rollWeightTop10 + ds.teams.length - top.length);
+    const n = 4000;
+    let hits = 0;
+    for (let i = 0; i < n; i++)
+      if (ds.team(createDraft(ds, `weight-${i}`).currentTeamId!).finalRank <= rollTopRank) hits++;
+    // 4000 rolls: the standard error is under 1 p.p.
+    expect(Math.abs(hits / n - expected)).toBeLessThan(0.03);
+  });
+
   it("has a rating for every card and no opening books yet", () => {
     for (const t of ds.teams)
       for (const id of t.cardIds) {
