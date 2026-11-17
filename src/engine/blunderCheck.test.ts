@@ -127,4 +127,38 @@ describe("BlunderCheckedAI", () => {
     const b = await ai.chooseMove(req(2000, 7));
     expect(a.move).toBe(b.move);
   });
+  it("analyses the position while the inner AI is still choosing", async () => {
+    const ev = new FakeEvaluator({ f2f3: -300, e2e4: 40, d2d4: 30 });
+    let release!: () => void;
+    const gate = new Promise<void>((r) => (release = r));
+    const slow: ChessAI = {
+      async chooseMove(r) {
+        await gate;
+        return inner.chooseMove(r);
+      },
+    };
+    const pending = new BlunderCheckedAI(slow, ev, cfg).chooseMove(req(2000));
+    await Promise.resolve();
+    expect(ev.calls).toEqual([fen]);
+    release();
+    const parallel = await pending;
+    const serial = await new BlunderCheckedAI(
+      inner,
+      new FakeEvaluator({ f2f3: -300, e2e4: 40, d2d4: 30 }),
+      cfg,
+    ).chooseMove(req(2000));
+    expect(parallel.move).toBe(serial.move);
+  });
+
+  it("propagates an inner AI error without an unhandled analysis", async () => {
+    const failing: ChessAI = {
+      async chooseMove() {
+        throw new Error("maia failed");
+      },
+    };
+    const ev = new FakeEvaluator({});
+    await expect(new BlunderCheckedAI(failing, ev, cfg).chooseMove(req(2000))).rejects.toThrow(
+      "maia failed",
+    );
+  });
 });

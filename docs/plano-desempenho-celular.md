@@ -26,7 +26,7 @@ O `?seed=` precisa reproduzir a mesma partida em qualquer aparelho, e a calibra�
 2. ✅ **Dimensionar o pool sem excesso de threads** (resultado: o padrão 4 × 2 já está certo; o `/spike` ganhou `?workers=` e `?threads=` para comparar configurações): contar o Stockfish no orçamento de núcleos e usar 1 thread do ORT por worker quando houver poucos núcleos ou não houver isolamento (por exemplo, 2 workers × 1 thread no celular). O determinismo com contagens de threads diferentes já foi conferido; repetir o hash dos PGNs.
 3. **Começar o cálculo antes:** iniciar as partidas assim que o emparelhamento for conhecido, enquanto o usuário ainda está na tela anterior.
 4. **Agrupar as atualizações da interface:** acumular os lances recebidos e aplicá-los no `tick` do replay, em vez de um `set` por lance.
-5. **Interface:** indicar "calculando…" no tabuleiro que espera lance e pedir a Wake Lock da tela durante a rodada.
+5. **Interface:** ✅ Wake Lock da tela enquanto a rodada não termina (`src/app/wakeLock.ts`, 2026-11-17). Falta indicar "calculando…" no tabuleiro que espera lance.
 
 Ordem sugerida: 1 e 2 primeiro (baratos; a medição diz quanto vale o resto).
 
