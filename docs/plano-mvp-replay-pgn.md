@@ -14,7 +14,7 @@
 
 ## Passos
 
-1. **Guardar as partidas.** Na sessão, um `games: GameArchive` com uma entrada por (rodada, mesa): cartas, cores, resultado, término e lista de lances (SAN). Preenchido em `finishRound`. O tamanho é pequeno (~28 partidas × ~1 kB) e entra também no salvamento local ([plano-mvp-persistencia.md](plano-mvp-persistencia.md)).
+1. **Guardar as partidas.** Na sessão, um `games: GameArchive` com uma entrada por (rodada, mesa): cartas, cores, resultado, término e lista de lances (SAN). Preenchido em `finishRound`. O tamanho é pequeno (~28 partidas × ~1 kB).
 2. **PGN** (`src/share/pgn.ts` ou `src/sim/pgn.ts`, função pura):
    - cabeçalhos: `Event` ("4 a 0 — Olimpíada simulada"), `Site` (URL com `?seed=`), `Date`, `Round`, `Board`, `White`/`Black` (nome + ano da carta, ex.: "Karpov (1980)"), `WhiteTeam`/`BlackTeam`, `Result`, `Termination` (texto do motivo: mate, abandono, acordo…), `Annotator` ("Maia-3"), `Seed`;
    - comentário `{livro}` no último lance de livro (opcional);
