@@ -29,7 +29,7 @@ A força aparece em `Draft`, `Confirm`, `Field`, `PreRound`, `Round`, `LineupRow
 1. **Modo na sessão:** `mode: "classic" | "almanac" | "daily"` em `session.ts`, gravado na URL (`?modo=almanaque`) para que `?seed=` continue reproduzindo a sessão.
 2. **Uma regra só:** um hook `useShowStrength()` que devolve `false` quando o modo é `almanac` ou `daily` e o torneio não terminou. Os componentes de `src/app/ui/` (`LineupRow`, `BoardCard`) recebem `showStrength`; as telas não decidem por conta própria.
 3. **Ordem das listas:** onde a ordem entrega a força (lista do campo ordenada por `avgStrength`), ordenar por ano e país no modo Almanaque. A lógica interna (emparelhamento por força, §5.2) não muda.
-4. **Início:** dois botões, Jogar (Clássico) e Almanaque, com uma linha explicando cada um. Textos via i18n.
+4. **Início:** um seletor com duas opções, Clássico e Almanaque, com uma linha explicando o modo escolhido, e um único botão Jogar. Textos via i18n.
 5. **Final:** coluna de força revelada na campanha e nas escalações.
 6. **Testes:**
    - unidade: `useShowStrength` por modo e fase;

@@ -14,9 +14,11 @@ export const ptBR = {
     section: "Monte sua seleção histórica",
     pitch:
       "Sorteie seleções de Olimpíadas reais, escolha um jogador de cada uma e dispute um torneio de {{rounds}} rodadas.",
-    play_classic: "Jogar",
-    play_almanac: "Almanaque",
-    hint_classic: "Modo clássico: a força de cada jogador aparece nas cartas.",
+    play: "Jogar",
+    mode: "Modo de jogo",
+    mode_classic: "Clássico",
+    mode_almanac: "Almanaque",
+    hint_classic: "A força de cada jogador aparece nas cartas.",
     hint_almanac:
       "A força fica oculta até o fim do torneio: escolha pelo que você sabe da história do xadrez.",
     fastNote: "Modo rápido: suas partidas são simuladas sem tabuleiro, para testar o fluxo.",

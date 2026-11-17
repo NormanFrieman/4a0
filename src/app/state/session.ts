@@ -93,7 +93,8 @@ interface SessionState {
   replay: { key: string; from: Phase } | null;
 
   init(): Promise<void>;
-  startDraft(mode?: Mode): void;
+  setMode(mode: Mode): void;
+  startDraft(): void;
   openAbout(): void;
   closeAbout(): void;
   selectCard(id: string): void;
@@ -162,11 +163,17 @@ export const useSession = create<SessionState>()((set, get) => ({
     }
   },
 
-  startDraft(mode = get().mode) {
-    const { dataset, seed, fastMode } = get();
+  setMode(mode) {
+    const { seed, fastMode } = get();
+    writeUrl(seed, fastMode, mode);
+    set({ mode });
+  },
+
+  startDraft() {
+    const { dataset, seed, fastMode, mode } = get();
     if (!dataset) return;
     writeUrl(seed, fastMode, mode);
-    set({ mode, draft: createDraft(dataset, seed), selectedCardId: null, phase: "draft" });
+    set({ draft: createDraft(dataset, seed), selectedCardId: null, phase: "draft" });
     if (!fastMode) loadEngine((engine) => set({ engine })).catch(() => {});
   },
 
