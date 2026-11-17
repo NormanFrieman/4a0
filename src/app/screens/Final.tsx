@@ -18,6 +18,7 @@ import {
   outcomeOf,
 } from "../ui/index.ts";
 import { useSession } from "../state/session.ts";
+import { FinalTabs, medalColor } from "./FinalStandings.tsx";
 import {
   cardTotals,
   cardView,
@@ -29,12 +30,6 @@ import {
   userMatches,
   userPointsIn,
 } from "./helpers.ts";
-
-const medalColor = {
-  gold: "text-medal-gold",
-  silver: "text-medal-silver",
-  bronze: "text-medal-bronze",
-};
 
 type CopyState = "idle" | "copied" | "failed";
 type ImageState = "idle" | "busy" | "failed";
@@ -174,6 +169,105 @@ export function Final() {
     .filter(([, v]) => v.games > 0)
     .sort((a, b) => b[1].points / b[1].games - a[1].points / a[1].games)[0]?.[0];
 
+  const campaignAndBoards = (
+    <>
+      <section>
+        <h3 className="font-display text-xl font-bold italic">{t("final.campaign")}</h3>
+        <table className="mt-2 w-full text-sm">
+          <tbody>
+            {userMatches(tournament).map((m) => {
+              const mine = userPointsIn(m)!;
+              const opp = teamLabel(ds, opponentIn(m), t("round.you"));
+              const outcome = outcomeOf(mine / 4);
+              return (
+                <tr key={m.round} className="border-b border-dotted border-line">
+                  <td className="py-1.5 pr-2 text-muted tabular-nums">
+                    {t("final.roundShort", { n: m.round })}
+                  </td>
+                  <td className="py-1.5">
+                    <span className="flex items-center gap-2">
+                      {opp.countryCode && <Flag code={opp.countryCode} className="w-5" />}
+                      {opp.name}
+                      <span className="text-xs text-muted italic">
+                        {t("final.opponentAvg", {
+                          avg: entrant(tournament, opponentIn(m)).avgStrength,
+                        })}
+                      </span>
+                    </span>
+                  </td>
+                  <td className="py-1.5 text-right font-bold tabular-nums">
+                    {formatPoints(mine)}–{formatPoints(4 - mine)}
+                  </td>
+                  <td className="py-1.5 pl-3 text-right italic">
+                    <ResultBadge outcome={outcome} className="font-normal">
+                      {t(`round.outcome_${outcome}`)}
+                    </ResultBadge>
+                  </td>
+                  {hasGames && (
+                    <td className="py-1.5 pl-3 text-right whitespace-nowrap">
+                      <span
+                        role="group"
+                        aria-label={t("final.games", { n: m.round })}
+                        className="inline-flex gap-1"
+                      >
+                        {m.boards.map((b) => {
+                          const g = games[archiveKey(m.round, b.board)];
+                          if (!g) return null;
+                          const white = g.whiteTeamId === USER_ID;
+                          const o = outcomeOf(white ? b.score : 1 - b.score);
+                          return (
+                            <button
+                              key={b.board}
+                              type="button"
+                              title={t("replay.openBoard", { n: b.board })}
+                              aria-label={t("replay.openBoard", { n: b.board })}
+                              onClick={() => openReplay(m.round, b.board)}
+                              className="cursor-pointer border border-line px-1 text-xs hover:border-ink"
+                            >
+                              <ResultBadge outcome={o} className="font-normal">
+                                {b.board}
+                              </ResultBadge>
+                            </button>
+                          );
+                        })}
+                      </span>
+                    </td>
+                  )}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h3 className="font-display text-xl font-bold italic">{t("final.boards")}</h3>
+        <ul className="mt-2 space-y-1.5 text-sm">
+          {user.cardIds.map((id, i) => {
+            const v = cardView(ds, id);
+            const s = totals.get(id)!;
+            return (
+              <li key={id} className="flex items-baseline gap-2">
+                <span className="w-16 shrink-0">
+                  <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
+                </span>
+                <ChampionName
+                  name={v.name}
+                  champion={v.champion ? t("champion.label") : undefined}
+                  className={id === best ? "font-bold" : ""}
+                />
+                <span className="text-muted tabular-nums">{v.card.strength}</span>
+                <span className="flex-1 border-b border-dotted border-line" />
+                <span className="tabular-nums">
+                  {formatPoints(s.points)}/{s.games}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    </>
+  );
+
   return (
     <ScreenLayout
       width="max-w-4xl"
@@ -222,103 +316,7 @@ export function Final() {
         </div>
       </section>
 
-      <div className="mt-8 grid gap-8 md:grid-cols-2 lg:mt-0 lg:min-h-0 lg:grid-cols-1 lg:content-start lg:gap-5 lg:overflow-y-auto">
-        <section>
-          <h3 className="font-display text-xl font-bold italic">{t("final.campaign")}</h3>
-          <table className="mt-2 w-full text-sm">
-            <tbody>
-              {userMatches(tournament).map((m) => {
-                const mine = userPointsIn(m)!;
-                const opp = teamLabel(ds, opponentIn(m), t("round.you"));
-                const outcome = outcomeOf(mine / 4);
-                return (
-                  <tr key={m.round} className="border-b border-dotted border-line">
-                    <td className="py-1.5 pr-2 text-muted tabular-nums">
-                      {t("final.roundShort", { n: m.round })}
-                    </td>
-                    <td className="py-1.5">
-                      <span className="flex items-center gap-2">
-                        {opp.countryCode && <Flag code={opp.countryCode} className="w-5" />}
-                        {opp.name}
-                        <span className="text-xs text-muted italic">
-                          {t("final.opponentAvg", {
-                            avg: entrant(tournament, opponentIn(m)).avgStrength,
-                          })}
-                        </span>
-                      </span>
-                    </td>
-                    <td className="py-1.5 text-right font-bold tabular-nums">
-                      {formatPoints(mine)}–{formatPoints(4 - mine)}
-                    </td>
-                    <td className="py-1.5 pl-3 text-right italic">
-                      <ResultBadge outcome={outcome} className="font-normal">
-                        {t(`round.outcome_${outcome}`)}
-                      </ResultBadge>
-                    </td>
-                    {hasGames && (
-                      <td className="py-1.5 pl-3 text-right whitespace-nowrap">
-                        <span
-                          role="group"
-                          aria-label={t("final.games", { n: m.round })}
-                          className="inline-flex gap-1"
-                        >
-                          {m.boards.map((b) => {
-                            const g = games[archiveKey(m.round, b.board)];
-                            if (!g) return null;
-                            const white = g.whiteTeamId === USER_ID;
-                            const o = outcomeOf(white ? b.score : 1 - b.score);
-                            return (
-                              <button
-                                key={b.board}
-                                type="button"
-                                title={t("replay.openBoard", { n: b.board })}
-                                aria-label={t("replay.openBoard", { n: b.board })}
-                                onClick={() => openReplay(m.round, b.board)}
-                                className="cursor-pointer border border-line px-1 text-xs hover:border-ink"
-                              >
-                                <ResultBadge outcome={o} className="font-normal">
-                                  {b.board}
-                                </ResultBadge>
-                              </button>
-                            );
-                          })}
-                        </span>
-                      </td>
-                    )}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <h3 className="font-display text-xl font-bold italic">{t("final.boards")}</h3>
-          <ul className="mt-2 space-y-1.5 text-sm">
-            {user.cardIds.map((id, i) => {
-              const v = cardView(ds, id);
-              const s = totals.get(id)!;
-              return (
-                <li key={id} className="flex items-baseline gap-2">
-                  <span className="w-16 shrink-0">
-                    <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
-                  </span>
-                  <ChampionName
-                    name={v.name}
-                    champion={v.champion ? t("champion.label") : undefined}
-                    className={id === best ? "font-bold" : ""}
-                  />
-                  <span className="text-muted tabular-nums">{v.card.strength}</span>
-                  <span className="flex-1 border-b border-dotted border-line" />
-                  <span className="tabular-nums">
-                    {formatPoints(s.points)}/{s.games}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-        <BoardPrizes />
-      </div>
+      <FinalTabs campaign={campaignAndBoards} prizes={<BoardPrizes />} />
     </ScreenLayout>
   );
 }

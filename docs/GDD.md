@@ -62,7 +62,7 @@ Uma sessão vai do primeiro sorteio à medalha, sem interrupção, em cerca de 1
 4. **Sorteio do campo:** o jogo monta as seleções adversárias e mostra a lista de participantes.
 5. **Rodadas (7 no MVP):** em cada uma, o usuário vê o adversário e assiste ao match. Os outros matches são simulados em segundo plano.
 6. **Classificação:** atualizada após cada rodada.
-7. **Resultado final:** colocação, medalha, destaques individuais e imagem para compartilhar.
+7. **Resultado final:** colocação, medalha, classificação final, destaques individuais e imagem para compartilhar.
 8. **Replay:** qualquer partida pode ser revista e baixada em PGN.
 
 ## 4. Draft
@@ -339,7 +339,7 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 | Confirmação | As 4 cartas na ordem, força média, traços de estilo | Confirmar |
 | Rodada | As duas escalações, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Jogar, mudar velocidade |
 | Classificação | Tabela após cada rodada, com pontos de match, de partida e desempate | Próxima rodada |
-| Resultado final | Colocação, medalha, campanha rodada a rodada, destaque individual por mesa | Compartilhar imagem, copiar texto, jogar de novo |
+| Resultado final | Colocação, medalha, campanha rodada a rodada, classificação final, destaque individual por mesa | Compartilhar imagem, copiar texto, jogar de novo |
 | Replay | Tabuleiro com navegação pelos lances, nomes, resultado | Baixar PGN, voltar |
 
 O tabuleiro usa chessground. As cartas mostram nome, país, ano, título, força (exceto no modo Mestre), traço de estilo e campanha real. Não usar fotos de jogadores reais.

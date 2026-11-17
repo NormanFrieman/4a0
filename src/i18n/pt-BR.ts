@@ -148,6 +148,9 @@ export const ptBR = {
     prizePerformance: "desempenho {{perf}}",
     playAgain: "Jogar de novo",
     games: "Partidas da rodada {{n}}",
+    tabCampaign: "Campanha",
+    tabStandings: "Classificação",
+    tabPrizes: "Prêmios",
   },
   share: {
     mode_classic: "Modo Clássico",
