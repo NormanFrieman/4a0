@@ -1,6 +1,13 @@
 # Plano: compartilhamento (GDD §11)
 
-**Situação:** planejado em 2026-11-16. O Desafio diário saiu do roadmap em 2026-11-17; o compartilhamento vale para os modos Clássico e Mestre.
+**Situação:** planejado em 2026-11-16; **feito** em 2026-11-17. O Desafio diário saiu do roadmap em 2026-11-17; o compartilhamento vale para os modos Clássico e Mestre.
+
+## Como ficou
+
+- `src/share/text.ts`: `ShareSummary` (montado por `shareSummary` em `src/app/screens/helpers.ts`), `shareText` e os rótulos do cartão. Os sobrenomes das 4 cartas entram no texto; a força nunca entra.
+- `src/app/ui/ShareCard.tsx`: o certificado em 1080 × 1350, com variantes no `/dev/ui`. Fica montado fora da tela no Final, para as bandeiras já estarem carregadas na exportação.
+- `src/share/image.ts`: `html-to-image` (`toBlob`, `pixelRatio` 1) depois de `document.fonts.ready`. Só aparelhos de toque usam `navigator.share`; o resto, ou um compartilhamento recusado, baixa `4a0-{semente}.png`.
+- Conferido no Chromium: a Fraunces e as bandeiras (arquivos e SVG inline) entram na imagem, que sai em ~1,5 s. Falta conferir no Firefox, no Safari/iOS e no `navigator.share` do Android.
 
 **Critério de aceite (§13.2):** "Texto e imagem de compartilhamento são gerados no navegador."
 

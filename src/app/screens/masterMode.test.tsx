@@ -4,7 +4,7 @@
  * in effects) and looks for every strength number the screen could show.
  */
 import { renderToStaticMarkup } from "react-dom/server";
-import { beforeAll, describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it, vi } from "vitest";
 import "../../i18n/index.ts";
 import { avgStrength } from "../../data/cardStrength.ts";
 import { sampleDataset } from "../../data/testing.ts";
@@ -110,6 +110,8 @@ function renderIn(mode: Mode, phase: Phase, el: () => React.ReactElement) {
 }
 
 beforeAll(() => {
+  // The Final builds the share link from `location` (no DOM on the server).
+  vi.stubGlobal("location", new URL("https://4a0.test/"));
   // Strengths are 4-digit ratings, years are 1970–2026: no overlap with years.
   for (const n of strengths) expect(n < 1900 || n > 2100).toBe(true);
 });

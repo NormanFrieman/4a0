@@ -13,6 +13,7 @@ import {
   MatchScore,
   ResultBadge,
   Rule,
+  ShareCard,
   StyleTrait,
   TeamSlot,
   type Trait,
@@ -74,6 +75,38 @@ const games = [
     black: { name: "Lubomir Kavalek", strength: 2555, isUser: true },
   },
 ];
+
+const sharePlayers = [
+  { board: 1, name: "Anatoly Karpov", countryCode: "su", countryName: "URSS", year: 1974 },
+  { board: 2, name: "Bent Larsen", countryCode: "dk", countryName: "Dinamarca", year: 1970 },
+  { board: 3, name: "Lajos Portisch", countryCode: "hu", countryName: "Hungria", year: 1978 },
+  { board: 4, name: "Svetozar Gligorić", countryCode: "yu", countryName: "Iugoslávia", year: 1972 },
+];
+
+const shareRounds = [
+  [3.5, 0.5],
+  [3, 1],
+  [2, 2],
+  [2.5, 1.5],
+  [1.5, 2.5],
+  [4, 0],
+  [3, 1],
+].map(([own, other], i) => ({ round: i + 1, own: own!, other: other! }));
+
+const shareLabels = (medal: boolean) => ({
+  title: "4 a 0",
+  kicker: "Olimpíadas de Xadrez",
+  mode: "Modo Mestre",
+  certifies: "Certifica-se que a seleção de",
+  verb: medal ? "conquistou a" : "terminou em",
+  headline: medal ? "Medalha de Bronze" : "5º lugar",
+  detail: medal
+    ? "3º lugar · 11 pontos de match · 19½ de partida"
+    : "9 pontos de match · 16½ de partida",
+  board: (n: number) => `Mesa ${n}`,
+  round: (n: number) => `${n}ª`,
+  footer: "Jogue a mesma semente em 4a0.example/?seed=abc&modo=mestre",
+});
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -260,6 +293,26 @@ export function UiCatalog() {
               white={{ ...g.white, strength: hide(g.white.strength) }}
               black={{ ...g.black, strength: hide(g.black.strength) }}
             />
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Imagem de compartilhamento (1080 × 1350, em 35%)">
+        <div className="flex flex-wrap gap-6">
+          {[true, false].map((medal) => (
+            <div
+              key={String(medal)}
+              className="h-[473px] w-[378px] overflow-hidden border border-line"
+            >
+              <div className="origin-top-left scale-[0.35]">
+                <ShareCard
+                  medal={medal ? "bronze" : null}
+                  players={sharePlayers}
+                  rounds={shareRounds}
+                  labels={shareLabels(medal)}
+                />
+              </div>
+            </div>
           ))}
         </div>
       </Section>

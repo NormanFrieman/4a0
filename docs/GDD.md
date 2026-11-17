@@ -456,7 +456,7 @@ O MVP valida uma pergunta: montar uma seleção histórica e vê-la jogar uma Ol
 - [ ] As partidas do usuário são jogadas pelo Maia-3 no worker, usando livro quando disponível.
 - [ ] A mesma semente reproduz exatamente o mesmo draft, campo, emparelhamentos e partidas (backend WASM).
 - [ ] Classificação, desempates e medalhas estão corretos (testes com torneios de exemplo).
-- [ ] Texto e imagem de compartilhamento são gerados no navegador.
+- [x] Texto e imagem de compartilhamento são gerados no navegador.
 - [x] Qualquer partida pode ser revista e baixada em PGN.
 - [ ] Todos os valores de balanceamento vêm de `balance.ts`.
 

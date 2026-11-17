@@ -5,7 +5,9 @@ import type { ArchivedGame } from "../../sim/gameArchive.ts";
 import { campaignPgn, gamePgn, type PgnContext } from "../../sim/pgn.ts";
 import { downloadText } from "../download.ts";
 import { firstIsWhite } from "../../sim/match.ts";
-import { USER_ID, type TournamentState } from "../../tournament/tournament.ts";
+import { USER_ID, currentStandings, type TournamentState } from "../../tournament/tournament.ts";
+import type { ShareSummary } from "../../share/text.ts";
+import { modeParam, type Mode } from "../state/mode.ts";
 import type { MatchResult } from "../../tournament/types.ts";
 
 export interface TeamLabel {
@@ -65,11 +67,52 @@ export function cardTotals(t: TournamentState): Map<string, { points: number; ga
   return totals;
 }
 
+/** Link that reproduces the session: `?seed=` and, in Mestre, `?modo=`. */
+export function sessionUrl(seed: string, mode: Mode = "classic"): string {
+  const p = new URLSearchParams({ seed });
+  const m = modeParam(mode);
+  if (m) p.set("modo", m);
+  return `${location.origin}${location.pathname}?${p}`;
+}
+
+/** What the share text and image show about the finished tournament. */
+export function shareSummary(
+  ds: Dataset,
+  t: TournamentState,
+  mode: Mode,
+  url: string,
+): ShareSummary {
+  const row = currentStandings(t).find((r) => r.teamId === USER_ID)!;
+  const user = t.entrants.find((e) => e.id === USER_ID)!;
+  return {
+    mode,
+    medal: row.medal,
+    place: row.rank,
+    matchPoints: row.matchPoints,
+    gamePoints: row.gamePoints,
+    players: user.cardIds.map((id, i) => {
+      const { name, team } = cardView(ds, id);
+      return {
+        board: i + 1,
+        name,
+        countryCode: team.countryCode,
+        countryName: team.countryName,
+        year: team.year,
+      };
+    }),
+    rounds: userMatches(t).map((m) => {
+      const own = userPointsIn(m)!;
+      return { round: m.round, own, other: m.first === USER_ID ? m.secondPoints : m.firstPoints };
+    }),
+    url,
+  };
+}
+
 /** PGN context of the session: texts from i18n, names from the dataset. */
 export function pgnContext(ds: Dataset, seed: string, t: TFunction): PgnContext {
   return {
     event: t("pgn.event"),
-    site: `${location.origin}${location.pathname}?seed=${encodeURIComponent(seed)}`,
+    site: sessionUrl(seed),
     date: new Date(),
     seed,
     playerName: (id) => {

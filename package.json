@@ -32,6 +32,7 @@
     "chess.js": "^1.4.0",
     "chessground": "^9.2.1",
     "flag-icons": "^7.6.0",
+    "html-to-image": "^1.11.13",
     "i18next": "^27.1.1",
     "maia3-js": "0.2.0",
     "onnxruntime-web": "1.31.1",

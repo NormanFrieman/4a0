@@ -41,7 +41,7 @@ export const ptBR = {
     },
     libraries: {
       title: "Bibliotecas",
-      body: "chessground (tabuleiro, Lichess), chess.js (regras), ONNX Runtime Web (inferência), React, i18next, zustand, flag-icons (bandeiras) e a fonte Fraunces. A lista completa, com as licenças, está no repositório.",
+      body: "chessground (tabuleiro, Lichess), chess.js (regras), ONNX Runtime Web (inferência), React, i18next, zustand, flag-icons (bandeiras), html-to-image (imagem de compartilhamento) e a fonte Fraunces. A lista completa, com as licenças, está no repositório.",
     },
     license: {
       title: "Licença",
@@ -145,6 +145,18 @@ export const ptBR = {
     boards: "Destaques por mesa",
     playAgain: "Jogar de novo",
     games: "Partidas da rodada {{n}}",
+  },
+  share: {
+    mode_classic: "Modo Clássico",
+    mode_master: "Modo Mestre",
+    matchPoints: "{{mp}} pts de match",
+    footer: "Jogue a mesma semente em {{url}}",
+    copy: "Copiar resultado",
+    copied: "Copiado!",
+    copyFailed: "Não foi possível copiar. Selecione o texto abaixo:",
+    image: "Compartilhar imagem",
+    imageBusy: "Gerando imagem…",
+    imageFailed: "Não foi possível gerar a imagem.",
   },
   replay: {
     section: "Rodada {{round}} · Mesa {{board}}",

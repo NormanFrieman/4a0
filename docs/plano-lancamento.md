@@ -22,7 +22,7 @@
 | 4   | ✅ [Campo por faixas de força](plano-mvp-campo-faixas.md) | 2                                                                  |
 | 5   | ✅ [Replay e PGN](plano-mvp-replay-pgn.md)                | —                                                                  |
 | 6   | ✅ [Modo Mestre](plano-mvp-modo-mestre.md)                | —                                                                  |
-| 7   | [Compartilhamento](plano-mvp-compartilhamento.md)         | —                                                                  |
+| 7   | ✅ [Compartilhamento](plano-mvp-compartilhamento.md)      | —                                                                  |
 | 8   | [Calibração, fases B e C](plano-calibracao.md)            | 2, 3 (a escala precisa da faixa real de forças)                    |
 
 Os itens 5 e 6 não dependem dos dados e podem andar em paralelo com 2 e 3.

@@ -1,4 +1,7 @@
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { renderShareImage, shareImage } from "../../share/image.ts";
+import { shareCardLabels, shareText } from "../../share/text.ts";
 import { archiveKey } from "../../sim/gameArchive.ts";
 import { USER_ID, currentStandings, entrant } from "../../tournament/tournament.ts";
 import {
@@ -8,6 +11,7 @@ import {
   Masthead,
   ResultBadge,
   ScreenLayout,
+  ShareCard,
   formatPoints,
   outcomeOf,
 } from "../ui/index.ts";
@@ -17,6 +21,8 @@ import {
   cardView,
   downloadCampaign,
   opponentIn,
+  sessionUrl,
+  shareSummary,
   teamLabel,
   userMatches,
   userPointsIn,
@@ -27,6 +33,86 @@ const medalColor = {
   silver: "text-medal-silver",
   bronze: "text-medal-bronze",
 };
+
+type CopyState = "idle" | "copied" | "failed";
+type ImageState = "idle" | "busy" | "failed";
+
+/** Share buttons and the off-screen `ShareCard` they export (GDD §11). */
+function SharePanel() {
+  const { t } = useTranslation();
+  const { dataset: ds, tournament, seed, mode } = useSession();
+  const card = useRef<HTMLDivElement>(null);
+  const failedText = useRef<HTMLTextAreaElement>(null);
+  const [copy, setCopy] = useState<CopyState>("idle");
+  const [image, setImage] = useState<ImageState>("idle");
+
+  useEffect(() => {
+    if (copy !== "copied") return;
+    const id = setTimeout(() => setCopy("idle"), 2000);
+    return () => clearTimeout(id);
+  }, [copy]);
+  useEffect(() => {
+    if (copy === "failed") failedText.current?.select();
+  }, [copy]);
+
+  if (!ds || !tournament) return null;
+  const summary = shareSummary(ds, tournament, mode, sessionUrl(seed, mode));
+  const text = shareText(summary, t);
+
+  const copyText = () =>
+    navigator.clipboard.writeText(text).then(
+      () => setCopy("copied"),
+      () => setCopy("failed"),
+    );
+
+  const exportImage = async () => {
+    if (!card.current) return;
+    setImage("busy");
+    try {
+      await shareImage(await renderShareImage(card.current), `4a0-${seed}.png`);
+      setImage("idle");
+    } catch {
+      setImage("failed");
+    }
+  };
+
+  return (
+    <>
+      <Button onClick={copyText}>{copy === "copied" ? t("share.copied") : t("share.copy")}</Button>
+      <Button onClick={exportImage} disabled={image === "busy"}>
+        {image === "busy" ? t("share.imageBusy") : t("share.image")}
+      </Button>
+      {image === "failed" && (
+        <p role="alert" className="basis-full text-center text-sm text-loss italic">
+          {t("share.imageFailed")}
+        </p>
+      )}
+      {copy === "failed" && (
+        <label className="block basis-full text-left text-sm text-muted italic">
+          {t("share.copyFailed")}
+          <textarea
+            ref={failedText}
+            readOnly
+            rows={5}
+            value={text}
+            className="mt-1 block w-full border border-line bg-surface p-2 font-body text-ink not-italic"
+          />
+        </label>
+      )}
+      {/* Off-screen, always mounted so the flags are loaded before the export. */}
+      <div aria-hidden className="pointer-events-none fixed top-0 -left-[10000px]">
+        <div ref={card}>
+          <ShareCard
+            medal={summary.medal}
+            players={summary.players}
+            rounds={summary.rounds}
+            labels={shareCardLabels(summary, t)}
+          />
+        </div>
+      </div>
+    </>
+  );
+}
 
 export function Final() {
   const { t } = useTranslation();
@@ -63,6 +149,7 @@ export function Final() {
               {t("replay.downloadCampaign")}
             </Button>
           )}
+          <SharePanel />
         </div>
       }
     >
