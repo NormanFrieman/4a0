@@ -33,6 +33,16 @@ function heapMB(): number | undefined {
   return mem ? Math.round(mem.usedJSHeapSize / 1024 / 1024) : undefined;
 }
 
+/** `?workers=` / `?threads=` override the pool size, to compare setups on one device. */
+function poolOverride(): { size?: number; threads?: number } {
+  const q = new URLSearchParams(location.search);
+  const num = (k: string) => {
+    const n = Number(q.get(k));
+    return Number.isInteger(n) && n > 0 ? n : undefined;
+  };
+  return { size: num("workers"), threads: num("threads") };
+}
+
 /** Game rating (calibrated scale) → worker side. */
 const sideFor = (rating: number): GameSide => {
   const p = engineParamsForRating(rating);
@@ -70,7 +80,10 @@ export function Spike() {
   }, []);
 
   async function ensureClient(m: Metrics) {
-    if (!client.current) client.current = new MaiaWorkerPool();
+    if (!client.current) {
+      const { size, threads } = poolOverride();
+      client.current = new MaiaWorkerPool(size, threads);
+    }
     setStatus("Carregando modelo no worker…");
     const info = await client.current.init(
       {
