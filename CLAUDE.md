@@ -4,7 +4,8 @@ Jogo de navegador: o usuário monta uma equipe de 5 enxadristas históricos e di
 
 - Medições de desempenho e calibração da engine: [docs/benchmarks.md](docs/benchmarks.md).
 - **Calibração pendente:** `engineCalibration` foi medido sem o filtro do Stockfish e está desatualizado. A escada será refeita uma vez só, num computador com mais capacidade, depois de fixar as regras de fim de partida.
-- Próximo trabalho planejado: [docs/plano-calibracao.md](docs/plano-calibracao.md) (Fase A: regras de fim de partida; Fase B: escada única; Fase C: escala, `quickSim` e validação).
+- Caminho até o lançamento e ordem dos planos: [docs/plano-lancamento.md](docs/plano-lancamento.md) (dados do top 20 por Wikipedia/Wikidata, livros do Lichess, código aberto AGPL, partes que faltam do MVP).
+- Calibração (fica para depois dos dados): [docs/plano-calibracao.md](docs/plano-calibracao.md) (Fase A: regras de fim de partida; Fase B: escada única; Fase C: escala, `quickSim` e validação).
 - `pnpm engine:quality` mede a qualidade dos lances (`--analyse-nodes 100000` faz a análise no padrão do Lichess).
 - Design system (direção "Almanaque histórico", tokens e componentes em `src/app/ui/`): [docs/design.md](docs/design.md). Use os tokens do Tailwind, nunca cores literais.
 - O projeto antigo (cidade estilo Clash of Clans, "Xadrez de Cidades") foi descartado. Não reintroduzir cidade, recursos, servidor, relógios ou captura.
