@@ -3,7 +3,6 @@ export const ptBR = {
   app: {
     title: "4 a 0",
     kicker: "Olimpíadas de Xadrez",
-    seed: "Semente {{seed}}",
     fastMode: "modo rápido de teste",
     masterMode: "modo Mestre",
     loading: "Carregando dados…",

@@ -16,7 +16,7 @@ import { Standings } from "./screens/Standings.tsx";
 /** The game: one screen per session phase (GDD §3, §10). */
 export function Game() {
   const { t } = useTranslation();
-  const { phase, error, seed, fastMode, mode, init } = useSession();
+  const { phase, error, fastMode, mode, init } = useSession();
 
   useEffect(() => {
     void init();
@@ -49,10 +49,8 @@ export function Game() {
         {phase === "replay" && <Replay />}
       </main>
       <footer className="py-3 text-center text-xs text-muted lg:shrink-0 lg:py-1.5">
-        {seed && t("app.seed", { seed })}
-        {mode === "master" && ` · ${t("app.masterMode")}`}
-        {fastMode && ` · ${t("app.fastMode")}`}
-        {seed && " · "}
+        {mode === "master" && `${t("app.masterMode")} · `}
+        {fastMode && `${t("app.fastMode")} · `}
         <a
           href={sourceLink()}
           target="_blank"

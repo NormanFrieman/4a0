@@ -116,14 +116,20 @@ function newSeed(): string {
   return crypto.getRandomValues(new Uint32Array(1))[0]!.toString(36);
 }
 
-function writeUrl(seed: string, fast: boolean, mode: Mode) {
+/**
+ * Keep `?rapido=` and `?modo=` in the address bar. The seed stays out of it:
+ * an incoming `?seed=` is read once by `init` and then dropped, so reloading
+ * starts a fresh session. Only the share link carries it (`sessionUrl`).
+ */
+function writeUrl(fast: boolean, mode: Mode) {
   const p = new URLSearchParams(location.search);
-  p.set("seed", seed);
+  p.delete("seed");
   if (fast) p.set("rapido", "1");
   const m = modeParam(mode);
   if (m) p.set("modo", m);
   else p.delete("modo");
-  history.replaceState(null, "", `${location.pathname}?${p}`);
+  const q = p.toString();
+  history.replaceState(null, "", q ? `${location.pathname}?${q}` : location.pathname);
 }
 
 /** Bumped on every new round/session so late worker callbacks are ignored. */
@@ -153,7 +159,7 @@ export const useSession = create<SessionState>()((set, get) => ({
     const seed = p.get("seed") || newSeed();
     const fastMode = p.get("rapido") === "1";
     const mode = parseMode(p.get("modo"));
-    writeUrl(seed, fastMode, mode);
+    writeUrl(fastMode, mode);
     set({ seed, fastMode, mode });
     try {
       const dataset = await loadDataset("v1");
@@ -164,15 +170,15 @@ export const useSession = create<SessionState>()((set, get) => ({
   },
 
   setMode(mode) {
-    const { seed, fastMode } = get();
-    writeUrl(seed, fastMode, mode);
+    const { fastMode } = get();
+    writeUrl(fastMode, mode);
     set({ mode });
   },
 
   startDraft() {
     const { dataset, seed, fastMode, mode } = get();
     if (!dataset) return;
-    writeUrl(seed, fastMode, mode);
+    writeUrl(fastMode, mode);
     set({ draft: createDraft(dataset, seed), selectedCardId: null, phase: "draft" });
     if (!fastMode) loadEngine((engine) => set({ engine })).catch(() => {});
   },
