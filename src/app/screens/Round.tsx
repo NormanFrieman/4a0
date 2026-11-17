@@ -175,11 +175,13 @@ export function Round() {
                 name: white.name,
                 strength: show ? white.card.strength : null,
                 isUser: userWhite(b),
+                ...(white.champion ? { champion: t("champion.label") } : {}),
               }}
               black={{
                 name: black.name,
                 strength: show ? black.card.strength : null,
                 isUser: !userWhite(b),
+                ...(black.champion ? { champion: t("champion.label") } : {}),
               }}
               {...(done && games[archiveKey(live.round, b.game.board)]
                 ? {

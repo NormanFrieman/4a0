@@ -8,7 +8,16 @@ import {
   opponentOf,
   userPairing,
 } from "../../tournament/tournament.ts";
-import { Button, Flag, Kicker, Masthead, Rule, ScreenLayout, StyleTrait } from "../ui/index.ts";
+import {
+  Button,
+  ChampionMark,
+  Flag,
+  Kicker,
+  Masthead,
+  Rule,
+  ScreenLayout,
+  StyleTrait,
+} from "../ui/index.ts";
 import { useSession, useShowStrength } from "../state/session.ts";
 import { cardView } from "./helpers.ts";
 
@@ -95,7 +104,9 @@ function LineupList({
             <li key={id} className="grid grid-cols-[4.5rem_1fr_auto] items-center gap-2 py-2">
               <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
               <span className="min-w-0">
-                <span className="block truncate font-bold">{v.name}</span>
+                <span className="block truncate font-bold">
+                  {v.name} {v.champion && <ChampionMark label={t("champion.label")} />}
+                </span>
                 <span className="text-sm">
                   <StyleTrait trait={v.trait} label={t(`trait.${v.trait}`)} />
                 </span>

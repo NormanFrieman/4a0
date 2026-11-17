@@ -34,6 +34,11 @@ export interface Person {
   maxTitle: string;
   /** 1 − draw rate (GDD §7.2). */
   decisiveness: number;
+  /**
+   * World champion of the classical/unified line, at any time (special look;
+   * tools/data/olympiads/worldChampions.ts). Absent in the sample dataset.
+   */
+  worldChampion?: boolean;
 }
 
 export interface PlayerCard {

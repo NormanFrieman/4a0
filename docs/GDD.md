@@ -213,6 +213,7 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 - **Fonte provisória:** coleções PGN públicas por jogador (PGN Mentor), só para desenvolvimento. Ver 14.1.
 - **DECIDIDO (2026-11-16): os livros vêm do Lichess** (explorador "masters"), substituindo o PGN Mentor. O Lichess não filtra partidas de mestres por jogador; o livro por carta está em aberto (§14.2). Plano: [plano-livros.md](plano-livros.md).
 - **Provisório (2026-11-16, decisão do usuário):** os dados `v1` saem **sem livros** (`bookFile: null`) e o Maia joga desde o primeiro lance. Os livros ficam para depois.
+- **Piloto (2026-11-17, decisão do usuário): livro por carta só para os campeões mundiais** (linha clássica/unificada, ver §10). A fonte é a coleção de cada um no PGN Mentor, até o ano da carta. Só o livro agregado (posição → lance → frequência) é publicado; as partidas ficam fora do git (`pnpm data:pgn --champions`). Carta com menos de `bookMinGames` partidas fica sem livro, em vez de usar o livro da década. As outras cartas seguem sem livro. O piloto mede o custo de levar o livro por carta a todas as cartas ([plano-livros.md](plano-livros.md)).
 
 ### 7.2 Estilo (MVP)
 
@@ -324,7 +325,7 @@ Os dados históricos são processados offline por scripts e publicados como arqu
 | --- | --- |
 | `Olympiad` | year, city, country, rounds, boards, teamsCount |
 | `NationalTeam` | id, year, countryCode, countryName, finalRank, avgStrength, rollWeight, cardIds (na ordem real) |
-| `Person` | id, name, countryCodes, maxTitle, decisiveness |
+| `Person` | id, name, countryCodes, maxTitle, decisiveness, worldChampion |
 | `PlayerCard` | id, personId, year, teamId, board, title, fideRating, performance, strength, score, games, medals, bookFile |
 
 ## 10. Telas
@@ -342,6 +343,8 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 | Replay | Tabuleiro com navegação pelos lances, nomes, resultado | Baixar PGN, voltar |
 
 O tabuleiro usa chessground. As cartas mostram nome, país, ano, título, força (exceto no modo Mestre), traço de estilo e campanha real. Não usar fotos de jogadores reais.
+
+**Campeões mundiais (DECIDIDO, 2026-11-17):** as cartas de quem foi campeão mundial da linha clássica/unificada (Smyslov, Tal, Petrosian, Spassky, Karpov, Kasparov, Kramnik, Anand, Carlsen, Ding, Gukesh) têm destaque em todo o jogo: draft, confirmação, rodada, replay, Resultado final e imagem compartilhada. O destaque vale para todas as cartas da pessoa, inclusive as de antes do título, e aparece também no modo Mestre, porque é um fato histórico, não a força. Os campeões FIDE por eliminatória (Khalifman, Ponomariov, Kasimdzhanov, Topalov) ficam de fora. A lista está em `tools/data/olympiads/worldChampions.ts`.
 
 ### 10.1 Direção visual (DECIDIDO)
 
@@ -486,7 +489,7 @@ Evidência de cada critério: [plano-mvp-aceite.md](plano-mvp-aceite.md) (2026-1
 - [x] **Nome definitivo.** DECIDIDO (2026-11-16): **4 a 0**.
 - [x] **Permissão de dados:** resolvido em 2026-11-16 (Wikipedia + Wikidata, §9.1).
 - [x] **Fonte dos PGNs dos livros:** resolvido em 2026-11-16 (Lichess, §7.1).
-- [ ] **Livro por carta (§7.1):** o Lichess não filtra por jogador. Usar livro por edição, por década, ou outra fonte por jogador? Ver [plano-livros.md](plano-livros.md).
+- [ ] **Livro por carta (§7.1):** o Lichess não filtra por jogador. Usar livro por edição, por década, ou outra fonte por jogador? Em andamento: piloto com os campeões mundiais (PGN Mentor, 2026-11-17). Ver [plano-livros.md](plano-livros.md).
 - [ ] **Edições anteriores a 1970:** qual estimativa de força usar.
 - [ ] **Normalização entre épocas:** compensar a inflação de rating ao longo das décadas, ou usar o rating da época como está?
 - [ ] **Formato do torneio:** manter suíço puro ou testar grupos + mata-mata como alternativa.

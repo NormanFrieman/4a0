@@ -140,7 +140,7 @@ for (const [file, bytes] of books.files) {
   writeFileSync(join(OUT, file), bytes);
   bookBytes += bytes.length;
 }
-const own = books.cards.filter((b) => !b.bookFile.includes("decade-"));
+const own = books.cards.filter((b) => !b.bookFile?.includes("decade-"));
 console.log(
   `books: ${own.length} cards with their own book, ${books.cards.length - own.length} on a decade book; ` +
     `${books.files.size} files, ${(bookBytes / 1e6).toFixed(2)} MB`,

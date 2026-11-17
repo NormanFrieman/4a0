@@ -145,6 +145,20 @@ describe("buildBooks", () => {
     ]);
   });
 
+  it("leaves cards without a book when the fallback is none", () => {
+    const none = buildBooks(cards, new Map([["anatoly-karpov", { games, matcher: karpov }]]), {
+      maxPlies: 16,
+      minGames: 4,
+      fallback: "none",
+    });
+    expect(none.cards).toEqual([
+      { cardId: "su-1974-1", bookFile: null, games: 3 },
+      { cardId: "su-1980-1", bookFile: "books/su-1980-1.bin", games: 4 },
+      { cardId: "hu-1978-9", bookFile: null, games: 0 },
+    ]);
+    expect([...none.files.keys()]).toEqual(["books/su-1980-1.bin"]);
+  });
+
   it("respects maxPlies", () => {
     const short = buildBooks(
       [cards[1]!],

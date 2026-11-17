@@ -1,10 +1,36 @@
 # Plano: livros de abertura a partir do Lichess
 
-**Situação:** planejado em 2026-11-16; **adiado** pelo usuário no mesmo dia. Os dados `v1` saem sem livros (`bookFile: null`) e o Maia joga desde o primeiro lance. Troca a fonte provisória (PGN Mentor, GDD §7.1 e §14.1), cuja licença não está declarada.
+**Situação:** planejado em 2026-11-16; **adiado** pelo usuário no mesmo dia. Piloto do livro por carta com os campeões mundiais feito em 2026-11-17 (seção abaixo). Os dados `v1` saem sem livros (`bookFile: null`) e o Maia joga desde o primeiro lance. Troca a fonte provisória (PGN Mentor, GDD §7.1 e §14.1), cuja licença não está declarada.
 
 ## Decisão do usuário (2026-11-16)
 
 - Os livros de abertura vêm do **lichess.org**.
+
+## Piloto: livro por carta dos campeões mundiais (2026-11-17)
+
+**Decisão do usuário:** antes de escolher entre as alternativas abaixo, testar o livro **por carta** só com os 11 campeões mundiais da linha clássica (GDD §7.1 e §10). A fonte é o PGN Mentor: os PGNs ficam fora do git (`pnpm data:pgn --champions`), e só o livro agregado é publicado.
+
+**Como foi feito:** reaproveita `buildBooks` (`tools/data/books/buildBooks.ts`) com `fallback: "none"`. `tools/data/olympiads/championBooks.ts` lê as coleções; `pnpm data:olympiads --publish` grava `public/data/v1/books/{cardId}.bin`. O relatório (`tools/data/olympiads/report.md`, "Livros de abertura dos campeões mundiais") mostra, por carta, as partidas, as entradas e os lances mais jogados.
+
+**Medido:**
+
+| Medida             | Resultado                                                                         |
+| ------------------ | --------------------------------------------------------------------------------- |
+| Cartas de campeões | 48, todas com livro (o mínimo foi 232 partidas: Kasparov 1982)                    |
+| Partidas lidas     | 35 998 em 11 coleções (24 MB de PGN), todas aproveitadas                          |
+| Tempo de geração   | ~58 s (leitura dos PGNs com chess.js)                                             |
+| Tamanho            | 3,3 MB no total; de 14 kB (Kasparov 1982) a 329 kB (Carlsen 2024, 6 615 partidas) |
+| Código novo        | ~200 linhas (lista dos campeões, leitura, relatório); o resto já existia          |
+
+**Repertórios reconhecíveis:** Karpov 1974 abre 1.e4 em 79% e responde 1.d4 com 1…Nf6; Kasparov responde 1.e4 com a Siciliana (71–88%); Kramnik joga 1.Nf3/1.d4 e, nos anos 90, 1…d5 contra 1.d4; Anand de 1988 joga 1.e4 em 99%; Ding joga 1.d4.
+
+**Limitações encontradas:**
+
+- As coleções do PGN Mentor misturam partidas clássicas, rápidas, blitz e simultâneas. Por isso Carlsen 2024 tem 6 615 partidas, contra 2 100 em 2016.
+- A coleção de cada jogador precisa de um nome de arquivo e de um filtro de nome (`NameMatcher`) escritos à mão. Para os 11 campeões foi rápido; para as ~770 pessoas do `v1`, seriam ~770 entradas, e muitas não têm coleção no PGN Mentor (só os jogadores mais conhecidos têm).
+- A cauda longa domina o tamanho: a maioria das entradas aparece em uma partida só. Um corte (ex.: lance com ≥ 2 partidas na posição) reduziria muito os arquivos.
+
+**Custo de levar a todas as cartas:** o pipeline está pronto; o gargalo é a **fonte**. Com o PGN Mentor, só os jogadores de ponta teriam livro próprio, e os outros precisariam de um livro de época (alternativas 1 ou 2 abaixo). A combinação natural é **livro por carta onde houver coleção + livro por edição do Lichess no resto**.
 
 ## A fonte
 

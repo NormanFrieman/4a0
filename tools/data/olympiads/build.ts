@@ -4,7 +4,8 @@
  * [--publish]`.
  *
  * Writes tools/data/olympiads/out/ in the published layout (GDD §9.3:
- * index.json, persons.json, olympiads/{year}.json; no books yet) and the
+ * index.json, persons.json, olympiads/{year}.json and books/, the opening
+ * books of the world champions' cards from `pnpm data:pgn --champions`) and the
  * validation report tools/data/olympiads/report.md. With `--publish` (all
  * editions only), writes the data files to public/data/v1/ instead; the
  * hand-written LICENSE.md there is kept.
@@ -22,6 +23,7 @@ import type {
   PlayerCard,
 } from "../../../src/data/types.ts";
 import {
+  CHAMPIONS_PGN_DIR,
   OUT_DIR,
   PUBLISH_DIR,
   REPORT_FILE,
@@ -45,7 +47,9 @@ import {
   type LineupTeam,
 } from "./lineups.ts";
 import { overrideFor } from "./overrides.ts";
+import { buildChampionBooks } from "./championBooks.ts";
 import { renderReport } from "./report.ts";
+import { worldChampions } from "./worldChampions.ts";
 import { TITLE_RANK, type EloEntry, type PersonEntity } from "./wikidata.ts";
 
 export type QidSource = "link" | "override" | "search";
@@ -273,7 +277,7 @@ export function buildEdition(year: number): EditionResult {
         score: p.points,
         games: p.games,
         medals: [],
-        bookFile: null, // no opening books yet (plano-livros.md)
+        bookFile: null, // world champions get theirs in main() (championBooks.ts)
       };
       return [{ card, player: p, ratedRounds: ratings.length, rounds }];
     });
@@ -332,6 +336,7 @@ export function buildPersons(results: EditionResult[], allTeams: ResolvedPlayer[
           countryCodes: [...new Set([...(prev?.countryCodes ?? []), t.country.code])],
           maxTitle: p.entity ? titleAt(p.entity.titles, null) : "",
           decisiveness: decisiveness(s.w, s.d, s.l) ?? 0,
+          worldChampion: p.personId in worldChampions,
         });
       }
     }
@@ -355,6 +360,20 @@ function main() {
   const persons = buildPersons(results, everyPlayer);
 
   const kept = results.map((r) => ({ r, teams: r.top.filter((t) => !t.excluded) }));
+
+  // Opening books of the world champions (GDD §7.1, pilot).
+  const allCards = kept.flatMap((k) => k.teams.flatMap((t) => t.cards.map((c) => c.card)));
+  if (publish) {
+    const missing = Object.keys(worldChampions).filter((id) => !persons.some((p) => p.id === id));
+    if (missing.length) throw new Error(`worldChampions: not in the data: ${missing.join(", ")}`);
+  }
+  const started = performance.now();
+  const books = buildChampionBooks(allCards, CHAMPIONS_PGN_DIR, {
+    maxPlies: balance.style.bookMaxPlies,
+    minGames: balance.style.bookMinGames,
+  });
+  const bookPlans = new Map(books.cards.map((b) => [b.cardId, b.bookFile] as const));
+  for (const card of allCards) card.bookFile = bookPlans.get(card.id) ?? null;
   const index: DatasetIndex = {
     version: "v1",
     dataset: "v1",
@@ -365,9 +384,11 @@ function main() {
     teams: kept.flatMap((k) => k.teams.map((t) => t.team)),
   };
 
-  for (const f of ["index.json", "persons.json", "olympiads"])
+  for (const f of ["index.json", "persons.json", "olympiads", "books"])
     rmSync(join(outDir, f), { recursive: true, force: true });
   mkdirSync(join(outDir, "olympiads"), { recursive: true });
+  mkdirSync(join(outDir, "books"), { recursive: true });
+  for (const [file, bytes] of books.files) writeFileSync(join(outDir, file), bytes);
   const write = (file: string, data: unknown) =>
     writeFileSync(join(outDir, file), JSON.stringify(data, null, 2) + "\n");
   write("index.json", index);
@@ -379,7 +400,7 @@ function main() {
     };
     write(`olympiads/${r.edition.year}.json`, file);
   }
-  writeFileSync(REPORT_FILE, renderReport(results, persons));
+  writeFileSync(REPORT_FILE, renderReport(results, persons, books));
 
   for (const r of results) {
     const excl = r.top.filter((t) => t.excluded).length;
@@ -389,6 +410,11 @@ function main() {
         `, crosstable ${r.crosstableFound ? "ok" : "missing"}`,
     );
   }
+  const bookBytes = [...books.files.values()].reduce((s, b) => s + b.length, 0);
+  console.log(
+    `books: ${books.files.size}/${books.rows.length} champion cards, ` +
+      `${(bookBytes / 1e3).toFixed(0)} kB, ${((performance.now() - started) / 1e3).toFixed(1)} s`,
+  );
   console.log(`${persons.length} persons → ${outDir}; report → ${REPORT_FILE}`);
 }
 

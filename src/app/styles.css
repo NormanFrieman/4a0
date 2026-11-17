@@ -22,6 +22,8 @@
   --color-medal-gold: #7d6216;
   --color-medal-silver: #5f6366;
   --color-medal-bronze: #87512a;
+  /* World champions (Person.worldChampion): same ink as the gold medal. */
+  --color-champion: #7d6216;
 
   --color-board-light: #efe3c8;
   --color-board-dark: #b49a6e;

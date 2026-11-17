@@ -15,6 +15,8 @@ export interface SharePlayer {
   countryCode: string;
   countryName: string;
   year: number;
+  /** World champion (`Person.worldChampion`). */
+  champion: boolean;
 }
 
 export interface ShareRound {
@@ -82,6 +84,7 @@ export function shareCardLabels(s: ShareSummary, t: TFunction): ShareCardLabels 
     detail: s.medal ? `${t("final.place", { place: s.place })} · ${summary}` : summary,
     board: (n) => t("slots.board", { n }),
     round: (n) => t("final.roundShort", { n }),
+    champion: t("champion.label"),
     footer: t("share.footer", { url: s.url.replace(/^https?:\/\//, "") }),
   };
 }

@@ -24,8 +24,11 @@ export interface BookCard {
 
 export interface CardBookPlan {
   cardId: string;
-  /** Path relative to the dataset root, e.g. `books/su-1980-1.bin`. */
-  bookFile: string;
+  /**
+   * Path relative to the dataset root, e.g. `books/su-1980-1.bin`; `null`
+   * when the card has too few games and `fallback` is `"none"`.
+   */
+  bookFile: string | null;
   /** Person's games up to the card year (0 without a PGN source). */
   games: number;
 }
@@ -39,6 +42,11 @@ export interface BuiltBooks {
 export interface BookOptions {
   maxPlies: number;
   minGames: number;
+  /**
+   * Cards with fewer than `minGames` games: the decade book (GDD §7.1,
+   * default) or no book at all (world champions pilot, dataset v1).
+   */
+  fallback?: "decade" | "none";
 }
 
 const normalize = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
@@ -125,6 +133,8 @@ export function buildBooks(
       const bookFile = `books/${card.id}.bin`;
       files.set(bookFile, writePolyglot(entries));
       plans.push({ cardId: card.id, bookFile, games: own.length });
+    } else if (opts.fallback === "none") {
+      plans.push({ cardId: card.id, bookFile: null, games: own.length });
     } else {
       const decade = decadeOf(card.year);
       decadesNeeded.add(decade);

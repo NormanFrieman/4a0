@@ -1,6 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { avgStrength } from "../../data/cardStrength.ts";
-import { Button, Flag, Kicker, Masthead, Rule, ScreenLayout, StyleTrait } from "../ui/index.ts";
+import {
+  Button,
+  ChampionMark,
+  Flag,
+  Kicker,
+  Masthead,
+  Rule,
+  ScreenLayout,
+  StyleTrait,
+} from "../ui/index.ts";
 import { useSession, useShowStrength } from "../state/session.ts";
 import { cardView } from "./helpers.ts";
 
@@ -51,6 +60,7 @@ export function Confirm() {
                 <div className="flex items-center gap-2">
                   <Flag code={v.team.countryCode} label={v.team.countryName} className="w-5" />
                   <span className="truncate text-lg font-bold">{v.name}</span>
+                  {v.champion && <ChampionMark label={t("champion.label")} />}
                   <span className="text-sm text-muted italic">{v.team.year}</span>
                 </div>
                 <div className="text-sm">

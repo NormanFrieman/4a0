@@ -32,7 +32,7 @@ export const ptBR = {
     },
     books: {
       title: "Livros de abertura",
-      body: "Nesta versão, as partidas ainda não usam livros de aberturas: o Maia escolhe os lances desde o primeiro. Os livros virão da base de mestres do Lichess.",
+      body: "Os campeões mundiais abrem as partidas com o próprio repertório: os lances que mais jogaram até o ano da carta, contados nas coleções de partidas do PGN Mentor. Nos outros jogadores, o Maia escolhe os lances desde o primeiro.",
     },
     engine: {
       title: "Quem joga as partidas",
@@ -68,6 +68,9 @@ export const ptBR = {
   },
   slots: {
     board: "Mesa {{n}}",
+  },
+  champion: {
+    label: "Campeão mundial",
   },
   trait: {
     solid: "Sólido",

@@ -36,7 +36,7 @@
       "score": 7.5,
       "games": 10,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/cn-2014-2.bin"
     },
     {
       "id": "cn-2014-3",
@@ -201,7 +201,7 @@
       "score": 5,
       "games": 8,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/ru-2014-1.bin"
     },
     {
       "id": "ru-2014-2",

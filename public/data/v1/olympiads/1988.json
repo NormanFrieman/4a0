@@ -21,7 +21,7 @@
       "score": 8.5,
       "games": 10,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/su-1988-1.bin"
     },
     {
       "id": "su-1988-2",
@@ -36,7 +36,7 @@
       "score": 8,
       "games": 10,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/su-1988-2.bin"
     },
     {
       "id": "su-1988-3",
@@ -1101,7 +1101,7 @@
       "score": 8.5,
       "games": 12,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/in-1988-1.bin"
     },
     {
       "id": "in-1988-2",

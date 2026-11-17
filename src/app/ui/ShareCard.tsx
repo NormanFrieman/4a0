@@ -6,6 +6,7 @@
 import type { Medal } from "../../data/types.ts";
 import type { SharePlayer, ShareRound } from "../../share/text.ts";
 import { roundOutcome, roundScore } from "../../share/text.ts";
+import { ChampionMark } from "./ChampionMark.tsx";
 import { Flag } from "./Flag.tsx";
 import { ResultBadge } from "./ResultBadge.tsx";
 
@@ -30,6 +31,8 @@ export interface ShareCardLabels {
   detail: string;
   board: (n: number) => string;
   round: (n: number) => string;
+  /** World champion label, the mark's accessible name. */
+  champion: string;
   footer: string;
 }
 
@@ -81,7 +84,12 @@ export function ShareCard({
               {labels.board(p.board)}
             </span>
             <Flag code={p.countryCode} label={p.countryName} className="w-[60px]" />
-            <span className="font-display text-[40px] font-bold">{p.name}</span>
+            <span
+              className={`font-display text-[40px] font-bold ${p.champion ? "text-champion" : ""}`}
+            >
+              {p.name}
+            </span>
+            {p.champion && <ChampionMark label={labels.champion} className="text-[44px]" />}
             <span className="flex-1 border-b-2 border-dotted border-line" />
             <span className="text-[28px] text-muted italic">
               {p.countryName} {p.year}

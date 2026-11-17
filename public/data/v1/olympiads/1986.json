@@ -21,7 +21,7 @@
       "score": 8.5,
       "games": 11,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/su-1986-1.bin"
     },
     {
       "id": "su-1986-2",
@@ -36,7 +36,7 @@
       "score": 6,
       "games": 9,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/su-1986-2.bin"
     },
     {
       "id": "su-1986-3",
@@ -501,7 +501,7 @@
       "score": 9,
       "games": 14,
       "medals": [],
-      "bookFile": null
+      "bookFile": "books/fr-1986-1.bin"
     },
     {
       "id": "fr-1986-2",

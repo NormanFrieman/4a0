@@ -16,7 +16,6 @@ import {
 import { buildField, fieldConfig, fieldSizeOf, tiersOf } from "../tournament/field.ts";
 import index from "../../public/data/v1/index.json";
 import persons from "../../public/data/v1/persons.json";
-import { bookFilesFor } from "./books.ts";
 import { assembleDataset } from "./dataset.ts";
 import type { DatasetIndex, OlympiadFile, Person } from "./types.ts";
 
@@ -25,6 +24,12 @@ const files = import.meta.glob<OlympiadFile>("../../public/data/v1/olympiads/*.j
   eager: true,
   import: "default",
 });
+/** Published book files, by path relative to the dataset root (not loaded). */
+const bookPaths = new Set(
+  Object.keys(import.meta.glob("../../public/data/v1/books/*.bin")).map((k) =>
+    k.replace("../../public/data/v1/", ""),
+  ),
+);
 const ds = assembleDataset(index as DatasetIndex, persons as Person[], Object.values(files));
 
 describe("dataset v1", () => {
@@ -96,19 +101,30 @@ describe("dataset v1", () => {
     expect(Math.abs(hits / n - expected)).toBeLessThan(0.03);
   });
 
-  it("has a rating for every card and no opening books yet", () => {
+  it("has a rating for every card and books only for world champions", () => {
+    let withBook = 0;
     for (const t of ds.teams)
       for (const id of t.cardIds) {
         const c = ds.card(id);
         expect(c.fideRating).toBeGreaterThan(0);
-        expect(c.bookFile).toBeNull();
+        if (c.bookFile === null) continue;
+        withBook++;
+        expect(ds.person(c.personId).worldChampion).toBe(true);
+        expect(c.bookFile).toBe(`books/${c.id}.bin`);
+        expect(bookPaths.has(c.bookFile)).toBe(true);
       }
-    expect(
-      bookFilesFor(
-        ds,
-        ds.teams.flatMap((t) => t.cardIds),
-      ),
-    ).toEqual([]);
+    expect(withBook).toBeGreaterThan(0);
+    expect(bookPaths.size).toBe(withBook);
+  });
+
+  it("marks the 11 world champions of the classical line", () => {
+    const champions = ds.index.teams
+      .flatMap((t) => t.cardIds)
+      .map((id) => ds.person(ds.card(id).personId))
+      .filter((p) => p.worldChampion);
+    expect(new Set(champions.map((p) => p.name)).size).toBe(11);
+    // FIDE knockout champions are left out (user decision, 2026-11-17).
+    expect(champions.some((p) => p.name.includes("Topalov"))).toBe(false);
   });
 
   it("plays a full tournament with the configured field", () => {
@@ -124,11 +140,15 @@ describe("dataset v1", () => {
         const p = userPairing(t);
         const l = lineups(t, p);
         const round = currentRound(t)!.round;
-        // Engine jobs build without books: every side plays from move 1.
+        // Engine jobs get a book only for world champions; the rest play from move 1.
+        const fakeBooks = new Map([...bookPaths].map((f) => [f, new Uint8Array(0)] as const));
         for (const g of boardsFor(l.first, l.second)) {
-          const job = gameJobFor(ds, seed, round, g, new Map());
-          expect(job.white.book).toBeUndefined();
-          expect(job.black.book).toBeUndefined();
+          const job = gameJobFor(ds, seed, round, g, fakeBooks);
+          for (const [side, id] of [
+            [job.white, g.whiteCardId],
+            [job.black, g.blackCardId],
+          ] as const)
+            expect(side.book !== undefined).toBe(ds.card(id).bookFile !== null);
         }
         const user = quickMatch(ds, seed, round, p, l.first, l.second);
         t = recordRound(t, [user, ...fieldResults(ds, t)]);

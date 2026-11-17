@@ -3512,6 +3512,63 @@ Gerado por `pnpm data:olympiads` a partir do cache de `pnpm data:fetch`. Não ed
 - [Q3303244](https://www.wikidata.org/wiki/Q3303244)
 Fora da tabela `TITLE_RANK` (`wikidata.ts`): ignorados no título da carta.
 
+## Livros de abertura dos campeões mundiais
+
+Piloto do livro por carta (GDD §7.1): as partidas de cada campeão no PGN Mentor até o ano da carta, só os lances dele, até `bookMaxPlies` meios-lances. Carta com menos de `bookMinGames` partidas fica sem livro.
+
+**Cartas:** 48, 48 com livro. **Tamanho:** 3308,2 kB. **Partidas lidas** (aproveitadas/lidas): Spassky 2231/2231, Petrosian 1893/1893, Smyslov 2627/2627, Tal 2431/2431, Karpov 3529/3529, Kasparov 2128/2128, Anand 4310/4310, Kramnik 4355/4355, Ding 2274/2274, Carlsen 7818/7818, Gukesh 2402/2402.
+
+| Campeão | Carta | Partidas | Entradas | De brancas | Contra 1.e4 | Contra 1.d4 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Anatoly Karpov | su-1974-1 | 331 | 1203 | e4 79%, c4 9%, d4 7% | e5 51%, c5 40%, c6 8% | Nf6 100% |
+| Anatoly Karpov | su-1980-1 | 653 | 2028 | e4 73%, c4 14%, d4 9% | e5 50%, c5 37%, c6 10% | Nf6 96%, d5 3%, e6 1% |
+| Anatoly Karpov | su-1982-1 | 778 | 2274 | e4 72%, c4 13%, d4 11% | e5 55%, c5 33%, c6 10% | Nf6 96%, d5 3%, e6 1% |
+| Anatoly Karpov | su-1986-2 | 1033 | 2729 | e4 66%, d4 15%, c4 11% | e5 60%, c5 30%, c6 8% | Nf6 93%, d5 6%, e6 1% |
+| Anatoly Karpov | su-1988-2 | 1260 | 3270 | e4 56%, d4 23%, c4 12% | e5 54%, c5 24%, c6 21% | Nf6 93%, d5 7%, e6 0% |
+| Boris Spassky | su-1970-1 | 879 | 2826 | e4 53%, d4 44%, c4 2% | e5 57%, c5 32%, e6 5% | Nf6 66%, d5 31%, f5 2% |
+| Boris Spassky | su-1974-3 | 1061 | 3210 | e4 55%, d4 42%, c4 2% | e5 55%, c5 36%, e6 4% | Nf6 64%, d5 34%, f5 2% |
+| Boris Spassky | su-1978-1 | 1213 | 3605 | e4 56%, d4 41%, c4 2% | e5 54%, c5 38%, e6 4% | Nf6 65%, d5 32%, f5 1% |
+| Boris Spassky | fr-1984-1 | 1577 | 4464 | e4 59%, d4 38%, c4 2% | e5 55%, c5 32%, d6 4% | Nf6 69%, d5 28%, f5 1% |
+| Boris Spassky | fr-1986-1 | 1725 | 4818 | e4 60%, d4 37%, c4 2% | e5 58%, c5 29%, d6 4% | Nf6 70%, d5 27%, f5 1% |
+| Ding Liren | cn-2012-3 | 316 | 1001 | d4 82%, Nf3 15%, e4 3% | e6 65%, c6 19%, c5 16% | Nf6 100% |
+| Ding Liren | cn-2014-2 | 481 | 1533 | d4 79%, Nf3 13%, c4 6% | e6 44%, c6 36%, c5 13% | Nf6 97%, d5 3% |
+| Ding Liren | cn-2016-2 | 709 | 2224 | d4 74%, Nf3 14%, c4 9% | e6 30%, e5 29%, c6 28% | Nf6 79%, d5 20%, d6 2% |
+| Ding Liren | cn-2018-1 | 1002 | 3012 | d4 66%, Nf3 16%, c4 14% | e5 44%, e6 22%, c6 20% | Nf6 83%, d5 16%, d6 1% |
+| Ding Liren | cn-2024-1 | 2116 | 5441 | d4 58%, c4 19%, Nf3 15% | e5 60%, c5 14%, c6 13% | Nf6 89%, d5 10%, d6 1% |
+| Ding Liren | cn-2026-1 | 2274 | 5751 | d4 57%, c4 19%, Nf3 14% | e5 61%, c5 14%, c6 12% | Nf6 89%, d5 10%, d6 1% |
+| Garry Kasparov | su-1982-2 | 232 | 904 | d4 67%, e4 24%, c4 8% | c5 71%, c6 24%, d6 2% | Nf6 97%, e6 3% |
+| Garry Kasparov | su-1986-1 | 430 | 1372 | d4 75%, e4 19%, c4 5% | c5 76%, c6 14%, e5 7% | Nf6 63%, d5 36%, e6 1% |
+| Garry Kasparov | su-1988-1 | 649 | 2038 | d4 67%, e4 15%, c4 14% | c5 82%, c6 10%, e5 5% | Nf6 75%, d5 22%, d6 2% |
+| Garry Kasparov | ru-1992-1 | 960 | 2900 | d4 58%, e4 21%, c4 15% | c5 86%, c6 8%, e5 4% | Nf6 81%, d5 16%, d6 1% |
+| Garry Kasparov | ru-1994-1 | 1130 | 3345 | d4 54%, e4 25%, c4 14% | c5 86%, c6 7%, e5 4% | Nf6 82%, d5 15%, g6 1% |
+| Garry Kasparov | ru-1996-1 | 1299 | 3718 | d4 51%, e4 28%, c4 14% | c5 86%, e5 6%, c6 6% | Nf6 84%, d5 13%, g6 1% |
+| Garry Kasparov | ru-2002-1 | 1846 | 4955 | d4 45%, e4 37%, c4 11% | c5 88%, e5 6%, c6 5% | Nf6 80%, d5 18%, g6 1% |
+| Gukesh D | in2-2022-1 | 1445 | 4986 | d4 42%, Nf3 24%, e4 21% | c5 57%, c6 31%, e5 5% | Nf6 53%, d5 45%, f5 1% |
+| Gukesh D | in-2024-1 | 2053 | 6836 | d4 45%, e4 25%, Nf3 20% | c5 53%, c6 25%, e5 15% | Nf6 61%, d5 37%, f5 1% |
+| Gukesh D | in-2026-4 | 2402 | 7958 | d4 42%, e4 28%, Nf3 19% | c5 46%, c6 26%, e5 21% | Nf6 64%, d5 34%, f5 1% |
+| Magnus Carlsen | no-2016-1 | 2100 | 6592 | e4 49%, d4 36%, Nf3 8% | e5 51%, c5 39%, Nf6 4% | Nf6 78%, d5 16%, e6 3% |
+| Magnus Carlsen | no-2024-1 | 6615 | 20570 | e4 46%, d4 30%, Nf3 9% | e5 38%, c5 35%, c6 6% | Nf6 61%, d5 25%, g6 3% |
+| Mikhail Tal | su-1972-4 | 1082 | 3352 | e4 71%, d4 15%, c4 7% | c5 80%, e5 15%, e6 3% | Nf6 87%, d5 3%, g6 3% |
+| Mikhail Tal | su-1980-3 | 1637 | 4919 | e4 68%, d4 13%, Nf3 9% | c5 79%, e5 16%, e6 2% | Nf6 83%, g6 5%, d5 3% |
+| Tigran Petrosian | su-1970-2 | 1222 | 4352 | d4 49%, c4 29%, Nf3 11% | c5 34%, e6 26%, c6 23% | Nf6 72%, d5 18%, g6 5% |
+| Tigran Petrosian | su-1972-1 | 1333 | 4735 | d4 48%, c4 30%, Nf3 11% | c5 36%, e6 26%, c6 22% | Nf6 71%, d5 19%, g6 5% |
+| Tigran Petrosian | su-1974-4 | 1441 | 5052 | d4 48%, c4 31%, Nf3 12% | c5 36%, e6 27%, c6 22% | Nf6 69%, d5 20%, g6 6% |
+| Tigran Petrosian | su-1978-2 | 1661 | 5650 | d4 49%, c4 31%, Nf3 12% | c5 35%, e6 29%, c6 19% | Nf6 70%, d5 19%, g6 6% |
+| Vasily Smyslov | su-1972-3 | 1508 | 4777 | e4 34%, c4 29%, d4 23% | e5 56%, c5 15%, c6 13% | Nf6 65%, d5 34%, f5 1% |
+| Viswanathan Anand | in-1988-1 | 254 | 1054 | e4 99%, Nf3 1% | c5 50%, e5 48%, c6 2% | Nf6 80%, d5 18%, d6 2% |
+| Viswanathan Anand | in-1990-1 | 380 | 1518 | e4 98%, d4 1%, Nf3 1% | e5 50%, c5 44%, e6 3% | Nf6 65%, d5 19%, d6 13% |
+| Viswanathan Anand | in-2004-1 | 1912 | 4809 | e4 86%, d4 8%, Nf3 5% | c5 49%, e5 33%, c6 12% | Nf6 56%, d5 40%, d6 3% |
+| Viswanathan Anand | in-2018-1 | 3634 | 8193 | e4 83%, d4 11%, Nf3 4% | e5 44%, c5 40%, c6 12% | Nf6 64%, d5 34%, d6 2% |
+| Vladimir Kramnik | ru-1994-2 | 465 | 1573 | d4 42%, Nf3 29%, e4 20% | c5 81%, e6 11%, d6 6% | d5 77%, f5 16%, d6 4% |
+| Vladimir Kramnik | ru-1996-2 | 702 | 2130 | Nf3 46%, d4 28%, e4 19% | c5 87%, e6 7%, d6 4% | d5 80%, f5 12%, Nf6 4% |
+| Vladimir Kramnik | ru-2006-1 | 1619 | 3985 | Nf3 38%, d4 37%, e4 22% | c5 62%, e5 30%, e6 5% | d5 48%, Nf6 45%, f5 6% |
+| Vladimir Kramnik | ru-2008-1 | 1852 | 4454 | d4 40%, Nf3 37%, e4 20% | c5 54%, e5 39%, e6 4% | d5 50%, Nf6 44%, f5 5% |
+| Vladimir Kramnik | ru-2010-1 | 2093 | 5051 | d4 42%, Nf3 36%, e4 18% | c5 49%, e5 39%, d6 4% | Nf6 48%, d5 45%, f5 4% |
+| Vladimir Kramnik | ru-2012-1 | 2247 | 5398 | d4 42%, Nf3 37%, e4 17% | c5 46%, e5 43%, d6 4% | Nf6 52%, d5 41%, f5 4% |
+| Vladimir Kramnik | ru-2014-1 | 2487 | 6132 | d4 42%, Nf3 38%, e4 16% | e5 46%, c5 43%, d6 3% | Nf6 56%, d5 38%, f5 3% |
+| Vladimir Kramnik | ru-2016-2 | 2739 | 6765 | d4 42%, Nf3 39%, e4 15% | e5 50%, c5 39%, e6 4% | Nf6 57%, d5 37%, f5 3% |
+| Vladimir Kramnik | ru-2018-3 | 2944 | 7300 | d4 41%, Nf3 38%, e4 16% | e5 53%, c5 36%, e6 3% | Nf6 57%, d5 37%, f5 3% |
+
 ## Comparação com a amostra (`tools/data/sample/source.ts`)
 
 A amostra foi digitada de memória; em caso de diferença, as fontes prevalecem.
