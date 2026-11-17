@@ -1,12 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { avgStrength } from "../../data/cardStrength.ts";
 import { Button, Flag, Kicker, Masthead, Rule, ScreenLayout, StyleTrait } from "../ui/index.ts";
-import { useSession } from "../state/session.ts";
+import { useSession, useShowStrength } from "../state/session.ts";
 import { cardView } from "./helpers.ts";
 
 export function Confirm() {
   const { t } = useTranslation();
   const { dataset: ds, draft, confirmTeam } = useSession();
+  const show = useShowStrength();
   if (!ds || !draft) return null;
   const order = draft.slots.filter((id): id is string => id !== null);
   const avg = avgStrength(order.map((id) => ds.card(id).strength));
@@ -24,7 +25,7 @@ export function Confirm() {
           <h2 className="mt-6 text-center font-display text-3xl font-black lg:mt-4">
             {t("confirm.title")}
           </h2>
-          <p className="text-center text-muted italic">{t("confirm.avg", { avg })}</p>
+          {show && <p className="text-center text-muted italic">{t("confirm.avg", { avg })}</p>}
           <Rule className="my-4 lg:my-3" />
           <p className="mb-3 text-sm text-muted">{t("confirm.boardsHint")}</p>
         </>
@@ -54,7 +55,7 @@ export function Confirm() {
                 </div>
                 <div className="text-sm">
                   <StyleTrait trait={v.trait} label={t(`trait.${v.trait}`)} />
-                  <span className="ml-2 font-bold tabular-nums">{v.card.strength}</span>
+                  {show && <span className="ml-2 font-bold tabular-nums">{v.card.strength}</span>}
                 </div>
               </div>
             </li>

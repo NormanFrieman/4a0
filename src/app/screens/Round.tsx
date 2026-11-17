@@ -15,7 +15,7 @@ import {
   formatPoints,
   outcomeOf,
 } from "../ui/index.ts";
-import { roundDone, useSession, type LiveBoard } from "../state/session.ts";
+import { roundDone, useSession, useShowStrength, type LiveBoard } from "../state/session.ts";
 import { cardView, teamLabel } from "./helpers.ts";
 
 const START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
@@ -39,6 +39,7 @@ export function Round() {
     finishRound,
     openReplay,
   } = useSession();
+  const show = useShowStrength();
 
   // Playback clock: one half-move per tick per board; tick is a no-op when the
   // board has shown everything computed so far.
@@ -175,12 +176,12 @@ export function Round() {
               }
               white={{
                 name: white.name,
-                strength: white.card.strength,
+                strength: show ? white.card.strength : null,
                 isUser: userWhite(b),
               }}
               black={{
                 name: black.name,
-                strength: black.card.strength,
+                strength: show ? black.card.strength : null,
                 isUser: !userWhite(b),
               }}
               {...(done && games[archiveKey(live.round, b.game.board)]

@@ -1,12 +1,22 @@
 import { useTranslation } from "react-i18next";
 import { Button, Flag, Masthead, Rule, ScreenLayout } from "../ui/index.ts";
-import { useSession } from "../state/session.ts";
+import { useSession, useShowStrength } from "../state/session.ts";
 
 export function Field() {
   const { t } = useTranslation();
   const { dataset: ds, tournament, engine, fastMode, startRound } = useSession();
+  const show = useShowStrength();
   if (!ds || !tournament) return null;
-  const field = tournament.entrants.filter((e) => !e.isUser);
+  // Entrants come in tier order (strongest first); without strength, list them
+  // by year and country so the order does not give it away.
+  const entrants = tournament.entrants.filter((e) => !e.isUser);
+  const field = show
+    ? entrants
+    : [...entrants].sort((a, b) => {
+        const x = ds.team(a.id);
+        const y = ds.team(b.id);
+        return x.year - y.year || x.countryName.localeCompare(y.countryName, "pt-BR");
+      });
   const ready = fastMode || engine.state === "ready";
   return (
     <ScreenLayout
@@ -56,8 +66,8 @@ export function Field() {
                 {team.countryName} {team.year}
               </span>
               <span className="ml-auto text-right text-sm text-muted italic">
-                {t("field.rank", { rank: team.finalRank, year: team.year })} ·{" "}
-                {t("field.avg", { avg: e.avgStrength })}
+                {t("field.rank", { rank: team.finalRank, year: team.year })}
+                {show && ` · ${t("field.avg", { avg: e.avgStrength })}`}
               </span>
             </li>
           );

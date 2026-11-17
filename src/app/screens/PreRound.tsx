@@ -9,12 +9,13 @@ import {
   userPairing,
 } from "../../tournament/tournament.ts";
 import { Button, Flag, Kicker, Masthead, Rule, ScreenLayout, StyleTrait } from "../ui/index.ts";
-import { useSession } from "../state/session.ts";
+import { useSession, useShowStrength } from "../state/session.ts";
 import { cardView } from "./helpers.ts";
 
 export function PreRound() {
   const { t } = useTranslation();
   const { dataset: ds, tournament, playRound } = useSession();
+  const show = useShowStrength();
   if (!ds || !tournament) return null;
   const round = currentRound(tournament)!.round;
   const oppId = opponentOf(userPairing(tournament));
@@ -54,8 +55,18 @@ export function PreRound() {
       }
     >
       <div className="grid gap-8 md:grid-cols-2 lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
-        <LineupList ds={ds} title={t("round.yourLineup")} cardIds={user.cardIds} />
-        <LineupList ds={ds} title={t("round.opponentLineup")} cardIds={opp.cardIds} />
+        <LineupList
+          ds={ds}
+          title={t("round.yourLineup")}
+          cardIds={user.cardIds}
+          showStrength={show}
+        />
+        <LineupList
+          ds={ds}
+          title={t("round.opponentLineup")}
+          cardIds={opp.cardIds}
+          showStrength={show}
+        />
       </div>
     </ScreenLayout>
   );
@@ -66,10 +77,12 @@ function LineupList({
   ds,
   title,
   cardIds,
+  showStrength,
 }: {
   ds: Dataset;
   title: string;
   cardIds: readonly string[];
+  showStrength: boolean;
 }) {
   const { t } = useTranslation();
   return (
@@ -87,7 +100,9 @@ function LineupList({
                   <StyleTrait trait={v.trait} label={t(`trait.${v.trait}`)} />
                 </span>
               </span>
-              <span className="font-display text-xl font-bold tabular-nums">{v.card.strength}</span>
+              <span className="font-display text-xl font-bold tabular-nums">
+                {showStrength ? v.card.strength : "?"}
+              </span>
             </li>
           );
         })}

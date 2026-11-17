@@ -5,7 +5,7 @@ import { useSession } from "../state/session.ts";
 
 export function Home() {
   const { t } = useTranslation();
-  const { dataset, fastMode, startDraft, openAbout } = useSession();
+  const { dataset, fastMode, mode, startDraft, openAbout } = useSession();
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-10 text-center lg:flex lg:flex-1 lg:flex-col lg:justify-center">
       <Masthead title={t("app.title")} kicker={t("app.kicker")} section={t("home.section")} />
@@ -15,9 +15,20 @@ export function Home() {
       )}
       {fastMode && <p className="mt-3 text-sm text-accent italic">{t("home.fastNote")}</p>}
       <Rule className="my-8" />
-      <Button variant="primary" className="px-8 py-3 text-lg" onClick={startDraft}>
-        {t("home.play")}
-      </Button>
+      <div className="grid gap-6 sm:grid-cols-2">
+        {(["classic", "almanac"] as const).map((m) => (
+          <div key={m}>
+            <Button
+              variant={m === mode ? "primary" : "secondary"}
+              className="w-full px-8 py-3 text-lg"
+              onClick={() => startDraft(m)}
+            >
+              {t(`home.play_${m}`)}
+            </Button>
+            <p className="mt-2 text-sm text-muted italic">{t(`home.hint_${m}`)}</p>
+          </div>
+        ))}
+      </div>
       <div className="mt-6">
         <Button variant="link" onClick={openAbout}>
           {t("home.about")}

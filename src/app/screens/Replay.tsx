@@ -13,7 +13,7 @@ import {
   StyleTrait,
   outcomeOf,
 } from "../ui/index.ts";
-import { useSession } from "../state/session.ts";
+import { useSession, useShowStrength } from "../state/session.ts";
 import { cardView, downloadCampaign, downloadGame, teamLabel } from "./helpers.ts";
 
 const resultText = { "1-0": "1-0", "0-1": "0-1", "1/2-1/2": "½-½" } as const;
@@ -22,6 +22,7 @@ const resultText = { "1-0": "1-0", "0-1": "0-1", "1/2-1/2": "½-½" } as const;
 export function Replay() {
   const { t } = useTranslation();
   const { dataset: ds, seed, games, replay, closeReplay } = useSession();
+  const show = useShowStrength();
   const game = replay ? games[replay.key] : undefined;
   const positions = useMemo(() => (game ? replayPositions(game.san) : []), [game]);
   const last = Math.max(0, positions.length - 1);
@@ -68,7 +69,7 @@ export function Replay() {
           className={`inline-block size-2.5 border border-ink ${color === "white" ? "bg-white" : "bg-ink"}`}
         />
         <span className={team.isUser ? "font-bold" : "italic"}>{v.name}</span>
-        <span className="text-muted tabular-nums">{v.card.strength}</span>
+        {show && <span className="text-muted tabular-nums">{v.card.strength}</span>}
         <StyleTrait trait={v.trait} label={t(`trait.${v.trait}`)} />
         <span className="w-full pl-4.5 text-sm text-muted">
           {team.isUser && `${team.name} · `}

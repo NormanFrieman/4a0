@@ -11,12 +11,13 @@ import {
   TeamSlot,
   formatPoints,
 } from "../ui/index.ts";
-import { useSession } from "../state/session.ts";
+import { useSession, useShowStrength } from "../state/session.ts";
 import { cardView } from "./helpers.ts";
 
 export function Draft() {
   const { t } = useTranslation();
   const { dataset: ds, draft, selectedCardId, selectCard, placeCard, rerollDraft } = useSession();
+  const show = useShowStrength();
   if (!ds || !draft?.currentTeamId) return null;
   const team = ds.team(draft.currentTeamId);
   const olympiad = ds.olympiad(team.year);
@@ -71,7 +72,7 @@ export function Draft() {
                     trait={v.trait}
                     traitLabel={t(`trait.${v.trait}`)}
                     details={details}
-                    strength={v.card.strength}
+                    strength={show ? v.card.strength : null}
                     selected={selectedCardId === id}
                     disabled={!pickable.has(id)}
                     onSelect={() => selectCard(id)}

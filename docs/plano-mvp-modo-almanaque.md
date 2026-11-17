@@ -1,6 +1,13 @@
 # Plano: modo Almanaque (GDD §4.2, §10)
 
-**Situação:** planejado em 2026-11-16.
+**Situação:** planejado em 2026-11-16; **feito** em 2026-11-17.
+
+## Como ficou
+
+- `src/app/state/mode.ts`: `Mode = "classic" | "almanac"`, `?modo=almanaque` e a regra única `showStrength(mode, phase, replayFrom)`. O `daily` entra com o plano do Desafio diário.
+- `useShowStrength()` (`session.ts`) é usado por todas as telas; a força volta no Resultado final e no Replay aberto a partir dele. No Clássico, o Final também mostra a força das cartas e a média de cada adversário.
+- Campo: no Almanaque, a lista sai por ano e país, não pela ordem das faixas.
+- Teste sem dependência nova: `src/app/screens/almanac.test.tsx` renderiza Draft, Confirmação, Campo, Pré-rodada e Rodada com `react-dom/server` e procura cada número de força no HTML (com controle no Clássico).
 
 **Critério de aceite (§13.2):** "O modo Almanaque oculta a força em todas as telas até o fim do torneio."
 

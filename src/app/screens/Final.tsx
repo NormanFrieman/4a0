@@ -105,6 +105,11 @@ export function Final() {
                       <span className="flex items-center gap-2">
                         {opp.countryCode && <Flag code={opp.countryCode} className="w-5" />}
                         {opp.name}
+                        <span className="text-xs text-muted italic">
+                          {t("final.opponentAvg", {
+                            avg: entrant(tournament, opponentIn(m)).avgStrength,
+                          })}
+                        </span>
                       </span>
                     </td>
                     <td className="py-1.5 text-right font-bold tabular-nums">
@@ -163,6 +168,7 @@ export function Final() {
                     <Kicker>{t("slots.board", { n: i + 1 })}</Kicker>
                   </span>
                   <span className={id === best ? "font-bold" : ""}>{v.name}</span>
+                  <span className="text-muted tabular-nums">{v.card.strength}</span>
                   <span className="flex-1 border-b border-dotted border-line" />
                   <span className="tabular-nums">
                     {formatPoints(s.points)}/{s.games}

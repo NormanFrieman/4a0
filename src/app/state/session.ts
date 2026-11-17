@@ -4,7 +4,8 @@
  * `replay` opens over `playing` or `final` and returns to it.
  * Game logic lives in src/draft, src/tournament and src/sim; this store only
  * sequences it and holds UI state. `?seed=` reproduces a session; `?rapido=1`
- * simulates the user's games instantly (test mode).
+ * simulates the user's games instantly (test mode); `?modo=almanaque` hides
+ * playing strength until the end (GDD §4.2).
  */
 import { create } from "zustand";
 import { balance } from "../../config/balance.ts";
@@ -35,6 +36,7 @@ import {
 import { fieldConfig } from "../../tournament/field.ts";
 import type { BoardResult, MatchResult, Pairing } from "../../tournament/types.ts";
 import { enginePool, loadEngine, type EngineStatus } from "./engine.ts";
+import { modeParam, parseMode, showStrength, type Mode } from "./mode.ts";
 
 export type Phase =
   | "loading"
@@ -78,6 +80,7 @@ interface SessionState {
   dataset: Dataset | null;
   seed: string;
   fastMode: boolean;
+  mode: Mode;
   engine: EngineStatus;
   draft: DraftState | null;
   selectedCardId: string | null;
@@ -90,7 +93,7 @@ interface SessionState {
   replay: { key: string; from: Phase } | null;
 
   init(): Promise<void>;
-  startDraft(): void;
+  startDraft(mode?: Mode): void;
   openAbout(): void;
   closeAbout(): void;
   selectCard(id: string): void;
@@ -112,10 +115,13 @@ function newSeed(): string {
   return crypto.getRandomValues(new Uint32Array(1))[0]!.toString(36);
 }
 
-function writeUrl(seed: string, fast: boolean) {
+function writeUrl(seed: string, fast: boolean, mode: Mode) {
   const p = new URLSearchParams(location.search);
   p.set("seed", seed);
   if (fast) p.set("rapido", "1");
+  const m = modeParam(mode);
+  if (m) p.set("modo", m);
+  else p.delete("modo");
   history.replaceState(null, "", `${location.pathname}?${p}`);
 }
 
@@ -131,6 +137,7 @@ export const useSession = create<SessionState>()((set, get) => ({
   dataset: null,
   seed: "",
   fastMode: false,
+  mode: "classic",
   engine: { state: "idle" },
   draft: null,
   selectedCardId: null,
@@ -144,8 +151,9 @@ export const useSession = create<SessionState>()((set, get) => ({
     const p = new URLSearchParams(location.search);
     const seed = p.get("seed") || newSeed();
     const fastMode = p.get("rapido") === "1";
-    writeUrl(seed, fastMode);
-    set({ seed, fastMode });
+    const mode = parseMode(p.get("modo"));
+    writeUrl(seed, fastMode, mode);
+    set({ seed, fastMode, mode });
     try {
       const dataset = await loadDataset("v1");
       set({ dataset, phase: "home" });
@@ -154,10 +162,11 @@ export const useSession = create<SessionState>()((set, get) => ({
     }
   },
 
-  startDraft() {
+  startDraft(mode = get().mode) {
     const { dataset, seed, fastMode } = get();
     if (!dataset) return;
-    set({ draft: createDraft(dataset, seed), selectedCardId: null, phase: "draft" });
+    writeUrl(seed, fastMode, mode);
+    set({ mode, draft: createDraft(dataset, seed), selectedCardId: null, phase: "draft" });
     if (!fastMode) loadEngine((engine) => set({ engine })).catch(() => {});
   },
 
@@ -355,11 +364,14 @@ export const useSession = create<SessionState>()((set, get) => ({
   playAgain() {
     generation++;
     const seed = newSeed();
-    writeUrl(seed, get().fastMode);
     set({ seed, tournament: null, live: null, draft: null, games: {}, replay: null });
     get().startDraft();
   },
 }));
+
+/** Whether the current screen may show playing strength (see `showStrength`). */
+export const useShowStrength = () =>
+  useSession((s) => showStrength(s.mode, s.phase, s.replay?.from ?? null));
 
 /** True when the user's match is computed and fully shown. */
 export const roundDone = (live: LiveRound | null) =>
