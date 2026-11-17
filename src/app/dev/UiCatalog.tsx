@@ -185,7 +185,7 @@ export function UiCatalog() {
             Desabilitado
           </Button>
           <span className="flex gap-1">
-            {["1×", "4×", "Instantâneo"].map((s) => (
+            {["1×", "4×", "Sem pausa"].map((s) => (
               <Button
                 key={s}
                 variant="toggle"

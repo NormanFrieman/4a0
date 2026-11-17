@@ -65,6 +65,7 @@ function liveRound() {
       boards.map((b) => b.result),
     ),
     field: fieldResults(ds, paired),
+    skipping: false,
   };
 }
 

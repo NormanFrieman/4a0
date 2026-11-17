@@ -265,8 +265,8 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 
 ### 8.3 Ritmo e exibição
 
-- Ao iniciar a rodada, o worker calcula as 4 partidas o mais rápido possível; a interface reproduz os lances no ritmo escolhido (1×, 4×, instantâneo).
-- "Pular" mostra o resultado assim que o cálculo termina.
+- Ao iniciar a rodada, o worker calcula as 4 partidas o mais rápido possível; a interface reproduz os lances no ritmo escolhido (1×, 4×, sem pausa). "Sem pausa" mostra cada lance assim que é calculado: a partida acaba quando o cálculo acaba, não na hora.
+- "Pular" abre a classificação assim que o cálculo das 4 partidas termina, sem esperar o clique em "Ver a classificação". As partidas continuam no Replay.
 - Os matches do campo usam a simulação rápida (seção 6.3) e ficam prontos em milissegundos.
 - Meta de desempenho: uma rodada completa (4 partidas) calculada em menos de 10 s num notebook comum com o modelo de 5M. Medir na fase 0.
 
