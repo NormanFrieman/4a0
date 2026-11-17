@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Masthead, Rule, ScreenLayout } from "../ui/index.ts";
+import { Button, Masthead, ScreenLayout } from "../ui/index.ts";
 import { useSession } from "../state/session.ts";
 import { sourceLink } from "../buildInfo.ts";
 
@@ -30,9 +30,8 @@ export function About() {
           section={t("about.section")}
         />
       }
-      footer={
+      actions={
         <>
-          <Rule className="my-4 lg:my-3" />
           <div className="text-center">
             <Button className="px-8 py-2" onClick={closeAbout}>
               {t("about.back")}

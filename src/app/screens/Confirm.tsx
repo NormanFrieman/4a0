@@ -39,9 +39,8 @@ export function Confirm() {
           <p className="mb-3 text-sm text-muted">{t("confirm.boardsHint")}</p>
         </>
       }
-      footer={
+      actions={
         <>
-          <Rule className="my-4 lg:my-3" />
           <div className="text-center">
             <Button variant="primary" className="px-8 py-3" onClick={confirmTeam}>
               {t("confirm.confirm")}

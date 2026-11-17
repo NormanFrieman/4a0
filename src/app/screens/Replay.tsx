@@ -99,9 +99,8 @@ export function Replay() {
           section={t("replay.section", { round: game.round, board: game.board })}
         />
       }
-      footer={
+      actions={
         <>
-          <Rule className="my-4 lg:my-3" />
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button variant="primary" onClick={() => downloadGame(ds, seed, t, game)}>
               {t("replay.download")}

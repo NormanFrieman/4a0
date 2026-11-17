@@ -35,9 +35,8 @@ export function Field() {
           <Rule className="my-4 lg:my-3" />
         </>
       }
-      footer={
+      actions={
         <>
-          <Rule className="my-4 lg:my-3" />
           {!fastMode && (
             <p className="mb-4 text-center text-sm text-muted italic lg:mb-3">
               {engine.state === "loading" &&

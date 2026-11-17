@@ -5,7 +5,7 @@ import {
   currentStandings,
   isFinished,
 } from "../../tournament/tournament.ts";
-import { Button, Flag, Masthead, Rule, ScreenLayout, formatPoints } from "../ui/index.ts";
+import { Button, Flag, Masthead, ScreenLayout, formatPoints } from "../ui/index.ts";
 import { useSession } from "../state/session.ts";
 import { teamLabel } from "./helpers.ts";
 
@@ -27,9 +27,8 @@ export function Standings() {
           section={t("standings.section", { n: round })}
         />
       }
-      footer={
+      actions={
         <>
-          <Rule className="my-4 lg:my-3" />
           <div className="text-center">
             <Button variant="primary" className="px-8 py-3" onClick={next}>
               {finished ? t("standings.final") : t("standings.next")}
