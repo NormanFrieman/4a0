@@ -36,7 +36,7 @@ import {
 import { fieldConfig } from "../../tournament/field.ts";
 import type { BoardResult, MatchResult, Pairing } from "../../tournament/types.ts";
 import { enginePool, loadEngine, type EngineStatus } from "./engine.ts";
-import { modeParam, parseMode, showStrength, type Mode } from "./mode.ts";
+import { parseMode, showStrength, type Mode } from "./mode.ts";
 
 export type Phase =
   | "loading"
@@ -117,17 +117,15 @@ function newSeed(): string {
 }
 
 /**
- * Keep `?rapido=` and `?modo=` in the address bar. The seed stays out of it:
- * an incoming `?seed=` is read once by `init` and then dropped, so reloading
- * starts a fresh session. Only the share link carries it (`sessionUrl`).
+ * Keep only `?rapido=` in the address bar. An incoming `?seed=` and
+ * `?modo=` are read once by `init` and then dropped, so a reload starts a
+ * fresh session. Only the share link carries them (`sessionUrl`).
  */
-function writeUrl(fast: boolean, mode: Mode) {
+function cleanUrl(fast: boolean) {
   const p = new URLSearchParams(location.search);
   p.delete("seed");
+  p.delete("modo");
   if (fast) p.set("rapido", "1");
-  const m = modeParam(mode);
-  if (m) p.set("modo", m);
-  else p.delete("modo");
   const q = p.toString();
   history.replaceState(null, "", q ? `${location.pathname}?${q}` : location.pathname);
 }
@@ -159,7 +157,7 @@ export const useSession = create<SessionState>()((set, get) => ({
     const seed = p.get("seed") || newSeed();
     const fastMode = p.get("rapido") === "1";
     const mode = parseMode(p.get("modo"));
-    writeUrl(fastMode, mode);
+    cleanUrl(fastMode);
     set({ seed, fastMode, mode });
     try {
       const dataset = await loadDataset("v1");
@@ -170,15 +168,12 @@ export const useSession = create<SessionState>()((set, get) => ({
   },
 
   setMode(mode) {
-    const { fastMode } = get();
-    writeUrl(fastMode, mode);
     set({ mode });
   },
 
   startDraft() {
-    const { dataset, seed, fastMode, mode } = get();
+    const { dataset, seed, fastMode } = get();
     if (!dataset) return;
-    writeUrl(fastMode, mode);
     set({ draft: createDraft(dataset, seed), selectedCardId: null, phase: "draft" });
     if (!fastMode) loadEngine((engine) => set({ engine })).catch(() => {});
   },
