@@ -1,6 +1,6 @@
 # Plano: código aberto e jogo gratuito
 
-**Situação:** passos 1 a 4 e 6 feitos em 2026-11-16; o passo 5 (histórico e branch) está em andamento, e falta você tornar o repositório público.
+**Situação:** passos 1 a 6 feitos em 2026-11-16; falta só você tornar o repositório público no GitHub.
 
 ## Decisão do usuário (2026-11-16)
 
@@ -44,10 +44,13 @@
    - fontes dos dados e dos livros, com as licenças;
    - Maia-3 (projeto Maia, Universidade de Toronto) e Stockfish;
    - aviso: jogo sem fins lucrativos, sem ligação com a FIDE nem com os jogadores. Nomes de pessoas reais usados como fato histórico, sem fotos (GDD §10).
-5. **Repositório público**
+5. ✅ **Repositório público** (revisão do histórico feita; tornar público é uma ação do usuário)
    - Antes de abrir o repositório, revisar o histórico: segredos, arquivos grandes e PGNs. Em 2026-11-16, `git log --all -- '*.pgn'` não encontrou nada, e `models/`, `*.onnx` e `bench-results/` já estão no `.gitignore`.
    - O branch `prototype/design-system` pode ir junto ou ser removido do remoto; decisão do usuário na hora de publicar.
    - Criar o repositório (ex.: GitHub) é uma ação do usuário, que define nome e conta.
+   - **Revisão de 2026-11-16:** nenhum segredo, chave, caminho local, PGN, livro `.bin` ou modelo no histórico; o maior arquivo é o `report.md` (~380 KB). O remoto só tem a `main`.
+   - **Autoria reescrita (decisão do usuário):** os commits expunham um e-mail pessoal e outro nome. Todos passaram para `Norman Frieman <25068134+NormanFrieman@users.noreply.github.com>` (`git filter-branch`, force push na `main`; os hashes mudaram). O repositório local usa essa identidade em `git config`.
+   - A tag local `backup/poc-mock-game` (projeto antigo da cidade) não está no remoto e não deve ser enviada (`git push --tags`).
 6. ✅ **GDD:** registrar a decisão em §14.1 e tirar a ressalva de "uso comercial".
 
 ## Pendências
