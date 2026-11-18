@@ -5,6 +5,7 @@
 import { useState } from "react";
 import {
   BoardCard,
+  BoardFrame,
   Button,
   EvalBar,
   Flag,
@@ -376,7 +377,13 @@ export function UiCatalog() {
       <Section title="Avaliação e marcas de lance">
         <div className="flex items-stretch gap-6">
           {[1, 0.4, 0, -0.5, -1].map((c) => (
-            <EvalBar key={c} chances={c} label={`Chances das brancas ${c}`} className="h-32" />
+            <EvalBar
+              key={c}
+              chances={c}
+              label={`Chances das brancas ${c}`}
+              text={c >= 0 ? `+${c}` : `−${-c}`}
+              className="h-32 w-4"
+            />
           ))}
           <p className="self-center text-lg">
             Cxe5
@@ -384,6 +391,16 @@ export function UiCatalog() {
             <MoveMark mark="mistake" label="Erro" /> · Bxf7
             <MoveMark mark="blunder" label="Erro grave" />
           </p>
+        </div>
+        <div className="mt-4 grid max-w-3xl grid-cols-3 gap-4">
+          {(["great", "mistake", "blunder"] as const).map((m) => (
+            <BoardFrame
+              key={m}
+              fen="r5k1/1p2qpbp/p1pprnp1/4n1B1/2P1P3/2N2P2/PP1QB1PP/3R1R1K w - - 0 16"
+              lastMove={["c7", "c6"]}
+              annotation={{ square: "c6", mark: m }}
+            />
+          ))}
         </div>
       </Section>
 

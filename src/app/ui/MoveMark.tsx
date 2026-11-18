@@ -7,7 +7,7 @@ const color: Record<Mark, string> = {
 };
 
 /**
- * "!", "?" or "??" after a move (GDD §8.6), with its name (i18n) as tooltip
+ * "!", "?" or "??" after a move, in the same "margin notation" as on the board (GDD §8.6), with its name (i18n) as tooltip
  * and for screen readers. `inherit` keeps the text color (selected move).
  */
 export function MoveMark({
@@ -25,7 +25,7 @@ export function MoveMark({
     <abbr
       title={label}
       aria-label={label}
-      className={`font-bold no-underline ${inherit ? "" : color[mark]} ${className}`}
+      className={`font-black italic no-underline ${inherit ? "" : color[mark]} ${className}`}
     >
       {markGlyph[mark]}
     </abbr>

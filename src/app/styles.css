@@ -75,6 +75,16 @@
   .board-almanaque piece {
     filter: sepia(0.35);
   }
+  /* Move marks (GDD §8.6): the square takes the mark's colour, over last-move. */
+  .board-almanaque cg-board square.mark-great {
+    background-color: color-mix(in srgb, var(--color-win) 40%, transparent);
+  }
+  .board-almanaque cg-board square.mark-mistake {
+    background-color: color-mix(in srgb, var(--color-draw) 40%, transparent);
+  }
+  .board-almanaque cg-board square.mark-blunder {
+    background-color: color-mix(in srgb, var(--color-loss) 40%, transparent);
+  }
 }
 
 /* Engine dev page (/spike). */

@@ -133,8 +133,9 @@ export function Replay() {
             <EvalBar
               chances={point.chances}
               label={t("feedback.evalLabel", { value: point.text })}
+              text={point.text}
               orientation={orientation}
-              className="w-2.5"
+              className="w-4"
             />
           )}
           <BoardFrame
@@ -142,6 +143,9 @@ export function Replay() {
             lastMove={pos.from && pos.to ? [pos.from, pos.to] : undefined}
             orientation={orientation}
             coordinates
+            {...(pos.to && feedback?.[ply - 1]?.mark
+              ? { annotation: { square: pos.to, mark: feedback[ply - 1]!.mark! } }
+              : {})}
             className="min-w-0 flex-1"
           />
         </div>
