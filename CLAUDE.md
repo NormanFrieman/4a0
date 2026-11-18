@@ -1,6 +1,6 @@
 # 4 a 0
 
-Jogo de navegador: o usuário monta uma equipe de 5 enxadristas históricos e disputa uma Olimpíada de Xadrez simulada pelo Maia-3. A fonte de verdade é [docs/GDD.md](docs/GDD.md). Leia a seção relevante antes de implementar.
+Jogo de navegador: o usuário monta uma equipe de 4 enxadristas históricos e disputa uma Olimpíada de Xadrez simulada pelo Maia-3. A fonte de verdade é [docs/GDD.md](docs/GDD.md). Leia a seção relevante antes de implementar.
 
 - Medições de desempenho e calibração da engine: [docs/benchmarks.md](docs/benchmarks.md).
 - **Calibração pendente:** `engineCalibration` foi medido sem o filtro do Stockfish e está desatualizado. A escada será refeita uma vez só, num computador com mais capacidade, depois de fixar as regras de fim de partida.

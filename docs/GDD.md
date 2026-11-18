@@ -15,7 +15,7 @@ Este documento é a fonte de verdade do projeto para o Claude Code. Exporte como
 
 ## 1. Visão geral e pilares
 
-**4 a 0** (o placar perfeito de um match olímpico) é um jogo de navegador em que o jogador monta uma equipe de 5 enxadristas históricos e disputa uma Olimpíada de Xadrez contra seleções reais de várias épocas. As partidas são jogadas lance a lance pelo Maia-3, uma IA que joga como humanos de cada nível.
+**4 a 0** (o placar perfeito de um match olímpico) é um jogo de navegador em que o jogador monta uma equipe de 4 enxadristas históricos e disputa uma Olimpíada de Xadrez contra seleções reais de várias épocas. As partidas são jogadas lance a lance pelo Maia-3, uma IA que joga como humanos de cada nível.
 
 **Inspiração:** o jogo "7 a 0" e similares (38 a 0, 82 a 0), em que o usuário sorteia seleções históricas da Copa do Mundo, escolhe um jogador de cada uma e o jogo simula o torneio.
 
