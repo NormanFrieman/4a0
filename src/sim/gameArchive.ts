@@ -46,9 +46,12 @@ export function archiveGame(
 ): ArchivedGame {
   const w = firstIsWhite(game.board);
   const firstBook = rec.moves.findIndex((m) => m.source !== "book");
-  const feedback = rec.moves.map((m): PlyFeedback => {
-    const mark = classifyMove(m);
-    return { ...(m.eval ? { eval: m.eval } : {}), ...(mark ? { mark } : {}) };
+  const feedback = rec.moves.map((m, i): PlyFeedback => {
+    const next = rec.moves[i + 1];
+    const mark = classifyMove(m, next);
+    // The next move's fresh search of the position beats the mover's estimate.
+    const score = next?.evalBefore ?? m.eval;
+    return { ...(score ? { eval: score } : {}), ...(mark ? { mark } : {}) };
   });
   return {
     round,

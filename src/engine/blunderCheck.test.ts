@@ -138,6 +138,7 @@ describe("BlunderCheckedAI", () => {
         cfg,
       );
       expect((await ai.chooseMove(req(2000))).check).toEqual({
+        scoreBefore: { cp: 40 },
         scoreAfter: { cp: 40 },
         best: true,
         drop: 0,
@@ -149,6 +150,7 @@ describe("BlunderCheckedAI", () => {
       const r = await ai.chooseMove(req(2000));
       expect(r.move).toBe("f2f3");
       expect(r.check!.scoreAfter).toEqual({ cp: 30 });
+      expect(r.check!.scoreBefore).toEqual({ cp: 40 });
       expect(r.check!.best).toBe(false);
       expect(r.check!.drop).toBeCloseTo(winChances({ cp: 40 }, k) - winChances({ cp: 30 }, k));
     });
@@ -159,7 +161,12 @@ describe("BlunderCheckedAI", () => {
         req(2000),
       );
       expect(r.move).toBe("e2e4");
-      expect(r.check).toEqual({ scoreAfter: { cp: 40 }, best: true, drop: 0 });
+      expect(r.check).toEqual({
+        scoreBefore: { cp: 40 },
+        scoreAfter: { cp: 40 },
+        best: true,
+        drop: 0,
+      });
     });
 
     it("is absent where the check is off", async () => {

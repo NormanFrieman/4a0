@@ -156,15 +156,19 @@ export function Round() {
           const shownMove = b.moves[b.shown - 1];
           const white = cardView(ds, b.game.whiteCardId);
           const black = cardView(ds, b.game.blackCardId);
-          const mark = analysis && s === null && shownMove ? classifyMove(shownMove) : null;
+          // A mark waits for the next move's search, which confirms or refutes it.
+          const next = b.moves[b.shown];
+          const mark =
+            analysis && s === null && shownMove && (next || b.result)
+              ? classifyMove(shownMove, next)
+              : null;
           const point = analysis ? evalAt(b.moves, b.shown, b.termination) : null;
           const status =
             s !== null
               ? `${b.result!.score === 1 ? "1-0" : b.result!.score === 0 ? "0-1" : "½-½"} · ${t(`round.outcome_${outcomeOf(s)}`)}${b.simulated ? ` · ${t("round.simulated")}` : ""}`
               : b.moves.length === 0
                 ? t("round.computing")
-                : t("round.moveStatus", { n: Math.max(1, Math.ceil(b.shown / 2)) }) +
-                  (mark ? ` · ${shownMove!.san}` : "");
+                : t("round.moveStatus", { n: Math.max(1, Math.ceil(b.shown / 2)) });
           return (
             <BoardCard
               key={b.game.board}

@@ -86,12 +86,14 @@ describe("archiveGame", () => {
 
   it("keeps the blunder check's evaluation and marks (GDD §8.6)", async () => {
     const script = new ScriptedAI(["e2e4", "f7f6", "d2d4", "g7g5", "d1h5"]);
+    // Scores from the mover's point of view. Black's 1...f6 thought it lost
+    // 0.1, but White's search of the position finds +1.5: a confirmed mistake.
     const checks = [
-      { scoreAfter: { cp: 30 }, best: true, drop: 0 },
-      { scoreAfter: { cp: -80 }, best: false, drop: 0.25 },
-      { scoreAfter: { cp: 90 }, best: false, drop: 0.05 },
-      { scoreAfter: { mate: -1 }, best: false, drop: 0.9 },
-      { scoreAfter: { mate: 0 }, best: true, drop: 0 },
+      { scoreBefore: { cp: 20 }, scoreAfter: { cp: 30 }, best: true, drop: 0 },
+      { scoreBefore: { cp: -30 }, scoreAfter: { cp: -80 }, best: false, drop: 0.1 },
+      { scoreBefore: { cp: 150 }, scoreAfter: { cp: 90 }, best: false, drop: 0.05 },
+      { scoreBefore: { cp: -90 }, scoreAfter: { mate: -1 }, best: false, drop: 0.9 },
+      { scoreBefore: { mate: 1 }, scoreAfter: { mate: 0 }, best: true, drop: 0 },
     ];
     let i = 0;
     const ai: SideConfig["ai"] = {
@@ -102,9 +104,10 @@ describe("archiveGame", () => {
     };
     const rec = await playGame({ white: side(ai), black: side(ai), seed: 1 });
     const g = archiveGame(1, pairing, { board: 1, whiteCardId: "a", blackCardId: "b" }, rec);
+    // The bar after each move takes the next move's own search of the position.
     expect(g.feedback).toEqual([
       { eval: { cp: 30 } },
-      { eval: { cp: 80 }, mark: "mistake" },
+      { eval: { cp: 150 }, mark: "mistake" },
       { eval: { cp: 90 } },
       { eval: { mate: 1 }, mark: "blunder" },
       {},

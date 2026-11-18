@@ -187,8 +187,14 @@ export const balance = {
     /** Drop in winning chances (Lichess scale) marked "?" and "??". */
     mistakeDrop: 0.2,
     blunderDrop: 0.3,
-    /** "!": Stockfish's best move that Maia gave less than this probability. */
+    /** "!": Stockfish's best move that Maia gave less than this probability… */
     greatMaxProb: 0.15,
+    /** …and that the next move's search confirms (drop at most this)… */
+    greatMaxDrop: 0.05,
+    /** …out of the opening (from this move number)… */
+    greatFromMove: 10,
+    /** …and while the game is open (mover's winning chances within ±this). */
+    greatMaxChances: 0.6,
   },
 
   /** GDD §8.3 — replay pace of the user's games in the Round screen. */

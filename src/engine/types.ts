@@ -40,6 +40,8 @@ export interface MoveResult {
  * the evaluation bar and move marks (GDD §8.6), never searched again.
  */
 export interface MoveCheck {
+  /** Score of the position before the move (the search root), from the mover's point of view. */
+  scoreBefore: Score;
   /** Score of the position after the move, from the mover's point of view. */
   scoreAfter: Score;
   /** The move is Stockfish's best move. */

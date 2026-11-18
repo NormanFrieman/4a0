@@ -173,11 +173,32 @@ describe("Evaluation bar and move marks", () => {
     },
   ];
 
+  const next: PlayedMove = {
+    ply: 2,
+    color: "white",
+    uci: "d2d4",
+    san: "d4",
+    fenAfter: "",
+    source: "engine",
+    evalBefore: { cp: 300 },
+    best: true,
+    drop: 0,
+    moveProb: 0.5,
+  };
+
   function liveWithMoves() {
     const l = liveRound();
     const boards = l.boards.map((b, i) =>
       i === 0
-        ? { ...b, moves, shown: moves.length, result: null, termination: null, simulated: false }
+        ? // The mark of f6 waits for the next move's search, already computed.
+          {
+            ...b,
+            moves: [...moves, next],
+            shown: moves.length,
+            result: null,
+            termination: null,
+            simulated: false,
+          }
         : b,
     );
     return { ...l, boards, userMatch: null };
