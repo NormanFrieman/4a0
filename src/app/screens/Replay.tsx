@@ -1,20 +1,23 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { replayPositions } from "../../sim/gameArchive.ts";
+import { evalAt } from "../../sim/moveFeedback.ts";
 import { scoreOf } from "../../sim/match.ts";
 import { USER_ID } from "../../tournament/tournament.ts";
 import {
   BoardFrame,
   Button,
   ChampionName,
+  EvalBar,
   Masthead,
+  MoveMark,
   ResultBadge,
   Rule,
   ScreenLayout,
   StyleTrait,
   outcomeOf,
 } from "../ui/index.ts";
-import { useSession, useShowStrength } from "../state/session.ts";
+import { useSession, useShowAnalysis, useShowStrength } from "../state/session.ts";
 import { cardView, downloadCampaign, downloadGame, teamLabel } from "./helpers.ts";
 
 const resultText = { "1-0": "1-0", "0-1": "0-1", "1/2-1/2": "½-½" } as const;
@@ -24,8 +27,15 @@ export function Replay() {
   const { t } = useTranslation();
   const { dataset: ds, seed, games, replay, closeReplay } = useSession();
   const show = useShowStrength();
+  const analysis = useShowAnalysis();
   const game = replay ? games[replay.key] : undefined;
   const positions = useMemo(() => (game ? replayPositions(game.san) : []), [game]);
+  /** Evaluation bar and marks (GDD §8.6): Clássico only, games with analysis only. */
+  const feedback = analysis ? game?.feedback : undefined;
+  const plies = useMemo(
+    () => (game && feedback ? game.san.map((san, i) => ({ san, ...feedback[i] })) : null),
+    [game, feedback],
+  );
   const last = Math.max(0, positions.length - 1);
   const [ply, setPly] = useState(last);
   const current = useRef<HTMLButtonElement>(null);
@@ -59,6 +69,8 @@ export function Replay() {
   const userWhite = game.whiteTeamId === USER_ID;
   const userShare = userWhite ? scoreOf(game.result) : 1 - scoreOf(game.result);
   const outcome = outcomeOf(userShare);
+  const point = plies ? evalAt(plies, ply, game.termination) : null;
+  const orientation = userWhite ? "white" : "black";
 
   const player = (cardId: string, teamId: string, color: "white" | "black") => {
     const v = cardView(ds, cardId);
@@ -116,13 +128,23 @@ export function Replay() {
       }
     >
       <div className="mt-6 lg:mt-0 lg:flex lg:min-h-0 lg:flex-col lg:[container-type:size]">
-        <BoardFrame
-          fen={pos.fen}
-          lastMove={pos.from && pos.to ? [pos.from, pos.to] : undefined}
-          orientation={userWhite ? "white" : "black"}
-          coordinates
-          className="mx-auto w-full max-w-xl lg:w-[min(100%,calc(100cqh-3rem))]"
-        />
+        <div className="mx-auto flex w-full max-w-xl gap-1.5 lg:w-[min(100%,calc(100cqh-3rem))]">
+          {point && (
+            <EvalBar
+              chances={point.chances}
+              label={t("feedback.evalLabel", { value: point.text })}
+              orientation={orientation}
+              className="w-2.5"
+            />
+          )}
+          <BoardFrame
+            fen={pos.fen}
+            lastMove={pos.from && pos.to ? [pos.from, pos.to] : undefined}
+            orientation={orientation}
+            coordinates
+            className="min-w-0 flex-1"
+          />
+        </div>
         <div className="mt-3 flex justify-center gap-2 lg:shrink-0">
           <Button onClick={() => setPly(0)} disabled={ply === 0} aria-label={t("replay.start")}>
             «
@@ -179,6 +201,13 @@ export function Replay() {
                       className={`cursor-pointer px-1 py-0.5 text-left hover:text-accent ${p === ply ? "bg-ink text-paper hover:text-paper" : ""}`}
                     >
                       {positions[p]!.san}
+                      {feedback?.[p - 1]?.mark && (
+                        <MoveMark
+                          mark={feedback[p - 1]!.mark!}
+                          label={t(`feedback.${feedback[p - 1]!.mark!}`)}
+                          inherit={p === ply}
+                        />
+                      )}
                     </button>
                   ) : (
                     <span key={p} />
@@ -187,6 +216,9 @@ export function Replay() {
               </li>
             ))}
           </ol>
+        )}
+        {feedback && (
+          <p className="mt-2 text-xs text-muted italic lg:shrink-0">{t("feedback.legend")}</p>
         )}
         <p className="mt-2 hidden text-xs text-muted italic lg:block lg:shrink-0">
           {t("replay.keys")}

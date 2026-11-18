@@ -26,7 +26,10 @@ import { Draft } from "./Draft.tsx";
 import { Field } from "./Field.tsx";
 import { Final } from "./Final.tsx";
 import { PreRound } from "./PreRound.tsx";
+import { Replay } from "./Replay.tsx";
 import { Round } from "./Round.tsx";
+import { archiveKey, type ArchivedGame } from "../../sim/gameArchive.ts";
+import type { PlayedMove } from "../../engine/game.ts";
 
 const ds = sampleDataset();
 const seed = "master-test";
@@ -93,7 +96,12 @@ const screens: { name: string; phase: Phase; render: () => React.ReactElement }[
  * On the server, zustand renders the store's *initial* state
  * (`getServerSnapshot`), so the test writes the session into that object.
  */
-function renderIn(mode: Mode, phase: Phase, el: () => React.ReactElement) {
+function renderIn(
+  mode: Mode,
+  phase: Phase,
+  el: () => React.ReactElement,
+  extra: Partial<ReturnType<typeof useSession.getState>> = {},
+) {
   Object.assign(useSession.getInitialState(), {
     dataset: ds,
     seed,
@@ -105,6 +113,7 @@ function renderIn(mode: Mode, phase: Phase, el: () => React.ReactElement) {
     live: phase === "playing" ? liveRound() : null,
     replay: null,
     games: {},
+    ...extra,
   });
   return renderToStaticMarkup(el());
 }
@@ -130,4 +139,93 @@ describe("Mestre mode", () => {
   it("reveals strength on the final result", () => {
     expect(shownStrengths(renderIn("master", "final", () => <Final />)).length).toBeGreaterThan(0);
   });
+});
+
+/**
+ * GDD §8.6: the evaluation bar and move marks are Clássico only; Mestre shows
+ * just the board, even after the tournament.
+ */
+describe("Evaluation bar and move marks", () => {
+  const moves: PlayedMove[] = [
+    {
+      ply: 0,
+      color: "white",
+      uci: "e2e4",
+      san: "e4",
+      fenAfter: "",
+      source: "engine",
+      eval: { cp: 30 },
+      best: true,
+      drop: 0,
+      moveProb: 0.5,
+    },
+    {
+      ply: 1,
+      color: "black",
+      uci: "f7f6",
+      san: "f6",
+      fenAfter: "",
+      source: "engine",
+      eval: { cp: 120 },
+      best: false,
+      drop: 0.35,
+      moveProb: 0.1,
+    },
+  ];
+
+  function liveWithMoves() {
+    const l = liveRound();
+    const boards = l.boards.map((b, i) =>
+      i === 0
+        ? { ...b, moves, shown: moves.length, result: null, termination: null, simulated: false }
+        : b,
+    );
+    return { ...l, boards, userMatch: null };
+  }
+
+  const pairing = userPairing(paired);
+  const game: ArchivedGame = {
+    round: 1,
+    board: 1,
+    whiteCardId: userCards[0]!,
+    blackCardId: userCards[1]!,
+    whiteTeamId: pairing.first,
+    blackTeamId: pairing.second,
+    result: "1-0",
+    termination: "resignation",
+    san: ["e4", "f6"],
+    bookPlies: 0,
+    feedback: [{ eval: { cp: 30 } }, { eval: { cp: 120 }, mark: "blunder" }],
+  };
+  const key = archiveKey(1, 1);
+  const views = [
+    {
+      name: "Round",
+      phase: "playing" as Phase,
+      render: () => <Round />,
+      extra: () => ({ live: liveWithMoves() }),
+    },
+    ...(["playing", "final"] as const).map((from) => ({
+      name: `Replay from ${from}`,
+      phase: "replay" as Phase,
+      render: () => <Replay />,
+      extra: () => ({ games: { [key]: game }, replay: { key, from } }),
+    })),
+  ];
+  const hasBar = (html: string) => html.includes("Avaliação:");
+  const hasMark = (html: string) => html.includes("Erro grave");
+
+  for (const v of views) {
+    it(`shows them in ${v.name} in Clássico`, () => {
+      const html = renderIn("classic", v.phase, v.render, v.extra());
+      expect(hasBar(html)).toBe(true);
+      expect(hasMark(html)).toBe(true);
+    });
+
+    it(`hides them in ${v.name} in Mestre`, () => {
+      const html = renderIn("master", v.phase, v.render, v.extra());
+      expect(hasBar(html)).toBe(false);
+      expect(hasMark(html)).toBe(false);
+    });
+  }
 });

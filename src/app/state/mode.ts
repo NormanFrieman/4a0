@@ -23,3 +23,9 @@ export function showStrength(mode: Mode, phase: string, replayFrom: string | nul
   if (mode === "classic") return true;
   return phase === "final" || (phase === "replay" && replayFrom === "final");
 }
+
+/**
+ * Whether screens may show the evaluation bar and move marks (GDD §8.6):
+ * only in Clássico. Mestre shows just the board, even after the tournament.
+ */
+export const showAnalysis = (mode: Mode): boolean => mode === "classic";
