@@ -325,6 +325,19 @@ Sessão inteira com os dados `v1` (`tsx`, 5M, onnxruntime-node, filtro ligado), 
 - **Nenhum abandono antes do lance 30** (`resignFromMove`). Na referência, houve abandonos no 6º e no 11º lance.
 - Mates e afogamentos em finais perdidos caíram de 19 para 7. Um mate saiu no 17º lance (Eljanov × Rodríguez Céspedes, 2697 × 2476), num jogo decidido cedo.
 
+## Barra de avaliação (2026-11-18)
+
+GDD §8.6. A barra reaproveita as buscas do filtro do Stockfish, sem buscas novas. Conferência no `/spike` (configuração padrão, semente `spike-1`), com a `main` e a branch servidas pelo `pnpm dev` na mesma máquina do item anterior, alternando as duas, 3 rodadas por página:
+
+| Versão      | 1ª rodada (fria) | Rodadas quentes | Hash dos PGNs |
+| ----------- | ---------------- | --------------- | ------------- |
+| `main`      | 14,6 s / 10,5 s  | 8,1–10,6 s      | `85e1a1b3`    |
+| Com a barra | 11,4 s / 9,8 s   | 9,0–9,2 s       | `85e1a1b3`    |
+
+- **Mesmas partidas:** o mesmo hash em todas as rodadas das duas versões (é o mesmo do Android acima).
+- **Tempo dentro do ruído:** as duas versões se sobrepõem. A máquina estava com dois servidores de desenvolvimento abertos, então os tempos ficam um pouco acima dos da seção anterior.
+- **Garantia permanente:** `src/engine/blunderCheck.game.test.ts` fixa o número de buscas (97) e o hash do PGN numa partida de referência com avaliador falso.
+
 ## Benchmarks futuros (ideias anotadas)
 
 Medições a fazer, em ordem aproximada de prioridade. Ao concluir uma, registre os resultados numa seção própria acima e remova o item daqui.

@@ -1,5 +1,6 @@
 import { BoardFrame } from "./BoardFrame.tsx";
 import { ChampionName } from "./ChampionName.tsx";
+import { EvalBar } from "./EvalBar.tsx";
 import { Kicker } from "./Masthead.tsx";
 import { ResultBadge } from "./ResultBadge.tsx";
 import type { Outcome } from "./format.ts";
@@ -26,6 +27,7 @@ export function BoardCard({
   lastMove,
   white,
   black,
+  evaluation,
   onOpen,
   openLabel,
   className = "",
@@ -39,6 +41,8 @@ export function BoardCard({
   lastMove?: readonly [string, string];
   white: BoardCardPlayer;
   black: BoardCardPlayer;
+  /** Evaluation bar (GDD §8.6); absent in the Mestre mode. */
+  evaluation?: { chances: number; label: string };
   /** Opens the game's replay: the board becomes clickable when given. */
   onOpen?: () => void;
   /** Accessible name of the clickable board (i18n). */
@@ -61,8 +65,15 @@ export function BoardCard({
       {p.strength !== null && <span className="text-muted tabular-nums">{p.strength}</span>}
     </div>
   );
-  const board = (
-    <BoardFrame fen={fen} lastMove={lastMove} orientation={userIsBlack ? "black" : "white"} />
+  const orientation = userIsBlack ? "black" : "white";
+  const frame = <BoardFrame fen={fen} lastMove={lastMove} orientation={orientation} />;
+  const board = evaluation ? (
+    <div className="flex gap-1">
+      <EvalBar chances={evaluation.chances} label={evaluation.label} orientation={orientation} />
+      <div className="min-w-0 flex-1">{frame}</div>
+    </div>
+  ) : (
+    frame
   );
   return (
     <figure className={`min-w-0 ${className}`}>

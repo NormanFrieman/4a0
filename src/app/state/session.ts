@@ -36,7 +36,7 @@ import {
 import { fieldConfig } from "../../tournament/field.ts";
 import type { BoardResult, MatchResult, Pairing } from "../../tournament/types.ts";
 import { enginePool, loadEngine, type EngineStatus } from "./engine.ts";
-import { parseMode, showStrength, type Mode } from "./mode.ts";
+import { parseMode, showAnalysis, showStrength, type Mode } from "./mode.ts";
 
 export type Phase =
   | "loading"
@@ -371,6 +371,9 @@ export const useSession = create<SessionState>()((set, get) => ({
 /** Whether the current screen may show playing strength (see `showStrength`). */
 export const useShowStrength = () =>
   useSession((s) => showStrength(s.mode, s.phase, s.replay?.from ?? null));
+
+/** Evaluation bar (GDD §8.6): Clássico only. */
+export const useShowAnalysis = () => useSession((s) => showAnalysis(s.mode));
 
 /** True when the user's match is computed and fully shown. */
 export const roundDone = (live: LiveRound | null) =>

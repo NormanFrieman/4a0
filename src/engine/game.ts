@@ -2,7 +2,8 @@ import { Chess } from "chess.js";
 import { balance } from "../config/balance.ts";
 import { deriveRng, type Rng } from "../rng/rng.ts";
 import { type Color, type EndRules, EndRuleTracker, defaultEndRules } from "./endRules.ts";
-import type { ChessAI } from "./types.ts";
+import { negateScore } from "./blunderCheck.ts";
+import type { ChessAI, Score } from "./types.ts";
 
 export type { Color, EndRules } from "./endRules.ts";
 export { defaultEndRules } from "./endRules.ts";
@@ -46,6 +47,18 @@ export interface PlayedMove {
   moveProb?: number;
   /** Mover's WDL for the position before the move (engine moves only). */
   wdl?: [number, number, number];
+  /**
+   * From the blunder check, when it ran (GDD §8.6): Stockfish's score of the
+   * position after the move, from White's point of view (absent after a
+   * checkmate, read from the move instead).
+   */
+  eval?: Score;
+  /**
+   * The blunder check's score of the position before the move (its search
+   * root), from White's point of view. The next move's `evalBefore` is the
+   * honest score after this move: a fresh search, not the mover's estimate.
+   */
+  evalBefore?: Score;
 }
 
 export interface PlayGameOptions {
@@ -222,6 +235,12 @@ export async function playGame(opts: PlayGameOptions): Promise<GameRecord> {
         moveProb: res.policy[res.move] ?? 0,
         wdl: res.wdl,
       };
+      if (res.check) {
+        const { scoreBefore, scoreAfter } = res.check;
+        const white = (s: Score) => (color === "white" ? s : negateScore(s));
+        record.evalBefore = white(scoreBefore);
+        if (!chess.isCheckmate()) record.eval = white(scoreAfter);
+      }
     }
 
     ucis.push(record.uci);

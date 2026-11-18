@@ -31,6 +31,19 @@ export interface MoveResult {
   policy: Record<string, number>;
   /** Win/draw/loss from the side to move's point of view. */
   wdl: [number, number, number];
+  /** Blunder check's scores around the move (GDD §8.6); absent when no check ran. */
+  check?: MoveCheck;
+}
+
+/**
+ * What the blunder check already measured about the chosen move. Reused for
+ * the evaluation bar (GDD §8.6), never searched again.
+ */
+export interface MoveCheck {
+  /** Score of the position before the move (the search root), from the mover's point of view. */
+  scoreBefore: Score;
+  /** Score of the position after the move, from the mover's point of view. */
+  scoreAfter: Score;
 }
 
 export interface ChessAI {

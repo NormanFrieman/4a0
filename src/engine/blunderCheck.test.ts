@@ -127,4 +127,43 @@ describe("BlunderCheckedAI", () => {
     const b = await ai.chooseMove(req(2000, 7));
     expect(a.move).toBe(b.move);
   });
+
+  describe("check (GDD §8.6)", () => {
+    it("reports Stockfish's best move with the root score", async () => {
+      const ai = new BlunderCheckedAI(
+        { chooseMove: async () => ({ move: "e2e4", policy, wdl: [0.4, 0.3, 0.3] }) },
+        new FakeEvaluator({}),
+        cfg,
+      );
+      expect((await ai.chooseMove(req(2000))).check).toEqual({
+        scoreBefore: { cp: 40 },
+        scoreAfter: { cp: 40 },
+      });
+    });
+
+    it("reports an accepted move with the scores around it", async () => {
+      const ai = new BlunderCheckedAI(inner, new FakeEvaluator({ f2f3: 30 }), cfg);
+      const r = await ai.chooseMove(req(2000));
+      expect(r.move).toBe("f2f3");
+      expect(r.check!.scoreAfter).toEqual({ cp: 30 });
+      expect(r.check!.scoreBefore).toEqual({ cp: 40 });
+    });
+
+    it("reports the fallback with the root score", async () => {
+      const ev = new FakeEvaluator({ f2f3: -500, d2d4: -500, e2e4: -500 });
+      const r = await new BlunderCheckedAI(inner, ev, { ...cfg, maxTries: 2 }).chooseMove(
+        req(2000),
+      );
+      expect(r.move).toBe("e2e4");
+      expect(r.check).toEqual({
+        scoreBefore: { cp: 40 },
+        scoreAfter: { cp: 40 },
+      });
+    });
+
+    it("is absent where the check is off", async () => {
+      const r = await new BlunderCheckedAI(inner, new FakeEvaluator({}), cfg).chooseMove(req(900));
+      expect(r.check).toBeUndefined();
+    });
+  });
 });

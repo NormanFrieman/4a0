@@ -10,6 +10,7 @@ import { interpolate } from "./strength.ts";
 import type {
   Analysis,
   ChessAI,
+  MoveCheck,
   MoveRequest,
   MoveResult,
   PositionEvaluator,
@@ -82,18 +83,29 @@ export class BlunderCheckedAI implements ChessAI {
     const root = await this.analyse(req.fen);
     const bestChances = winChances(root.score, k);
     const policy = { ...res.policy };
+    // Stockfish's best move keeps the root score (no extra search for it).
+    const best: MoveCheck = { scoreBefore: root.score, scoreAfter: root.score };
     let move = res.move;
     for (let i = 0; i < this.cfg.maxTries; i++) {
-      if (move === root.bestMove) return { ...res, move };
+      if (move === root.bestMove) return { ...res, move, check: best };
       const after = new Chess(req.fen);
       after.move({ from: move.slice(0, 2), to: move.slice(2, 4), promotion: move[4] });
       // The position after the move is scored for the opponent.
-      const chances = -winChances((await this.analyse(after.fen())).score, k);
-      if (bestChances - chances <= maxDrop) return { ...res, move };
+      const raw = (await this.analyse(after.fen())).score;
+      if (bestChances + winChances(raw, k) <= maxDrop) {
+        // A checkmate scores "mate 0" for the mated side, which negates to
+        // itself; consumers read mates from the move (GDD §8.6).
+        return { ...res, move, check: { scoreBefore: root.score, scoreAfter: negateScore(raw) } };
+      }
       delete policy[move];
       if (Object.keys(policy).length === 0) break;
       move = sampleMove(policy, { temperature: req.temperature, topP: req.topP, rng: req.rng });
     }
-    return { ...res, move: root.bestMove ?? move };
+    return root.bestMove ? { ...res, move: root.bestMove, check: best } : { ...res, move };
   }
+}
+
+/** The same score from the other side's point of view. */
+export function negateScore(score: Score): Score {
+  return "mate" in score ? { mate: -score.mate } : { cp: -score.cp };
 }

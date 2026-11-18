@@ -15,7 +15,8 @@ export function Home() {
       )}
       {fastMode && <p className="mt-3 text-sm text-accent italic">{t("home.fastNote")}</p>}
       <Rule className="my-8" />
-      <Button variant="primary" className="px-8 py-3 text-lg" onClick={startDraft}>
+      {/* Full column width on every screen (a flex item on desktop, a block below). */}
+      <Button variant="primary" className="w-full px-8 py-3 text-lg" onClick={startDraft}>
         {t("home.play")}
       </Button>
       <div className="mt-6 flex flex-col items-center">

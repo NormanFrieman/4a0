@@ -5,6 +5,7 @@
  */
 import { Chess } from "chess.js";
 import type { GameRecord, GameResult, Termination } from "../engine/game.ts";
+import type { Score } from "../engine/types.ts";
 import type { Pairing } from "../tournament/types.ts";
 import { firstIsWhite, type BoardGame } from "./match.ts";
 
@@ -21,6 +22,12 @@ export interface ArchivedGame {
   san: string[];
   /** Book moves at the start of the game. */
   bookPlies: number;
+  /**
+   * Per ply, the evaluation after the move from White's point of view, for
+   * the evaluation bar (GDD §8.6); null where none was measured. Absent when
+   * no ply was checked.
+   */
+  evals?: (Score | null)[];
 }
 
 export const archiveKey = (round: number, board: number) => `r${round}b${board}`;
@@ -34,6 +41,8 @@ export function archiveGame(
 ): ArchivedGame {
   const w = firstIsWhite(game.board);
   const firstBook = rec.moves.findIndex((m) => m.source !== "book");
+  // The next move's fresh search of the position beats the mover's estimate.
+  const evals = rec.moves.map((m, i) => rec.moves[i + 1]?.evalBefore ?? m.eval ?? null);
   return {
     round,
     board: game.board,
@@ -45,6 +54,7 @@ export function archiveGame(
     termination: rec.termination,
     san: rec.moves.map((m) => m.san),
     bookPlies: firstBook === -1 ? rec.moves.length : firstBook,
+    ...(evals.some((e) => e) ? { evals } : {}),
   };
 }
 

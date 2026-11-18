@@ -289,6 +289,16 @@ O Maia-3 só recebe o rating; dois jogadores de mesma força jogariam igual. A p
 | `maxPlies` | 250 |
 | `maiaModelVariant` | 5m (testar 23m) |
 
+### 8.6 Barra de avaliação
+
+**DECIDIDO (2026-11-18):** no modo Clássico, as partidas do usuário mostram uma barra de avaliação ao lado do tabuleiro, durante a rodada e no Replay. O modo Mestre mostra só o tabuleiro, inclusive no Resultado final e nos replays abertos dele. Não há marcas de lance (`!`, `?`, `??`): foram testadas e descartadas.
+
+- **Sem custo extra:** tudo vem das buscas que o filtro de blunders (§8.1) já faz. Nenhuma busca do Stockfish é acrescentada, e os lances não mudam (mesma semente, mesmo PGN). Um teste fixa o número de buscas numa partida de referência.
+- **Valor:** chances de vitória das brancas (fórmula do §8.1) da posição depois do último lance avaliado. A nota de uma posição é a da busca do lance seguinte, que analisa essa posição do zero; a estimativa de quem jogou só vale quando não há essa busca. Com a estimativa, a barra mostrava o otimismo de quem jogou e saltava no lance seguinte.
+- **Lacunas:** lances de livro e lados com o filtro desligado (tolerância ≥ 2, `selfElo` ≈ 600) não têm avaliação: a barra mantém o último valor (0 no início). Depois de um mate, fica cheia para quem deu o mate; num empate pelas regras, volta ao meio.
+- **Desenho (docs/design.md):** filete fino ao lado do tabuleiro; no Replay, com o valor na ponta de quem está melhor.
+- As mesas simuladas pela simulação rápida (§6.3) não têm lances, então não têm barra.
+
 ## 9. Dados
 
 Os dados históricos são processados offline por scripts e publicados como arquivos estáticos. O navegador nunca acessa fontes externas.
@@ -337,10 +347,10 @@ Sete telas cobrem o MVP. Layout pensado primeiro para desktop, mas utilizável n
 | Início | Nome do jogo, modos | Jogar (Clássico ou Mestre), Como jogar |
 | Draft | Cartão do sorteio (bandeira, ano, sede, colocação), escalação com as cartas, as 4 vagas, contador de re-sorteios | Escolher carta, escolher vaga, re-sortear |
 | Confirmação | As 4 cartas na ordem, força média, traços de estilo | Confirmar |
-| Rodada | As duas escalações, depois 4 tabuleiros do mesmo tamanho, placar parcial, outros resultados | Jogar, mudar velocidade |
+| Rodada | As duas escalações, depois 4 tabuleiros do mesmo tamanho (no Clássico, com barra de avaliação, §8.6), placar parcial, outros resultados | Jogar, mudar velocidade |
 | Classificação | Tabela após cada rodada, com pontos de match, de partida e desempate | Próxima rodada |
 | Resultado final | Colocação, medalha, campanha rodada a rodada, classificação final, destaque individual por mesa | Compartilhar imagem, copiar texto, jogar de novo |
-| Replay | Tabuleiro com navegação pelos lances, nomes, resultado | Baixar PGN, voltar |
+| Replay | Tabuleiro com navegação pelos lances, nomes, resultado; no Clássico, barra de avaliação (§8.6) | Baixar PGN, voltar |
 
 O tabuleiro usa chessground. As cartas mostram nome, país, ano, título, força (exceto no modo Mestre), traço de estilo e campanha real. Não usar fotos de jogadores reais.
 

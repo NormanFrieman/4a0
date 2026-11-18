@@ -3,6 +3,7 @@ export { BoardCard, type BoardCardPlayer } from "./BoardCard.tsx";
 export { BoardFrame } from "./BoardFrame.tsx";
 export { Button } from "./Button.tsx";
 export { ChampionName } from "./ChampionName.tsx";
+export { EvalBar } from "./EvalBar.tsx";
 export { Flag } from "./Flag.tsx";
 export { formatPoints, outcomeOf, type Outcome } from "./format.ts";
 export { LineupRow } from "./LineupRow.tsx";

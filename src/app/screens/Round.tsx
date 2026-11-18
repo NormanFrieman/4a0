@@ -15,7 +15,14 @@ import {
   formatPoints,
   outcomeOf,
 } from "../ui/index.ts";
-import { roundDone, useSession, useShowStrength, type LiveBoard } from "../state/session.ts";
+import { evalAt } from "../../sim/evalBar.ts";
+import {
+  roundDone,
+  useSession,
+  useShowAnalysis,
+  useShowStrength,
+  type LiveBoard,
+} from "../state/session.ts";
 import { cardView, teamLabel } from "./helpers.ts";
 
 const START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
@@ -40,6 +47,7 @@ export function Round() {
     openReplay,
   } = useSession();
   const show = useShowStrength();
+  const analysis = useShowAnalysis();
 
   // Playback clock: one half-move per tick per board; tick is a no-op when the
   // board has shown everything computed so far.
@@ -148,6 +156,7 @@ export function Round() {
           const shownMove = b.moves[b.shown - 1];
           const white = cardView(ds, b.game.whiteCardId);
           const black = cardView(ds, b.game.blackCardId);
+          const point = analysis ? evalAt(b.moves, b.shown, b.termination) : null;
           const status =
             s !== null
               ? `${b.result!.score === 1 ? "1-0" : b.result!.score === 0 ? "0-1" : "½-½"} · ${t(`round.outcome_${outcomeOf(s)}`)}${b.simulated ? ` · ${t("round.simulated")}` : ""}`
@@ -176,6 +185,14 @@ export function Round() {
                 isUser: !userWhite(b),
                 ...(black.champion ? { champion: t("champion.label") } : {}),
               }}
+              {...(point
+                ? {
+                    evaluation: {
+                      chances: point.chances,
+                      label: t("evalBar.label", { value: point.text }),
+                    },
+                  }
+                : {})}
               {...(done && games[archiveKey(live.round, b.game.board)]
                 ? {
                     onOpen: () => openReplay(live.round, b.game.board),

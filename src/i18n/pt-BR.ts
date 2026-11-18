@@ -178,6 +178,9 @@ export const ptBR = {
     downloadCampaign: "Baixar a campanha",
     back: "Voltar",
   },
+  evalBar: {
+    label: "Avaliação: {{value}}",
+  },
   termination: {
     checkmate: "xeque-mate",
     stalemate: "afogamento",

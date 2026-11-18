@@ -6,6 +6,7 @@ import { useState } from "react";
 import {
   BoardCard,
   Button,
+  EvalBar,
   Flag,
   Kicker,
   LineupRow,
@@ -341,7 +342,7 @@ export function UiCatalog() {
       <Section title="Rodada: placar e 4 tabuleiros iguais">
         <MatchScore home="Sua seleção" away="Iugoslávia 1974" homePoints={1.5} awayPoints={1.5} />
         <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-4">
-          {games.map((g) => (
+          {games.map((g, i) => (
             <BoardCard
               key={g.board}
               boardLabel={`Mesa ${g.board}`}
@@ -351,6 +352,31 @@ export function UiCatalog() {
               lastMove={g.lastMove}
               white={{ ...g.white, strength: hide(g.white.strength) }}
               black={{ ...g.black, strength: hide(g.black.strength) }}
+              {...(i < 2 && !master
+                ? {
+                    evaluation: {
+                      chances: i === 0 ? 0.35 : -0.6,
+                      label: `Avaliação: ${i === 0 ? "+0,8" : "−2,1"}`,
+                    },
+                  }
+                : {})}
+            />
+          ))}
+        </div>
+        <p className="mt-2 text-sm text-muted italic">
+          Mesas 1 e 2 com barra de avaliação (só no Clássico, GDD §8.6).
+        </p>
+      </Section>
+
+      <Section title="Barra de avaliação">
+        <div className="flex items-stretch gap-6">
+          {[1, 0.4, 0, -0.5, -1].map((c) => (
+            <EvalBar
+              key={c}
+              chances={c}
+              label={`Chances das brancas ${c}`}
+              text={c >= 0 ? `+${c}` : `−${-c}`}
+              className="h-32 w-4"
             />
           ))}
         </div>
