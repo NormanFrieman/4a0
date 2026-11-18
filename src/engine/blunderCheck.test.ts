@@ -127,4 +127,44 @@ describe("BlunderCheckedAI", () => {
     const b = await ai.chooseMove(req(2000, 7));
     expect(a.move).toBe(b.move);
   });
+
+  describe("check (GDD §8.6)", () => {
+    const k = balance.blunderCheck.winChanceK;
+
+    it("reports Stockfish's best move with the root score", async () => {
+      const ai = new BlunderCheckedAI(
+        { chooseMove: async () => ({ move: "e2e4", policy, wdl: [0.4, 0.3, 0.3] }) },
+        new FakeEvaluator({}),
+        cfg,
+      );
+      expect((await ai.chooseMove(req(2000))).check).toEqual({
+        scoreAfter: { cp: 40 },
+        best: true,
+        drop: 0,
+      });
+    });
+
+    it("reports an accepted move with its score and drop", async () => {
+      const ai = new BlunderCheckedAI(inner, new FakeEvaluator({ f2f3: 30 }), cfg);
+      const r = await ai.chooseMove(req(2000));
+      expect(r.move).toBe("f2f3");
+      expect(r.check!.scoreAfter).toEqual({ cp: 30 });
+      expect(r.check!.best).toBe(false);
+      expect(r.check!.drop).toBeCloseTo(winChances({ cp: 40 }, k) - winChances({ cp: 30 }, k));
+    });
+
+    it("reports the fallback as the best move", async () => {
+      const ev = new FakeEvaluator({ f2f3: -500, d2d4: -500, e2e4: -500 });
+      const r = await new BlunderCheckedAI(inner, ev, { ...cfg, maxTries: 2 }).chooseMove(
+        req(2000),
+      );
+      expect(r.move).toBe("e2e4");
+      expect(r.check).toEqual({ scoreAfter: { cp: 40 }, best: true, drop: 0 });
+    });
+
+    it("is absent where the check is off", async () => {
+      const r = await new BlunderCheckedAI(inner, new FakeEvaluator({}), cfg).chooseMove(req(900));
+      expect(r.check).toBeUndefined();
+    });
+  });
 });

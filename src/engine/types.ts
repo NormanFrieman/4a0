@@ -31,6 +31,21 @@ export interface MoveResult {
   policy: Record<string, number>;
   /** Win/draw/loss from the side to move's point of view. */
   wdl: [number, number, number];
+  /** Blunder check's verdict on the move (GDD §8.6); absent when no check ran. */
+  check?: MoveCheck;
+}
+
+/**
+ * What the blunder check already measured about the chosen move. Reused for
+ * the evaluation bar and move marks (GDD §8.6), never searched again.
+ */
+export interface MoveCheck {
+  /** Score of the position after the move, from the mover's point of view. */
+  scoreAfter: Score;
+  /** The move is Stockfish's best move. */
+  best: boolean;
+  /** Winning chances lost against the best move (0 for the best move). */
+  drop: number;
 }
 
 export interface ChessAI {

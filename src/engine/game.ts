@@ -2,7 +2,8 @@ import { Chess } from "chess.js";
 import { balance } from "../config/balance.ts";
 import { deriveRng, type Rng } from "../rng/rng.ts";
 import { type Color, type EndRules, EndRuleTracker, defaultEndRules } from "./endRules.ts";
-import type { ChessAI } from "./types.ts";
+import { negateScore } from "./blunderCheck.ts";
+import type { ChessAI, Score } from "./types.ts";
 
 export type { Color, EndRules } from "./endRules.ts";
 export { defaultEndRules } from "./endRules.ts";
@@ -46,6 +47,16 @@ export interface PlayedMove {
   moveProb?: number;
   /** Mover's WDL for the position before the move (engine moves only). */
   wdl?: [number, number, number];
+  /**
+   * From the blunder check, when it ran (GDD §8.6): Stockfish's score of the
+   * position after the move, from White's point of view (absent after a
+   * checkmate, read from the move instead).
+   */
+  eval?: Score;
+  /** The move is Stockfish's best move. */
+  best?: boolean;
+  /** Winning chances lost against the best move. */
+  drop?: number;
 }
 
 export interface PlayGameOptions {
@@ -222,6 +233,14 @@ export async function playGame(opts: PlayGameOptions): Promise<GameRecord> {
         moveProb: res.policy[res.move] ?? 0,
         wdl: res.wdl,
       };
+      if (res.check) {
+        const { scoreAfter, best, drop } = res.check;
+        if (!chess.isCheckmate()) {
+          record.eval = color === "white" ? scoreAfter : negateScore(scoreAfter);
+        }
+        record.best = best;
+        record.drop = drop;
+      }
     }
 
     ucis.push(record.uci);

@@ -17,6 +17,25 @@ const whiteToMove = (req: MoveRequest) => req.fen.split(" ")[1] === "w";
 const moveNumber = (req: MoveRequest) => Number(req.fen.split(" ")[5]);
 
 describe("playGame", () => {
+  it("records the blunder check's evaluation from White's point of view (GDD §8.6)", async () => {
+    const script = new ScriptedAI(["f2f3", "e7e5", "g2g4", "d8h4"]);
+    const ai: SideConfig["ai"] = {
+      async chooseMove() {
+        const r = await script.chooseMove();
+        return { ...r, check: { scoreAfter: { cp: 100 }, best: true, drop: 0 } };
+      },
+    };
+    const g = await playGame({ white: side(ai), black: side(ai), seed: 1 });
+    expect(g.moves.map((m) => m.eval)).toEqual([{ cp: 100 }, { cp: -100 }, { cp: 100 }, undefined]);
+    expect(g.moves.every((m) => m.best === true && m.drop === 0)).toBe(true);
+  });
+
+  it("leaves moves without a check unannotated", async () => {
+    const ai = new ScriptedAI(["f2f3", "e7e5", "g2g4", "d8h4"]);
+    const g = await playGame({ white: side(ai), black: side(ai), seed: 1 });
+    expect(g.moves.some((m) => "eval" in m || "drop" in m || "best" in m)).toBe(false);
+  });
+
   it("detects checkmate (fool's mate)", async () => {
     const ai = new ScriptedAI(["f2f3", "e7e5", "g2g4", "d8h4"]);
     const g = await playGame({ white: side(ai), black: side(ai), seed: 1 });
