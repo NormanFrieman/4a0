@@ -81,6 +81,34 @@ describe("archiveGame", () => {
     expect([b2.whiteTeamId, b2.blackTeamId]).toEqual(["team-x", "user"]);
     expect(b1.san).toHaveLength(rec.moves.length);
     expect(b1.bookPlies).toBe(0);
+    expect(b1.feedback).toBeUndefined();
+  });
+
+  it("keeps the blunder check's evaluation and marks (GDD §8.6)", async () => {
+    const script = new ScriptedAI(["e2e4", "f7f6", "d2d4", "g7g5", "d1h5"]);
+    const checks = [
+      { scoreAfter: { cp: 30 }, best: true, drop: 0 },
+      { scoreAfter: { cp: -80 }, best: false, drop: 0.25 },
+      { scoreAfter: { cp: 90 }, best: false, drop: 0.05 },
+      { scoreAfter: { mate: -1 }, best: false, drop: 0.9 },
+      { scoreAfter: { mate: 0 }, best: true, drop: 0 },
+    ];
+    let i = 0;
+    const ai: SideConfig["ai"] = {
+      async chooseMove() {
+        const r = await script.chooseMove();
+        return { ...r, check: checks[i++]! };
+      },
+    };
+    const rec = await playGame({ white: side(ai), black: side(ai), seed: 1 });
+    const g = archiveGame(1, pairing, { board: 1, whiteCardId: "a", blackCardId: "b" }, rec);
+    expect(g.feedback).toEqual([
+      { eval: { cp: 30 } },
+      { eval: { cp: 80 }, mark: "mistake" },
+      { eval: { cp: 90 } },
+      { eval: { mate: 1 }, mark: "blunder" },
+      {},
+    ]);
   });
 });
 

@@ -179,6 +179,18 @@ export const balance = {
     ] satisfies BlunderTolerancePoint[],
   },
 
+  /**
+   * GDD §8.6 — evaluation bar and move marks (Clássico only). Only the
+   * blunder check's own searches are used: no extra Stockfish work.
+   */
+  moveFeedback: {
+    /** Drop in winning chances (Lichess scale) marked "?" and "??". */
+    mistakeDrop: 0.2,
+    blunderDrop: 0.3,
+    /** "!": Stockfish's best move that Maia gave less than this probability. */
+    greatMaxProb: 0.15,
+  },
+
   /** GDD §8.3 — replay pace of the user's games in the Round screen. */
   playback: {
     /** Milliseconds per half-move at 1× and 4×; "instant" shows everything computed. */

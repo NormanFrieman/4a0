@@ -5,6 +5,8 @@
  */
 import { Chess } from "chess.js";
 import type { GameRecord, GameResult, Termination } from "../engine/game.ts";
+import type { Score } from "../engine/types.ts";
+import { classifyMove, type MoveMark } from "./moveFeedback.ts";
 import type { Pairing } from "../tournament/types.ts";
 import { firstIsWhite, type BoardGame } from "./match.ts";
 
@@ -21,6 +23,16 @@ export interface ArchivedGame {
   san: string[];
   /** Book moves at the start of the game. */
   bookPlies: number;
+  /**
+   * Per ply, what the blunder check measured (GDD §8.6): evaluation from
+   * White's point of view and the move's mark. Absent when no ply was checked.
+   */
+  feedback?: PlyFeedback[];
+}
+
+export interface PlyFeedback {
+  eval?: Score;
+  mark?: MoveMark;
 }
 
 export const archiveKey = (round: number, board: number) => `r${round}b${board}`;
@@ -34,6 +46,10 @@ export function archiveGame(
 ): ArchivedGame {
   const w = firstIsWhite(game.board);
   const firstBook = rec.moves.findIndex((m) => m.source !== "book");
+  const feedback = rec.moves.map((m): PlyFeedback => {
+    const mark = classifyMove(m);
+    return { ...(m.eval ? { eval: m.eval } : {}), ...(mark ? { mark } : {}) };
+  });
   return {
     round,
     board: game.board,
@@ -45,6 +61,7 @@ export function archiveGame(
     termination: rec.termination,
     san: rec.moves.map((m) => m.san),
     bookPlies: firstBook === -1 ? rec.moves.length : firstBook,
+    ...(rec.moves.some((m) => m.drop !== undefined) ? { feedback } : {}),
   };
 }
 
