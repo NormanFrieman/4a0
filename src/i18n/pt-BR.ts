@@ -178,12 +178,8 @@ export const ptBR = {
     downloadCampaign: "Baixar a campanha",
     back: "Voltar",
   },
-  feedback: {
-    great: "Lance ótimo",
-    mistake: "Erro",
-    blunder: "Erro grave",
-    evalLabel: "Avaliação: {{value}}",
-    legend: "! lance ótimo · ? erro · ?? erro grave (avaliação do Stockfish)",
+  evalBar: {
+    label: "Avaliação: {{value}}",
   },
   termination: {
     checkmate: "xeque-mate",

@@ -6,7 +6,6 @@
 import { Chess } from "chess.js";
 import type { GameRecord, GameResult, Termination } from "../engine/game.ts";
 import type { Score } from "../engine/types.ts";
-import { classifyMove, type MoveMark } from "./moveFeedback.ts";
 import type { Pairing } from "../tournament/types.ts";
 import { firstIsWhite, type BoardGame } from "./match.ts";
 
@@ -24,15 +23,11 @@ export interface ArchivedGame {
   /** Book moves at the start of the game. */
   bookPlies: number;
   /**
-   * Per ply, what the blunder check measured (GDD §8.6): evaluation from
-   * White's point of view and the move's mark. Absent when no ply was checked.
+   * Per ply, the evaluation after the move from White's point of view, for
+   * the evaluation bar (GDD §8.6); null where none was measured. Absent when
+   * no ply was checked.
    */
-  feedback?: PlyFeedback[];
-}
-
-export interface PlyFeedback {
-  eval?: Score;
-  mark?: MoveMark;
+  evals?: (Score | null)[];
 }
 
 export const archiveKey = (round: number, board: number) => `r${round}b${board}`;
@@ -46,13 +41,8 @@ export function archiveGame(
 ): ArchivedGame {
   const w = firstIsWhite(game.board);
   const firstBook = rec.moves.findIndex((m) => m.source !== "book");
-  const feedback = rec.moves.map((m, i): PlyFeedback => {
-    const next = rec.moves[i + 1];
-    const mark = classifyMove(m, next);
-    // The next move's fresh search of the position beats the mover's estimate.
-    const score = next?.evalBefore ?? m.eval;
-    return { ...(score ? { eval: score } : {}), ...(mark ? { mark } : {}) };
-  });
+  // The next move's fresh search of the position beats the mover's estimate.
+  const evals = rec.moves.map((m, i) => rec.moves[i + 1]?.evalBefore ?? m.eval ?? null);
   return {
     round,
     board: game.board,
@@ -64,7 +54,7 @@ export function archiveGame(
     termination: rec.termination,
     san: rec.moves.map((m) => m.san),
     bookPlies: firstBook === -1 ? rec.moves.length : firstBook,
-    ...(rec.moves.some((m) => m.drop !== undefined) ? { feedback } : {}),
+    ...(evals.some((e) => e) ? { evals } : {}),
   };
 }
 

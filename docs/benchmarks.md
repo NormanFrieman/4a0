@@ -325,9 +325,9 @@ Sessão inteira com os dados `v1` (`tsx`, 5M, onnxruntime-node, filtro ligado), 
 - **Nenhum abandono antes do lance 30** (`resignFromMove`). Na referência, houve abandonos no 6º e no 11º lance.
 - Mates e afogamentos em finais perdidos caíram de 19 para 7. Um mate saiu no 17º lance (Eljanov × Rodríguez Céspedes, 2697 × 2476), num jogo decidido cedo.
 
-## Barra de avaliação e marcas de lance (2026-11-18)
+## Barra de avaliação (2026-11-18)
 
-GDD §8.6. A barra e as marcas reaproveitam as buscas do filtro do Stockfish, sem buscas novas. Conferência no `/spike` (configuração padrão, semente `spike-1`), com a `main` e a branch servidas pelo `pnpm dev` na mesma máquina do item anterior, alternando as duas, 3 rodadas por página:
+GDD §8.6. A barra reaproveita as buscas do filtro do Stockfish, sem buscas novas. Conferência no `/spike` (configuração padrão, semente `spike-1`), com a `main` e a branch servidas pelo `pnpm dev` na mesma máquina do item anterior, alternando as duas, 3 rodadas por página:
 
 | Versão      | 1ª rodada (fria) | Rodadas quentes | Hash dos PGNs |
 | ----------- | ---------------- | --------------- | ------------- |

@@ -81,19 +81,19 @@ describe("archiveGame", () => {
     expect([b2.whiteTeamId, b2.blackTeamId]).toEqual(["team-x", "user"]);
     expect(b1.san).toHaveLength(rec.moves.length);
     expect(b1.bookPlies).toBe(0);
-    expect(b1.feedback).toBeUndefined();
+    expect(b1.evals).toBeUndefined();
   });
 
-  it("keeps the blunder check's evaluation and marks (GDD §8.6)", async () => {
+  it("keeps the evaluation after each move (GDD §8.6)", async () => {
     const script = new ScriptedAI(["e2e4", "f7f6", "d2d4", "g7g5", "d1h5"]);
-    // Scores from the mover's point of view. Black's 1...f6 thought it lost
-    // 0.1, but White's search of the position finds +1.5: a confirmed mistake.
+    // Scores from the mover's point of view. After 1...f6 Black estimated
+    // +0.8 for White, but White's own search of the position finds +1.5.
     const checks = [
-      { scoreBefore: { cp: 20 }, scoreAfter: { cp: 30 }, best: true, drop: 0 },
-      { scoreBefore: { cp: -30 }, scoreAfter: { cp: -80 }, best: false, drop: 0.1 },
-      { scoreBefore: { cp: 150 }, scoreAfter: { cp: 90 }, best: false, drop: 0.05 },
-      { scoreBefore: { cp: -90 }, scoreAfter: { mate: -1 }, best: false, drop: 0.9 },
-      { scoreBefore: { mate: 1 }, scoreAfter: { mate: 0 }, best: true, drop: 0 },
+      { scoreBefore: { cp: 20 }, scoreAfter: { cp: 30 } },
+      { scoreBefore: { cp: -30 }, scoreAfter: { cp: -80 } },
+      { scoreBefore: { cp: 150 }, scoreAfter: { cp: 90 } },
+      { scoreBefore: { cp: -90 }, scoreAfter: { mate: -1 } },
+      { scoreBefore: { mate: 1 }, scoreAfter: { mate: 0 } },
     ];
     let i = 0;
     const ai: SideConfig["ai"] = {
@@ -105,13 +105,7 @@ describe("archiveGame", () => {
     const rec = await playGame({ white: side(ai), black: side(ai), seed: 1 });
     const g = archiveGame(1, pairing, { board: 1, whiteCardId: "a", blackCardId: "b" }, rec);
     // The bar after each move takes the next move's own search of the position.
-    expect(g.feedback).toEqual([
-      { eval: { cp: 30 } },
-      { eval: { cp: 150 }, mark: "mistake" },
-      { eval: { cp: 90 } },
-      { eval: { mate: 1 }, mark: "blunder" },
-      {},
-    ]);
+    expect(g.evals).toEqual([{ cp: 30 }, { cp: 150 }, { cp: 90 }, { mate: 1 }, null]);
   });
 });
 

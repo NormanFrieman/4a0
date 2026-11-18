@@ -15,7 +15,7 @@ import {
   formatPoints,
   outcomeOf,
 } from "../ui/index.ts";
-import { classifyMove, evalAt } from "../../sim/moveFeedback.ts";
+import { evalAt } from "../../sim/evalBar.ts";
 import {
   roundDone,
   useSession,
@@ -156,12 +156,6 @@ export function Round() {
           const shownMove = b.moves[b.shown - 1];
           const white = cardView(ds, b.game.whiteCardId);
           const black = cardView(ds, b.game.blackCardId);
-          // A mark waits for the next move's search, which confirms or refutes it.
-          const next = b.moves[b.shown];
-          const mark =
-            analysis && s === null && shownMove && (next || b.result)
-              ? classifyMove(shownMove, next)
-              : null;
           const point = analysis ? evalAt(b.moves, b.shown, b.termination) : null;
           const status =
             s !== null
@@ -195,11 +189,10 @@ export function Round() {
                 ? {
                     evaluation: {
                       chances: point.chances,
-                      label: t("feedback.evalLabel", { value: point.text }),
+                      label: t("evalBar.label", { value: point.text }),
                     },
                   }
                 : {})}
-              {...(mark ? { mark: { mark, label: t(`feedback.${mark}`) } } : {})}
               {...(done && games[archiveKey(live.round, b.game.board)]
                 ? {
                     onOpen: () => openReplay(live.round, b.game.board),

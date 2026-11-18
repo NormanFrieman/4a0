@@ -83,12 +83,8 @@ export class BlunderCheckedAI implements ChessAI {
     const root = await this.analyse(req.fen);
     const bestChances = winChances(root.score, k);
     const policy = { ...res.policy };
-    const best: MoveCheck = {
-      scoreBefore: root.score,
-      scoreAfter: root.score,
-      best: true,
-      drop: 0,
-    };
+    // Stockfish's best move keeps the root score (no extra search for it).
+    const best: MoveCheck = { scoreBefore: root.score, scoreAfter: root.score };
     let move = res.move;
     for (let i = 0; i < this.cfg.maxTries; i++) {
       if (move === root.bestMove) return { ...res, move, check: best };
@@ -96,16 +92,10 @@ export class BlunderCheckedAI implements ChessAI {
       after.move({ from: move.slice(0, 2), to: move.slice(2, 4), promotion: move[4] });
       // The position after the move is scored for the opponent.
       const raw = (await this.analyse(after.fen())).score;
-      const drop = bestChances + winChances(raw, k);
-      if (drop <= maxDrop) {
+      if (bestChances + winChances(raw, k) <= maxDrop) {
         // A checkmate scores "mate 0" for the mated side, which negates to
         // itself; consumers read mates from the move (GDD §8.6).
-        const scoreAfter = negateScore(raw);
-        return {
-          ...res,
-          move,
-          check: { scoreBefore: root.score, scoreAfter, best: false, drop: Math.max(0, drop) },
-        };
+        return { ...res, move, check: { scoreBefore: root.score, scoreAfter: negateScore(raw) } };
       }
       delete policy[move];
       if (Object.keys(policy).length === 0) break;

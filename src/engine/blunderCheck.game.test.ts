@@ -42,7 +42,7 @@ async function play(whiteElo: number, blackElo: number) {
 }
 
 /**
- * The evaluation bar and move marks (GDD §8.6) only reuse the blunder
+ * The evaluation bar (GDD §8.6) only reuses the blunder
  * check's analyses: the number of searches and the moves must stay exactly
  * what they were before the feature.
  */

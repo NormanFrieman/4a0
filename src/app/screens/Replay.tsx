@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { replayPositions } from "../../sim/gameArchive.ts";
-import { evalAt } from "../../sim/moveFeedback.ts";
+import { evalAt } from "../../sim/evalBar.ts";
 import { scoreOf } from "../../sim/match.ts";
 import { USER_ID } from "../../tournament/tournament.ts";
 import {
@@ -10,7 +10,6 @@ import {
   ChampionName,
   EvalBar,
   Masthead,
-  MoveMark,
   ResultBadge,
   Rule,
   ScreenLayout,
@@ -30,11 +29,11 @@ export function Replay() {
   const analysis = useShowAnalysis();
   const game = replay ? games[replay.key] : undefined;
   const positions = useMemo(() => (game ? replayPositions(game.san) : []), [game]);
-  /** Evaluation bar and marks (GDD §8.6): Clássico only, games with analysis only. */
-  const feedback = analysis ? game?.feedback : undefined;
+  /** Evaluation bar (GDD §8.6): Clássico only, games with analysis only. */
+  const evals = analysis ? game?.evals : undefined;
   const plies = useMemo(
-    () => (game && feedback ? game.san.map((san, i) => ({ san, ...feedback[i] })) : null),
-    [game, feedback],
+    () => (game && evals ? game.san.map((san, i) => ({ san, eval: evals[i] ?? null })) : null),
+    [game, evals],
   );
   const last = Math.max(0, positions.length - 1);
   const [ply, setPly] = useState(last);
@@ -132,7 +131,7 @@ export function Replay() {
           {point && (
             <EvalBar
               chances={point.chances}
-              label={t("feedback.evalLabel", { value: point.text })}
+              label={t("evalBar.label", { value: point.text })}
               text={point.text}
               orientation={orientation}
               className="w-4"
@@ -143,9 +142,6 @@ export function Replay() {
             lastMove={pos.from && pos.to ? [pos.from, pos.to] : undefined}
             orientation={orientation}
             coordinates
-            {...(pos.to && feedback?.[ply - 1]?.mark
-              ? { annotation: { square: pos.to, mark: feedback[ply - 1]!.mark! } }
-              : {})}
             className="min-w-0 flex-1"
           />
         </div>
@@ -205,13 +201,6 @@ export function Replay() {
                       className={`cursor-pointer px-1 py-0.5 text-left hover:text-accent ${p === ply ? "bg-ink text-paper hover:text-paper" : ""}`}
                     >
                       {positions[p]!.san}
-                      {feedback?.[p - 1]?.mark && (
-                        <MoveMark
-                          mark={feedback[p - 1]!.mark!}
-                          label={t(`feedback.${feedback[p - 1]!.mark!}`)}
-                          inherit={p === ply}
-                        />
-                      )}
                     </button>
                   ) : (
                     <span key={p} />
@@ -220,9 +209,6 @@ export function Replay() {
               </li>
             ))}
           </ol>
-        )}
-        {feedback && (
-          <p className="mt-2 text-xs text-muted italic lg:shrink-0">{t("feedback.legend")}</p>
         )}
         <p className="mt-2 hidden text-xs text-muted italic lg:block lg:shrink-0">
           {t("replay.keys")}

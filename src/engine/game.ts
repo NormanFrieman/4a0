@@ -59,10 +59,6 @@ export interface PlayedMove {
    * honest score after this move: a fresh search, not the mover's estimate.
    */
   evalBefore?: Score;
-  /** The move is Stockfish's best move. */
-  best?: boolean;
-  /** Winning chances lost against the best move. */
-  drop?: number;
 }
 
 export interface PlayGameOptions {
@@ -240,12 +236,10 @@ export async function playGame(opts: PlayGameOptions): Promise<GameRecord> {
         wdl: res.wdl,
       };
       if (res.check) {
-        const { scoreBefore, scoreAfter, best, drop } = res.check;
+        const { scoreBefore, scoreAfter } = res.check;
         const white = (s: Score) => (color === "white" ? s : negateScore(s));
         record.evalBefore = white(scoreBefore);
         if (!chess.isCheckmate()) record.eval = white(scoreAfter);
-        record.best = best;
-        record.drop = drop;
       }
     }
 

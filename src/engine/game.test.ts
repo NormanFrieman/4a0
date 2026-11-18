@@ -24,7 +24,7 @@ describe("playGame", () => {
         const r = await script.chooseMove();
         return {
           ...r,
-          check: { scoreBefore: { cp: 70 }, scoreAfter: { cp: 100 }, best: true, drop: 0 },
+          check: { scoreBefore: { cp: 70 }, scoreAfter: { cp: 100 } },
         };
       },
     };
@@ -36,15 +36,12 @@ describe("playGame", () => {
       { cp: 70 },
       { cp: -70 },
     ]);
-    expect(g.moves.every((m) => m.best === true && m.drop === 0)).toBe(true);
   });
 
   it("leaves moves without a check unannotated", async () => {
     const ai = new ScriptedAI(["f2f3", "e7e5", "g2g4", "d8h4"]);
     const g = await playGame({ white: side(ai), black: side(ai), seed: 1 });
-    expect(
-      g.moves.some((m) => "eval" in m || "evalBefore" in m || "drop" in m || "best" in m),
-    ).toBe(false);
+    expect(g.moves.some((m) => "eval" in m || "evalBefore" in m)).toBe(false);
   });
 
   it("detects checkmate (fool's mate)", async () => {

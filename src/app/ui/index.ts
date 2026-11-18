@@ -9,7 +9,6 @@ export { formatPoints, outcomeOf, type Outcome } from "./format.ts";
 export { LineupRow } from "./LineupRow.tsx";
 export { Kicker, Masthead, Rule } from "./Masthead.tsx";
 export { MatchScore } from "./MatchScore.tsx";
-export { MoveMark } from "./MoveMark.tsx";
 export { ResultBadge } from "./ResultBadge.tsx";
 export { ScreenLayout } from "./ScreenLayout.tsx";
 export { SHARE_CARD_SIZE, ShareCard, type ShareCardLabels } from "./ShareCard.tsx";

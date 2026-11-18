@@ -142,10 +142,10 @@ describe("Mestre mode", () => {
 });
 
 /**
- * GDD §8.6: the evaluation bar and move marks are Clássico only; Mestre shows
- * just the board, even after the tournament.
+ * GDD §8.6: the evaluation bar is Clássico only; Mestre shows just the
+ * board, even after the tournament.
  */
-describe("Evaluation bar and move marks", () => {
+describe("Evaluation bar", () => {
   const moves: PlayedMove[] = [
     {
       ply: 0,
@@ -155,9 +155,6 @@ describe("Evaluation bar and move marks", () => {
       fenAfter: "",
       source: "engine",
       eval: { cp: 30 },
-      best: true,
-      drop: 0,
-      moveProb: 0.5,
     },
     {
       ply: 1,
@@ -167,38 +164,14 @@ describe("Evaluation bar and move marks", () => {
       fenAfter: "",
       source: "engine",
       eval: { cp: 120 },
-      best: false,
-      drop: 0.35,
-      moveProb: 0.1,
     },
   ];
-
-  const next: PlayedMove = {
-    ply: 2,
-    color: "white",
-    uci: "d2d4",
-    san: "d4",
-    fenAfter: "",
-    source: "engine",
-    evalBefore: { cp: 300 },
-    best: true,
-    drop: 0,
-    moveProb: 0.5,
-  };
 
   function liveWithMoves() {
     const l = liveRound();
     const boards = l.boards.map((b, i) =>
       i === 0
-        ? // The mark of f6 waits for the next move's search, already computed.
-          {
-            ...b,
-            moves: [...moves, next],
-            shown: moves.length,
-            result: null,
-            termination: null,
-            simulated: false,
-          }
+        ? { ...b, moves, shown: moves.length, result: null, termination: null, simulated: false }
         : b,
     );
     return { ...l, boards, userMatch: null };
@@ -216,7 +189,7 @@ describe("Evaluation bar and move marks", () => {
     termination: "resignation",
     san: ["e4", "f6"],
     bookPlies: 0,
-    feedback: [{ eval: { cp: 30 } }, { eval: { cp: 120 }, mark: "blunder" }],
+    evals: [{ cp: 30 }, { cp: 120 }],
   };
   const key = archiveKey(1, 1);
   const views = [
@@ -234,19 +207,14 @@ describe("Evaluation bar and move marks", () => {
     })),
   ];
   const hasBar = (html: string) => html.includes("Avaliação:");
-  const hasMark = (html: string) => html.includes("Erro grave");
 
   for (const v of views) {
-    it(`shows them in ${v.name} in Clássico`, () => {
-      const html = renderIn("classic", v.phase, v.render, v.extra());
-      expect(hasBar(html)).toBe(true);
-      expect(hasMark(html)).toBe(true);
+    it(`shows it in ${v.name} in Clássico`, () => {
+      expect(hasBar(renderIn("classic", v.phase, v.render, v.extra()))).toBe(true);
     });
 
-    it(`hides them in ${v.name} in Mestre`, () => {
-      const html = renderIn("master", v.phase, v.render, v.extra());
-      expect(hasBar(html)).toBe(false);
-      expect(hasMark(html)).toBe(false);
+    it(`hides it in ${v.name} in Mestre`, () => {
+      expect(hasBar(renderIn("master", v.phase, v.render, v.extra()))).toBe(false);
     });
   }
 });

@@ -5,7 +5,6 @@
 import { useState } from "react";
 import {
   BoardCard,
-  BoardFrame,
   Button,
   EvalBar,
   Flag,
@@ -13,7 +12,6 @@ import {
   LineupRow,
   Masthead,
   MatchScore,
-  MoveMark,
   ResultBadge,
   Rule,
   ShareCard,
@@ -360,21 +358,17 @@ export function UiCatalog() {
                       chances: i === 0 ? 0.35 : -0.6,
                       label: `Avaliação: ${i === 0 ? "+0,8" : "−2,1"}`,
                     },
-                    mark:
-                      i === 0
-                        ? { mark: "great" as const, label: "Lance ótimo" }
-                        : { mark: "blunder" as const, label: "Erro grave" },
                   }
                 : {})}
             />
           ))}
         </div>
         <p className="mt-2 text-sm text-muted italic">
-          Mesas 1 e 2 com barra de avaliação e marca de lance (só no Clássico, GDD §8.6).
+          Mesas 1 e 2 com barra de avaliação (só no Clássico, GDD §8.6).
         </p>
       </Section>
 
-      <Section title="Avaliação e marcas de lance">
+      <Section title="Barra de avaliação">
         <div className="flex items-stretch gap-6">
           {[1, 0.4, 0, -0.5, -1].map((c) => (
             <EvalBar
@@ -383,22 +377,6 @@ export function UiCatalog() {
               label={`Chances das brancas ${c}`}
               text={c >= 0 ? `+${c}` : `−${-c}`}
               className="h-32 w-4"
-            />
-          ))}
-          <p className="self-center text-lg">
-            Cxe5
-            <MoveMark mark="great" label="Lance ótimo" /> · Dh4
-            <MoveMark mark="mistake" label="Erro" /> · Bxf7
-            <MoveMark mark="blunder" label="Erro grave" />
-          </p>
-        </div>
-        <div className="mt-4 grid max-w-3xl grid-cols-3 gap-4">
-          {(["great", "mistake", "blunder"] as const).map((m) => (
-            <BoardFrame
-              key={m}
-              fen="r5k1/1p2qpbp/p1pprnp1/4n1B1/2P1P3/2N2P2/PP1QB1PP/3R1R1K w - - 0 16"
-              lastMove={["c7", "c6"]}
-              annotation={{ square: "c6", mark: m }}
             />
           ))}
         </div>

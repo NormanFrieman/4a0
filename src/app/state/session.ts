@@ -372,7 +372,7 @@ export const useSession = create<SessionState>()((set, get) => ({
 export const useShowStrength = () =>
   useSession((s) => showStrength(s.mode, s.phase, s.replay?.from ?? null));
 
-/** Evaluation bar and move marks (GDD §8.6): Clássico only. */
+/** Evaluation bar (GDD §8.6): Clássico only. */
 export const useShowAnalysis = () => useSession((s) => showAnalysis(s.mode));
 
 /** True when the user's match is computed and fully shown. */

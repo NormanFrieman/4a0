@@ -3,7 +3,6 @@ import { ChampionName } from "./ChampionName.tsx";
 import { EvalBar } from "./EvalBar.tsx";
 import { Kicker } from "./Masthead.tsx";
 import { ResultBadge } from "./ResultBadge.tsx";
-import type { MoveMark as Mark } from "../../sim/moveFeedback.ts";
 import type { Outcome } from "./format.ts";
 
 export interface BoardCardPlayer {
@@ -29,7 +28,6 @@ export function BoardCard({
   white,
   black,
   evaluation,
-  mark,
   onOpen,
   openLabel,
   className = "",
@@ -45,8 +43,6 @@ export function BoardCard({
   black: BoardCardPlayer;
   /** Evaluation bar (GDD §8.6); absent in the Mestre mode. */
   evaluation?: { chances: number; label: string };
-  /** Mark of the move, drawn on its destination square; the name (i18n) is for screen readers. */
-  mark?: { mark: Mark; label: string };
   /** Opens the game's replay: the board becomes clickable when given. */
   onOpen?: () => void;
   /** Accessible name of the clickable board (i18n). */
@@ -70,14 +66,7 @@ export function BoardCard({
     </div>
   );
   const orientation = userIsBlack ? "black" : "white";
-  const frame = (
-    <BoardFrame
-      fen={fen}
-      lastMove={lastMove}
-      orientation={orientation}
-      {...(mark && lastMove ? { annotation: { square: lastMove[1], mark: mark.mark } } : {})}
-    />
-  );
+  const frame = <BoardFrame fen={fen} lastMove={lastMove} orientation={orientation} />;
   const board = evaluation ? (
     <div className="flex gap-1">
       <EvalBar chances={evaluation.chances} label={evaluation.label} orientation={orientation} />
@@ -92,7 +81,6 @@ export function BoardCard({
         <Kicker>{boardLabel}</Kicker>
         <ResultBadge outcome={outcome} className="truncate text-sm">
           {status}
-          {mark && <span className="sr-only"> · {mark.label}</span>}
         </ResultBadge>
       </div>
       {onOpen ? (
